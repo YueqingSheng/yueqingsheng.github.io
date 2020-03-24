@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>博客网站日志</title>
-    <updated>2020-03-24T00:32:57.138Z</updated>
+    <updated>2020-03-24T00:57:27.682Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,17 +11,17 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 博客网站日志</rights>
     <entry>
-        <title type="html"><![CDATA[markdown cheetsheet]]></title>
+        <title type="html"><![CDATA[markdown cheatsheet]]></title>
         <id>https://yueqingsheng.github.io/post/markdown-cheetsheet/</id>
         <link href="https://yueqingsheng.github.io/post/markdown-cheetsheet/">
         </link>
-        <updated>2020-03-23T12:27:43.000Z</updated>
+        <updated>2020-03-22T00:27:43.000Z</updated>
         <content type="html"><![CDATA[<p><code>code</code></p>
 <p><em>斜体</em> <em>斜体</em></p>
 <p><strong>加粗</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8402894"><label class="task-list-item-label" for="task-item-8402894"> done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9840249"><label class="task-list-item-label" for="task-item-9840249">  to do</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8410757"><label class="task-list-item-label" for="task-item-8410757"> done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9215311"><label class="task-list-item-label" for="task-item-9215311">  to do</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -30,7 +30,7 @@
         <id>https://yueqingsheng.github.io/post/day-1/</id>
         <link href="https://yueqingsheng.github.io/post/day-1/">
         </link>
-        <updated>2020-03-21T23:53:32.000Z</updated>
+        <updated>2020-03-20T11:53:32.000Z</updated>
         <content type="html"><![CDATA[<h2 id="why">Why?</h2>
 <p>为什么要写个博客网站呢？ 理由很简单，也很自然，代码敲的多了，学习过程中，有很多东西容易忘，学习记的笔记需要找个地方存放下来。本地的话，不方便查阅和备份。刚好最近在学习angular+ nestjs 技术栈, 那就用它搭个网站吧。</p>
 <h2 id="about-this-site">About this site</h2>
@@ -39,10 +39,10 @@
 <p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
 <p>Today Do list</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7346268"><label class="task-list-item-label" for="task-item-7346268"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8357674"><label class="task-list-item-label" for="task-item-8357674"> 使用Gridea 搭了这个网站 https://gridea.dev</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3795130"><label class="task-list-item-label" for="task-item-3795130"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9114741"><label class="task-list-item-label" for="task-item-9114741"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6158627"><label class="task-list-item-label" for="task-item-6158627"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-386504"><label class="task-list-item-label" for="task-item-386504"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3373946"><label class="task-list-item-label" for="task-item-3373946"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7425032"><label class="task-list-item-label" for="task-item-7425032"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -51,44 +51,12 @@
         <id>https://yueqingsheng.github.io/post/about/</id>
         <link href="https://yueqingsheng.github.io/post/about/">
         </link>
-        <updated>2019-01-24T09:09:48.000Z</updated>
-        <content type="html"><![CDATA[<p>最近想用 angular + mongodb + graphql + nestjs 搭个网站，在这里记录下流程</p>
+        <updated>2019-01-23T07:09:48.000Z</updated>
+        <content type="html"><![CDATA[<p>最近想用 angular + mongodb + graphql + nestjs 搭个网站，在这里记录下流程<!-- more --></p>
 <h2 id="关于本站">🏠 关于本站</h2>
 <h2 id="博主是谁">👨‍💻 博主是谁</h2>
 <h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
 <h2 id="联系我呀">📬 联系我呀</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://yueqingsheng.github.io/post/hello-gridea/</id>
-        <link href="https://yueqingsheng.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
