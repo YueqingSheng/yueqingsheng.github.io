@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>博客网站日志</title>
-    <updated>2020-03-24T00:57:27.682Z</updated>
+    <updated>2020-03-24T01:00:55.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
-    <subtitle>给自己写个博客网站吧！</subtitle>
+    <subtitle>Don&apos;t Learn to Code — Learn to Automate</subtitle>
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 博客网站日志</rights>
@@ -20,8 +20,8 @@
 <p><em>斜体</em> <em>斜体</em></p>
 <p><strong>加粗</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8410757"><label class="task-list-item-label" for="task-item-8410757"> done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9215311"><label class="task-list-item-label" for="task-item-9215311">  to do</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2178680"><label class="task-list-item-label" for="task-item-2178680"> done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2404931"><label class="task-list-item-label" for="task-item-2404931">  to do</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -39,10 +39,10 @@
 <p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
 <p>Today Do list</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6158627"><label class="task-list-item-label" for="task-item-6158627"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-386504"><label class="task-list-item-label" for="task-item-386504"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3373946"><label class="task-list-item-label" for="task-item-3373946"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7425032"><label class="task-list-item-label" for="task-item-7425032"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7622495"><label class="task-list-item-label" for="task-item-7622495"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5171768"><label class="task-list-item-label" for="task-item-5171768"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8998947"><label class="task-list-item-label" for="task-item-8998947"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8654807"><label class="task-list-item-label" for="task-item-8654807"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
 </ul>
 ]]></content>
     </entry>
