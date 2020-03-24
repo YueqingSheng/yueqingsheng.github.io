@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
-    <title>我是凯文的爹</title>
-    <updated>2020-03-23T23:36:16.662Z</updated>
+    <title>博客网站日志</title>
+    <updated>2020-03-24T00:32:36.044Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
-    <subtitle>Don&apos;t Learn to Code — Learn to Automate</subtitle>
+    <subtitle>给自己写个博客网站吧！</subtitle>
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 我是凯文的爹</rights>
+    <rights>All rights reserved 2020, 博客网站日志</rights>
+    <entry>
+        <title type="html"><![CDATA[markdown cheetsheet]]></title>
+        <id>https://yueqingsheng.github.io/post/markdown-cheetsheet/</id>
+        <link href="https://yueqingsheng.github.io/post/markdown-cheetsheet/">
+        </link>
+        <updated>2020-03-23T12:27:43.000Z</updated>
+        <content type="html"><![CDATA[<p><code>code</code></p>
+<p><em>斜体</em> <em>斜体</em></p>
+<p><strong>加粗</strong></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4648607"><label class="task-list-item-label" for="task-item-4648607"> done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5998438"><label class="task-list-item-label" for="task-item-5998438">  to do</label></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 1]]></title>
+        <id>https://yueqingsheng.github.io/post/day-1/</id>
+        <link href="https://yueqingsheng.github.io/post/day-1/">
+        </link>
+        <updated>2020-03-21T23:53:32.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="why">Why?</h2>
+<p>为什么要写个博客网站呢？ 理由很简单，也很自然，代码敲的多了，学习过程中，有很多东西容易忘，学习记的笔记需要找个地方存放下来。本地的话，不方便查阅和备份。刚好最近在学习angular+ nestjs 技术栈, 那就用它搭个网站吧。</p>
+<h2 id="about-this-site">About this site</h2>
+<p>这个网站目前是临时的，只是记录下搭建博客网站的历程，其中学习的东西和笔记，也会先传在这里记录一下。</p>
+<h2 id="about-that-site">About that site</h2>
+<p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
+<p>Today Do list</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6733438"><label class="task-list-item-label" for="task-item-6733438"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9250212"><label class="task-list-item-label" for="task-item-9250212"> 使用Gridea 搭了这个网站 https://gridea.dev</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9763201"><label class="task-list-item-label" for="task-item-9763201"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7380350"><label class="task-list-item-label" for="task-item-7380350"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于]]></title>
+        <id>https://yueqingsheng.github.io/post/about/</id>
+        <link href="https://yueqingsheng.github.io/post/about/">
+        </link>
+        <updated>2019-01-24T09:09:48.000Z</updated>
+        <content type="html"><![CDATA[<p>最近想用 angular + mongodb + graphql + nestjs 搭个网站，在这里记录下流程</p>
+<h2 id="关于本站">🏠 关于本站</h2>
+<h2 id="博主是谁">👨‍💻 博主是谁</h2>
+<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
+<h2 id="联系我呀">📬 联系我呀</h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://yueqingsheng.github.io/post/hello-gridea/</id>
