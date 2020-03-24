@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>博客网站日志</title>
-    <updated>2020-03-24T04:42:00.294Z</updated>
+    <updated>2020-03-24T18:42:20.710Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,18 +11,61 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 博客网站日志</rights>
     <entry>
+        <title type="html"><![CDATA[Day 2]]></title>
+        <id>https://yueqingsheng.github.io/post/day-2/</id>
+        <link href="https://yueqingsheng.github.io/post/day-2/">
+        </link>
+        <updated>2020-03-23T06:12:14.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="today-do-list">Today Do list</h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9493417"><label class="task-list-item-label" for="task-item-9493417"> 添加 html 链接, github</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7383749"><label class="task-list-item-label" for="task-item-7383749"> 学完html课程</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6518537"><label class="task-list-item-label" for="task-item-6518537">  hi</label></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[html cheatsheet]]></title>
+        <id>https://yueqingsheng.github.io/post/html-cheatsheet/</id>
+        <link href="https://yueqingsheng.github.io/post/html-cheatsheet/">
+        </link>
+        <updated>2020-03-20T05:05:54.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="basics">Basics</h1>
+<p>The visible part of the HTML document is between &lt;body&gt; and &lt;/body&gt;.</p>
+<pre><code class="language-html">&lt;html&gt;	根标签
+	&lt;head&gt; 头标签
+		&lt;title&gt;&lt;/title&gt; 标题标签（网站标题）
+	&lt;/head&gt;
+	&lt;body&gt; 主体标签
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/html/basic.html">example</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[markdown cheatsheet]]></title>
         <id>https://yueqingsheng.github.io/post/markdown-cheetsheet/</id>
         <link href="https://yueqingsheng.github.io/post/markdown-cheetsheet/">
         </link>
-        <updated>2020-03-22T00:27:43.000Z</updated>
-        <content type="html"><![CDATA[<p><code>code</code></p>
+        <updated>2020-03-19T12:27:43.000Z</updated>
+        <content type="html"><![CDATA[<p><code>行内代码</code></p>
+<pre><code class="language-html">&lt;html&gt;
+        &lt;head&gt;
+                &lt;title&gt;多行代码，第一行反引号后面，输入代码块所使用的语言，实现代码高亮&lt;/title&gt;
+        &lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<pre><code>                                上方是☝️分割线
+</code></pre>
 <p><em>斜体</em> <em>斜体</em></p>
 <p><strong>加粗</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-940554"><label class="task-list-item-label" for="task-item-940554"> done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1120036"><label class="task-list-item-label" for="task-item-1120036">  to do</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6615409"><label class="task-list-item-label" for="task-item-6615409"> done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4929631"><label class="task-list-item-label" for="task-item-4929631">  to do</label></li>
 </ul>
+<p>&lt; 转义字符&gt;</p>
 ]]></content>
     </entry>
     <entry>
@@ -30,19 +73,19 @@
         <id>https://yueqingsheng.github.io/post/day-1/</id>
         <link href="https://yueqingsheng.github.io/post/day-1/">
         </link>
-        <updated>2020-03-20T11:53:32.000Z</updated>
+        <updated>2020-03-19T11:53:32.000Z</updated>
         <content type="html"><![CDATA[<h2 id="why">Why?</h2>
 <p>为什么要写个博客网站呢？ 理由很简单，也很自然，代码敲的多了，学习过程中，有很多东西容易忘，学习记的笔记需要找个地方存放下来。本地的话，不方便查阅和备份。刚好最近在学习angular+ nestjs 技术栈, 那就用它搭个网站吧。</p>
 <h2 id="about-this-site">About this site</h2>
 <p>这个网站目前是临时的，只是记录下搭建博客网站的历程，其中学习的东西和笔记，也会先传在这里记录一下。</p>
 <h2 id="about-that-site">About that site</h2>
 <p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
-<p>Today Do list</p>
+<h3 id="today-do-list">Today Do list</h3>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1051180"><label class="task-list-item-label" for="task-item-1051180"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2000366"><label class="task-list-item-label" for="task-item-2000366"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7083273"><label class="task-list-item-label" for="task-item-7083273"> 找个好用的Markdown 编辑器  , maybe this one?</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6273775"><label class="task-list-item-label" for="task-item-6273775"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8897528"><label class="task-list-item-label" for="task-item-8897528"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1188320"><label class="task-list-item-label" for="task-item-1188320"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3620762"><label class="task-list-item-label" for="task-item-3620762"> 找个好用的Markdown 编辑器  , 暂时使用Gridea 编辑</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1692476"><label class="task-list-item-label" for="task-item-1692476"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -51,7 +94,7 @@
         <id>https://yueqingsheng.github.io/post/about/</id>
         <link href="https://yueqingsheng.github.io/post/about/">
         </link>
-        <updated>2019-01-22T18:09:48.000Z</updated>
+        <updated>2019-01-22T05:09:48.000Z</updated>
         <content type="html"><![CDATA[<p>最近想用 angular + mongodb + graphql + nestjs 搭个网站，在这里记录下流程<!-- more --></p>
 ]]></content>
     </entry>
