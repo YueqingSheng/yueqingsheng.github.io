@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1585174934783" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1585175336974" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1585174934783" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1585175336974" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -188,7 +188,7 @@
                                     <span class="post-readtime">Reading Time:<a
                                     href="#">1.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">323</a></span>
+                                    <span class="post-words">words:<a href="#">318</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -211,9 +211,9 @@
             color: orange;
         }
         p {
-            color:pink;
+            color: pink;
         }
-</style>
+    </style>
 <h1 id="字体">字体</h1>
 <h2 id="font-size">font-size</h2>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1585162949496.jpg" alt="" loading="lazy"></figure>
@@ -228,17 +228,16 @@
 <h2 id="font-weight">font-weight</h2>
 <p>normal bold bolder lighter, 100-900 100的整数倍</p>
 <h2 id="font-style">font-style</h2>
-<p>normal italicc'c'cc</p>
+<p>normal italic</p>
 <h2 id="综合字体样式">综合字体样式</h2>
-<p>{font: font-style font-weight font-size font-family;} 必须按顺序 前面可以省略，必须包括 font-size 和 font-family</p>
+<p><code>{font: font-style font-weight font-size font-family;}</code>必须按顺序 前面可以省略，必须包括 font-size 和 font-family</p>
 <h1 id="注释">注释</h1>
 <p>快捷键 ctrl + / 或者 /* 注释*/</p>
 <h1 id="选择器">选择器</h1>
 <h2 id="标签选择器">标签选择器</h2>
-<p>p{ } div{ } 标签作为选择器</p>
+<p><code>p{ } div{ }</code> 标签作为选择器</p>
 <h2 id="类选择器">类选择器</h2>
 <pre><code class="language-html">.类名{属性：属性1
-&lt;!-- more --&gt;
 }
 &lt;div class=&quot;类名&quot;&gt;
 </code></pre>
@@ -306,78 +305,8 @@ id选择器好比身份证，是唯一的</p>
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yueqingsheng.github.io/post/zhan-wei/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/zhan-wei/&sharesource=qzone&title=CSS cheatsheet&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585174934783&summary=&lt;h1 id=&#34;目的&#34;&gt;目的&lt;/h1&gt;
-&lt;p&gt;结构样式相分离, html只做结构，css做样式&lt;/p&gt;
- &lt;style&gt;
-        h1 {
-            color: orange;
-        }
-        p {
-            color:pink;
-        }
-&lt;/style&gt;
-&lt;h1 id=&#34;字体&#34;&gt;字体&lt;/h1&gt;
-&lt;h2 id=&#34;font-size&#34;&gt;font-size&lt;/h2&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yueqingsheng.github.io/post-images/1585162949496.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;h2 id=&#34;font-family&#34;&gt;font-family&lt;/h2&gt;
-&lt;p&gt;支持汉字， 默认14px microsoft yahei，&lt;br&gt;
-尽量使用偶数号，各种字体用逗号隔开&lt;br&gt;
-&amp;quot;微软雅黑&amp;quot;,arial, sans-serif 按顺序没有的话往后找&lt;br&gt;
-如果字体内包括 空格 #$ 需要加引号&lt;br&gt;
-尽量使用默认字体&lt;/p&gt;
-&lt;h3 id=&#34;unicode-字体&#34;&gt;Unicode 字体&lt;/h3&gt;
-&lt;p&gt;不支持中文字体的时候，使用Unicode代替&lt;/p&gt;
-&lt;h2 id=&#34;font-weight&#34;&gt;font-weight&lt;/h2&gt;
-&lt;p&gt;normal bold bolder lighter, 100-900 100的整数倍&lt;/p&gt;
-&lt;h2 id=&#34;font-style&#34;&gt;font-style&lt;/h2&gt;
-&lt;p&gt;normal italicc&#39;c&#39;cc&lt;/p&gt;
-&lt;h2 id=&#34;综合字体样式&#34;&gt;综合字体样式&lt;/h2&gt;
-&lt;p&gt;{font: font-style font-weight font-size font-family;} 必须按顺序 前面可以省略，必须包括 font-size 和 font-family&lt;/p&gt;
-&lt;h1 id=&#34;注释&#34;&gt;注释&lt;/h1&gt;
-&lt;p&gt;快捷键 ctrl + / 或者 /* 注释*/&lt;/p&gt;
-&lt;h1 id=&#34;选择器&#34;&gt;选择器&lt;/h1&gt;
-&lt;h2 id=&#34;标签选择器&#34;&gt;标签选择器&lt;/h2&gt;
-&lt;p&gt;p{ } div{ } 标签作为选择器&lt;/p&gt;
-&lt;h2 id=&#34;类选择器&#34;&gt;类选择器&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;.类名{属性：属性1
-&lt;/code&gt;&lt;/pre&gt;
-"><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/zhan-wei/&sharesource=weibo&title=CSS cheatsheet + " - " + &lt;h1 id=&#34;目的&#34;&gt;目的&lt;/h1&gt;
-&lt;p&gt;结构样式相分离, html只做结构，css做样式&lt;/p&gt;
- &lt;style&gt;
-        h1 {
-            color: orange;
-        }
-        p {
-            color:pink;
-        }
-&lt;/style&gt;
-&lt;h1 id=&#34;字体&#34;&gt;字体&lt;/h1&gt;
-&lt;h2 id=&#34;font-size&#34;&gt;font-size&lt;/h2&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yueqingsheng.github.io/post-images/1585162949496.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;h2 id=&#34;font-family&#34;&gt;font-family&lt;/h2&gt;
-&lt;p&gt;支持汉字， 默认14px microsoft yahei，&lt;br&gt;
-尽量使用偶数号，各种字体用逗号隔开&lt;br&gt;
-&amp;quot;微软雅黑&amp;quot;,arial, sans-serif 按顺序没有的话往后找&lt;br&gt;
-如果字体内包括 空格 #$ 需要加引号&lt;br&gt;
-尽量使用默认字体&lt;/p&gt;
-&lt;h3 id=&#34;unicode-字体&#34;&gt;Unicode 字体&lt;/h3&gt;
-&lt;p&gt;不支持中文字体的时候，使用Unicode代替&lt;/p&gt;
-&lt;h2 id=&#34;font-weight&#34;&gt;font-weight&lt;/h2&gt;
-&lt;p&gt;normal bold bolder lighter, 100-900 100的整数倍&lt;/p&gt;
-&lt;h2 id=&#34;font-style&#34;&gt;font-style&lt;/h2&gt;
-&lt;p&gt;normal italicc&#39;c&#39;cc&lt;/p&gt;
-&lt;h2 id=&#34;综合字体样式&#34;&gt;综合字体样式&lt;/h2&gt;
-&lt;p&gt;{font: font-style font-weight font-size font-family;} 必须按顺序 前面可以省略，必须包括 font-size 和 font-family&lt;/p&gt;
-&lt;h1 id=&#34;注释&#34;&gt;注释&lt;/h1&gt;
-&lt;p&gt;快捷键 ctrl + / 或者 /* 注释*/&lt;/p&gt;
-&lt;h1 id=&#34;选择器&#34;&gt;选择器&lt;/h1&gt;
-&lt;h2 id=&#34;标签选择器&#34;&gt;标签选择器&lt;/h2&gt;
-&lt;p&gt;p{ } div{ } 标签作为选择器&lt;/p&gt;
-&lt;h2 id=&#34;类选择器&#34;&gt;类选择器&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;.类名{属性：属性1
-&lt;/code&gt;&lt;/pre&gt;
-&pic="https://yueqingsheng.github.io/images/avatar.png?v=1585174934783 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/zhan-wei/&sharesource=qzone&title=CSS cheatsheet&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585175336974&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/zhan-wei/&sharesource=weibo&title=CSS cheatsheet + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585175336974 "><i class="fa fa-weibo "></i></a>
                                                         
                                                                 </span>
                                                                 <!--en-->
@@ -404,13 +333,13 @@ id选择器好比身份证，是唯一的</p>
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/todays-little-fun/">
-                                                                                            Today&#39;s little fun
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/day3/">
+                                                                                            Day3
                                                                                         </a>
                                                                                         
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-1/">
-                                                                                                    Day 1
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-2/">
+                                                                                                    Day 2
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -527,7 +456,7 @@ id选择器好比身份证，是唯一的</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1585174934783);
+                    newDate.setTime(1585175336974);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
