@@ -170,43 +170,119 @@
 </script>
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap archive">
-                        
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Day3
+                            </h1>
                             
-                                <h3>
-                                    2020
-                                </h3>
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        哇哦
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-03-24</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">0.1
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">24</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
                                 
-                                    
+                        </header>
+                        <div class="post-content">
+                            <h3 id="today-do-list">Today Do list</h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6112730"><label class="task-list-item-label" for="task-item-6112730"> 给自己网站加个歌单吧，哈哈，歌曲本地储存。</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6776686"><label class="task-list-item-label" for="task-item-6776686"> css课程</label></li>
+</ul>
 
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-2/">
-                                                Day 2
-                                            </a>
-                                            <span class="archive-item-date">2020-03-23 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-1/">
-                                                Day 1
-                                            </a>
-                                            <span class="archive-item-date">2020-03-17 </span>
-                                        </article>
-                                        
-                                            
-                                                
-                    </div>
-                    <div class="pagination-container">
+                        </div>
                         
-                                                
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#today-do-list">Today Do list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yueqingsheng.github.io/post/day3/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/day3/&sharesource=qzone&title=Day3&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585119082284&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/day3/&sharesource=weibo&title=Day3 + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585119082284 "><i class="fa fa-weibo "></i></a>
                                                         
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
                                                                 
-                    </div>
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/todays-little-fun/">
+                                                                                                    Today&#39;s little fun
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '5f41987445e31b69b727',
+        clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+        repo: 'yueqingsheng.github.io',
+        owner: 'YueqingSheng',
+        admin: ['YueqingSheng'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
     <div id="player"></div>
@@ -299,5 +375,8 @@
                 
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>
