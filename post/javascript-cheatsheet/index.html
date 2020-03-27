@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Day 1
+                                javascript cheatsheet
                             </h1>
                             
                                 <!--en-->
@@ -183,20 +183,13 @@
                                         哇哦
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2020-03-17</a>
+                                Date: <a href="#">2020-03-26</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.0
+                                    href="#">0.7
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">255</a></span>
+                                    <span class="post-words">words:<a href="#">156</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://yueqingsheng.github.io/tag/log/">日常</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -204,31 +197,52 @@
                                 
                         </header>
                         <div class="post-content">
-                            <h2 id="why">Why?</h2>
-<p>为什么要写个博客网站呢？ 理由很简单，也很自然，代码敲的多了，学习过程中，有很多东西容易忘，学习记的笔记需要找个地方存放下来。本地的话，不方便查阅和备份。刚好最近在学习angular+ nestjs 技术栈, 那就用它搭个网站吧。</p>
-<h2 id="about-this-site">About this site</h2>
-<p>这个网站目前是临时的，只是记录下搭建博客网站的历程，其中学习的东西和笔记，也会先传在这里记录一下。</p>
-<h2 id="about-that-site">About that site</h2>
-<p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
-<h3 id="today-do-list">Today Do list</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-218992"><label class="task-list-item-label" for="task-item-218992"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5936673"><label class="task-list-item-label" for="task-item-5936673"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7775875"><label class="task-list-item-label" for="task-item-7775875"> 找个好用的Markdown 编辑器  , 暂时使用Gridea 编辑</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8976962"><label class="task-list-item-label" for="task-item-8976962"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
-</ul>
+                            <h1 id="dom文档对象模型">DOM（文档对象模型）</h1>
+<h2 id="文档树">文档树：</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1585343905728.jpg" alt="" loading="lazy"><br>
+each label is a node in the tree</p>
+<h2 id="getelementbyid">getElementById</h2>
+<p>document.getElementById('page-title')</p>
+<h2 id="getelementsbytagname">getElementsByTagName</h2>
+<p>document.getElementsByTagName('li')</p>
+<h2 id="queryselectorall">querySelectorAll</h2>
+<p>querySelectorAll('.class a') 返回所有<br>
+querySelector 返回找到的第一个</p>
+<h2 id="访问属性">访问属性</h2>
+<p>e.nodeName 标签名<br>
+e.innerText 内部文字<br>
+e.paretnNode 父节点<br>
+e.nextElementSibling 下一个兄弟元素 previousElementSibling<br>
+e.childNodes 子节点<br>
+e.childElementCount 返回子节点数量<br>
+e.firstELementChild 第一个子节点<br>
+e.lastELementChild 最后一个子节点<br>
+修改 用=赋值</p>
+<h2 id="创建新的节点">创建新的节点</h2>
+<p>步骤：</p>
+<ol>
+<li>var newMember = document.creatElement('li')</li>
+<li>var text = document.createTextNode('你好啊');</li>
+<li>newMember.appendChild(text)</li>
+<li>document.querySelector('#list').appendChild(newMember) 添加到最后</li>
+</ol>
+<h3 id="insertbefore-插入到特定位置">insertBefore 插入到特定位置</h3>
+<p>countrylist.insertBefore(newMember, countrylist.firstChild)</p>
 
                         </div>
                         
                             <div class="post-toc">
                                 <ul class="markdownIt-TOC">
-<li>
+<li><a href="#dom%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">DOM（文档对象模型）</a>
 <ul>
-<li><a href="#why">Why?</a></li>
-<li><a href="#about-this-site">About this site</a></li>
-<li><a href="#about-that-site">About that site</a>
+<li><a href="#%E6%96%87%E6%A1%A3%E6%A0%91">文档树：</a></li>
+<li><a href="#getelementbyid">getElementById</a></li>
+<li><a href="#getelementsbytagname">getElementsByTagName</a></li>
+<li><a href="#queryselectorall">querySelectorAll</a></li>
+<li><a href="#%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7">访问属性</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%8A%82%E7%82%B9">创建新的节点</a>
 <ul>
-<li><a href="#today-do-list">Today Do list</a></li>
+<li><a href="#insertbefore-%E6%8F%92%E5%85%A5%E5%88%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E7%BD%AE">insertBefore 插入到特定位置</a></li>
 </ul>
 </li>
 </ul>
@@ -243,9 +257,9 @@
                                                         <span style="margin-right:15px">
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yueqingsheng.github.io/post/day-1/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/day-1/&sharesource=qzone&title=Day 1&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585347145727&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/day-1/&sharesource=weibo&title=Day 1 + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585347145727 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yueqingsheng.github.io/post/javascript-cheatsheet/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=qzone&title=javascript cheatsheet&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585347145727&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=weibo&title=javascript cheatsheet + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585347145727 "><i class="fa fa-weibo "></i></a>
                                                         
                                                                 </span>
                                                                 <!--en-->
@@ -254,12 +268,6 @@
                                                                         <span>Tag(s):</span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://yueqingsheng.github.io/tag/log/">#
-                                                日常
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -272,13 +280,9 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/todays-little-fun/">
-                                                                                            Today&#39;s little fun
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/html-cheatsheet/">
-                                                                                                    html cheatsheet
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/docker-zi-dong-hua-jiao-ben-pei-zhi/">
+                                                                                                    docker 自动化脚本配置
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
