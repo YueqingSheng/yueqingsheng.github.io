@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-03-26T21:02:51.083Z</updated>
+    <updated>2020-03-27T00:21:57.671Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,17 +11,32 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
     <entry>
-        <title type="html"><![CDATA[day 4]]></title>
+        <title type="html"><![CDATA[Day 4]]></title>
         <id>https://yueqingsheng.github.io/post/day-4/</id>
         <link href="https://yueqingsheng.github.io/post/day-4/">
         </link>
-        <updated>2020-03-24T04:39:35.000Z</updated>
+        <updated>2020-03-25T12:21:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3144525"><label class="task-list-item-label" for="task-item-3144525">  nestjs 配置微信支付</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4103873"><label class="task-list-item-label" for="task-item-4103873">  css课程  part2 浮动</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1465588"><label class="task-list-item-label" for="task-item-1465588"> css课程  part3 盒子</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4499264"><label class="task-list-item-label" for="task-item-4499264"> css课程 part4  定位</label></li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9724192"><label class="task-list-item-label" for="task-item-9724192">  nestjs 配置微信支付</label></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4960471"><label class="task-list-item-label" for="task-item-4960471">  css课程  part2 浮动</label></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4300449"><label class="task-list-item-label" for="task-item-4300449"> css课程  part3 盒子</label></p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-546641"><label class="task-list-item-label" for="task-item-546641"> css课程 part4  定位</label></p>
+<p>对CSS 课程的评价: 一共选择了三种课，首先考虑阿里云大学CSS, 发现换了html的导师，每个视频30多分种，实在不想看下去。就是找了源html老师的视频，下载后发现每个视频三四分钟，够短了，讲的也很好，可是分了几百个视频。。。。迫于时间紧迫，转投宁皓网，一直喜欢他的课的原因就是够简练，缺点就是过去简练了，很多东西都一笔带过。还是要结合html老师的课和网上资源来看。</p>
+<p>课程链接： <a href="https://pan.baidu.com/s/1neSGVfBje-SVrcWGih89FA#list/path=%2Fsharelink3232509500-407350896060196%2FWeb%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E8%A7%86%E9%A2%91&amp;parentPath=%2Fsharelink3232509500-407350896060196">满幽默的，分集太多</a> + <a href="https://ninghao.net/video/103">ninghao够简练，过于简练。。</a></p>
+<h1 id="css-练习-链接">CSS 练习 链接</h1>
+</li>
 </ul>
+<p>查看方式 在这个链接<strong>https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/css/</strong>尾部加入标签文件名，文件名列表如下：<br>
+<img src="https://yueqingsheng.github.io/post-images/1585263275402.png" alt="" loading="lazy"></p>
+<p>如： 想查看background.html这个例子，<a href="https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/css/background.html">点这个链接</a></p>
+<p>csss的解释在CSS cheatsheet下</p>
 ]]></content>
     </entry>
     <entry>
@@ -32,10 +47,10 @@
         <updated>2020-03-23T00:12:14.000Z</updated>
         <content type="html"><![CDATA[<h3 id="today-do-list">Today Do list</h3>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7293408"><label class="task-list-item-label" for="task-item-7293408"> 添加 html 链接, github</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6477664"><label class="task-list-item-label" for="task-item-6477664"> html课程 1-10</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4553144"><label class="task-list-item-label" for="task-item-4553144"> html课程 11-20</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7244953"><label class="task-list-item-label" for="task-item-7244953"> html课程 21-33</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8440559"><label class="task-list-item-label" for="task-item-8440559"> 添加 html 链接, github</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1831147"><label class="task-list-item-label" for="task-item-1831147"> html课程 1-10</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4234665"><label class="task-list-item-label" for="task-item-4234665"> html课程 11-20</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8589956"><label class="task-list-item-label" for="task-item-8589956"> html课程 21-33</label></li>
 </ul>
 <p>html就是种书写格式，学了markdown, latex，再加上这个的我一脸懵逼，这种不就是用的时候查下表就行的么。吐槽下一种行业一种写法，能不能统一下。。</p>
 <p>肝完了 yes!🤣</p>
@@ -56,8 +71,8 @@
         <updated>2020-03-22T18:47:47.000Z</updated>
         <content type="html"><![CDATA[<h3 id="today-do-list">Today Do list</h3>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-864420"><label class="task-list-item-label" for="task-item-864420"> 给自己网站加个歌单吧，插件只能一首一首手动输入，那就慢慢加吧。新加了一首</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5823983"><label class="task-list-item-label" for="task-item-5823983"> css课程 part1 字体 选择器</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5964391"><label class="task-list-item-label" for="task-item-5964391"> 给自己网站加个歌单吧，插件只能一首一首手动输入，那就慢慢加吧。新加了一首</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8244804"><label class="task-list-item-label" for="task-item-8244804"> css课程 part1 字体 选择器</label></li>
 </ul>
 <p>css 内容太多了， 明天再学一部分，就开始angular了。挖个坑。</p>
 <p>忽然发现css 可以在markdown内用，把文章改的很好看，那就用上了。</p>
@@ -96,7 +111,7 @@
         <id>https://yueqingsheng.github.io/post/zhan-wei/</id>
         <link href="https://yueqingsheng.github.io/post/zhan-wei/">
         </link>
-        <updated>2020-03-21T16:33:57.000Z</updated>
+        <updated>2020-03-20T16:33:57.000Z</updated>
         <content type="html"><![CDATA[<h1 id="目的">目的</h1>
 <p>结构样式相分离, html只做结构，css做样式</p>
  <style>
@@ -188,7 +203,18 @@ a:hover{}
 如果外部样式有冲突，继承离最近的外部标签，或者当前定义的样式<br>
 标签&lt;类 &lt;id &lt;行内样式  行内style，派生选择器会累计分数，#mainbody h2 101</p>
 <h1 id="盒模型">盒模型</h1>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1585254293197.jpg" alt="" loading="lazy"></figure>
+<p><img src="https://yueqingsheng.github.io/post-images/1585254293197.jpg" alt="" loading="lazy"><br>
+小技巧： margin:0 auto; (上下边距0，左右边距自动，即居中)</p>
+<h1 id="浮动">浮动</h1>
+<p>img style=&quot;float:right;margin-left:20px;margin-bottom:20px<br>
+h2 style=&quot;clear:both&quot;<br>
+<img src="https://yueqingsheng.github.io/post-images/1585260606084.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1585260612292.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1585260617291.png" alt="" loading="lazy"></p>
+<h1 id="背景">背景</h1>
+<p>background: url(b.jpg) ;</p>
+<h1 id="定位">定位</h1>
+<p>position: absolute;right:0;top:0:</p>
 ]]></content>
     </entry>
     <entry>
@@ -205,10 +231,10 @@ a:hover{}
 <p>目前定下的技术栈为 angular+ mongodb+ graphql + nestjs ， maybe websocket and microservices。如果感觉能用上也可以。</p>
 <h3 id="today-do-list">Today Do list</h3>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1035440"><label class="task-list-item-label" for="task-item-1035440"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8865153"><label class="task-list-item-label" for="task-item-8865153"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8745159"><label class="task-list-item-label" for="task-item-8745159"> 找个好用的Markdown 编辑器  , 暂时使用Gridea 编辑</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2914932"><label class="task-list-item-label" for="task-item-2914932"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3255053"><label class="task-list-item-label" for="task-item-3255053"> nestjs 试了下 websocket 搞了个简易聊天室还蛮好玩的。https://ninghao.net/course/7990#toc</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1305350"><label class="task-list-item-label" for="task-item-1305350"> 使用Gridea 搭了这个网站 https://gridea.dev 添加了评论</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3305766"><label class="task-list-item-label" for="task-item-3305766"> 找个好用的Markdown 编辑器  , 暂时使用Gridea 编辑</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-196545"><label class="task-list-item-label" for="task-item-196545"> 开始学习html, css https://developer.aliyun.com/course/1742  老师贼搞笑，说要把浏览器当成女朋友🤣</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -326,8 +352,8 @@ key=&quot;value&quot;</p>
 <p><em>斜体</em> <em>斜体</em></p>
 <p><strong>加粗</strong></p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7903194"><label class="task-list-item-label" for="task-item-7903194"> done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8738987"><label class="task-list-item-label" for="task-item-8738987">  to do</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8618084"><label class="task-list-item-label" for="task-item-8618084"> done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-70843"><label class="task-list-item-label" for="task-item-70843">  to do</label></li>
 </ul>
 <p>&lt; 转义字符&gt;</p>
 <h2 id="html-转义工具">html 转义工具</h2>
