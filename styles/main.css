@@ -497,6 +497,27 @@
   overflow: hidden;
   line-height: 24px;
 }
+/*Center post header*/
+.post-header {
+  text-align: center;
+}
+/*Post feature image*/
+.post-feature-image {
+  display: block;
+  width: 100%;
+  padding-top: 10px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s;
+}
+.post-feature-image img {
+  width: 100%;
+}
+.post-feature-image:hover {
+  transform: scale(1.0082);
+}
 /*Toc*/
 .post-toc .markdownIt-TOC {
   position: sticky;
