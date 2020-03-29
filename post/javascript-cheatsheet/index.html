@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1585353257809" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1585450571604" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1585353257809" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1585450571604" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -186,9 +186,9 @@
                                 Date: <a href="#">2020-03-25</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.7
+                                    href="#">1.4
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">156</a></span>
+                                    <span class="post-words">words:<a href="#">310</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -238,6 +238,32 @@ e.lastELementChild 最后一个子节点<br>
 </ol>
 <h3 id="insertbefore-插入到特定位置">insertBefore 插入到特定位置</h3>
 <p>countrylist.insertBefore(newMember, countrylist.firstChild)</p>
+<h2 id="修改css">修改CSS</h2>
+<p>document.getElementById(id).style.property=新样式</p>
+<h1 id="事件">事件</h1>
+<p>onclick=JavaScript<br>
+<!DOCTYPE html><br>
+<html><br>
+<body><br>
+<h1 onclick="this.innerHTML='Ooops!'">点击文本!</h1><br>
+</body><br>
+</html></p>
+<h2 id="绑定函数">绑定函数</h2>
+<pre><code class="language-html">&lt;p&gt;点击按钮执行 &lt;em&gt;displayDate()&lt;/em&gt; 函数.&lt;/p&gt;
+&lt;button onclick=&quot;displayDate()&quot;&gt;点这里&lt;/button&gt;
+&lt;script&gt;
+function displayDate(){
+	document.getElementById(&quot;demo&quot;).innerHTML=Date();
+}
+&lt;/script&gt;
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h2 id="onload-onunload">onload onunload</h2>
+<p>onload 和 onunload 事件会在用户进入或离开页面时被触发</p>
+<h2 id="onmouseover-和-onmouseout-事件">onmouseover 和 onmouseout 事件</h2>
+<p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
+<h1 id="javascript-html-dom-eventlistener">JavaScript HTML DOM EventListener</h1>
+<p>document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);</p>
 
                         </div>
                         
@@ -255,8 +281,17 @@ e.lastELementChild 最后一个子节点<br>
 <li><a href="#insertbefore-%E6%8F%92%E5%85%A5%E5%88%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E7%BD%AE">insertBefore 插入到特定位置</a></li>
 </ul>
 </li>
+<li><a href="#%E4%BF%AE%E6%94%B9css">修改CSS</a></li>
 </ul>
 </li>
+<li><a href="#%E4%BA%8B%E4%BB%B6">事件</a>
+<ul>
+<li><a href="#%E7%BB%91%E5%AE%9A%E5%87%BD%E6%95%B0">绑定函数</a></li>
+<li><a href="#onload-onunload">onload onunload</a></li>
+<li><a href="#onmouseover-%E5%92%8C-onmouseout-%E4%BA%8B%E4%BB%B6">onmouseover 和 onmouseout 事件</a></li>
+</ul>
+</li>
+<li><a href="#javascript-html-dom-eventlistener">JavaScript HTML DOM EventListener</a></li>
 </ul>
 
                             </div>
@@ -268,8 +303,8 @@ e.lastELementChild 最后一个子节点<br>
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yueqingsheng.github.io/post/javascript-cheatsheet/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=qzone&title=javascript cheatsheet&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585353257809&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=weibo&title=javascript cheatsheet + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585353257809 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=qzone&title=javascript cheatsheet&pics=https://yueqingsheng.github.io/images/avatar.png?v=1585450571604&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yueqingsheng.github.io/post/javascript-cheatsheet/&sharesource=weibo&title=javascript cheatsheet + " - " + &pic="https://yueqingsheng.github.io/images/avatar.png?v=1585450571604 "><i class="fa fa-weibo "></i></a>
                                                         
                                                                 </span>
                                                                 <!--en-->
@@ -296,13 +331,13 @@ e.lastELementChild 最后一个子节点<br>
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/docker-zi-dong-hua-jiao-ben-pei-zhi/">
-                                                                                            docker 自动化脚本配置
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/jian-dan-zong-jie-xia-wo-de-wang-zhan-xue-xi-lu-xian/">
+                                                                                            简单总结下我的全栈学习路线
                                                                                         </a>
                                                                                         
                                                                                             
                                                                                                 <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-5/">
-                                                                                                    day 5
+                                                                                                    Day 5
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -341,15 +376,6 @@ e.lastELementChild 最后一个子节点<br>
         <footer id="footer" class="footer">
             <div class="copyright">
                 
-                    <div class="Like">
-                        <div class="tip" data-tooltip="Do you like it?">
-                            <a href="https://github.com/ITJoker233/Gridea-theme-Chic" target="_blank" title=""><svg class="icon"
-                        aria-hidden="true">
-                        <use xlink:href="#like"></use>
-                    </svg><b class="like_text" id="star"></b></a>
-                        </div>
-                    </div>
-                    
                         
                             
                                         <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
@@ -426,7 +452,7 @@ e.lastELementChild 最后一个子节点<br>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1585353257809);
+                    newDate.setTime(1585450571604);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
