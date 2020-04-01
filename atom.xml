@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-03-30T04:30:37.649Z</updated>
+    <updated>2020-04-01T05:45:07.544Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
+    <entry>
+        <title type="html"><![CDATA[Day 9]]></title>
+        <id>https://yueqingsheng.github.io/post/day-9/</id>
+        <link href="https://yueqingsheng.github.io/post/day-9/">
+        </link>
+        <updated>2020-03-28T04:38:16.000Z</updated>
+        <content type="html"><![CDATA[<p>[x] lecture 24<br>
+[x] lecture 25<br>
+[x] lecture 26<br>
+[ ] lecture 27<br>
+[ ] lecture 28<br>
+[ ] lecture 29<br>
+[ ] code: chat<br>
+[ ] code: morning<br>
+[x] 公司网站推广配置<br>
+睡眠1-11点，早上8点接了个电话又睡着了。看来调整生物钟不是一天的事情，早睡早起后依然很困。</p>
+<p>最近不知道怎么了，每天把自己弄得很累。不知道什么时候开始，分给她的时间很少。可能是潜意识认为，不会再分开了，没有关心到她。挺自责的。感觉自己好像远远没开始那么努力了，虽然一直喜欢他，但是聊的越来越少。 其实这么多年都，没法放下。我也很想，这种状态下去，但有时候觉得只是表面的假象。这段恋爱都是自己骗自己，因为见不到面。每次分手和好原因大致相同，都还是回到原地。应该拿出一段时间，回国去陪她。做个计划吧。</p>
+<p>今天听课放的视频，训练猴子操作手柄游戏，用电脑建立模型，然后让电脑模仿猴子操作游戏，还蛮有意思的（encode step, known X and A）。之后通过相关神经元的刺激，就可以得知猴子在想什么了(decode step)。(know A and output X, try to minimize least squre of DA-X, to get D, i.e weight of decoding)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 7]]></title>
         <id>https://yueqingsheng.github.io/post/day-7/</id>
@@ -20,6 +40,18 @@
 [x] 设计了订单库<br>
 [x] 设置了付款及退款的返回<br>
 [x] 修复bugs</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 8]]></title>
+        <id>https://yueqingsheng.github.io/post/day-8/</id>
+        <link href="https://yueqingsheng.github.io/post/day-8/">
+        </link>
+        <updated>2020-03-27T15:39:26.000Z</updated>
+        <content type="html"><![CDATA[<p>每天 TODO list 新增计划：<br>
+[x] code: chat<br>
+[x] code: morning<br>
+今天心情不好啊，效率有点低。 接下来几天要先写AI作业了，网站开发先放一下。</p>
 ]]></content>
     </entry>
     <entry>
@@ -123,6 +155,19 @@ function displayDate(){
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Day 6]]></title>
+        <id>https://yueqingsheng.github.io/post/day-6/</id>
+        <link href="https://yueqingsheng.github.io/post/day-6/">
+        </link>
+        <updated>2020-03-25T00:28:17.000Z</updated>
+        <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5128677"><label class="task-list-item-label" for="task-item-5128677">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-210412"><label class="task-list-item-label" for="task-item-210412">  AI 作业</label></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[简单总结下我的全栈学习路线]]></title>
         <id>https://yueqingsheng.github.io/post/jian-dan-zong-jie-xia-wo-de-wang-zhan-xue-xi-lu-xian/</id>
         <link href="https://yueqingsheng.github.io/post/jian-dan-zong-jie-xia-wo-de-wang-zhan-xue-xi-lu-xian/">
@@ -148,9 +193,9 @@ github 这个必须要有啊，懂得都懂<br>
         </link>
         <updated>2020-03-24T08:13:41.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2363994"><label class="task-list-item-label" for="task-item-2363994">  js 基础</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1816269"><label class="task-list-item-label" for="task-item-1816269"> 魔改下主题，添加封面图</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4880068"><label class="task-list-item-label" for="task-item-4880068">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5200368"><label class="task-list-item-label" for="task-item-5200368">  js 基础</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4339810"><label class="task-list-item-label" for="task-item-4339810"> 魔改下主题，添加封面图</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6053122"><label class="task-list-item-label" for="task-item-6053122">  start angular</label></li>
 </ul>
 <p>很难坚持下去啊，第5天了，各种事会干扰一下，效率明显没有前几天高了。考虑下早睡早起？ 可能会提高些效率。</p>
 ]]></content>
@@ -163,16 +208,16 @@ github 这个必须要有啊，懂得都懂<br>
         <updated>2020-03-24T00:21:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5979457"><label class="task-list-item-label" for="task-item-5979457">  nestjs 配置微信支付</label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4532894"><label class="task-list-item-label" for="task-item-4532894">  nestjs 配置微信支付</label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5697536"><label class="task-list-item-label" for="task-item-5697536">  css课程  part2 浮动</label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7939877"><label class="task-list-item-label" for="task-item-7939877">  css课程  part2 浮动</label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-642430"><label class="task-list-item-label" for="task-item-642430"> css课程  part3 盒子</label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3052506"><label class="task-list-item-label" for="task-item-3052506"> css课程  part3 盒子</label></p>
 </li>
 <li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-583807"><label class="task-list-item-label" for="task-item-583807"> css课程 part4  定位</label></p>
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6526343"><label class="task-list-item-label" for="task-item-6526343"> css课程 part4  定位</label></p>
 <p>对CSS 课程的评价: 一共选择了三种课，首先考虑阿里云大学CSS, 发现换了html的导师，每个视频30多分种，实在不想看下去。就是找了源html老师的视频，下载后发现每个视频三四分钟，够短了，讲的也很好，可是分了几百个视频。。。。迫于时间紧迫，转投宁皓网，一直喜欢他的课的原因就是够简练，缺点就是过去简练了，很多东西都一笔带过。还是要结合html老师的课和网上资源来看。</p>
 <p>课程链接： <a href="https://pan.baidu.com/s/1neSGVfBje-SVrcWGih89FA#list/path=%2Fsharelink3232509500-407350896060196%2FWeb%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E8%A7%86%E9%A2%91&amp;parentPath=%2Fsharelink3232509500-407350896060196">满幽默的，分集太多</a> + <a href="https://ninghao.net/video/103">ninghao够简练，过于简练。。</a></p>
 <h1 id="css-练习-链接">CSS 练习 链接</h1>
@@ -182,163 +227,6 @@ github 这个必须要有啊，懂得都懂<br>
 <img src="https://yueqingsheng.github.io/post-images/1585263275402.png" alt="" loading="lazy"></p>
 <p>如： 想查看background.html这个例子，<a href="https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/css/background.html">点这个链接</a></p>
 <p>csss的解释在CSS cheatsheet下</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day3]]></title>
-        <id>https://yueqingsheng.github.io/post/day3/</id>
-        <link href="https://yueqingsheng.github.io/post/day3/">
-        </link>
-        <updated>2020-03-23T06:47:47.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="today-do-list">Today Do list</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8735849"><label class="task-list-item-label" for="task-item-8735849"> 给自己网站加个歌单吧，插件只能一首一首手动输入，那就慢慢加吧。新加了一首</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1421142"><label class="task-list-item-label" for="task-item-1421142"> css课程 part1 字体 选择器</label></li>
-</ul>
-<p>css 内容太多了， 明天再学一部分，就开始angular了。挖个坑。</p>
-<p>忽然发现css 可以在markdown内用，把文章改的很好看，那就用上了。</p>
- <style>
-        h1 {
-            color: orange;
-        }
-        p {
-            color: darksalmon;
-        }
-    </style>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSS cheatsheet]]></title>
-        <id>https://yueqingsheng.github.io/post/css/</id>
-        <link href="https://yueqingsheng.github.io/post/css/">
-        </link>
-        <updated>2020-03-23T04:33:57.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="目的">目的</h1>
-<p>结构样式相分离, html只做结构，css做样式</p>
- <style>
-        h1 {
-            color: orange;
-        }
-        p {
-            color: pink;
-        }
-    </style>
-<h1 id="字体">字体</h1>
-<h2 id="font-size">font-size</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1585162949496.jpg" alt="" loading="lazy"></figure>
-<h2 id="font-family">font-family</h2>
-<p>支持汉字， 默认14px microsoft yahei，<br>
-尽量使用偶数号，各种字体用逗号隔开<br>
-&quot;微软雅黑&quot;,arial, sans-serif 按顺序没有的话往后找<br>
-如果字体内包括 空格 #$ 需要加引号<br>
-尽量使用默认字体</p>
-<h3 id="unicode-字体">Unicode 字体</h3>
-<p>不支持中文字体的时候，使用Unicode代替</p>
-<h2 id="font-weight">font-weight</h2>
-<p>normal bold bolder lighter, 100-900 100的整数倍</p>
-<h2 id="font-style">font-style</h2>
-<p>normal italic</p>
-<h2 id="综合字体样式">综合字体样式</h2>
-<p><code>{font: font-style font-weight font-size font-family;}</code>必须按顺序 前面可以省略，必须包括 font-size 和 font-family</p>
-<h1 id="注释">注释</h1>
-<p>快捷键 ctrl + / 或者 /* 注释*/</p>
-<h1 id="选择器">选择器</h1>
-<h2 id="标签选择器">标签选择器</h2>
-<p><code>p{ } div{ }</code> 标签作为选择器</p>
-<h2 id="类选择器">类选择器</h2>
-<pre><code class="language-html">.类名{属性：属性1
-}
-&lt;div class=&quot;类名&quot;&gt;
-</code></pre>
-<h3 id="命名规则">命名规则</h3>
-<p>相应的效果 或者主体名 （见名知义）</p>
-<h3 id="多类名选择器">多类名选择器</h3>
-<p><code>&lt;div class=&quot;font20 pink&quot;&gt;</code></p>
-<h2 id="id选择器">id选择器</h2>
-<pre><code class="language-html">#class{
-
-}
-&lt;div id=&quot;class&quot;&gt;
-</code></pre>
-<h2 id="class选择器和id选择器区别">class选择器和id选择器区别</h2>
-<p>类选择器是可以重复多次使用的，如人名<br>
-id选择器好比身份证，是唯一的</p>
-<h2 id="通配符选择器">通配符选择器</h2>
-<pre><code class="language-html">*{  *代表所有选择器
-    color: red;
-}
-&lt;div id=&quot;class&quot;&gt;
-</code></pre>
-<h2 id="伪类选择器">伪类选择器</h2>
-<h3 id="链接伪类">链接伪类</h3>
-<p>主要针对于<code>&lt;a&gt;</code><br>
-<img src="https://yueqingsheng.github.io/post-images/1585196800520.png" alt="" loading="lazy"></p>
-<h4 id="简写方式">简写方式</h4>
-<pre><code class="language-html">a{}
-a:hover{}
-</code></pre>
-<h2 id="派生选择器">派生选择器</h2>
-<p>比方说，你希望列表中的 strong 元素变为斜体字，而不是通常的粗体字，可以这样定义一个派生选择器：</p>
-<pre><code>li strong {
-    font-style: italic;
-    font-weight: normal;
-}
-</code></pre>
-<h2 id="群选择器">群选择器</h2>
-<pre><code>#main, #header{
-    main 跟 header 共同的样式
-}
-</code></pre>
-<h1 id="样式">样式</h1>
-<h2 id="内嵌样式">内嵌样式</h2>
-<p><code>&lt;h2 style=&quot;color:green&quot; &gt;测试&lt;/h2&gt;</code></p>
-<h2 id="外部样式">外部样式</h2>
-<pre><code>&lt;link rel=&quot;stylesheet&quot;样式表 href=&quot;outside_style.css&quot; type=&quot;text/css&quot; /&gt;
-</code></pre>
-<h1 id="css-特性">CSS 特性</h1>
-<h2 id="继承">继承</h2>
-<p>内部标签会继承外部内部的样式<br>
-不是所有的属性都会被继承，如边框，边距</p>
-<h2 id="层叠">层叠</h2>
-<p>内部标签会叠加所有外部的样式，<br>
-如果外部样式有冲突，继承离最近的外部标签，或者当前定义的样式<br>
-标签&lt;类 &lt;id &lt;行内样式  行内style，派生选择器会累计分数，#mainbody h2 101</p>
-<h1 id="盒模型">盒模型</h1>
-<p><img src="https://yueqingsheng.github.io/post-images/1585254293197.jpg" alt="" loading="lazy"><br>
-小技巧： margin:0 auto; (上下边距0，左右边距自动，即居中)</p>
-<h1 id="浮动">浮动</h1>
-<p>img style=&quot;float:right;margin-left:20px;margin-bottom:20px<br>
-h2 style=&quot;clear:both&quot;<br>
-<img src="https://yueqingsheng.github.io/post-images/1585260606084.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1585260612292.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1585260617291.png" alt="" loading="lazy"></p>
-<h1 id="背景">背景</h1>
-<p>background: url(b.jpg) ;</p>
-<h1 id="定位">定位</h1>
-<p>position: absolute;right:0;top:0:</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 2]]></title>
-        <id>https://yueqingsheng.github.io/post/day-2/</id>
-        <link href="https://yueqingsheng.github.io/post/day-2/">
-        </link>
-        <updated>2020-03-23T00:12:14.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="today-do-list">Today Do list</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3448551"><label class="task-list-item-label" for="task-item-3448551"> 添加 html 链接, github</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1646480"><label class="task-list-item-label" for="task-item-1646480"> html课程 1-10</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6380973"><label class="task-list-item-label" for="task-item-6380973"> html课程 11-20</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7096392"><label class="task-list-item-label" for="task-item-7096392"> html课程 21-33</label></li>
-</ul>
-<p>html就是种书写格式，学了markdown, latex，再加上这个的我一脸懵逼，这种不就是用的时候查下表就行的么。吐槽下一种行业一种写法，能不能统一下。。</p>
-<p>肝完了 yes!🤣</p>
-<p>明天开始肝css了，还要简单学下数据绑定，就开始学angular了。</p>
-<h1 id="html-下demo-查看方法">html 下demo 查看方法</h1>
-<p>对每种html标签都写了例子，查看方式 在这个链接<strong>https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/html/</strong>尾部加入标签文件名，文件名列表如下：<br>
-<img src="https://yueqingsheng.github.io/post-images/1585097498497.jpg" alt="" loading="lazy"></p>
-<p>如： 想查看image.html这个例子，点这个链接👇<br>
-<a href="https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/html/image.html">https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/html/image.html</a></p>
-<p>html标签的解释在html cheatsheet下</p>
 ]]></content>
     </entry>
 </feed>
