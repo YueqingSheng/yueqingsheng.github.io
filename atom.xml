@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-01T05:45:07.544Z</updated>
+    <updated>2020-04-02T05:47:06.092Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,23 +11,51 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
     <entry>
+        <title type="html"><![CDATA[Day 10]]></title>
+        <id>https://yueqingsheng.github.io/post/day-10/</id>
+        <link href="https://yueqingsheng.github.io/post/day-10/">
+        </link>
+        <updated>2020-03-30T05:47:07.000Z</updated>
+        <content type="html"><![CDATA[<p>[x] lecture 27<br>
+[ ] lecture 28<br>
+[ ] lecture 29<br>
+[ ] lecture 30<br>
+[x] code: chat<br>
+[x] code: morning<br>
+[x] A5 1done 2a 差解释</p>
+<p>明天上午大概就能写完作业了，有空把population 图画一下，还挺有意思的。开始学angular</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Day 9]]></title>
         <id>https://yueqingsheng.github.io/post/day-9/</id>
         <link href="https://yueqingsheng.github.io/post/day-9/">
         </link>
-        <updated>2020-03-28T04:38:16.000Z</updated>
+        <updated>2020-03-28T16:38:16.000Z</updated>
         <content type="html"><![CDATA[<p>[x] lecture 24<br>
 [x] lecture 25<br>
 [x] lecture 26<br>
 [ ] lecture 27<br>
 [ ] lecture 28<br>
 [ ] lecture 29<br>
-[ ] code: chat<br>
-[ ] code: morning<br>
+[x] code: chat<br>
+[x] code: morning<br>
 [x] 公司网站推广配置<br>
 睡眠1-11点，早上8点接了个电话又睡着了。看来调整生物钟不是一天的事情，早睡早起后依然很困。</p>
 <p>最近不知道怎么了，每天把自己弄得很累。不知道什么时候开始，分给她的时间很少。可能是潜意识认为，不会再分开了，没有关心到她。挺自责的。感觉自己好像远远没开始那么努力了，虽然一直喜欢他，但是聊的越来越少。 其实这么多年都，没法放下。我也很想，这种状态下去，但有时候觉得只是表面的假象。这段恋爱都是自己骗自己，因为见不到面。每次分手和好原因大致相同，都还是回到原地。应该拿出一段时间，回国去陪她。做个计划吧。</p>
 <p>今天听课放的视频，训练猴子操作手柄游戏，用电脑建立模型，然后让电脑模仿猴子操作游戏，还蛮有意思的（encode step, known X and A）。之后通过相关神经元的刺激，就可以得知猴子在想什么了(decode step)。(know A and output X, try to minimize least squre of DA-X, to get D, i.e weight of decoding)</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 8]]></title>
+        <id>https://yueqingsheng.github.io/post/day-8/</id>
+        <link href="https://yueqingsheng.github.io/post/day-8/">
+        </link>
+        <updated>2020-03-28T03:39:26.000Z</updated>
+        <content type="html"><![CDATA[<p>每天 TODO list 新增计划：<br>
+[x] code: chat<br>
+[x] code: morning<br>
+今天心情不好啊，效率有点低。 接下来几天要先写AI作业了，网站开发先放一下。</p>
 ]]></content>
     </entry>
     <entry>
@@ -40,18 +68,6 @@
 [x] 设计了订单库<br>
 [x] 设置了付款及退款的返回<br>
 [x] 修复bugs</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 8]]></title>
-        <id>https://yueqingsheng.github.io/post/day-8/</id>
-        <link href="https://yueqingsheng.github.io/post/day-8/">
-        </link>
-        <updated>2020-03-27T15:39:26.000Z</updated>
-        <content type="html"><![CDATA[<p>每天 TODO list 新增计划：<br>
-[x] code: chat<br>
-[x] code: morning<br>
-今天心情不好啊，效率有点低。 接下来几天要先写AI作业了，网站开发先放一下。</p>
 ]]></content>
     </entry>
     <entry>
@@ -162,8 +178,8 @@ function displayDate(){
         <updated>2020-03-25T00:28:17.000Z</updated>
         <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5128677"><label class="task-list-item-label" for="task-item-5128677">  start angular</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-210412"><label class="task-list-item-label" for="task-item-210412">  AI 作业</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8070994"><label class="task-list-item-label" for="task-item-8070994">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4408534"><label class="task-list-item-label" for="task-item-4408534">  AI 作业</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -193,40 +209,11 @@ github 这个必须要有啊，懂得都懂<br>
         </link>
         <updated>2020-03-24T08:13:41.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5200368"><label class="task-list-item-label" for="task-item-5200368">  js 基础</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4339810"><label class="task-list-item-label" for="task-item-4339810"> 魔改下主题，添加封面图</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6053122"><label class="task-list-item-label" for="task-item-6053122">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5268821"><label class="task-list-item-label" for="task-item-5268821">  js 基础</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4497842"><label class="task-list-item-label" for="task-item-4497842"> 魔改下主题，添加封面图</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5392009"><label class="task-list-item-label" for="task-item-5392009">  start angular</label></li>
 </ul>
 <p>很难坚持下去啊，第5天了，各种事会干扰一下，效率明显没有前几天高了。考虑下早睡早起？ 可能会提高些效率。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 4]]></title>
-        <id>https://yueqingsheng.github.io/post/day-4/</id>
-        <link href="https://yueqingsheng.github.io/post/day-4/">
-        </link>
-        <updated>2020-03-24T00:21:02.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4532894"><label class="task-list-item-label" for="task-item-4532894">  nestjs 配置微信支付</label></p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7939877"><label class="task-list-item-label" for="task-item-7939877">  css课程  part2 浮动</label></p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3052506"><label class="task-list-item-label" for="task-item-3052506"> css课程  part3 盒子</label></p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6526343"><label class="task-list-item-label" for="task-item-6526343"> css课程 part4  定位</label></p>
-<p>对CSS 课程的评价: 一共选择了三种课，首先考虑阿里云大学CSS, 发现换了html的导师，每个视频30多分种，实在不想看下去。就是找了源html老师的视频，下载后发现每个视频三四分钟，够短了，讲的也很好，可是分了几百个视频。。。。迫于时间紧迫，转投宁皓网，一直喜欢他的课的原因就是够简练，缺点就是过去简练了，很多东西都一笔带过。还是要结合html老师的课和网上资源来看。</p>
-<p>课程链接： <a href="https://pan.baidu.com/s/1neSGVfBje-SVrcWGih89FA#list/path=%2Fsharelink3232509500-407350896060196%2FWeb%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E8%A7%86%E9%A2%91&amp;parentPath=%2Fsharelink3232509500-407350896060196">满幽默的，分集太多</a> + <a href="https://ninghao.net/video/103">ninghao够简练，过于简练。。</a></p>
-<h1 id="css-练习-链接">CSS 练习 链接</h1>
-</li>
-</ul>
-<p>查看方式 在这个链接<strong>https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/css/</strong>尾部加入标签文件名，文件名列表如下：<br>
-<img src="https://yueqingsheng.github.io/post-images/1585263275402.png" alt="" loading="lazy"></p>
-<p>如： 想查看background.html这个例子，<a href="https://htmlpreview.github.io/?https://github.com/YueqingSheng/build_a_blog_from_scratch/blob/master/css/background.html">点这个链接</a></p>
-<p>csss的解释在CSS cheatsheet下</p>
 ]]></content>
     </entry>
 </feed>
