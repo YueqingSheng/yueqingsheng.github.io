@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-03T04:25:22.559Z</updated>
+    <updated>2020-04-03T04:28:40.599Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -27,13 +27,14 @@
         <id>https://yueqingsheng.github.io/post/day-11/</id>
         <link href="https://yueqingsheng.github.io/post/day-11/">
         </link>
-        <updated>2020-03-30T18:52:28.000Z</updated>
+        <updated>2020-03-29T18:52:28.000Z</updated>
         <content type="html"><![CDATA[<p>[x] code: chat<br>
 [x] code: morning<br>
 [x] A5 done<br>
 [x] Angular start<br>
 白天把作业写完了，晚上写了会angular,配置了插件。prettier(格式化) 和 angular essential（待学习），配置了下主题。<br>
-<img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"></p>
+<img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"><br>
+充满希望的春天来了。😉</p>
 ]]></content>
     </entry>
     <entry>
@@ -204,8 +205,8 @@ function displayDate(){
         <updated>2020-03-25T00:28:17.000Z</updated>
         <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5622922"><label class="task-list-item-label" for="task-item-5622922">  start angular</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8543441"><label class="task-list-item-label" for="task-item-8543441">  AI 作业</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2071187"><label class="task-list-item-label" for="task-item-2071187">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4108863"><label class="task-list-item-label" for="task-item-4108863">  AI 作业</label></li>
 </ul>
 ]]></content>
     </entry>
