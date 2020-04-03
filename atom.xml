@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-02T05:48:36.543Z</updated>
+    <updated>2020-04-03T04:25:22.559Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,32 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
+    <entry>
+        <title type="html"><![CDATA[Angular]]></title>
+        <id>https://yueqingsheng.github.io/post/angular/</id>
+        <link href="https://yueqingsheng.github.io/post/angular/">
+        </link>
+        <updated>2020-04-01T03:41:33.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="为什么js推荐使用单引号">为什么js推荐使用单引号</h2>
+<p><a href="https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/">单引号和多引号区别，没啥区别，单引号编译速度更快，而且单引号内可以使用双引号，有时候内部是json 格式必须用双引号</a><br>
+<a href="https://blog.csdn.net/zhaoyanmi/article/details/80119098?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1">中文解释</a></p>
+<h2 id=""></h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 11]]></title>
+        <id>https://yueqingsheng.github.io/post/day-11/</id>
+        <link href="https://yueqingsheng.github.io/post/day-11/">
+        </link>
+        <updated>2020-03-30T18:52:28.000Z</updated>
+        <content type="html"><![CDATA[<p>[x] code: chat<br>
+[x] code: morning<br>
+[x] A5 done<br>
+[x] Angular start<br>
+白天把作业写完了，晚上写了会angular,配置了插件。prettier(格式化) 和 angular essential（待学习），配置了下主题。<br>
+<img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 10]]></title>
         <id>https://yueqingsheng.github.io/post/day-10/</id>
@@ -178,42 +204,9 @@ function displayDate(){
         <updated>2020-03-25T00:28:17.000Z</updated>
         <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2758900"><label class="task-list-item-label" for="task-item-2758900">  start angular</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4763100"><label class="task-list-item-label" for="task-item-4763100">  AI 作业</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5622922"><label class="task-list-item-label" for="task-item-5622922">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8543441"><label class="task-list-item-label" for="task-item-8543441">  AI 作业</label></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[简单总结下我的全栈学习路线]]></title>
-        <id>https://yueqingsheng.github.io/post/jian-dan-zong-jie-xia-wo-de-wang-zhan-xue-xi-lu-xian/</id>
-        <link href="https://yueqingsheng.github.io/post/jian-dan-zong-jie-xia-wo-de-wang-zhan-xue-xi-lu-xian/">
-        </link>
-        <updated>2020-03-24T14:27:21.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="课程选择">课程选择：</h1>
-<p>html <a href="https://edu.aliyun.com/course/1742">阿里云大学</a><br>
-css 课程链接： <a href="https://pan.baidu.com/s/1neSGVfBje-SVrcWGih89FA#list/path=%2Fsharelink3232509500-407350896060196%2FWeb%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E8%A7%86%E9%A2%91&amp;parentPath=%2Fsharelink3232509500-407350896060196">同一个老师，分集太多，学第一部分到选择器然后转宁皓网就行</a> + <a href="https://ninghao.net/video/103">ninghao够简练，过于简练。。</a><br>
-js: <a href="https://ninghao.net/course/1235">宁皓网</a><br>
-框架： <a href="https://ninghao.net/video/7644">angular因为我后端用的是nestjs</a></p>
-<h1 id="推荐工具">推荐工具</h1>
-<p>有些课历史比较久了，所以开发工具有点老，推荐开发工具vscode +插件： open in browser(写完代码，直接 ctrl+s 保存 ，alt+b 浏览器打开超方便)<br>
-tabnine+ autoimport + auto close tag （以上三个全是自动补全）<br>
-github 这个必须要有啊，懂得都懂<br>
-强烈建议写个博客网站，原因么，很多，一个是云端保存笔记，一个是可以使用Markdow, markdown 内部可以使用html.css 语法，边学边写。（另外个原因，可以自己魔改网站啊，很有动力，学以致用）</p>
-<p>0基础搭建博客 推荐这个 <a href="https://zhuanlan.zhihu.com/p/71681116">Gridea</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 5]]></title>
-        <id>https://yueqingsheng.github.io/post/day-5/</id>
-        <link href="https://yueqingsheng.github.io/post/day-5/">
-        </link>
-        <updated>2020-03-24T08:13:41.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1375649"><label class="task-list-item-label" for="task-item-1375649">  js 基础</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-715061"><label class="task-list-item-label" for="task-item-715061"> 魔改下主题，添加封面图</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3920349"><label class="task-list-item-label" for="task-item-3920349">  start angular</label></li>
-</ul>
-<p>很难坚持下去啊，第5天了，各种事会干扰一下，效率明显没有前几天高了。考虑下早睡早起？ 可能会提高些效率。</p>
 ]]></content>
     </entry>
 </feed>
