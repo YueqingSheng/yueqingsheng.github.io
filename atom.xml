@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-03T04:52:20.632Z</updated>
+    <updated>2020-04-03T04:57:15.654Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,30 +11,33 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
     <entry>
-        <title type="html"><![CDATA[Angular]]></title>
-        <id>https://yueqingsheng.github.io/post/angular/</id>
-        <link href="https://yueqingsheng.github.io/post/angular/">
-        </link>
-        <updated>2020-04-01T03:41:33.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="为什么js推荐使用单引号">为什么js推荐使用单引号</h2>
-<p><a href="https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/">单引号和多引号区别，没啥区别，单引号编译速度更快，而且单引号内可以使用双引号，有时候内部是json 格式必须用双引号</a><br>
-<a href="https://blog.csdn.net/zhaoyanmi/article/details/80119098?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1">中文解释</a></p>
-<h2 id=""></h2>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Day 11]]></title>
         <id>https://yueqingsheng.github.io/post/day-11/</id>
         <link href="https://yueqingsheng.github.io/post/day-11/">
         </link>
-        <updated>2020-03-29T18:52:28.000Z</updated>
-        <content type="html"><![CDATA[<p>[x] code: chat<br>
+        <updated>2020-04-02T16:56:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>充满希望的春天来了。😉</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>充满希望的春天来了。😉</p>
+<!-- more -->
+<p>[x] code: chat<br>
 [x] code: morning<br>
 [x] A5 done<br>
 [x] Angular start<br>
 白天把作业写完了，晚上写了会angular,配置了插件。prettier(格式化) 和 angular essential（待学习），配置了下主题。<br>
-<img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"><br>
-充满希望的春天来了。😉</p>
+<img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Angular]]></title>
+        <id>https://yueqingsheng.github.io/post/angular/</id>
+        <link href="https://yueqingsheng.github.io/post/angular/">
+        </link>
+        <updated>2020-03-31T15:41:33.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="为什么js推荐使用单引号">为什么js推荐使用单引号</h2>
+<p><a href="https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/">单引号和多引号区别，没啥区别，单引号编译速度更快，而且单引号内可以使用双引号，有时候内部是json 格式必须用双引号</a><br>
+<a href="https://blog.csdn.net/zhaoyanmi/article/details/80119098?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1">中文解释</a></p>
+<h2 id=""></h2>
 ]]></content>
     </entry>
     <entry>
@@ -205,8 +208,8 @@ function displayDate(){
         <updated>2020-03-25T00:28:17.000Z</updated>
         <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6582752"><label class="task-list-item-label" for="task-item-6582752">  start angular</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2396625"><label class="task-list-item-label" for="task-item-2396625">  AI 作业</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-843760"><label class="task-list-item-label" for="task-item-843760">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4446813"><label class="task-list-item-label" for="task-item-4446813">  AI 作业</label></li>
 </ul>
 ]]></content>
     </entry>
