@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-03T04:57:38.546Z</updated>
+    <updated>2020-04-03T05:01:18.963Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -208,8 +208,8 @@ function displayDate(){
         <updated>2020-03-25T00:28:17.000Z</updated>
         <content type="html"><![CDATA[<p>PR 通过了 哈哈，接下来有时间的话可以简单魔改下主题</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6645210"><label class="task-list-item-label" for="task-item-6645210">  start angular</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1071315"><label class="task-list-item-label" for="task-item-1071315">  AI 作业</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8571779"><label class="task-list-item-label" for="task-item-8571779">  start angular</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6829384"><label class="task-list-item-label" for="task-item-6829384">  AI 作业</label></li>
 </ul>
 ]]></content>
     </entry>
