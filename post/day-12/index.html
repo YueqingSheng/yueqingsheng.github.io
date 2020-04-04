@@ -173,24 +173,17 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                javascript cheatsheet
+                                Day 12
                             </h1>
                             
                                 <!--en-->
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.4
+                                    href="#">0.2
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">310</a></span>
+                                    <span class="post-words">words:<a href="#">60</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://yueqingsheng.github.io/tag/cheatsheet/">cheatsheet</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -198,96 +191,21 @@
                                 
                         </header>
                         
-                            <img class="post-feature-image" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/e35/72771347_146865233349725_2449042024655076333_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&amp;_nc_cat=105&amp;_nc_ohc=pdIs5bIxUTwAX-DI-FJ&amp;oh=39330e918cd083326e97ce3a351fed74&amp;oe=5EA85E15" alt="">
+                            <img class="post-feature-image" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/e35/52761080_142339270141910_3457615875780863181_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&amp;_nc_cat=102&amp;_nc_ohc=sXoh1t4uvRwAX9g6s2D&amp;oh=c4fc6bee2e988de7a7bcc1f3b0ef8611&amp;oe=5EB2A309" alt="">
                           
                         <div class="post-content">
-                            <h1 id="dom文档对象模型">DOM（文档对象模型）</h1>
-<h2 id="文档树">文档树：</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1585343905728.jpg" alt="" loading="lazy"><br>
-each label is a node in the tree</p>
-<h2 id="getelementbyid">getElementById</h2>
-<p>document.getElementById('page-title')</p>
-<h2 id="getelementsbytagname">getElementsByTagName</h2>
-<p>document.getElementsByTagName('li')</p>
-<h2 id="queryselectorall">querySelectorAll</h2>
-<p>querySelectorAll('.class a') 返回所有<br>
-querySelector 返回找到的第一个</p>
-<h2 id="访问属性">访问属性</h2>
-<p>e.nodeName 标签名<br>
-e.innerText 内部文字<br>
-e.paretnNode 父节点<br>
-e.nextElementSibling 下一个兄弟元素 previousElementSibling<br>
-e.childNodes 子节点<br>
-e.childElementCount 返回子节点数量<br>
-e.firstELementChild 第一个子节点<br>
-e.lastELementChild 最后一个子节点<br>
-修改 用=赋值</p>
-<h2 id="创建新的节点">创建新的节点</h2>
-<p>步骤：</p>
-<ol>
-<li>var newMember = document.creatElement('li')</li>
-<li>var text = document.createTextNode('你好啊');</li>
-<li>newMember.appendChild(text)</li>
-<li>document.querySelector('#list').appendChild(newMember) 添加到最后</li>
-</ol>
-<h3 id="insertbefore-插入到特定位置">insertBefore 插入到特定位置</h3>
-<p>countrylist.insertBefore(newMember, countrylist.firstChild)</p>
-<h2 id="修改css">修改CSS</h2>
-<p>document.getElementById(id).style.property=新样式</p>
-<h1 id="事件">事件</h1>
-<p>onclick=JavaScript<br>
-<!DOCTYPE html><br>
-<html><br>
-<body><br>
-<h1 onclick="this.innerHTML='Ooops!'">点击文本!</h1><br>
-</body><br>
-</html></p>
-<h2 id="绑定函数">绑定函数</h2>
-<pre><code class="language-html">&lt;p&gt;点击按钮执行 &lt;em&gt;displayDate()&lt;/em&gt; 函数.&lt;/p&gt;
-&lt;button onclick=&quot;displayDate()&quot;&gt;点这里&lt;/button&gt;
-&lt;script&gt;
-function displayDate(){
-	document.getElementById(&quot;demo&quot;).innerHTML=Date();
-}
-&lt;/script&gt;
-&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
-</code></pre>
-<h2 id="onload-onunload">onload onunload</h2>
-<p>onload 和 onunload 事件会在用户进入或离开页面时被触发</p>
-<h2 id="onmouseover-和-onmouseout-事件">onmouseover 和 onmouseout 事件</h2>
-<p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
-<h1 id="javascript-html-dom-eventlistener">JavaScript HTML DOM EventListener</h1>
-<p>document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);</p>
+                            <ul class="contains-task-list">
+<li>[x ] Angular Components</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6073696"><label class="task-list-item-label" for="task-item-6073696"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5027882"><label class="task-list-item-label" for="task-item-5027882"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3978655"><label class="task-list-item-label" for="task-item-3978655"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3243497"><label class="task-list-item-label" for="task-item-3243497"> code: morning</label></li>
+</ul>
 
                         </div>
                         
                             <div class="post-toc">
-                                <ul class="markdownIt-TOC">
-<li><a href="#dom%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">DOM（文档对象模型）</a>
-<ul>
-<li><a href="#%E6%96%87%E6%A1%A3%E6%A0%91">文档树：</a></li>
-<li><a href="#getelementbyid">getElementById</a></li>
-<li><a href="#getelementsbytagname">getElementsByTagName</a></li>
-<li><a href="#queryselectorall">querySelectorAll</a></li>
-<li><a href="#%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7">访问属性</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%8A%82%E7%82%B9">创建新的节点</a>
-<ul>
-<li><a href="#insertbefore-%E6%8F%92%E5%85%A5%E5%88%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E7%BD%AE">insertBefore 插入到特定位置</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BF%AE%E6%94%B9css">修改CSS</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8B%E4%BB%B6">事件</a>
-<ul>
-<li><a href="#%E7%BB%91%E5%AE%9A%E5%87%BD%E6%95%B0">绑定函数</a></li>
-<li><a href="#onload-onunload">onload onunload</a></li>
-<li><a href="#onmouseover-%E5%92%8C-onmouseout-%E4%BA%8B%E4%BB%B6">onmouseover 和 onmouseout 事件</a></li>
-</ul>
-</li>
-<li><a href="#javascript-html-dom-eventlistener">JavaScript HTML DOM EventListener</a></li>
-</ul>
-
+                                
                             </div>
                             
                                 
@@ -298,12 +216,6 @@ function displayDate(){
                                                                         <span><strong>Tag(s):</strong></span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://yueqingsheng.github.io/tag/cheatsheet/">#
-                                                cheatsheet
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -314,13 +226,9 @@ function displayDate(){
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/docker-zi-dong-hua-jiao-ben-pei-zhi/">
-                                                                                            docker 自动化脚本配置
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-6/">
-                                                                                                    Day 6
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-11/">
+                                                                                                    Day 11
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
