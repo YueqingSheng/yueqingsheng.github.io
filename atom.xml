@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-04T06:28:45.592Z</updated>
+    <updated>2020-04-05T06:56:05.809Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,17 +11,30 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
     <entry>
+        <title type="html"><![CDATA[Day 13]]></title>
+        <id>https://yueqingsheng.github.io/post/day-13/</id>
+        <link href="https://yueqingsheng.github.io/post/day-13/">
+        </link>
+        <updated>2020-04-02T16:55:40.000Z</updated>
+        <content type="html"><![CDATA[<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6508692"><label class="task-list-item-label" for="task-item-6508692"> Angular 起步1</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3287487"><label class="task-list-item-label" for="task-item-3287487"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3988443"><label class="task-list-item-label" for="task-item-3988443"> code: morning</label></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Day 12]]></title>
         <id>https://yueqingsheng.github.io/post/day-12/</id>
         <link href="https://yueqingsheng.github.io/post/day-12/">
         </link>
         <updated>2020-04-01T17:46:11.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8922048"><label class="task-list-item-label" for="task-item-8922048"> Angular Components</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4920598"><label class="task-list-item-label" for="task-item-4920598"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9807151"><label class="task-list-item-label" for="task-item-9807151"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8053838"><label class="task-list-item-label" for="task-item-8053838"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9117773"><label class="task-list-item-label" for="task-item-9117773"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7478062"><label class="task-list-item-label" for="task-item-7478062"> Angular Components</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6496407"><label class="task-list-item-label" for="task-item-6496407"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2729394"><label class="task-list-item-label" for="task-item-2729394"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6593561"><label class="task-list-item-label" for="task-item-6593561"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7584107"><label class="task-list-item-label" for="task-item-7584107"> code: morning</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -36,10 +49,10 @@
         <content type="html"><![CDATA[<p>充满希望的春天来了。😉</p>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8746368"><label class="task-list-item-label" for="task-item-8746368"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4448913"><label class="task-list-item-label" for="task-item-4448913"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9397008"><label class="task-list-item-label" for="task-item-9397008"> A5 done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8488954"><label class="task-list-item-label" for="task-item-8488954"> Angular start</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6928447"><label class="task-list-item-label" for="task-item-6928447"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-984690"><label class="task-list-item-label" for="task-item-984690"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-164061"><label class="task-list-item-label" for="task-item-164061"> A5 done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6232563"><label class="task-list-item-label" for="task-item-6232563"> Angular start</label></li>
 </ul>
 <p>白天把作业写完了，晚上写了会angular,配置了插件。prettier(格式化) 和 angular essential（待学习），配置了下主题。<br>
 <img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"><br>
@@ -51,12 +64,38 @@
         <id>https://yueqingsheng.github.io/post/angular/</id>
         <link href="https://yueqingsheng.github.io/post/angular/">
         </link>
-        <updated>2020-03-30T15:41:33.000Z</updated>
+        <updated>2020-03-30T03:41:33.000Z</updated>
         <content type="html"><![CDATA[<h2 id="为什么js推荐使用单引号">为什么js推荐使用单引号</h2>
 <p><a href="https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/">单引号和多引号区别，没啥区别，单引号编译速度更快，而且单引号内可以使用双引号，有时候内部是json 格式必须用双引号</a><br>
 <a href="https://blog.csdn.net/zhaoyanmi/article/details/80119098?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1">中文解释</a></p>
 <h2 id="模块">模块</h2>
-<p>创建模块post 放在 modules/post 下  <code>ng generate module modules/post</code></p>
+<p>创建模块post 放在 modules/post 下  <code>ng generate module modules/post</code><br>
+componet 是生成的html 和css,ts 文件</p>
+<h3 id="模块导入">模块导入</h3>
+<p>需要导出的模块在module 的 exports中添加，<code>exports: [PostComponent],</code><br>
+引用的模块导入：<code>imports: [PostModule],</code></p>
+<h2 id="数据绑定">数据绑定</h2>
+<p>在component.ts 内声明<br>
+.html 使用{{值}}</p>
+<h3 id="ngfor">*ngFor</h3>
+<p>*ngfor 会自动扩展成 <code>&lt;ng-template ngfor&gt;</code> *是一种语法糖，缩写形式</p>
+<pre><code class="language-html">  &lt;li *ngFor=&quot;let entity of entities&quot;&gt;
+    &lt;h4&gt;{{ entity.title }}&lt;/h4&gt;
+  &lt;/li&gt;
+</code></pre>
+<h3 id="ngif">*ngIf</h3>
+<pre><code class="language-html">&lt;p *ngIf=&quot;entity.body&quot;&gt;{{ entity.body }}&lt;/p&gt;
+</code></pre>
+<h3 id="属性绑定">属性绑定</h3>
+<pre><code class="language-html">&lt;a title=&quot;{{ entity.title }}&quot; &gt;{{ entity.title }}&lt;/a&gt;
+</code></pre>
+<pre><code class="language-html">&lt;a [title]=&quot;entity.title&quot;&gt;{{ entity.title }}&lt;/a&gt;
+</code></pre>
+<p>第二种形式可以绑定标签不存在的属性值 如 text-content, Angular 官方文档在绑定属性几乎都是使用[]，而插值表达式{{}}更多是用于显示，两者最大的区别就是后者会将{{}}语句里执行完的值再转换string 类型。</p>
+<h3 id="事件绑定">事件绑定</h3>
+<pre><code class="language-html">  &lt;button (click)=&quot;removeItem(i)&quot;&gt;Remove&lt;/button&gt;
+</code></pre>
+<p>参数直接填就行</p>
 ]]></content>
     </entry>
     <entry>
@@ -66,13 +105,13 @@
         </link>
         <updated>2020-03-29T05:47:07.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4556988"><label class="task-list-item-label" for="task-item-4556988"> lecture 27</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5365342"><label class="task-list-item-label" for="task-item-5365342"> lecture 28</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6540368"><label class="task-list-item-label" for="task-item-6540368"> lecture 29</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4291664"><label class="task-list-item-label" for="task-item-4291664"> lecture 30</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9989530"><label class="task-list-item-label" for="task-item-9989530"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9499129"><label class="task-list-item-label" for="task-item-9499129"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8081848"><label class="task-list-item-label" for="task-item-8081848"> A5 1done 2a 差解释</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6702468"><label class="task-list-item-label" for="task-item-6702468"> lecture 27</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9702317"><label class="task-list-item-label" for="task-item-9702317"> lecture 28</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6638425"><label class="task-list-item-label" for="task-item-6638425"> lecture 29</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6649714"><label class="task-list-item-label" for="task-item-6649714"> lecture 30</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9697453"><label class="task-list-item-label" for="task-item-9697453"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5964547"><label class="task-list-item-label" for="task-item-5964547"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4026105"><label class="task-list-item-label" for="task-item-4026105"> A5 1done 2a 差解释</label></li>
 </ul>
 <p>明天上午大概就能写完作业了，有空把population 图画一下，还挺有意思的。开始学angular</p>
 ]]></content>
@@ -84,15 +123,15 @@
         </link>
         <updated>2020-03-27T16:38:16.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4485798"><label class="task-list-item-label" for="task-item-4485798"> lecture 24</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4114337"><label class="task-list-item-label" for="task-item-4114337"> lecture 25</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3164832"><label class="task-list-item-label" for="task-item-3164832"> lecture 26</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2319751"><label class="task-list-item-label" for="task-item-2319751"> lecture 27</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9767231"><label class="task-list-item-label" for="task-item-9767231"> lecture 28</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3940537"><label class="task-list-item-label" for="task-item-3940537"> lecture 29</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-114049"><label class="task-list-item-label" for="task-item-114049"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1235265"><label class="task-list-item-label" for="task-item-1235265"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-505933"><label class="task-list-item-label" for="task-item-505933"> 公司网站推广配置</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5535330"><label class="task-list-item-label" for="task-item-5535330"> lecture 24</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4472352"><label class="task-list-item-label" for="task-item-4472352"> lecture 25</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8222819"><label class="task-list-item-label" for="task-item-8222819"> lecture 26</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4996632"><label class="task-list-item-label" for="task-item-4996632"> lecture 27</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9621972"><label class="task-list-item-label" for="task-item-9621972"> lecture 28</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3079435"><label class="task-list-item-label" for="task-item-3079435"> lecture 29</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4463635"><label class="task-list-item-label" for="task-item-4463635"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4980908"><label class="task-list-item-label" for="task-item-4980908"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6256538"><label class="task-list-item-label" for="task-item-6256538"> 公司网站推广配置</label></li>
 </ul>
 <p>睡眠1-11点，早上8点接了个电话又睡着了。看来调整生物钟不是一天的事情，早睡早起后依然很困。</p>
 <p>最近不知道怎么了，每天把自己弄得很累。不知道什么时候开始，分给她的时间很少。可能是潜意识认为，不会再分开了，没有关心到她。挺自责的。感觉自己好像远远没开始那么努力了，虽然一直喜欢他，但是聊的越来越少。 其实这么多年都，没法放下。我也很想，这种状态下去，但有时候觉得只是表面的假象。这段恋爱都是自己骗自己，因为见不到面。每次分手和好原因大致相同，都还是回到原地。应该拿出一段时间，回国去陪她。做个计划吧。</p>
@@ -122,8 +161,8 @@
         <updated>2020-03-26T15:39:26.000Z</updated>
         <content type="html"><![CDATA[<p>每天 TODO list 新增计划：</p>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5793616"><label class="task-list-item-label" for="task-item-5793616"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-384500"><label class="task-list-item-label" for="task-item-384500"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6092913"><label class="task-list-item-label" for="task-item-6092913"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7410483"><label class="task-list-item-label" for="task-item-7410483"> code: morning</label></li>
 </ul>
 <p>今天心情不好啊，效率有点低。 接下来几天要先写AI作业了，网站开发先放一下。</p>
 ]]></content>
@@ -135,10 +174,10 @@
         </link>
         <updated>2020-03-25T19:00:44.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2142070"> nestjs 配置好微信支付，这文档神坑，真的服了，使用插件 notadd-pay, 参考<a href="https://blog.csdn.net/ZChangfeng/article/details/78899618">配置文章<label class="task-list-item-label" for="task-item-2142070"> nestjs 配置好微信支付，这文档神坑，真的服了，使用插件 notadd-pay, 参考[配置文章](https://blog.csdn.net/ZChangfeng/article/details/78899618)</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1376247"><label class="task-list-item-label" for="task-item-1376247"> 设计了订单库</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1901968"><label class="task-list-item-label" for="task-item-1901968"> 设置了付款及退款的返回</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8183520"><label class="task-list-item-label" for="task-item-8183520"> 修复bugs</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1350051"> nestjs 配置好微信支付，这文档神坑，真的服了，使用插件 notadd-pay, 参考<a href="https://blog.csdn.net/ZChangfeng/article/details/78899618">配置文章<label class="task-list-item-label" for="task-item-1350051"> nestjs 配置好微信支付，这文档神坑，真的服了，使用插件 notadd-pay, 参考[配置文章](https://blog.csdn.net/ZChangfeng/article/details/78899618)</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6200001"><label class="task-list-item-label" for="task-item-6200001"> 设计了订单库</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5052558"><label class="task-list-item-label" for="task-item-5052558"> 设置了付款及退款的返回</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4533674"><label class="task-list-item-label" for="task-item-4533674"> 修复bugs</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -160,71 +199,6 @@
 自动化 4-6步 By webhook</p>
 <p><a href="https://yijiebuyi.com/blog/3ec57c3c46170789eed1aa73792d99e5.html">spawn exec方法 在 node.js child_process模块中的应用及区别 解决 Error: maxBuffer exceeded</a></p>
 <p><a href="https://www.jianshu.com/p/1eb1d1d3f25e">docker logs－查看docker容器日志</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[javascript cheatsheet]]></title>
-        <id>https://yueqingsheng.github.io/post/javascript-cheatsheet/</id>
-        <link href="https://yueqingsheng.github.io/post/javascript-cheatsheet/">
-        </link>
-        <updated>2020-03-25T08:22:49.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="dom文档对象模型">DOM（文档对象模型）</h1>
-<h2 id="文档树">文档树：</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1585343905728.jpg" alt="" loading="lazy"><br>
-each label is a node in the tree</p>
-<h2 id="getelementbyid">getElementById</h2>
-<p>document.getElementById('page-title')</p>
-<h2 id="getelementsbytagname">getElementsByTagName</h2>
-<p>document.getElementsByTagName('li')</p>
-<h2 id="queryselectorall">querySelectorAll</h2>
-<p>querySelectorAll('.class a') 返回所有<br>
-querySelector 返回找到的第一个</p>
-<h2 id="访问属性">访问属性</h2>
-<p>e.nodeName 标签名<br>
-e.innerText 内部文字<br>
-e.paretnNode 父节点<br>
-e.nextElementSibling 下一个兄弟元素 previousElementSibling<br>
-e.childNodes 子节点<br>
-e.childElementCount 返回子节点数量<br>
-e.firstELementChild 第一个子节点<br>
-e.lastELementChild 最后一个子节点<br>
-修改 用=赋值</p>
-<h2 id="创建新的节点">创建新的节点</h2>
-<p>步骤：</p>
-<ol>
-<li>var newMember = document.creatElement('li')</li>
-<li>var text = document.createTextNode('你好啊');</li>
-<li>newMember.appendChild(text)</li>
-<li>document.querySelector('#list').appendChild(newMember) 添加到最后</li>
-</ol>
-<h3 id="insertbefore-插入到特定位置">insertBefore 插入到特定位置</h3>
-<p>countrylist.insertBefore(newMember, countrylist.firstChild)</p>
-<h2 id="修改css">修改CSS</h2>
-<p>document.getElementById(id).style.property=新样式</p>
-<h1 id="事件">事件</h1>
-<p>onclick=JavaScript<br>
-<!DOCTYPE html><br>
-<html><br>
-<body><br>
-<h1 onclick="this.innerHTML='Ooops!'">点击文本!</h1><br>
-</body><br>
-</html></p>
-<h2 id="绑定函数">绑定函数</h2>
-<pre><code class="language-html">&lt;p&gt;点击按钮执行 &lt;em&gt;displayDate()&lt;/em&gt; 函数.&lt;/p&gt;
-&lt;button onclick=&quot;displayDate()&quot;&gt;点这里&lt;/button&gt;
-&lt;script&gt;
-function displayDate(){
-	document.getElementById(&quot;demo&quot;).innerHTML=Date();
-}
-&lt;/script&gt;
-&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
-</code></pre>
-<h2 id="onload-onunload">onload onunload</h2>
-<p>onload 和 onunload 事件会在用户进入或离开页面时被触发</p>
-<h2 id="onmouseover-和-onmouseout-事件">onmouseover 和 onmouseout 事件</h2>
-<p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
-<h1 id="javascript-html-dom-eventlistener">JavaScript HTML DOM EventListener</h1>
-<p>document.getElementById(&quot;myBtn&quot;).addEventListener(&quot;click&quot;, displayDate);</p>
 ]]></content>
     </entry>
 </feed>
