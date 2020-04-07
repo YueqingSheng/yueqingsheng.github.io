@@ -170,75 +170,91 @@
 </script>
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap archive">
-                        
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                nestjs的坑
+                            </h1>
                             
-                                <h3>
-                                    2020
-                                </h3>
+                                <!--en-->
+                                <div class="post-meta en">
+
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">0.3
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">89</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
                                 
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-5/">
-                                                Day 5
-                                            </a>
-                                            <span class="archive-item-date">2020-03-24 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-4/">
-                                                Day 4
-                                            </a>
-                                            <span class="archive-item-date">2020-03-23 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day3/">
-                                                Day 3
-                                            </a>
-                                            <span class="archive-item-date">2020-03-22 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-2/">
-                                                Day 2
-                                            </a>
-                                            <span class="archive-item-date">2020-03-20 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://yueqingsheng.github.io/post/day-1/">
-                                                Day 1
-                                            </a>
-                                            <span class="archive-item-date">2020-03-16 </span>
-                                        </article>
-                                        
-                                            
-                                                
-                    </div>
-                    <div class="pagination-container">
+                        </header>
                         
-                                                
-                                                    <a href="https://yueqingsheng.github.io/tag/log" class="prev"><i class="icon-arrow-ios-back-outline"></i> Prev</a>
+                        <div class="post-content">
+                            <p>不定期更新</p>
+<!-- more -->
+<p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。</p>
+<p>eager 谨慎使用，特别是relation有相互包含的时候。尽量只加在一边，防止重复包含，导致stack overflow。</p>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
                                                     
-                                                        
+
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span><strong>Tag(s):</strong></span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();"><strong>back</strong></a>
+                                                                    </div>
+                                                                </section>
                                                                 
-                    </div>
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-15/">
+                                                                                                    Day 15
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '5f41987445e31b69b727',
+        clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+        repo: 'yueqingsheng.github.io',
+        owner: 'YueqingSheng',
+        admin: ['YueqingSheng'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
     <div id="player"></div>
@@ -329,5 +345,8 @@
                 
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>
