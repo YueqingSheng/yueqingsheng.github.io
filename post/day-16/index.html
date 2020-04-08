@@ -173,17 +173,24 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                nestjs的坑
+                                Day 16
                             </h1>
                             
                                 <!--en-->
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.8
+                                    href="#">0.2
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">198</a></span>
+                                    <span class="post-words">words:<a href="#">60</a></span>
                                     
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://yueqingsheng.github.io/tag/log/">日常</a>
+                                
+                            </span>
+                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -191,33 +198,21 @@
                                 
                         </header>
                         
-                            <img class="post-feature-image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/28766156_2095941083975566_1395875611129413632_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=X39kW_KTkuwAX9vczwY&amp;oh=28fc4271ca80de3fc238cadcbcb7e7f0&amp;oe=5EB603EB" alt="">
+                            <img class="post-feature-image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/29093038_368838440266400_7591464603893104640_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&amp;_nc_cat=108&amp;_nc_ohc=1z-73mz727EAX9-1Qy-&amp;oh=dacc360f4ca92bcdab9a39ea9c872064&amp;oe=5EB782CC" alt="">
                           
                         <div class="post-content">
-                            <p>不定期更新</p>
-<!-- more -->
-<p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。comment 也是关键字，需自己导包，我也是服了。</p>
-<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。</p>
-<p>find 有很多选项足够用了可以代替 queryBuilder</p>
-<h2 id="onetomany-save">OneToMany Save</h2>
-<p>例子： 商品储存多个价格， data 是发送的商品数据，其中包含了price</p>
-<pre><code class="language-typescript">    data.price = await this.priceRepository.save(price);
-    data = await this.repository.create(data);
-    return await this.repository.save(data);
-</code></pre>
-<p>注意 data.price 这一步是必须的，是为了更新刚储存完的id号，typeorm 用id 来建立关系</p>
+                            <ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8748837"><label class="task-list-item-label" for="task-item-8748837"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9696642"><label class="task-list-item-label" for="task-item-9696642"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8743606"><label class="task-list-item-label" for="task-item-8743606"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8262526"><label class="task-list-item-label" for="task-item-8262526"> 评分</label></li>
+</ul>
+<p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 
                         </div>
                         
                             <div class="post-toc">
-                                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#onetomany-save">OneToMany Save</a></li>
-</ul>
-</li>
-</ul>
-
+                                
                             </div>
                             
                                 
@@ -228,6 +223,12 @@
                                                                         <span><strong>Tag(s):</strong></span>
                                                                         <span class="tag ">
                         
+                        
+                        <a href="https://yueqingsheng.github.io/tag/log/">#
+                                                日常
+                                                    </a>
+                                                    
+                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -238,13 +239,9 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/day-16/">
-                                                                                            Day 16
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-15/">
-                                                                                                    Day 15
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/nestjs-de-keng/">
+                                                                                                    nestjs的坑
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
