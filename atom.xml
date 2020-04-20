@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-15T06:49:12.322Z</updated>
+    <updated>2020-04-20T21:09:55.605Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
+    <entry>
+        <title type="html"><![CDATA[第一次神经网络实践]]></title>
+        <id>https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/</id>
+        <link href="https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/">
+        </link>
+        <updated>2020-04-17T17:44:55.000Z</updated>
+        <content type="html"><![CDATA[<p>简单总结下教训：<br>
+<img src="https://yueqingsheng.github.io/post-images/1587407335871.jpg" alt="" loading="lazy"></p>
+<h2 id="输入输出">输入，输出</h2>
+<p>输入就是 a和 b, 输出是c。</p>
+<h3 id="first-attempt">First attempt</h3>
+<p>一开始想把天数，1到28天作为输入，28天的感染人数作为输出。去找 天数和 感染的函数关系。错误的原因，28天只是任意的28天时间段，去强行找 1-28 和感染的关系是不成立的。也没有关系。</p>
+<h3 id="second-attempt">Second attempt</h3>
+<p>用RNN实现，方向是对的。能力不够复现RNN或LSTM(吐槽下，老师说如果要写的话，要从0复现一个，地狱级难度任务)</p>
+<h3 id="总结">总结</h3>
+<p>其实确认输入输出，最重要的就是确立，想找的是什么与什么直接的关系。相互影响的那两个量。题目写的已经很清楚了，用c_t 和 t_pd 预测 c_inf</p>
+<h2 id="其中忽视的问题">其中忽视的问题</h2>
+<p>只看到了cost变大，没有去考虑原因。原因是因为梯度爆炸。梯度爆炸的原因是，输入之间差值太大，呈现exponetial爆炸增长。</p>
+<h2 id="最重要学到的点什么时候要做归一化即normalizition">！！！！ 最重要学到的点，什么时候要做归一化，即Normalizition</h2>
+<p>归一化，在处理奇异值时候特别重要，如果数据存在极大或极小值，会严重影响weight 的收敛。归一化即，把输入和输出限制在同意范围内，如[0,1],映射到同一维度内。<br>
+<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a></p>
+<p>Anyway, 有空的话，可以用LSTM复现个玩玩。获取一个多维度输入，输出将来的感染人数。直到感染变化为0为止。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 18]]></title>
         <id>https://yueqingsheng.github.io/post/day-18/</id>
@@ -30,9 +54,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1932019"><label class="task-list-item-label" for="task-item-1932019"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6279749">  vue<br>
-<label class="task-list-item-label" for="task-item-6279749">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3086475"><label class="task-list-item-label" for="task-item-3086475"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5499265">  vue<br>
+<label class="task-list-item-label" for="task-item-5499265">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -44,10 +68,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6034420"><label class="task-list-item-label" for="task-item-6034420"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8663663"><label class="task-list-item-label" for="task-item-8663663"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-12152"><label class="task-list-item-label" for="task-item-12152"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5012323"><label class="task-list-item-label" for="task-item-5012323"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4846024"><label class="task-list-item-label" for="task-item-4846024"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3855431"><label class="task-list-item-label" for="task-item-3855431"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3288454"><label class="task-list-item-label" for="task-item-3288454"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8746887"><label class="task-list-item-label" for="task-item-8746887"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -59,11 +83,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8239347"><label class="task-list-item-label" for="task-item-8239347"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1215052"><label class="task-list-item-label" for="task-item-1215052"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3096180"><label class="task-list-item-label" for="task-item-3096180"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9744283"><label class="task-list-item-label" for="task-item-9744283"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7664233"><label class="task-list-item-label" for="task-item-7664233"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5557044"><label class="task-list-item-label" for="task-item-5557044"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8011878"><label class="task-list-item-label" for="task-item-8011878"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1951028"><label class="task-list-item-label" for="task-item-1951028"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3563354"><label class="task-list-item-label" for="task-item-3563354"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1989287"><label class="task-list-item-label" for="task-item-1989287"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -107,13 +131,13 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-03T05:52:34.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3497090"><label class="task-list-item-label" for="task-item-3497090"> Angular 起步2</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5978101"><label class="task-list-item-label" for="task-item-5978101"> Angular 表单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2214227"><label class="task-list-item-label" for="task-item-2214227"> Angular 路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-262709"><label class="task-list-item-label" for="task-item-262709"> Angular 守卫</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-543267"><label class="task-list-item-label" for="task-item-543267"> Angular 异步路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6661812"><label class="task-list-item-label" for="task-item-6661812"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6467518"><label class="task-list-item-label" for="task-item-6467518"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5169730"><label class="task-list-item-label" for="task-item-5169730"> Angular 起步2</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3037601"><label class="task-list-item-label" for="task-item-3037601"> Angular 表单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8499360"><label class="task-list-item-label" for="task-item-8499360"> Angular 路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6110330"><label class="task-list-item-label" for="task-item-6110330"> Angular 守卫</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7104908"><label class="task-list-item-label" for="task-item-7104908"> Angular 异步路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5775656"><label class="task-list-item-label" for="task-item-5775656"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9465099"><label class="task-list-item-label" for="task-item-9465099"> code: morning</label></li>
 </ul>
 <p>小细节：修改了首页图标跳转</p>
 ]]></content>
@@ -125,9 +149,9 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-02T04:55:40.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9466233"><label class="task-list-item-label" for="task-item-9466233"> Angular 起步1</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5646511"><label class="task-list-item-label" for="task-item-5646511"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-263658"><label class="task-list-item-label" for="task-item-263658"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2974090"><label class="task-list-item-label" for="task-item-2974090"> Angular 起步1</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9611844"><label class="task-list-item-label" for="task-item-9611844"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7958853"><label class="task-list-item-label" for="task-item-7958853"> code: morning</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -138,11 +162,11 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-01T17:46:11.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4935842"><label class="task-list-item-label" for="task-item-4935842"> Angular Components</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-905081"><label class="task-list-item-label" for="task-item-905081"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6125706"><label class="task-list-item-label" for="task-item-6125706"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7361505"><label class="task-list-item-label" for="task-item-7361505"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5577909"><label class="task-list-item-label" for="task-item-5577909"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8066093"><label class="task-list-item-label" for="task-item-8066093"> Angular Components</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8196685"><label class="task-list-item-label" for="task-item-8196685"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7849520"><label class="task-list-item-label" for="task-item-7849520"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1742495"><label class="task-list-item-label" for="task-item-1742495"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6981248"><label class="task-list-item-label" for="task-item-6981248"> code: morning</label></li>
 </ul>
 ]]></content>
     </entry>
@@ -157,137 +181,14 @@ counselor: 关系</p>
         <content type="html"><![CDATA[<p>充满希望的春天来了。😉</p>
 <!-- more -->
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3038455"><label class="task-list-item-label" for="task-item-3038455"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9823922"><label class="task-list-item-label" for="task-item-9823922"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2322592"><label class="task-list-item-label" for="task-item-2322592"> A5 done</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3604818"><label class="task-list-item-label" for="task-item-3604818"> Angular start</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5042516"><label class="task-list-item-label" for="task-item-5042516"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3939189"><label class="task-list-item-label" for="task-item-3939189"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4795863"><label class="task-list-item-label" for="task-item-4795863"> A5 done</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5185293"><label class="task-list-item-label" for="task-item-5185293"> Angular start</label></li>
 </ul>
 <p>白天把作业写完了，晚上写了会angular,配置了插件。prettier(格式化) 和 angular essential（待学习），配置了下主题。<br>
 <img src="https://yueqingsheng.github.io/post-images/1585887699471.jpg" alt="" loading="lazy"><br>
 抽空排一下温柔的歌单吧。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Angular]]></title>
-        <id>https://yueqingsheng.github.io/post/angular/</id>
-        <link href="https://yueqingsheng.github.io/post/angular/">
-        </link>
-        <updated>2020-03-31T03:41:33.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="为什么js推荐使用单引号">为什么js推荐使用单引号</h2>
-<p><a href="https://staxmanade.com/2018/03/should-i-use-javascript-single-or-double-quotes/">单引号和多引号区别，没啥区别，单引号编译速度更快，而且单引号内可以使用双引号，有时候内部是json 格式必须用双引号</a><br>
-<a href="https://blog.csdn.net/zhaoyanmi/article/details/80119098?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1">中文解释</a></p>
-<h2 id="模块">模块</h2>
-<p>创建模块post 放在 modules/post 下  <code>ng generate module modules/post</code><br>
-componet 是生成的html 和css,ts 文件</p>
-<h3 id="模块导入">模块导入</h3>
-<p>需要导出的模块在module 的 exports中添加，<code>exports: [PostComponent],</code><br>
-引用的模块导入：<code>imports: [PostModule],</code></p>
-<h2 id="数据绑定">数据绑定</h2>
-<p>在component.ts 内声明<br>
-.html 使用{{值}}</p>
-<h3 id="ngfor">*ngFor</h3>
-<p>*ngfor 会自动扩展成 <code>&lt;ng-template ngfor&gt;</code> *是一种语法糖，缩写形式</p>
-<pre><code class="language-html">  &lt;li *ngFor=&quot;let entity of entities&quot;&gt;
-    &lt;h4&gt;{{ entity.title }}&lt;/h4&gt;
-  &lt;/li&gt;
-</code></pre>
-<h3 id="ngif">*ngIf</h3>
-<pre><code class="language-html">&lt;p *ngIf=&quot;entity.body&quot;&gt;{{ entity.body }}&lt;/p&gt;
-</code></pre>
-<h3 id="属性绑定">属性绑定</h3>
-<pre><code class="language-html">&lt;a title=&quot;{{ entity.title }}&quot; &gt;{{ entity.title }}&lt;/a&gt;
-</code></pre>
-<pre><code class="language-html">&lt;a [title]=&quot;entity.title&quot;&gt;{{ entity.title }}&lt;/a&gt;
-</code></pre>
-<p>第二种形式可以绑定标签不存在的属性值 如 text-content, Angular 官方文档在绑定属性几乎都是使用[]，而插值表达式{{}}更多是用于显示，两者最大的区别就是后者会将{{}}语句里执行完的值再转换string 类型。</p>
-<h3 id="事件绑定">事件绑定</h3>
-<pre><code class="language-html">  &lt;button (click)=&quot;removeItem(i)&quot;&gt;Remove&lt;/button&gt;
-</code></pre>
-<p>参数直接填就行</p>
-<h2 id="双向绑定">双向绑定</h2>
-<p>Module<br>
-import { FormsModule } from '@angular/forms'; // &lt;-- NgModel lives here</p>
-<p>app.module.ts (@NgModule imports)<br>
-content_copy<br>
-imports: [<br>
-BrowserModule,<br>
-FormsModule<br>
-],</p>
-<pre><code class="language-html">&lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/&gt;
-</code></pre>
-<p>[(ngModel)] 是 Angular 的双向数据绑定语法。</p>
-<p>这里把 hero.name 属性绑定到了 HTML 的 textbox 元素上，以便数据流可以双向流动：从 hero.name 属性流动到 textbox，并且从 textbox 流回到 hero.name 。</p>
-<h2 id="父子组件">父子组件</h2>
-<h3 id="父传子">父传子</h3>
-<p>传递数据， 父组件ul, 数据为entities在父组件内， 必须在子部件属性内赋值， 子部件使用@Input,， //@Input 此命令用来修饰属性是用来接收父组件传递的值  <a href="https://blog.csdn.net/xnh_565175944/article/details/82190793">参考</a><br>
-<a href="https://segmentfault.com/a/1190000013965691">有兴趣了解下单向数据流</a> angular 更新view，是在model更新阶段进行，不是model生成view阶段。</p>
-<pre><code class="language-html">  &lt;ul&gt;
-   &lt;app-post-item *ngFor = &quot;let entity of entities&quot;     [entity] = entity&gt;
-   &lt;/app-post-item&gt;
-  &lt;/ul&gt;
-</code></pre>
-<h3 id="子传父function">子传父（function）</h3>
-<p>This example features an <code>&lt;input&gt;</code> where a user can enter a value and click a <code>&lt;button&gt;</code> that raises an event. The EventEmitter then relays the data to the parent component.</p>
-<h4 id="子部件">子部件</h4>
-<pre><code class="language-typescript">  @Output() newItemEvent = new EventEmitter&lt;string&gt;();
-
- addNewItem(value: string) {
-   this.newItemEvent.emit(value);
- }
-</code></pre>
-<pre><code class="language-html">  &lt;button (click)=&quot;addNewItem(newItem.value)&quot;&gt;Add to parent's list&lt;/button&gt;
-</code></pre>
-<h4 id="父部件">父部件</h4>
-<pre><code class="language-html"> &lt;app-item-output (newItemEvent)=&quot;addItem($event)&quot;&gt;&lt;/app-item-output&gt;
-</code></pre>
-<p>The event binding, (newItemEvent)='addItem($event)', tells Angular to connect the event in the child, newItemEvent, to the method in the parent, addItem(),</p>
-<h2 id="路由">路由</h2>
-<h3 id="basics">basics</h3>
-<p><strong>app-routing.module.ts</strong></p>
-<pre><code class="language-typescript"> const routes: Routes = [{ path: 'posts', component: PostComponent }];
-</code></pre>
-<h3 id="router-link">router link</h3>
-<pre><code class="language-html">   &lt;a
-     [routerLink]=&quot;['/posts', entity.id]&quot;
-     [title]=&quot;entity.title&quot;
-     [textContent]=&quot;entity.title&quot;
-   &gt;&lt;/a&gt;
-</code></pre>
-<p>import from app-routing module</p>
-<h3 id="parammap">paramMap</h3>
-<pre><code class="language-typescript">  constructor(private route: ActivatedRoute) {}
-
- ngOnInit(): void {
-   this.route.paramMap.subscribe((params) =&gt; {
-     const postId = +params.get('id');
-     console.log(postId);
-   });
-</code></pre>
-<p>Model 标记可选属性使用问号 body?</p>
-<h3 id="服务">服务</h3>
-<pre><code class="language-typescript"> @Injectable({
- providedIn: 'root'
-})
-root表示在任何位置可以使用
-</code></pre>
-<h4 id="注入">注入</h4>
-<p>componet.ts</p>
-<pre><code class="language-typescript">   constructor(private postService: PostService) {
-   this.entities = posts;
- }
-</code></pre>
-<h2 id="表单">表单</h2>
-<p><a href="https://www.jb51.net/article/112122.htm">看这个文章，更详细点</a></p>
-<p>pre 元素可定义预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。</p>
-<p>演示：</p>
-<pre>这是一个pre标签 哈
-哈</pre>
-<h3 id="formbuilder">formBuilder</h3>
-<pre><code class="language-typescript"> registerForm = this.formBuilder.group({
-   username: ['', Validators.required],
-   password: ['', [Validators.required, Validators.minLength(6)]],
- });  
-</code></pre>
 ]]></content>
     </entry>
 </feed>
