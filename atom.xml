@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-23T00:55:01.242Z</updated>
+    <updated>2020-04-23T23:15:48.816Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yueqingsheng.github.io/post/python/</id>
         <link href="https://yueqingsheng.github.io/post/python/">
         </link>
-        <updated>2020-04-20T11:48:28.000Z</updated>
+        <updated>2020-04-19T23:48:28.000Z</updated>
         <content type="html"><![CDATA[<h2 id="print">Print</h2>
 <p>print 会自动换行，print(end=&quot;&quot;)会取消换行，end为结束后缀</p>
 <h2 id="遍历文件">遍历文件</h2>
@@ -34,6 +34,89 @@ True
 >>> "football" in str
 False
 </pre>
+<h2 id="三引号">三引号</h2>
+<p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（<strong>所见即所得</strong>）格式的。</p>
+<pre><code class="language-python">print('''I'm going to the movies''')
+
+html = '''
+&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
+Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;
+&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;
+&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back
+ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
+&lt;/BODY&gt;&lt;/HTML&gt;
+'''
+print(html)
+</code></pre>
+<h2 id="元组和列表">元组和列表</h2>
+<h3 id="元组是不可变的-而列表是可变的">元组是不可变的， 而列表是可变的。</h3>
+<p>我们可以修改列表的值，但是不能修改元组的值。<br>
+由于列表是可变的，我们不能将列表用作字典中的key。 但可以使用元组作为字典key。</p>
+<h3 id="同构与异构">同构与异构</h3>
+<p>习惯上元组多用于用于存储异构元素，异构元素即不同数据类型的元素，比如(ip,port)。 另一方面，列表用于存储异构元素，这些元素属于相同类型的元素，比如[int1,in2,in3]。</p>
+<h2 id="json">JSON</h2>
+<h3 id="python-listdict-to-json-string">Python list(dict) to json string</h3>
+<p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
+<pre><code class="language-python">import json
+data = [ { 'b' : 2, 'd' : 4, 'a' : 1, 'c' : 3, 'e' : 5 } ]
+json = json.dumps(data)
+print(json)
+</code></pre>
+<p>[{&quot;b&quot;: 2, &quot;d&quot;: 4, &quot;a&quot;: 1, &quot;c&quot;: 3, &quot;e&quot;: 5}]</p>
+<h3 id="json-string-to-python-listdict_">json string to python list(dict)_</h3>
+<p>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
+<pre><code class="language-python">import json
+jsonData = '{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}'
+text = json.loads(jsonData)  #将string转换为dict
+print(text)
+</code></pre>
+<h2 id="打包并压缩">打包并压缩</h2>
+<p>把当前目录下所有文件打包压缩成a.tar.zip</p>
+<pre><code class="language-python">tar -zcvf a.tar.zip ./
+</code></pre>
+<p>解压<br>
+-C 指定目录</p>
+<pre><code class="language-python">tar -zxvf a.tar.zip -C ../
+</code></pre>
+<h2 id="爬虫">爬虫</h2>
+<h3 id="request模块">request模块：</h3>
+<blockquote>
+<p>requests是python实现的简单易用的HTTP库，官网地址：http://cn.python-requests.org/zh_CN/latest/<br>
+requests.get(url)可以发送一个http get请求，返回服务器响应内容。</p>
+</blockquote>
+<h3 id="beautifulsoup库">BeautifulSoup库：</h3>
+<blockquote>
+<p>BeautifulSoup 是一个可以从HTML或XML文件中提取数据的Python库。网址：https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/<br>
+BeautifulSoup支持Python标准库中的HTML解析器,还支持一些第三方的解析器,其中一个是 lxml。<br>
+BeautifulSoup(markup, &quot;html.parser&quot;)或者BeautifulSoup(markup, &quot;lxml&quot;)，推荐使用lxml作为解析器,因为效率更高。</p>
+</blockquote>
+<h2 id="通过tag标签逐层查找">通过tag标签逐层查找:</h2>
+<p>soup.select(&quot;body a&quot;)</p>
+<h2 id="获取属性">获取属性</h2>
+<p>tag.get('href')<br>
+或者<br>
+tag['href']<br>
+如果不确定某个属性是否存在时,用 tag.get('attr') 方法去获取它,跟获取Python字典的key一样<br>
+tag['class']<br>
+<em><strong>KeyError: 'class'</strong></em><br>
+print(tag.get('class'))<br>
+<em><strong>None</strong></em></p>
+<pre><code class="language-python">        link = star['link']
+
+        #！！！请在以下完成对每个选手图片的爬取，将所有图片url存储在一个列表pic_urls中！！！
+        pic_urls = []
+        response = requests.get(link,headers=headers)
+
+        #将一段文档传入BeautifulSoup的构造方法,就能得到一个文档的对象, 可以传入一段字符串
+        soup = BeautifulSoup(response.text,'lxml')
+            
+        pic_list_url = soup.select(&quot;.summary-pic a&quot;)[0]['href']
+        tags1 = soup.select('div .shixian_zhaobiao')
+        tag1 = tags1[0]
+        tag2 = tag1.find(name = 'dl')
+        tags2 = tag2.find_all(name = 'a')
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -193,9 +276,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-550471"><label class="task-list-item-label" for="task-item-550471"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6904755">  vue<br>
-<label class="task-list-item-label" for="task-item-6904755">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-158690"><label class="task-list-item-label" for="task-item-158690"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6234547">  vue<br>
+<label class="task-list-item-label" for="task-item-6234547">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -207,10 +290,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4449885"><label class="task-list-item-label" for="task-item-4449885"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8584385"><label class="task-list-item-label" for="task-item-8584385"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-557531"><label class="task-list-item-label" for="task-item-557531"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-376635"><label class="task-list-item-label" for="task-item-376635"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9722398"><label class="task-list-item-label" for="task-item-9722398"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1073052"><label class="task-list-item-label" for="task-item-1073052"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4164826"><label class="task-list-item-label" for="task-item-4164826"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9976909"><label class="task-list-item-label" for="task-item-9976909"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -222,11 +305,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4345799"><label class="task-list-item-label" for="task-item-4345799"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6499272"><label class="task-list-item-label" for="task-item-6499272"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8120089"><label class="task-list-item-label" for="task-item-8120089"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1888776"><label class="task-list-item-label" for="task-item-1888776"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3953483"><label class="task-list-item-label" for="task-item-3953483"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8978160"><label class="task-list-item-label" for="task-item-8978160"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4287049"><label class="task-list-item-label" for="task-item-4287049"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1325814"><label class="task-list-item-label" for="task-item-1325814"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7676011"><label class="task-list-item-label" for="task-item-7676011"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9168553"><label class="task-list-item-label" for="task-item-9168553"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -270,13 +353,13 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-03T05:52:34.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5016829"><label class="task-list-item-label" for="task-item-5016829"> Angular 起步2</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5672979"><label class="task-list-item-label" for="task-item-5672979"> Angular 表单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5849937"><label class="task-list-item-label" for="task-item-5849937"> Angular 路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8774623"><label class="task-list-item-label" for="task-item-8774623"> Angular 守卫</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4674137"><label class="task-list-item-label" for="task-item-4674137"> Angular 异步路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5621396"><label class="task-list-item-label" for="task-item-5621396"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9045376"><label class="task-list-item-label" for="task-item-9045376"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9303179"><label class="task-list-item-label" for="task-item-9303179"> Angular 起步2</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2166447"><label class="task-list-item-label" for="task-item-2166447"> Angular 表单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3450487"><label class="task-list-item-label" for="task-item-3450487"> Angular 路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3806042"><label class="task-list-item-label" for="task-item-3806042"> Angular 守卫</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8340703"><label class="task-list-item-label" for="task-item-8340703"> Angular 异步路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4961554"><label class="task-list-item-label" for="task-item-4961554"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1936982"><label class="task-list-item-label" for="task-item-1936982"> code: morning</label></li>
 </ul>
 <p>小细节：修改了首页图标跳转</p>
 ]]></content>
@@ -288,9 +371,9 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-02T04:55:40.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3785554"><label class="task-list-item-label" for="task-item-3785554"> Angular 起步1</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8928782"><label class="task-list-item-label" for="task-item-8928782"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5600982"><label class="task-list-item-label" for="task-item-5600982"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3779219"><label class="task-list-item-label" for="task-item-3779219"> Angular 起步1</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1830819"><label class="task-list-item-label" for="task-item-1830819"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9314527"><label class="task-list-item-label" for="task-item-9314527"> code: morning</label></li>
 </ul>
 ]]></content>
     </entry>
