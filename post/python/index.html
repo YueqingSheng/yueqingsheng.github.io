@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1587683743639" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1587759383546" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1587683743639" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1587759383546" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -180,9 +180,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">3.8
+                                    href="#">5.8
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">836</a></span>
+                                    <span class="post-words">words:<a href="#">1246</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -302,6 +302,69 @@ print(tag.get('class'))<br>
         tag2 = tag1.find(name = 'dl')
         tags2 = tag2.find_all(name = 'a')
 </code></pre>
+<h2 id="pandas">pandas</h2>
+<h3 id="dataframe">dataframe</h3>
+<h3 id="cut">cut</h3>
+<pre><code class="language-python">将age按0-5，5-20...bins 分成 既几部分，label为[婴儿，青年...]
+ages = np.array([1,5,10,40,36,12,58,62,77,89,100,18,20,25,30,32]) #年龄数据
+pd.cut(ages, [0,5,20,30,50,100], labels=[u&quot;婴儿&quot;,u&quot;青年&quot;,u&quot;中年&quot;,u&quot;壮年&quot;,u&quot;老年&quot;])
+</code></pre>
+<p><a href="https://www.cnblogs.com/sench/p/10128216.html">参考</a></p>
+<h3 id="value_counts">value_counts</h3>
+<p>df.value_counts()  以Series形式返回指定列的不同取值的频率,默认按频率从高到低排序</p>
+<h3 id="groupby">groupby</h3>
+<pre><code class="language-python">df['name'].groupby(df['zone'])
+s = grouped.count()
+zone
+中国上海      5
+中国北京      9
+df = pd.DataFrame({'Animal': ['Falcon', 'Falcon',
+                              'Parrot', 'Parrot'],
+                   'Max Speed': [380., 370., 24., 26.]})
+df
+   Animal  Max Speed
+0  Falcon      380.0
+1  Falcon      370.0
+2  Parrot       24.0
+3  Parrot       26.0
+df.groupby(['Animal']).mean()
+        Max Speed
+Animal
+Falcon      375.0
+Parrot       25.0
+</code></pre>
+<h2 id="matplot">matplot</h2>
+<h2 id="matplotlib-inline">%matplotlib inline</h2>
+<p>%matplotlib inline 可以在Ipython编译器里直接使用，功能是可以内嵌绘图，并且可以省略掉plt.show()这一步</p>
+<h2 id="pie">pie</h2>
+<p>参数：</p>
+<blockquote>
+<p>x       :(每一块)的比例，如果sum(x) &gt; 1会使用sum(x)归一化；<br>
+labels  :(每一块)饼图外侧显示的说明文字；<br>
+explode :(每一块)离开中心距离；<br>
+startangle :起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起；<br>
+shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/biyoulin/p/9565350.html">参考</a></p>
+<h3 id="正圆">正圆</h3>
+<p>plt.axis('equal')</p>
+<h2 id="string-format">string format</h2>
+<h3 id="python-36">python &gt;3.6</h3>
+<blockquote>
+<p>&gt;&gt;&gt; name = 'hoxis'<br>
+&gt;&gt;&gt; age = 18<br>
+&gt;&gt;&gt; f&quot;hi, {name}, are you {age}&quot;<br>
+'hi, hoxis, are you 18'</p>
+</blockquote>
+<h2 id="百分号">百分号</h2>
+<p>%%表示百分号</p>
+<blockquote>
+<p>&gt;&gt;&gt; print('数据的比例是:%.2f%%' %(scale * 100))<br>
+数据的比例是:10.00%<br>
+&gt;&gt;&gt; print('数据的比例是:%d%%' %(scale * 100))<br>
+数据的比例是:10%</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/39128162">参考</a></p>
 
                         </div>
                         
@@ -338,6 +401,27 @@ print(tag.get('class'))<br>
 </li>
 <li><a href="#%E9%80%9A%E8%BF%87tag%E6%A0%87%E7%AD%BE%E9%80%90%E5%B1%82%E6%9F%A5%E6%89%BE">通过tag标签逐层查找:</a></li>
 <li><a href="#%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7">获取属性</a></li>
+<li><a href="#pandas">pandas</a>
+<ul>
+<li><a href="#dataframe">dataframe</a></li>
+<li><a href="#cut">cut</a></li>
+<li><a href="#value_counts">value_counts</a></li>
+<li><a href="#groupby">groupby</a></li>
+</ul>
+</li>
+<li><a href="#matplot">matplot</a></li>
+<li><a href="#matplotlib-inline">%matplotlib inline</a></li>
+<li><a href="#pie">pie</a>
+<ul>
+<li><a href="#%E6%AD%A3%E5%9C%86">正圆</a></li>
+</ul>
+</li>
+<li><a href="#string-format">string format</a>
+<ul>
+<li><a href="#python-36">python &gt;3.6</a></li>
+</ul>
+</li>
+<li><a href="#%E7%99%BE%E5%88%86%E5%8F%B7">百分号</a></li>
 </ul>
 </li>
 </ul>
@@ -368,9 +452,13 @@ print(tag.get('class'))<br>
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/vue/">
+                                                                                            Vue
+                                                                                        </a>
+                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/vue/">
-                                                                                                    Vue
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/">
+                                                                                                    第一次神经网络实践
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -485,7 +573,7 @@ print(tag.get('class'))<br>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1587683743639);
+                    newDate.setTime(1587759383546);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
