@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1587761358519" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1588049049862" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1587761358519" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1588049049862" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -180,9 +180,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">5.8
+                                    href="#">8.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">1246</a></span>
+                                    <span class="post-words">words:<a href="#">1748</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -276,9 +276,9 @@ requests.get(url)可以发送一个http get请求，返回服务器响应内容�
 BeautifulSoup支持Python标准库中的HTML解析器,还支持一些第三方的解析器,其中一个是 lxml。<br>
 BeautifulSoup(markup, &quot;html.parser&quot;)或者BeautifulSoup(markup, &quot;lxml&quot;)，推荐使用lxml作为解析器,因为效率更高。</p>
 </blockquote>
-<h2 id="通过tag标签逐层查找">通过tag标签逐层查找:</h2>
+<h3 id="通过tag标签逐层查找">通过tag标签逐层查找:</h3>
 <p>soup.select(&quot;body a&quot;)</p>
-<h2 id="获取属性">获取属性</h2>
+<h3 id="获取属性">获取属性</h3>
 <p>tag.get('href')<br>
 或者<br>
 tag['href']<br>
@@ -288,8 +288,11 @@ tag['class']<br>
 print(tag.get('class'))<br>
 <em><strong>None</strong></em></p>
 <pre><code class="language-python">        link = star['link']
+         headers = { 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    }
 
-        #！！！请在以下完成对每个选手图片的爬取，将所有图片url存储在一个列表pic_urls中！！！
+        #！！！请在以下完成对每个选手图片的爬取，将所有图片url存储在一个列表pic_urls中！！！    
         pic_urls = []
         response = requests.get(link,headers=headers)
 
@@ -302,6 +305,26 @@ print(tag.get('class'))<br>
         tag2 = tag1.find(name = 'dl')
         tags2 = tag2.find_all(name = 'a')
 </code></pre>
+<h3 id="jsonp-to-json">jsonp to json</h3>
+<pre><code>response_json = response[ response.index(&quot;(&quot;) + 1 : response.rindex(&quot;) }
+catch&quot;)]
+</code></pre>
+<p>或者get请求的时候，去掉callback=,则会返回json</p>
+<h3 id="动态请求">动态请求</h3>
+<p>如果数据是动态加载，可以在浏览器network里查看请求的api</p>
+<h2 id="写入文件">写入文件</h2>
+<blockquote>
+<p>With the &quot;With&quot; statement, you get better syntax and exceptions handling.<br>
+&quot;The with statement simplifies exception handling by encapsulating common<br>
+preparation and cleanup tasks.&quot;<br>
+In addition, it will automatically close the file. The with statement provides<br>
+a way for ensuring that a clean-up is always used.</p>
+</blockquote>
+<pre><code class="language-python">with open('output.txt', 'w') as file:  # Use file to refer to the file object
+
+    file.write('Hi there!')
+</code></pre>
+<p>with 省去写exception handler和close file</p>
 <h2 id="pandas">pandas</h2>
 <h3 id="dataframe">dataframe</h3>
 <h3 id="cut">cut</h3>
@@ -365,6 +388,54 @@ shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；
 数据的比例是:10%</p>
 </blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/39128162">参考</a></p>
+<h2 id="词云">词云</h2>
+<pre><code class="language-python"> 根据词频绘制词云图
+    参数 word_f:统计出的词频结果
+    # 生成对象
+    mask = np.array(Image.open(&quot;alice_mask.png&quot;))
+    wc = WordCloud(mask=mask, font_path='SimHei.ttf', mode='RGBA', background_color=None)
+    wc.fit_words(word_f)
+    
+    
+    # 显示词云
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis(&quot;off&quot;)
+    plt.show()
+    
+    # 保存到文件
+    wc.to_file('wordcloud.png')
+</code></pre>
+<h2 id="matlibplot-加载中文字体">matlibplot 加载中文字体</h2>
+<pre><code class="language-python">	#下载中文字体
+	wget https://mydueros.cdn.bcebos.com/font/simhei.ttf 
+	#在操作系统中创建字体目录fonts（可能已经有
+	mkdir .fonts
+	# 复制字体文件到该路径
+	cp simhei.ttf .fonts/
+	#复制字体到当前使用的conda环境中的matplotlib下的指定路径
+	cp simhei.ttf /opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/
+	# Linux系统默认字体文件路径
+	ls /usr/share/fonts/
+	# 查看系统可用的ttf格式中文字体
+	fc-list :lang=zh | grep &quot;.ttf&quot;
+	 # 设置显示中文
+    matplotlib.rcParams['font.san-serif'] = ['SimHei']
+    # 解决负号'-'显示为方块的问题
+    matplotlib.rcParams['axes.unicode_minus'] = False
+</code></pre>
+<p>如果没成功，尝试reload matplot font manager</p>
+<h2 id="jieba-分词">jieba 分词</h2>
+<pre><code class="language-python">   jieba.load_userdict('name.txt') #name.txt 为用户自定义分词
+   seg = jieba.lcut(text,cut_all=False)
+</code></pre>
+<h2 id="停用词">停用词</h2>
+<pre><code class="language-python">stopwords = [line.strip() for line in open(file_path, encoding=&quot;UTF-8&quot;).readlines()]
+for word in sentence:
+        if word not in stopwords:
+            if len(word) &gt; 1:
+                counts[word] = counts.get(word, 0) + 1
+</code></pre>
+<p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0</p>
 
                         </div>
                         
@@ -397,10 +468,13 @@ shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；
 <ul>
 <li><a href="#request%E6%A8%A1%E5%9D%97">request模块：</a></li>
 <li><a href="#beautifulsoup%E5%BA%93">BeautifulSoup库：</a></li>
-</ul>
-</li>
 <li><a href="#%E9%80%9A%E8%BF%87tag%E6%A0%87%E7%AD%BE%E9%80%90%E5%B1%82%E6%9F%A5%E6%89%BE">通过tag标签逐层查找:</a></li>
 <li><a href="#%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7">获取属性</a></li>
+<li><a href="#jsonp-to-json">jsonp to json</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%AF%B7%E6%B1%82">动态请求</a></li>
+</ul>
+</li>
+<li><a href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6">写入文件</a></li>
 <li><a href="#pandas">pandas</a>
 <ul>
 <li><a href="#dataframe">dataframe</a></li>
@@ -422,6 +496,10 @@ shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；
 <li><a href="#%E7%99%BE%E5%88%86%E5%8F%B7">百分号</a></li>
 </ul>
 </li>
+<li><a href="#%E8%AF%8D%E4%BA%91">词云</a></li>
+<li><a href="#matlibplot-%E5%8A%A0%E8%BD%BD%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93">matlibplot 加载中文字体</a></li>
+<li><a href="#jieba-%E5%88%86%E8%AF%8D">jieba 分词</a></li>
+<li><a href="#%E5%81%9C%E7%94%A8%E8%AF%8D">停用词</a></li>
 </ul>
 </li>
 </ul>
@@ -573,7 +651,7 @@ shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1587761358519);
+                    newDate.setTime(1588049049862);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

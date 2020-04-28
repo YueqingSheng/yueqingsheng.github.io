@@ -582,6 +582,10 @@
   font-size: larger;
   background: #ffffff33;
 }
+.intro .avatar img {
+  width: 128px;
+  height: 128px;
+}
 @media screen and (max-width: 780px) {
   .Like {
     left: -80%;
