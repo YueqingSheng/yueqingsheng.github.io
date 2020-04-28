@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-28T04:44:15.587Z</updated>
+    <updated>2020-04-28T04:50:36.466Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -124,11 +124,35 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[第一次神经网络实践]]></title>
+        <id>https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/</id>
+        <link href="https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/">
+        </link>
+        <updated>2020-04-17T17:44:55.000Z</updated>
+        <content type="html"><![CDATA[<p>简单总结下教训：<br>
+<img src="https://yueqingsheng.github.io/post-images/1587407335871.jpg" alt="" loading="lazy"></p>
+<h2 id="输入输出">输入，输出</h2>
+<p>输入就是 a和 b, 输出是c。</p>
+<h3 id="first-attempt">First attempt</h3>
+<p>一开始想把天数，1到28天作为输入，28天的感染人数作为输出。去找 天数和 感染的函数关系。错误的原因，28天只是任意的28天时间段，去强行找 1-28 和感染的关系是不成立的。也没有关系。</p>
+<h3 id="second-attempt">Second attempt</h3>
+<p>用RNN实现，方向是对的。能力不够复现RNN或LSTM(吐槽下，老师说如果要写的话，要从0复现一个，地狱级难度任务)</p>
+<h3 id="总结">总结</h3>
+<p>其实确认输入输出，最重要的就是确立，想找的是什么与什么直接的关系。相互影响的那两个量。题目写的已经很清楚了，用c_t 和 t_pd 预测 c_inf</p>
+<h2 id="其中忽视的问题">其中忽视的问题</h2>
+<p>只看到了cost变大，没有去考虑原因。原因是因为梯度爆炸。梯度爆炸的原因是，输入之间差值太大，呈现exponetial爆炸增长。</p>
+<h2 id="最重要学到的点什么时候要做归一化即normalizition">！！！！ 最重要学到的点，什么时候要做归一化，即Normalizition</h2>
+<p>归一化，在处理奇异值时候特别重要，如果数据存在极大或极小值，会严重影响weight 的收敛。归一化即，把输入和输出限制在同意范围内，如[0,1],映射到同一维度内。<br>
+<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a></p>
+<p>Anyway, 有空的话，可以用LSTM复现个玩玩。获取一个多维度输入，输出将来的感染人数。直到感染变化为0为止。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Python]]></title>
         <id>https://yueqingsheng.github.io/post/python/</id>
         <link href="https://yueqingsheng.github.io/post/python/">
         </link>
-        <updated>2020-04-17T23:48:28.000Z</updated>
+        <updated>2020-04-17T11:48:28.000Z</updated>
         <content type="html"><![CDATA[<h2 id="print">Print</h2>
 <p>print 会自动换行，print(end=&quot;&quot;)会取消换行，end为结束后缀</p>
 <h2 id="遍历文件">遍历文件</h2>
@@ -363,31 +387,8 @@ for word in sentence:
             if len(word) &gt; 1:
                 counts[word] = counts.get(word, 0) + 1
 </code></pre>
-<p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第一次神经网络实践]]></title>
-        <id>https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/</id>
-        <link href="https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/">
-        </link>
-        <updated>2020-04-17T17:44:55.000Z</updated>
-        <content type="html"><![CDATA[<p>简单总结下教训：<br>
-<img src="https://yueqingsheng.github.io/post-images/1587407335871.jpg" alt="" loading="lazy"></p>
-<h2 id="输入输出">输入，输出</h2>
-<p>输入就是 a和 b, 输出是c。</p>
-<h3 id="first-attempt">First attempt</h3>
-<p>一开始想把天数，1到28天作为输入，28天的感染人数作为输出。去找 天数和 感染的函数关系。错误的原因，28天只是任意的28天时间段，去强行找 1-28 和感染的关系是不成立的。也没有关系。</p>
-<h3 id="second-attempt">Second attempt</h3>
-<p>用RNN实现，方向是对的。能力不够复现RNN或LSTM(吐槽下，老师说如果要写的话，要从0复现一个，地狱级难度任务)</p>
-<h3 id="总结">总结</h3>
-<p>其实确认输入输出，最重要的就是确立，想找的是什么与什么直接的关系。相互影响的那两个量。题目写的已经很清楚了，用c_t 和 t_pd 预测 c_inf</p>
-<h2 id="其中忽视的问题">其中忽视的问题</h2>
-<p>只看到了cost变大，没有去考虑原因。原因是因为梯度爆炸。梯度爆炸的原因是，输入之间差值太大，呈现exponetial爆炸增长。</p>
-<h2 id="最重要学到的点什么时候要做归一化即normalizition">！！！！ 最重要学到的点，什么时候要做归一化，即Normalizition</h2>
-<p>归一化，在处理奇异值时候特别重要，如果数据存在极大或极小值，会严重影响weight 的收敛。归一化即，把输入和输出限制在同意范围内，如[0,1],映射到同一维度内。<br>
-<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a></p>
-<p>Anyway, 有空的话，可以用LSTM复现个玩玩。获取一个多维度输入，输出将来的感染人数。直到感染变化为0为止。</p>
+<p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0<br>
+<a href="https://github.com/goto456/stopwords">中文常用停用词词表</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -410,9 +411,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2281615"><label class="task-list-item-label" for="task-item-2281615"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4055993">  vue<br>
-<label class="task-list-item-label" for="task-item-4055993">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9267776"><label class="task-list-item-label" for="task-item-9267776"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9623590">  vue<br>
+<label class="task-list-item-label" for="task-item-9623590">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -424,10 +425,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-631671"><label class="task-list-item-label" for="task-item-631671"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1877823"><label class="task-list-item-label" for="task-item-1877823"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6879224"><label class="task-list-item-label" for="task-item-6879224"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3869764"><label class="task-list-item-label" for="task-item-3869764"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8216080"><label class="task-list-item-label" for="task-item-8216080"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9072801"><label class="task-list-item-label" for="task-item-9072801"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8234917"><label class="task-list-item-label" for="task-item-8234917"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8130063"><label class="task-list-item-label" for="task-item-8130063"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -439,11 +440,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3120403"><label class="task-list-item-label" for="task-item-3120403"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6987171"><label class="task-list-item-label" for="task-item-6987171"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9588103"><label class="task-list-item-label" for="task-item-9588103"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-563513"><label class="task-list-item-label" for="task-item-563513"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6201029"><label class="task-list-item-label" for="task-item-6201029"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-174601"><label class="task-list-item-label" for="task-item-174601"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2022676"><label class="task-list-item-label" for="task-item-2022676"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9079207"><label class="task-list-item-label" for="task-item-9079207"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-755836"><label class="task-list-item-label" for="task-item-755836"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7490915"><label class="task-list-item-label" for="task-item-7490915"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -487,13 +488,13 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-03T05:52:34.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5082403"><label class="task-list-item-label" for="task-item-5082403"> Angular 起步2</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4374038"><label class="task-list-item-label" for="task-item-4374038"> Angular 表单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8919215"><label class="task-list-item-label" for="task-item-8919215"> Angular 路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2526023"><label class="task-list-item-label" for="task-item-2526023"> Angular 守卫</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4120920"><label class="task-list-item-label" for="task-item-4120920"> Angular 异步路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1082511"><label class="task-list-item-label" for="task-item-1082511"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6855761"><label class="task-list-item-label" for="task-item-6855761"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2349749"><label class="task-list-item-label" for="task-item-2349749"> Angular 起步2</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3137628"><label class="task-list-item-label" for="task-item-3137628"> Angular 表单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1117966"><label class="task-list-item-label" for="task-item-1117966"> Angular 路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9845685"><label class="task-list-item-label" for="task-item-9845685"> Angular 守卫</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1283964"><label class="task-list-item-label" for="task-item-1283964"> Angular 异步路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9998550"><label class="task-list-item-label" for="task-item-9998550"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8297101"><label class="task-list-item-label" for="task-item-8297101"> code: morning</label></li>
 </ul>
 <p>小细节：修改了首页图标跳转</p>
 ]]></content>
@@ -505,9 +506,9 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-02T04:55:40.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-101149"><label class="task-list-item-label" for="task-item-101149"> Angular 起步1</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9850200"><label class="task-list-item-label" for="task-item-9850200"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4017530"><label class="task-list-item-label" for="task-item-4017530"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7986637"><label class="task-list-item-label" for="task-item-7986637"> Angular 起步1</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6662168"><label class="task-list-item-label" for="task-item-6662168"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8212793"><label class="task-list-item-label" for="task-item-8212793"> code: morning</label></li>
 </ul>
 ]]></content>
     </entry>
