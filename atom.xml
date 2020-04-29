@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-28T04:50:36.466Z</updated>
+    <updated>2020-04-29T05:20:33.633Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,52 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
+    <entry>
+        <title type="html"><![CDATA[青春有你2 评论分析拓展]]></title>
+        <id>https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/</id>
+        <link href="https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/">
+        </link>
+        <updated>2020-04-27T18:05:39.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-数据爬取爬取所有视频下的评论">1. 数据爬取(爬取所有视频下的评论)</h2>
+<h3 id="获取视频列表">获取视频列表</h3>
+<p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
+找到 li标签下 class为play-list-item的data-td属性<br>
+<img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
+<strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
+<h3 id="获取评论列表">获取评论列表</h3>
+<p>接口为https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time</p>
+<blockquote>
+<p>url参数：<br>
+content_id: 视频id 通过上方的的视频列表中获取<br>
+last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
+page: 翻页的页数<br>
+page_size: 每页评论的个数</p>
+</blockquote>
+<h4 id="如何获取全部评论">如何获取全部评论</h4>
+<p>两个思路</p>
+<ol>
+<li>检查lastid 是否重复了，说明获取到最后一个</li>
+<li>其实返回的data里有一个参数，&quot;remaining&quot;:0。剩余评论个数，检查这个为0就可以了。</li>
+</ol>
+<p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
+<strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
+<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论</strong></p>
+<h2 id="2-数据清洗">2. 数据清洗</h2>
+<p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
+如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
+清洗后为 虞书欣冲呀！！！</p>
+<h2 id="3-选手预测">3. 选手预测</h2>
+<p>随机抽取不同视频下10万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588135975570.png" alt="" loading="lazy"></p>
+<h2 id="4-词云">4. 词云</h2>
+<p>按照词频显示词云<br>
+<img src="https://yueqingsheng.github.io/post-images/1588136155931.png" alt="" loading="lazy"><br>
+下面这个是试了下wordcloud官网的上色。感觉效果没直接生成好，只是试一下上色功能。<br>
+<img src="https://yueqingsheng.github.io/post-images/1588137241776.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue]]></title>
         <id>https://yueqingsheng.github.io/post/vue/</id>
@@ -411,9 +457,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9267776"><label class="task-list-item-label" for="task-item-9267776"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9623590">  vue<br>
-<label class="task-list-item-label" for="task-item-9623590">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9126823"><label class="task-list-item-label" for="task-item-9126823"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6037393">  vue<br>
+<label class="task-list-item-label" for="task-item-6037393">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -425,10 +471,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8216080"><label class="task-list-item-label" for="task-item-8216080"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9072801"><label class="task-list-item-label" for="task-item-9072801"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8234917"><label class="task-list-item-label" for="task-item-8234917"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8130063"><label class="task-list-item-label" for="task-item-8130063"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1731769"><label class="task-list-item-label" for="task-item-1731769"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5359813"><label class="task-list-item-label" for="task-item-5359813"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5484488"><label class="task-list-item-label" for="task-item-5484488"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9715263"><label class="task-list-item-label" for="task-item-9715263"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -440,11 +486,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-174601"><label class="task-list-item-label" for="task-item-174601"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2022676"><label class="task-list-item-label" for="task-item-2022676"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9079207"><label class="task-list-item-label" for="task-item-9079207"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-755836"><label class="task-list-item-label" for="task-item-755836"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7490915"><label class="task-list-item-label" for="task-item-7490915"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9184063"><label class="task-list-item-label" for="task-item-9184063"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5895173"><label class="task-list-item-label" for="task-item-5895173"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-144264"><label class="task-list-item-label" for="task-item-144264"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4751757"><label class="task-list-item-label" for="task-item-4751757"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-686556"><label class="task-list-item-label" for="task-item-686556"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -488,28 +534,15 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-03T05:52:34.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2349749"><label class="task-list-item-label" for="task-item-2349749"> Angular 起步2</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3137628"><label class="task-list-item-label" for="task-item-3137628"> Angular 表单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1117966"><label class="task-list-item-label" for="task-item-1117966"> Angular 路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9845685"><label class="task-list-item-label" for="task-item-9845685"> Angular 守卫</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1283964"><label class="task-list-item-label" for="task-item-1283964"> Angular 异步路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9998550"><label class="task-list-item-label" for="task-item-9998550"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8297101"><label class="task-list-item-label" for="task-item-8297101"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3142688"><label class="task-list-item-label" for="task-item-3142688"> Angular 起步2</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4266005"><label class="task-list-item-label" for="task-item-4266005"> Angular 表单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-215709"><label class="task-list-item-label" for="task-item-215709"> Angular 路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5023697"><label class="task-list-item-label" for="task-item-5023697"> Angular 守卫</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8534285"><label class="task-list-item-label" for="task-item-8534285"> Angular 异步路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2216744"><label class="task-list-item-label" for="task-item-2216744"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4148344"><label class="task-list-item-label" for="task-item-4148344"> code: morning</label></li>
 </ul>
 <p>小细节：修改了首页图标跳转</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 13]]></title>
-        <id>https://yueqingsheng.github.io/post/day-13/</id>
-        <link href="https://yueqingsheng.github.io/post/day-13/">
-        </link>
-        <updated>2020-04-02T04:55:40.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7986637"><label class="task-list-item-label" for="task-item-7986637"> Angular 起步1</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6662168"><label class="task-list-item-label" for="task-item-6662168"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8212793"><label class="task-list-item-label" for="task-item-8212793"> code: morning</label></li>
-</ul>
 ]]></content>
     </entry>
 </feed>

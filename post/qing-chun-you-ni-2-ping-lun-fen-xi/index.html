@@ -170,23 +170,145 @@
 </script>
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap tags">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                青春有你2 评论分析拓展
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">2.0
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">538</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
+                                
+                        </header>
                         
-                            <a href="https://yueqingsheng.github.io/tag/cheatsheet/">
-                                <p class="post-title">
-                                    <i class="fa fa-tags" aria-hidden="true"> cheatsheet</i>
-                                </p>
-                            </a>
+                        <div class="post-content">
+                            <h2 id="1-数据爬取爬取所有视频下的评论">1. 数据爬取(爬取所有视频下的评论)</h2>
+<h3 id="获取视频列表">获取视频列表</h3>
+<p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
+找到 li标签下 class为play-list-item的data-td属性<br>
+<img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
+<strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
+<h3 id="获取评论列表">获取评论列表</h3>
+<p>接口为https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time</p>
+<blockquote>
+<p>url参数：<br>
+content_id: 视频id 通过上方的的视频列表中获取<br>
+last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
+page: 翻页的页数<br>
+page_size: 每页评论的个数</p>
+</blockquote>
+<h4 id="如何获取全部评论">如何获取全部评论</h4>
+<p>两个思路</p>
+<ol>
+<li>检查lastid 是否重复了，说明获取到最后一个</li>
+<li>其实返回的data里有一个参数，&quot;remaining&quot;:0。剩余评论个数，检查这个为0就可以了。</li>
+</ol>
+<p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
+<strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
+<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论</strong></p>
+<h2 id="2-数据清洗">2. 数据清洗</h2>
+<p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
+如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
+清洗后为 虞书欣冲呀！！！</p>
+<h2 id="3-选手预测">3. 选手预测</h2>
+<p>随机抽取不同视频下10万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588135975570.png" alt="" loading="lazy"></p>
+<h2 id="4-词云">4. 词云</h2>
+<p>按照词频显示词云<br>
+<img src="https://yueqingsheng.github.io/post-images/1588136155931.png" alt="" loading="lazy"><br>
+下面这个是试了下wordcloud官网的上色。感觉效果没直接生成好，只是试一下上色功能。<br>
+<img src="https://yueqingsheng.github.io/post-images/1588137241776.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重</p>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96%E7%88%AC%E5%8F%96%E6%89%80%E6%9C%89%E8%A7%86%E9%A2%91%E4%B8%8B%E7%9A%84%E8%AF%84%E8%AE%BA">1. 数据爬取(爬取所有视频下的评论)</a>
+<ul>
+<li><a href="#%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8">获取视频列表</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E8%AF%84%E8%AE%BA%E5%88%97%E8%A1%A8">获取评论列表</a>
+<ul>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%A8%E9%83%A8%E8%AF%84%E8%AE%BA">如何获取全部评论</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97">2. 数据清洗</a></li>
+<li><a href="#3-%E9%80%89%E6%89%8B%E9%A2%84%E6%B5%8B">3. 选手预测</a></li>
+<li><a href="#4-%E8%AF%8D%E4%BA%91">4. 词云</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+                            </div>
                             
-                            <a href="https://yueqingsheng.github.io/tag/log/">
-                                <p class="post-title">
-                                    <i class="fa fa-tags" aria-hidden="true"> 日常</i>
-                                </p>
-                            </a>
-                            
-                    </div>
+                                
+                                                    
+
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span><strong>Tag(s):</strong></span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();"><strong>back</strong></a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/vue/">
+                                                                                                    Vue
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '5f41987445e31b69b727',
+        clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+        repo: 'yueqingsheng.github.io',
+        owner: 'YueqingSheng',
+        admin: ['YueqingSheng'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
     <div id="player"></div>
@@ -277,5 +399,8 @@
                 
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>
