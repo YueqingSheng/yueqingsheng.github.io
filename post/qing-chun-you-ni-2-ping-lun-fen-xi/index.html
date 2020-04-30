@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1588137899107" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1588215505418" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1588137899107" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1588215505418" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -180,9 +180,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">2.3
+                                    href="#">4.5
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">618</a></span>
+                                    <span class="post-words">words:<a href="#">1290</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -192,47 +192,68 @@
                         </header>
                         
                         <div class="post-content">
-                            <h2 id="1-数据爬取爬取所有视频下的评论">1. 数据爬取(爬取所有视频下的评论)</h2>
+                            <h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
 <h3 id="获取视频列表">获取视频列表</h3>
 <p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
 找到 li标签下 class为play-list-item的data-td属性<br>
 <img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
 <strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
 <h3 id="获取评论列表">获取评论列表</h3>
-<p>接口为https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time</p>
+<p><a href="https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time">接口</a></p>
 <blockquote>
 <p>url参数：<br>
 content_id: 视频id 通过上方的的视频列表中获取<br>
 last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
 page: 翻页的页数<br>
-page_size: 每页评论的个数</p>
+page_size: 每页评论的个数<br>
+upremaining: 1最后一页， 0 后面还有内容</p>
 </blockquote>
 <h4 id="如何获取全部评论">如何获取全部评论</h4>
 <p>两个思路</p>
 <ol>
 <li>检查lastid 是否重复了，说明获取到最后一个</li>
-<li>其实返回的data里有一个参数，&quot;remaining&quot;:0。剩余评论个数，检查这个为0就可以了。</li>
+<li>其实返回的data里有一个参数，&quot;upremaining&quot;:0。检查这个为1就可以了。</li>
 </ol>
 <p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
 <strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
-<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论</strong></p>
+<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论,总共花了1分3秒。不用多线程的话，估计要20多分钟。</strong><br>
+截至2020日4月29日总共爬取了254287条数据。</p>
 <h2 id="2-数据清洗">2. 数据清洗</h2>
 <p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
 如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
 清洗后为 虞书欣冲呀！！！</p>
-<h2 id="3-选手预测">3. 选手预测</h2>
-<p>随机抽取不同视频下10万条评论统计，按前20选手姓名出现频率排序<br>
-<img src="https://yueqingsheng.github.io/post-images/1588135975570.png" alt="" loading="lazy"></p>
-<h2 id="4-词云">4. 词云</h2>
+<h2 id="3-分词">3. 分词</h2>
+<p><strong>数据请求后, 评论列表不再改变可以转化为tuple使用, tuple的access速度会比list快</strong><br>
+使用tuple分词用了 9分3秒，会比list快十几秒。</p>
+<h2 id="4-选手词频统计">4. 选手词频统计</h2>
+<p>经过25万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588203706129.png" alt="" loading="lazy"><br>
+跟之前爬单期数据区别蛮大的，刘雨昕变成了第一。</p>
+<h2 id="5-词云">5. 词云</h2>
 <p>按照词频显示词云<br>
-<img src="https://yueqingsheng.github.io/post-images/1588136155931.png" alt="" loading="lazy"><br>
-下面这个是试了下wordcloud官网的上色。感觉效果没直接生成好，只是试一下上色功能。<br>
-<img src="https://yueqingsheng.github.io/post-images/1588137241776.png" alt="" loading="lazy"></p>
+<img src="https://yueqingsheng.github.io/post-images/1588204256188.png" alt="" loading="lazy"><br>
+之前用形状和上色绘制了下词云，但是感觉效果没有原生的好。(这个是基于1000条数据生成的)<br>
+<img src="https://yueqingsheng.github.io/post-images/1588211480849.png" alt="" loading="lazy"></p>
+<h2 id="6-节目评价">6. 节目评价</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1588210836624.png" alt="" loading="lazy"><br>
+总体还是正向和中性评价占了绝大多数，95%。<br>
+随机打印一点 评价<br>
+正向：<br>
+['因为看了书欣的电视剧才来看这个的，喜欢她的性格', '我也喜欢左卓', '好喜欢刘雨昕！', '我真的太爱刘雨昕了', '好看好看', '看了这期，真的很心疼喻言', '安崎反差萌真的绝了，好看的颜值和有趣的灵魂她都拥有。', '我也喜欢虞书欣', '虞书欣加油', '冲着虞书欣搞笑视频来的，后面发现太太太多想pick的了。这种模式是看的第一个，努力又融洽的氛围真好。']<br>
+中性：<br>
+['乃万！', '乃万', '我要去看男团了拜拜，记得给我点赞', '大家要帮忙投票了吗我这儿还有13票', '大家有要帮忙投票的吗我还有14', '虞书欣', '乃万简直是可盐可甜可rap 可vocal， 随时写词的到处撩妹的博爱艺术家 。', '谢可寅小姐姐要加油喽。', '刘雨昕', '林凡']<br>
+负面;<br>
+['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', '看看徐紫茵吧，看孩子吧！她真的是个宝藏！入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
+<p><strong>模型把很多人名识别成了中性词，对英文的词性识别可能还不是很好。</strong><br>
+<strong>有一些负面评价识别还行，但是也有不准的时候。比如“爱死了”， &quot;小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！&quot;可能把呜呜呜识别成负面了。</strong></p>
 <h2 id="总结">总结</h2>
-<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重</p>
+<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重，list改用tuple<br>
+经过爬取所有评论和同一句子人名去重后，发现数据可视化后还是变化挺大的。有很多人一个评论发很多重复的一个人名。</p>
 <h3 id="可拓展方面">可拓展方面</h3>
-<p>其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
-评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。</p>
+<p>评论生成，用文本生成模型生成一些青春有你相关的评论。<br>
+其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
+评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。<br>
+评论的用户信息</p>
 
                         </div>
                         
@@ -240,7 +261,7 @@ page_size: 每页评论的个数</p>
                                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#1-%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96%E7%88%AC%E5%8F%96%E6%89%80%E6%9C%89%E8%A7%86%E9%A2%91%E4%B8%8B%E7%9A%84%E8%AF%84%E8%AE%BA">1. 数据爬取(爬取所有视频下的评论)</a>
+<li><a href="#1-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96">1. 多线程数据爬取</a>
 <ul>
 <li><a href="#%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8">获取视频列表</a></li>
 <li><a href="#%E8%8E%B7%E5%8F%96%E8%AF%84%E8%AE%BA%E5%88%97%E8%A1%A8">获取评论列表</a>
@@ -251,8 +272,10 @@ page_size: 每页评论的个数</p>
 </ul>
 </li>
 <li><a href="#2-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97">2. 数据清洗</a></li>
-<li><a href="#3-%E9%80%89%E6%89%8B%E9%A2%84%E6%B5%8B">3. 选手预测</a></li>
-<li><a href="#4-%E8%AF%8D%E4%BA%91">4. 词云</a></li>
+<li><a href="#3-%E5%88%86%E8%AF%8D">3. 分词</a></li>
+<li><a href="#4-%E9%80%89%E6%89%8B%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1">4. 选手词频统计</a></li>
+<li><a href="#5-%E8%AF%8D%E4%BA%91">5. 词云</a></li>
+<li><a href="#6-%E8%8A%82%E7%9B%AE%E8%AF%84%E4%BB%B7">6. 节目评价</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a>
 <ul>
 <li><a href="#%E5%8F%AF%E6%8B%93%E5%B1%95%E6%96%B9%E9%9D%A2">可拓展方面</a></li>
@@ -399,7 +422,7 @@ page_size: 每页评论的个数</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1588137899107);
+                    newDate.setTime(1588215505418);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

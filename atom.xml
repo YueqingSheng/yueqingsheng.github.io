@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-04-29T05:25:03.261Z</updated>
+    <updated>2020-04-30T02:58:31.891Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,48 +15,69 @@
         <id>https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/</id>
         <link href="https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/">
         </link>
-        <updated>2020-04-27T06:05:39.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1-数据爬取爬取所有视频下的评论">1. 数据爬取(爬取所有视频下的评论)</h2>
+        <updated>2020-04-22T18:05:39.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
 <h3 id="获取视频列表">获取视频列表</h3>
 <p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
 找到 li标签下 class为play-list-item的data-td属性<br>
 <img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
 <strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
 <h3 id="获取评论列表">获取评论列表</h3>
-<p>接口为https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time</p>
+<p><a href="https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time">接口</a></p>
 <blockquote>
 <p>url参数：<br>
 content_id: 视频id 通过上方的的视频列表中获取<br>
 last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
 page: 翻页的页数<br>
-page_size: 每页评论的个数</p>
+page_size: 每页评论的个数<br>
+upremaining: 1最后一页， 0 后面还有内容</p>
 </blockquote>
 <h4 id="如何获取全部评论">如何获取全部评论</h4>
 <p>两个思路</p>
 <ol>
 <li>检查lastid 是否重复了，说明获取到最后一个</li>
-<li>其实返回的data里有一个参数，&quot;remaining&quot;:0。剩余评论个数，检查这个为0就可以了。</li>
+<li>其实返回的data里有一个参数，&quot;upremaining&quot;:0。检查这个为1就可以了。</li>
 </ol>
 <p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
 <strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
-<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论</strong></p>
+<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论,总共花了1分3秒。不用多线程的话，估计要20多分钟。</strong><br>
+截至2020日4月29日总共爬取了254287条数据。</p>
 <h2 id="2-数据清洗">2. 数据清洗</h2>
 <p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
 如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
 清洗后为 虞书欣冲呀！！！</p>
-<h2 id="3-选手预测">3. 选手预测</h2>
-<p>随机抽取不同视频下10万条评论统计，按前20选手姓名出现频率排序<br>
-<img src="https://yueqingsheng.github.io/post-images/1588135975570.png" alt="" loading="lazy"></p>
-<h2 id="4-词云">4. 词云</h2>
+<h2 id="3-分词">3. 分词</h2>
+<p><strong>数据请求后, 评论列表不再改变可以转化为tuple使用, tuple的access速度会比list快</strong><br>
+使用tuple分词用了 9分3秒，会比list快十几秒。</p>
+<h2 id="4-选手词频统计">4. 选手词频统计</h2>
+<p>经过25万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588203706129.png" alt="" loading="lazy"><br>
+跟之前爬单期数据区别蛮大的，刘雨昕变成了第一。</p>
+<h2 id="5-词云">5. 词云</h2>
 <p>按照词频显示词云<br>
-<img src="https://yueqingsheng.github.io/post-images/1588136155931.png" alt="" loading="lazy"><br>
-下面这个是试了下wordcloud官网的上色。感觉效果没直接生成好，只是试一下上色功能。<br>
-<img src="https://yueqingsheng.github.io/post-images/1588137241776.png" alt="" loading="lazy"></p>
+<img src="https://yueqingsheng.github.io/post-images/1588204256188.png" alt="" loading="lazy"><br>
+之前用形状和上色绘制了下词云，但是感觉效果没有原生的好。(这个是基于1000条数据生成的)<br>
+<img src="https://yueqingsheng.github.io/post-images/1588211480849.png" alt="" loading="lazy"></p>
+<h2 id="6-节目评价">6. 节目评价</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1588210836624.png" alt="" loading="lazy"><br>
+总体还是正向和中性评价占了绝大多数，95%。<br>
+随机打印一点 评价<br>
+正向：<br>
+['因为看了书欣的电视剧才来看这个的，喜欢她的性格', '我也喜欢左卓', '好喜欢刘雨昕！', '我真的太爱刘雨昕了', '好看好看', '看了这期，真的很心疼喻言', '安崎反差萌真的绝了，好看的颜值和有趣的灵魂她都拥有。', '我也喜欢虞书欣', '虞书欣加油', '冲着虞书欣搞笑视频来的，后面发现太太太多想pick的了。这种模式是看的第一个，努力又融洽的氛围真好。']<br>
+中性：<br>
+['乃万！', '乃万', '我要去看男团了拜拜，记得给我点赞', '大家要帮忙投票了吗我这儿还有13票', '大家有要帮忙投票的吗我还有14', '虞书欣', '乃万简直是可盐可甜可rap 可vocal， 随时写词的到处撩妹的博爱艺术家 。', '谢可寅小姐姐要加油喽。', '刘雨昕', '林凡']<br>
+负面;<br>
+['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', '看看徐紫茵吧，看孩子吧！她真的是个宝藏！入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
+<p><strong>模型把很多人名识别成了中性词，对英文的词性识别可能还不是很好。</strong><br>
+<strong>有一些负面评价识别还行，但是也有不准的时候。比如“爱死了”， &quot;小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！&quot;可能把呜呜呜识别成负面了。</strong></p>
 <h2 id="总结">总结</h2>
-<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重</p>
+<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重，list改用tuple<br>
+经过爬取所有评论和同一句子人名去重后，发现数据可视化后还是变化挺大的。有很多人一个评论发很多重复的一个人名。</p>
 <h3 id="可拓展方面">可拓展方面</h3>
-<p>其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
-评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。</p>
+<p>评论生成，用文本生成模型生成一些青春有你相关的评论。<br>
+其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
+评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。<br>
+评论的用户信息</p>
 ]]></content>
     </entry>
     <entry>
@@ -201,7 +222,7 @@ page_size: 每页评论的个数</p>
         <id>https://yueqingsheng.github.io/post/python/</id>
         <link href="https://yueqingsheng.github.io/post/python/">
         </link>
-        <updated>2020-04-17T11:48:28.000Z</updated>
+        <updated>2020-04-15T23:48:28.000Z</updated>
         <content type="html"><![CDATA[<h2 id="print">Print</h2>
 <p>print 会自动换行，print(end=&quot;&quot;)会取消换行，end为结束后缀</p>
 <h2 id="遍历文件">遍历文件</h2>
@@ -358,6 +379,8 @@ Falcon      375.0
 Parrot       25.0
 </code></pre>
 <h2 id="matplot">matplot</h2>
+<h2 id="size">size</h2>
+<p>plt.figure(figsize=(12, 12))</p>
 <h2 id="matplotlib-inline">%matplotlib inline</h2>
 <p>%matplotlib inline 可以在Ipython编译器里直接使用，功能是可以内嵌绘图，并且可以省略掉plt.show()这一步</p>
 <h2 id="pie">pie</h2>
@@ -369,6 +392,14 @@ explode :(每一块)离开中心距离；<br>
 startangle :起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起；<br>
 shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；</p>
 </blockquote>
+<pre><code class="language-python">## draw pie
+labels = [&quot;45-50kg&quot;,'&lt;45kg','50-55kg','55kg']
+plt.pie(weightsfreq.values, explode=(0.1,0.1,0.1,0.1),labels=labels, shadow=True,autopct='%.2f%%',startangle=90)
+plt.axis('equal')
+plt.legend(loc=&quot;upper right&quot;,fontsize=10,bbox_to_anchor=(1.1,1.05),borderaxespad=0.3)
+plt.title('''《青春有你2》选手体重分布''',fontsize = 10)
+plt.savefig('/home/aistudio/work/result/bar_result03.jpg')
+</code></pre>
 <p><a href="https://www.cnblogs.com/biyoulin/p/9565350.html">参考</a></p>
 <h3 id="正圆">正圆</h3>
 <p>plt.axis('equal')</p>
@@ -424,7 +455,10 @@ shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；
     # 解决负号'-'显示为方块的问题
     matplotlib.rcParams['axes.unicode_minus'] = False
 </code></pre>
-<p>如果没成功，尝试reload matplot font manager</p>
+<p>如果没成功，尝试</p>
+<pre><code class="language-python">from matplotlib.font_manager import _rebuild
+_rebuild() #reload一下
+</code></pre>
 <h2 id="jieba-分词">jieba 分词</h2>
 <pre><code class="language-python">   jieba.load_userdict('name.txt') #name.txt 为用户自定义分词
    seg = jieba.lcut(text,cut_all=False)
@@ -438,6 +472,48 @@ for word in sentence:
 </code></pre>
 <p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0<br>
 <a href="https://github.com/goto456/stopwords">中文常用停用词词表</a></p>
+<h2 id="多进程">多进程</h2>
+<p>多进程共同的全局变量，需要使用特殊方式声明：</p>
+<pre><code class="language-python">from multiprocessing import Process, Value, Array, Manager
+
+def f(n, a):
+    n.value = 3.1415927
+    for i in range(len(a)):
+        a[i] = -a[i]
+
+if __name__ == '__main__':
+    num = Value('d', 0.0)
+    arr = Array('i', range(10))
+    lis =  Manager().list()
+    p = Process(target=f, args=(num, arr))
+    p.start()
+    p.join()
+
+    print(num.value)
+    print(arr[:])
+</code></pre>
+<p>多进程list 使用前需转换回普通list， list(lis)<br>
+.join() 可以等待进程执行结束后再输出</p>
+<h3 id="多进程的一个大坑broken-pipe">多进程的一个大坑：broken pipe</h3>
+<p>解决方案不要在主线程外使用shared object,这样主线程使用的时候修改，会影响子线程的这个object<br>
+解决方案：移除主线程的修改，或者把修改放到子线程跑完之后<br>
+<a href="https://stackoverflow.com/questions/45506115/why-does-broken-pipe-error-occur-only-while-accessing-a-shared-list-in-a-speci">解释</a></p>
+<h3 id="join">.join()</h3>
+<p>主线程等待子线程跑完。python默认是先执行完主线程</p>
+<pre><code class="language-python">    process= []
+    for c_id in content_ids:
+        # 每个进程爬取一个视频下的评论
+        p = Process(target=getMovieinfo,args=(c_id,))
+        process.append(p)
+        p.start()
+    
+    #等待所有线程任务结束。
+    for p in process:
+        p.join()
+    print(&quot;总共获取了&quot;,len(comments),'条评论')
+</code></pre>
+<p>这样主线程就会阻塞了<br>
+<a href="https://blog.csdn.net/zhangphil/article/details/88577091">参考</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -460,9 +536,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2222376"><label class="task-list-item-label" for="task-item-2222376"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1956880">  vue<br>
-<label class="task-list-item-label" for="task-item-1956880">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8792860"><label class="task-list-item-label" for="task-item-8792860"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4497532">  vue<br>
+<label class="task-list-item-label" for="task-item-4497532">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -474,10 +550,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9249323"><label class="task-list-item-label" for="task-item-9249323"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-852551"><label class="task-list-item-label" for="task-item-852551"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6900081"><label class="task-list-item-label" for="task-item-6900081"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3082117"><label class="task-list-item-label" for="task-item-3082117"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3083019"><label class="task-list-item-label" for="task-item-3083019"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2567483"><label class="task-list-item-label" for="task-item-2567483"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4270222"><label class="task-list-item-label" for="task-item-4270222"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6272912"><label class="task-list-item-label" for="task-item-6272912"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -489,11 +565,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9388187"><label class="task-list-item-label" for="task-item-9388187"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-644836"><label class="task-list-item-label" for="task-item-644836"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5370493"><label class="task-list-item-label" for="task-item-5370493"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9596157"><label class="task-list-item-label" for="task-item-9596157"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7112507"><label class="task-list-item-label" for="task-item-7112507"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-231857"><label class="task-list-item-label" for="task-item-231857"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2374115"><label class="task-list-item-label" for="task-item-2374115"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7842029"><label class="task-list-item-label" for="task-item-7842029"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1576742"><label class="task-list-item-label" for="task-item-1576742"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9719797"><label class="task-list-item-label" for="task-item-9719797"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -537,13 +613,13 @@ counselor: 关系</p>
         </link>
         <updated>2020-04-03T05:52:34.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1551311"><label class="task-list-item-label" for="task-item-1551311"> Angular 起步2</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9101344"><label class="task-list-item-label" for="task-item-9101344"> Angular 表单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9147092"><label class="task-list-item-label" for="task-item-9147092"> Angular 路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3718250"><label class="task-list-item-label" for="task-item-3718250"> Angular 守卫</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8783903"><label class="task-list-item-label" for="task-item-8783903"> Angular 异步路由</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4607807"><label class="task-list-item-label" for="task-item-4607807"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5027114"><label class="task-list-item-label" for="task-item-5027114"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2319625"><label class="task-list-item-label" for="task-item-2319625"> Angular 起步2</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8242540"><label class="task-list-item-label" for="task-item-8242540"> Angular 表单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5392644"><label class="task-list-item-label" for="task-item-5392644"> Angular 路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1981685"><label class="task-list-item-label" for="task-item-1981685"> Angular 守卫</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-220763"><label class="task-list-item-label" for="task-item-220763"> Angular 异步路由</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8050970"><label class="task-list-item-label" for="task-item-8050970"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5019380"><label class="task-list-item-label" for="task-item-5019380"> code: morning</label></li>
 </ul>
 <p>小细节：修改了首页图标跳转</p>
 ]]></content>
