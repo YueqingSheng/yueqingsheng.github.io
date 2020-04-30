@@ -88,7 +88,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1588215505418" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1588269851104" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1588215505418" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1588269851104" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -182,7 +182,7 @@
                                     <span class="post-readtime">Reading Time:<a
                                     href="#">4.5
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">1290</a></span>
+                                    <span class="post-words">words:<a href="#">1298</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -192,7 +192,8 @@
                         </header>
                         
                         <div class="post-content">
-                            <h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
+                            <p>2020/4/30 更新</p>
+<h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
 <h3 id="获取视频列表">获取视频列表</h3>
 <p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
 找到 li标签下 class为play-list-item的data-td属性<br>
@@ -226,12 +227,12 @@ upremaining: 1最后一页， 0 后面还有内容</p>
 <p><strong>数据请求后, 评论列表不再改变可以转化为tuple使用, tuple的access速度会比list快</strong><br>
 使用tuple分词用了 9分3秒，会比list快十几秒。</p>
 <h2 id="4-选手词频统计">4. 选手词频统计</h2>
-<p>经过25万条评论统计，按前20选手姓名出现频率排序<br>
-<img src="https://yueqingsheng.github.io/post-images/1588203706129.png" alt="" loading="lazy"><br>
-跟之前爬单期数据区别蛮大的，刘雨昕变成了第一。</p>
+<p>经过26万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588269289897.png" alt="" loading="lazy"><br>
+人名去重后，词频少了很多。</p>
 <h2 id="5-词云">5. 词云</h2>
 <p>按照词频显示词云<br>
-<img src="https://yueqingsheng.github.io/post-images/1588204256188.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1588269308723.png" alt="" loading="lazy"><br>
 之前用形状和上色绘制了下词云，但是感觉效果没有原生的好。(这个是基于1000条数据生成的)<br>
 <img src="https://yueqingsheng.github.io/post-images/1588211480849.png" alt="" loading="lazy"></p>
 <h2 id="6-节目评价">6. 节目评价</h2>
@@ -243,7 +244,7 @@ upremaining: 1最后一页， 0 后面还有内容</p>
 中性：<br>
 ['乃万！', '乃万', '我要去看男团了拜拜，记得给我点赞', '大家要帮忙投票了吗我这儿还有13票', '大家有要帮忙投票的吗我还有14', '虞书欣', '乃万简直是可盐可甜可rap 可vocal， 随时写词的到处撩妹的博爱艺术家 。', '谢可寅小姐姐要加油喽。', '刘雨昕', '林凡']<br>
 负面;<br>
-['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', '看看徐紫茵吧，看孩子吧！她真的是个宝藏！入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
+['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', ''安琪的肚子真的不好看 感觉肚子肉好多 总喜欢露着腰,'入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
 <p><strong>模型把很多人名识别成了中性词，对英文的词性识别可能还不是很好。</strong><br>
 <strong>有一些负面评价识别还行，但是也有不准的时候。比如“爱死了”， &quot;小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！&quot;可能把呜呜呜识别成负面了。</strong></p>
 <h2 id="总结">总结</h2>
@@ -253,7 +254,8 @@ upremaining: 1最后一页， 0 后面还有内容</p>
 <p>评论生成，用文本生成模型生成一些青春有你相关的评论。<br>
 其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
 评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。<br>
-评论的用户信息</p>
+评论的用户信息分析<br>
+动态直方图</p>
 
                         </div>
                         
@@ -422,7 +424,7 @@ upremaining: 1最后一页， 0 后面还有内容</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1588215505418);
+                    newDate.setTime(1588269851104);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
