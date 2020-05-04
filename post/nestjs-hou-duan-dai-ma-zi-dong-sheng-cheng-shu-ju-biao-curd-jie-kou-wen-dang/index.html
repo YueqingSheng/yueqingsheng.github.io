@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
 <title>
     哇哦
@@ -49,12 +50,11 @@
                     })();
                 </script>
                 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="wrapper">
-      <header>
+        <header>
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header header-logo">
@@ -168,65 +168,160 @@
 
     }
 </script>
-      <div class="main">
-        <div class="container">
-          <div class="intro">
-            <div class="avatar">
-              <a href="https://yueqingsheng.github.io/posts"
-                ><img
-                  src="https://yueqingsheng.github.io/images/avatar.png?v=1588626811700"
-              /></a>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                nestjs 后端代码自动生成（数据表，curd接口，文档）
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">2.2
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">602</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
+                                
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="起因">起因</h2>
+<p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
+一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
+<h2 id="实现结果">实现结果</h2>
+<p>只通过一个json文件（即数据格式），生成一系列接口以及文档。</p>
+<h3 id="生成效果下面都是通过一个json生成的内容">生成效果（下面都是通过一个json生成的内容）</h3>
+<h3 id="生成的文档目录更新了appmodule">生成的文档目录(更新了app.module)</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1588622779097.jpg" alt="" loading="lazy"></figure>
+<h3 id="接口">接口</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1588622024790.png" alt="" loading="lazy"></figure>
+<h3 id="接口内包括筛选查找分页缓存等一系列选项">接口内包括筛选，查找，分页，缓存等一系列选项。</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1588622446855.png" alt="" loading="lazy"></figure>
+<h3 id="数据格式文档">数据格式文档</h3>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1588622674686.png" alt="" loading="lazy"></figure>
+<h3 id="数据表">数据表</h3>
+<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1588623030960.png" alt="" loading="lazy"></figure>
+<h2 id="实现思路">实现思路</h2>
+<ol>
+<li>nesjs有类似component的概念，component之间可以通过插入继承来实现复用。我这里使用了继承，因为想复用的部分都是可以共用的增查删改操作。</li>
+<li>在网上搜索资料的时候发现，有人也有同样的思路，并写了一个包<a href="https://github.com/nestjsx/crud">nestjsx/crud</a>。star数有点少, 不过很好用，暂时只支持typeorm。既然有了轮子就不用自己造了。这个包含了swagger的配置，所以会自动生成文档。</li>
+<li>基于这个包扩展开来，我要做的只是把json转成entity.ts文件，生成module,controller, service以及配置好就行了。实现很简单我用了jupter notebook 然后转成了python。<a href="https://github.com/YueqingSheng/nestjs_a_json_to_all">源码地址</a> 实现过程在ipynb里，py是转换好的文件。</li>
+</ol>
+<h2 id="运行">运行</h2>
+<p>ipython beg.py test(实例/数据表名) test.json(数据内容)</p>
+<pre><code>test.json
+{&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
+</code></pre>
+<p>生成文件<br>
+<img src="https://yueqingsheng.github.io/post-images/1588625934117.png" alt="" loading="lazy"></p>
+<h2 id="对nestjsxcrud的改进部分">对nestjsx/crud的改进部分</h2>
+<ol>
+<li>增加了json转entity</li>
+<li>补充了swagger分区（ApiTags）和显示entity内部属性（ApiModelProperty）</li>
+<li>生成module,controller,service,并注入entiity repository</li>
+<li>更新app.module</li>
+</ol>
+<h2 id="之后的扩展方向">之后的扩展方向</h2>
+<ol>
+<li>丰富json数据类型支持，目前只支持string, int</li>
+<li>添加mongodb支持</li>
+<li>提供更多entity column选项</li>
+<li>添加接口权限控制</li>
+<li>根据list of json 批量生成接口</li>
+<li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
+</ol>
+<h2 id="已知bug">已知bug</h2>
+<p>json 中不能用id属性，因为id是默认生成的。</p>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%B5%B7%E5%9B%A0">起因</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E7%BB%93%E6%9E%9C">实现结果</a>
+<ul>
+<li><a href="#%E7%94%9F%E6%88%90%E6%95%88%E6%9E%9C%E4%B8%8B%E9%9D%A2%E9%83%BD%E6%98%AF%E9%80%9A%E8%BF%87%E4%B8%80%E4%B8%AAjson%E7%94%9F%E6%88%90%E7%9A%84%E5%86%85%E5%AE%B9">生成效果（下面都是通过一个json生成的内容）</a></li>
+<li><a href="#%E7%94%9F%E6%88%90%E7%9A%84%E6%96%87%E6%A1%A3%E7%9B%AE%E5%BD%95%E6%9B%B4%E6%96%B0%E4%BA%86appmodule">生成的文档目录(更新了app.module)</a></li>
+<li><a href="#%E6%8E%A5%E5%8F%A3">接口</a></li>
+<li><a href="#%E6%8E%A5%E5%8F%A3%E5%86%85%E5%8C%85%E6%8B%AC%E7%AD%9B%E9%80%89%E6%9F%A5%E6%89%BE%E5%88%86%E9%A1%B5%E7%BC%93%E5%AD%98%E7%AD%89%E4%B8%80%E7%B3%BB%E5%88%97%E9%80%89%E9%A1%B9">接口内包括筛选，查找，分页，缓存等一系列选项。</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E6%96%87%E6%A1%A3">数据格式文档</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%A1%A8">数据表</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF">实现思路</a></li>
+<li><a href="#%E8%BF%90%E8%A1%8C">运行</a></li>
+<li><a href="#%E5%AF%B9nestjsxcrud%E7%9A%84%E6%94%B9%E8%BF%9B%E9%83%A8%E5%88%86">对nestjsx/crud的改进部分</a></li>
+<li><a href="#%E4%B9%8B%E5%90%8E%E7%9A%84%E6%89%A9%E5%B1%95%E6%96%B9%E5%90%91">之后的扩展方向</a></li>
+<li><a href="#%E5%B7%B2%E7%9F%A5bug">已知bug</a></li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span><strong>Tag(s):</strong></span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();"><strong>back</strong></a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/hou-duan-dai-ma-sheng-cheng-qi/">
+                                                                                                    代码生成器分析
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '5f41987445e31b69b727',
+        clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+        repo: 'yueqingsheng.github.io',
+        owner: 'YueqingSheng',
+        admin: ['YueqingSheng'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
-            <div class="nickname">
-              blogger&#39;s blog
-            </div>
-            <div class="description">
-              <span id="subtitle">
-                miao meow miao meow miao~~
-              </span>
-            </div>
-            <div class="links">
-              
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
-  <script>
-    // type
-    var typed = new Typed("#subtitle", {
-      strings: ["miao meow miao meow miao~~", "", ""],
-      startDelay: 10,
-      typeSpeed: 200,
-      loop: true,
-      backSpeed: 100,
-      showCursor: true,
-    });
-    //head title
-    var titleTime;
-    document.addEventListener("visibilitychange", function () {
-      document.hidden
-        ? ((document.title = "\uD83D\uDE25" + OriginTitile),
-          clearTimeout(titleTime))
-        : ((document.title = "\uD83D\uDE1D" + OriginTitile),
-          (titleTime = setTimeout(function () {
-            document.title = OriginTitile;
-          }, 2e3)));
-    });
-    var OriginTitile = document.title;
-  </script>
-  
+    </div>
+    </div>
+    
     <div id="player"></div>
     
         <footer id="footer" class="footer">
@@ -313,4 +408,10 @@
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
                 
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
 <title>
     哇哦
@@ -49,12 +50,11 @@
                     })();
                 </script>
                 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="wrapper">
-      <header>
+        <header>
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header header-logo">
@@ -168,65 +168,116 @@
 
     }
 </script>
-      <div class="main">
-        <div class="container">
-          <div class="intro">
-            <div class="avatar">
-              <a href="https://yueqingsheng.github.io/posts"
-                ><img
-                  src="https://yueqingsheng.github.io/images/avatar.png?v=1588626811700"
-              /></a>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                代码生成器分析
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">0.7
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">177</a></span>
+                                    
+                                            Views:
+                                            <span data-hk-page="current"> - </span>
+                                            
+                                </div>
+                                
+                        </header>
+                        
+                        <div class="post-content">
+                            <ol>
+<li>使用js写一个简单的无参数生成<br>
+(纯文本生成)<br>
+输入 x.json 输出 &gt; x.entity.ts x.controller.ts x.service.ts<br>
+controller , service extends common</li>
+<li>cli 工具 增加命令行交互</li>
+<li>添加其他database 和交互选项<br>
+路径问题<br>
+swagger usetags, 数据结构 apiexport</li>
+</ol>
+<p>扩展：通过list of json, 接口批量生成<br>
+id （目前自动生成Id,如果json里包括id应该忽略 ）<br>
+给前端一个接口，自动生成后端。<br>
+优化：生成所有。添加了apiTags 和暴露entity内部的数据结构<br>
+感谢 swagger, @nestjsx/crud, nestjs/cli, nestjs</p>
+<p>需求及安装：<br>
+python 版本3.7以上<br>
+安装ipython<br>
+安装@nestjsx/crud<br>
+全局安装@nestjs/cli<br>
+把放到文件根目录下</p>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
+                                                    
+
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span><strong>Tag(s):</strong></span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();"><strong>back</strong></a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
+                                                                                            nestjs 后端代码自动生成（数据表，curd接口，文档）
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/">
+                                                                                                    青春有你2 评论分析拓展
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '5f41987445e31b69b727',
+        clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+        repo: 'yueqingsheng.github.io',
+        owner: 'YueqingSheng',
+        admin: ['YueqingSheng'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
-            <div class="nickname">
-              blogger&#39;s blog
-            </div>
-            <div class="description">
-              <span id="subtitle">
-                miao meow miao meow miao~~
-              </span>
-            </div>
-            <div class="links">
-              
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
-  <script>
-    // type
-    var typed = new Typed("#subtitle", {
-      strings: ["miao meow miao meow miao~~", "", ""],
-      startDelay: 10,
-      typeSpeed: 200,
-      loop: true,
-      backSpeed: 100,
-      showCursor: true,
-    });
-    //head title
-    var titleTime;
-    document.addEventListener("visibilitychange", function () {
-      document.hidden
-        ? ((document.title = "\uD83D\uDE25" + OriginTitile),
-          clearTimeout(titleTime))
-        : ((document.title = "\uD83D\uDE1D" + OriginTitile),
-          (titleTime = setTimeout(function () {
-            document.title = OriginTitile;
-          }, 2e3)));
-    });
-    var OriginTitile = document.title;
-  </script>
-  
+    </div>
+    </div>
+    
     <div id="player"></div>
     
         <footer id="footer" class="footer">
@@ -313,4 +364,10 @@
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
                 
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
 </html>
