@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-04T21:15:21.011Z</updated>
+    <updated>2020-05-04T21:17:47.549Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,12 +15,15 @@
         <id>https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/</id>
         <link href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
         </link>
-        <updated>2020-05-03T07:43:34.000Z</updated>
+        <updated>2020-05-02T19:43:34.000Z</updated>
         <content type="html"><![CDATA[<h2 id="起因">起因</h2>
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
 <h2 id="实现结果">实现结果</h2>
 <p>只通过一个json文件（即数据格式），生成一系列接口以及文档。</p>
+<pre><code>test.json
+{&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
+</code></pre>
 <h3 id="生成效果下面都是通过一个json生成的内容">生成效果（下面都是通过一个json生成的内容）</h3>
 <h3 id="生成的文档目录更新了appmodule">生成的文档目录(更新了app.module)</h3>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1588622779097.jpg" alt="" loading="lazy"></figure>
@@ -40,11 +43,6 @@
 </ol>
 <h2 id="运行">运行</h2>
 <p>ipython beg.py test(实例/数据表名) test.json(数据内容)</p>
-<pre><code>test.json
-{&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
-</code></pre>
-<p>生成文件<br>
-<img src="https://yueqingsheng.github.io/post-images/1588625934117.png" alt="" loading="lazy"></p>
 <h2 id="对nestjsxcrud的改进部分">对nestjsx/crud的改进部分</h2>
 <ol>
 <li>增加了json转entity</li>
@@ -594,9 +592,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6169855"><label class="task-list-item-label" for="task-item-6169855"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7225584">  vue<br>
-<label class="task-list-item-label" for="task-item-7225584">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7896330"><label class="task-list-item-label" for="task-item-7896330"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8429369">  vue<br>
+<label class="task-list-item-label" for="task-item-8429369">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -608,10 +606,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6116081"><label class="task-list-item-label" for="task-item-6116081"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8485139"><label class="task-list-item-label" for="task-item-8485139"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9324569"><label class="task-list-item-label" for="task-item-9324569"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7694331"><label class="task-list-item-label" for="task-item-7694331"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3956547"><label class="task-list-item-label" for="task-item-3956547"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1735828"><label class="task-list-item-label" for="task-item-1735828"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3878611"><label class="task-list-item-label" for="task-item-3878611"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4906335"><label class="task-list-item-label" for="task-item-4906335"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -623,11 +621,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9277093"><label class="task-list-item-label" for="task-item-9277093"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4151157"><label class="task-list-item-label" for="task-item-4151157"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1640386"><label class="task-list-item-label" for="task-item-1640386"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9412034"><label class="task-list-item-label" for="task-item-9412034"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4535731"><label class="task-list-item-label" for="task-item-4535731"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-8320610"><label class="task-list-item-label" for="task-item-8320610"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7289989"><label class="task-list-item-label" for="task-item-7289989"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2585662"><label class="task-list-item-label" for="task-item-2585662"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7232507"><label class="task-list-item-label" for="task-item-7232507"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7361582"><label class="task-list-item-label" for="task-item-7361582"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
