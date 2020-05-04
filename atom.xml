@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-04T21:13:40.466Z</updated>
+    <updated>2020-05-04T21:15:21.011Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/</id>
         <link href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
         </link>
-        <updated>2020-05-03T19:43:34.000Z</updated>
+        <updated>2020-05-03T07:43:34.000Z</updated>
         <content type="html"><![CDATA[<h2 id="起因">起因</h2>
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
@@ -60,38 +60,10 @@
 <li>添加接口权限控制</li>
 <li>根据list of json 批量生成接口</li>
 <li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
+<li>js重新，打包发布到npm</li>
 </ol>
 <h2 id="已知bug">已知bug</h2>
 <p>json 中不能用id属性，因为id是默认生成的。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[代码生成器分析]]></title>
-        <id>https://yueqingsheng.github.io/post/hou-duan-dai-ma-sheng-cheng-qi/</id>
-        <link href="https://yueqingsheng.github.io/post/hou-duan-dai-ma-sheng-cheng-qi/">
-        </link>
-        <updated>2020-04-30T17:59:16.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>使用js写一个简单的无参数生成<br>
-(纯文本生成)<br>
-输入 x.json 输出 &gt; x.entity.ts x.controller.ts x.service.ts<br>
-controller , service extends common</li>
-<li>cli 工具 增加命令行交互</li>
-<li>添加其他database 和交互选项<br>
-路径问题<br>
-swagger usetags, 数据结构 apiexport</li>
-</ol>
-<p>扩展：通过list of json, 接口批量生成<br>
-id （目前自动生成Id,如果json里包括id应该忽略 ）<br>
-给前端一个接口，自动生成后端。<br>
-优化：生成所有。添加了apiTags 和暴露entity内部的数据结构<br>
-感谢 swagger, @nestjsx/crud, nestjs/cli, nestjs</p>
-<p>需求及安装：<br>
-python 版本3.7以上<br>
-安装ipython<br>
-安装@nestjsx/crud<br>
-全局安装@nestjs/cli<br>
-把放到文件根目录下</p>
 ]]></content>
     </entry>
     <entry>
@@ -622,9 +594,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4403106"><label class="task-list-item-label" for="task-item-4403106"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5179311">  vue<br>
-<label class="task-list-item-label" for="task-item-5179311">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6169855"><label class="task-list-item-label" for="task-item-6169855"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7225584">  vue<br>
+<label class="task-list-item-label" for="task-item-7225584">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -636,10 +608,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4877067"><label class="task-list-item-label" for="task-item-4877067"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6094487"><label class="task-list-item-label" for="task-item-6094487"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-453581"><label class="task-list-item-label" for="task-item-453581"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6482745"><label class="task-list-item-label" for="task-item-6482745"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6116081"><label class="task-list-item-label" for="task-item-6116081"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8485139"><label class="task-list-item-label" for="task-item-8485139"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9324569"><label class="task-list-item-label" for="task-item-9324569"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7694331"><label class="task-list-item-label" for="task-item-7694331"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -651,11 +623,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6129013"><label class="task-list-item-label" for="task-item-6129013"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2650930"><label class="task-list-item-label" for="task-item-2650930"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1864573"><label class="task-list-item-label" for="task-item-1864573"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-994613"><label class="task-list-item-label" for="task-item-994613"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3609285"><label class="task-list-item-label" for="task-item-3609285"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9277093"><label class="task-list-item-label" for="task-item-9277093"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4151157"><label class="task-list-item-label" for="task-item-4151157"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1640386"><label class="task-list-item-label" for="task-item-1640386"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9412034"><label class="task-list-item-label" for="task-item-9412034"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4535731"><label class="task-list-item-label" for="task-item-4535731"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
@@ -668,6 +640,28 @@ counselor: 关系</p>
 评价： comment 包含 counselor, course 里有评价, counselor里 eager， 流程就按post里走<br>
 评分： 每次评价都创建一个即使为空，按 （原来的+new）/总数<br>
 课程价格： price class ， 包含 几天</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[nestjs的坑]]></title>
+        <id>https://yueqingsheng.github.io/post/nestjs-de-keng/</id>
+        <link href="https://yueqingsheng.github.io/post/nestjs-de-keng/">
+        </link>
+        <updated>2020-04-03T07:43:24.000Z</updated>
+        <summary type="html"><![CDATA[<p>不定期更新</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>不定期更新</p>
+<!-- more -->
+<p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。comment 也是关键字，需自己导包，我也是服了。</p>
+<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。eager 只会在find里生效</p>
+<p>find 有很多选项足够用了可以代替 queryBuilder</p>
+<h2 id="onetomany-save">OneToMany Save</h2>
+<p>例子： 商品储存多个价格， data 是发送的商品数据，其中包含了price</p>
+<pre><code class="language-typescript">    data.price = await this.priceRepository.save(price);
+    data = await this.repository.create(data);
+    return await this.repository.save(data);
+</code></pre>
+<p>注意 data.price 这一步是必须的，是为了更新刚储存完的id号，typeorm 用id 来建立关系</p>
 ]]></content>
     </entry>
 </feed>
