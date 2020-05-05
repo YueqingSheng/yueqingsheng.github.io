@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-05T00:57:23.564Z</updated>
+    <updated>2020-05-05T01:08:33.455Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/</id>
         <link href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
         </link>
-        <updated>2020-04-30T07:43:34.000Z</updated>
+        <updated>2020-04-29T19:43:34.000Z</updated>
         <content type="html"><![CDATA[<h2 id="起因">起因</h2>
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
@@ -58,7 +58,7 @@
 <li>添加接口权限控制</li>
 <li>根据list of json 批量生成接口</li>
 <li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
-<li>js重新，打包发布到npm</li>
+<li>js重新打包成cli发布到npm</li>
 </ol>
 <h2 id="已知bug">已知bug</h2>
 <p>json 中不能用id属性，因为id是由primaryGenerateColumn默认生成的。</p>
@@ -592,9 +592,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9820688"><label class="task-list-item-label" for="task-item-9820688"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1815135">  vue<br>
-<label class="task-list-item-label" for="task-item-1815135">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8222237"><label class="task-list-item-label" for="task-item-8222237"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3645704">  vue<br>
+<label class="task-list-item-label" for="task-item-3645704">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -606,10 +606,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2778740"><label class="task-list-item-label" for="task-item-2778740"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6025075"><label class="task-list-item-label" for="task-item-6025075"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-122453"><label class="task-list-item-label" for="task-item-122453"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1832849"><label class="task-list-item-label" for="task-item-1832849"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6292048"><label class="task-list-item-label" for="task-item-6292048"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3743018"><label class="task-list-item-label" for="task-item-3743018"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8096701"><label class="task-list-item-label" for="task-item-8096701"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-464813"><label class="task-list-item-label" for="task-item-464813"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
@@ -621,11 +621,11 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-03T17:28:18.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-76040"><label class="task-list-item-label" for="task-item-76040"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-2704549"><label class="task-list-item-label" for="task-item-2704549"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7686008"><label class="task-list-item-label" for="task-item-7686008"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5038175"><label class="task-list-item-label" for="task-item-5038175"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1844755"><label class="task-list-item-label" for="task-item-1844755"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4751040"><label class="task-list-item-label" for="task-item-4751040"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6355559"><label class="task-list-item-label" for="task-item-6355559"> code: morning</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4484307"><label class="task-list-item-label" for="task-item-4484307"> 订单</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5237640"><label class="task-list-item-label" for="task-item-5237640"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1385223"><label class="task-list-item-label" for="task-item-1385223"> 评价</label></li>
 </ul>
 <p>订单表设计：<br>
 类型： 课程， (谈一谈)talk, 要传<br>
