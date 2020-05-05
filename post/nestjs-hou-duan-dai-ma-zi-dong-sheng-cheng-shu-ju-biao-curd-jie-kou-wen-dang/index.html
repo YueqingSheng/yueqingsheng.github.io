@@ -99,7 +99,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1588632908445" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1588640239451" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -118,7 +118,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1588632908445" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1588640239451" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -191,9 +191,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">2.2
+                                    href="#">2.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">611</a></span>
+                                    <span class="post-words">words:<a href="#">615</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -226,7 +226,7 @@
 <ol>
 <li>nesjs有类似component的概念，component之间可以通过插入继承来实现复用。我这里使用了继承，因为想复用的部分都是可以共用的增查删改操作。</li>
 <li>在网上搜索资料的时候发现，有人也有同样的思路，并写了一个包<a href="https://github.com/nestjsx/crud">nestjsx/crud</a>。star数有点少, 不过很好用，暂时只支持typeorm。既然有了轮子就不用自己造了。这个包含了swagger的配置，所以会自动生成文档。</li>
-<li>基于这个包扩展开来，我要做的只是把json转成entity.ts文件，生成module,controller, service以及配置好数据库就行了。实现很简单我用了jupter notebook 然后转成了python。<a href="https://github.com/YueqingSheng/nestjs_a_json_to_all">源码地址</a> 实现过程在ipynb里，py是转换好的文件。</li>
+<li>基于这个包扩展开来，我要做的只是把json转成entity.ts文件，生成module,controller, service(继承crud)以及配置好数据库就行了。实现很简单我用了jupter notebook 然后转成了python。<a href="https://github.com/YueqingSheng/nestjs_a_json_to_all">源码地址</a> 实现过程在ipynb里，py是转换好的文件。</li>
 </ol>
 <h2 id="运行">运行</h2>
 <p>ipython beg.py test(实例/数据表名) test.json(数据内容)</p>
@@ -248,7 +248,7 @@
 <li>js重新，打包发布到npm</li>
 </ol>
 <h2 id="已知bug">已知bug</h2>
-<p>json 中不能用id属性，因为id是默认生成的。</p>
+<p>json 中不能用id属性，因为id是由primaryGenerateColumn默认生成的。</p>
 
                         </div>
                         
@@ -413,7 +413,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1588632908445);
+                    newDate.setTime(1588640239451);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
