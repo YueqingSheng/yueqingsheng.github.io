@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-18T04:52:27.492Z</updated>
+    <updated>2020-05-18T05:51:35.095Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/</id>
         <link href="https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/">
         </link>
-        <updated>2020-05-15T13:45:15.000Z</updated>
+        <updated>2020-05-15T01:45:15.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
 <p>RSS 是用于分发Web 站点上的内容的摘要的一种简单的XML 格式。它能够用于共享各种各样的信息。</p>
 </blockquote>
@@ -42,7 +42,8 @@
 <img src="https://yueqingsheng.github.io/post-images/1589768153259.png" alt="" loading="lazy"><br>
 结合这两个基本上，每天所有的信息源都可以获取到了，比如接入常看的youtube频道，网易云歌单, b站up主，画师，微博，电台，直播。</p>
 <h2 id="添加源方法">添加源方法</h2>
-<p>在Feedly里直接复制RSSHUB里的链接就行了</p>
+<p>在Feedly里直接复制RSSHUB里的链接就行了。<br>
+欢迎订阅我的博客。RSS链接: https://yueqingsheng.github.io/atom.xml</p>
 <p><strong>RSS里看视频</strong><br>
 <img src="https://yueqingsheng.github.io/post-images/1589771338872.png" alt="" loading="lazy"></p>
 <p>我感觉可以把RSS理解成爬虫爬下来然后整理的一种数据格式，所以基本上，网上能浏览的网页，都可以做成RSS来看。也可以把它利用成获取各种通知和推送的工具，比如看直播课，大学信息，追剧更新。<br>
@@ -672,9 +673,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9989658"><label class="task-list-item-label" for="task-item-9989658"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7183553">  vue<br>
-<label class="task-list-item-label" for="task-item-7183553">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2671564"><label class="task-list-item-label" for="task-item-2671564"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8636142">  vue<br>
+<label class="task-list-item-label" for="task-item-8636142">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -686,10 +687,10 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-205353"><label class="task-list-item-label" for="task-item-205353"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1409196"><label class="task-list-item-label" for="task-item-1409196"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2883530"><label class="task-list-item-label" for="task-item-2883530"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7133558"><label class="task-list-item-label" for="task-item-7133558"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7830778"><label class="task-list-item-label" for="task-item-7830778"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9748066"><label class="task-list-item-label" for="task-item-9748066"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2720045"><label class="task-list-item-label" for="task-item-2720045"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7054502"><label class="task-list-item-label" for="task-item-7054502"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
