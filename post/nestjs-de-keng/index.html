@@ -99,7 +99,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1588642562743" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1589771979123" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -118,7 +118,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1588642562743" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1589771979123" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -191,9 +191,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.8
+                                    href="#">1.5
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">206</a></span>
+                                    <span class="post-words">words:<a href="#">368</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -207,8 +207,12 @@
                         <div class="post-content">
                             <p>不定期更新</p>
 <!-- more -->
+<h2 id="变量名">变量名</h2>
 <p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。comment 也是关键字，需自己导包，我也是服了。</p>
-<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。eager 只会在find里生效</p>
+<h2 id="eager">eager</h2>
+<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。<br>
+eager 只会在find里生效,querybuilder 必须join</p>
+<h2 id="find">find</h2>
 <p>find 有很多选项足够用了可以代替 queryBuilder</p>
 <h2 id="onetomany-save">OneToMany Save</h2>
 <p>例子： 商品储存多个价格， data 是发送的商品数据，其中包含了price</p>
@@ -217,6 +221,21 @@
     return await this.repository.save(data);
 </code></pre>
 <p>注意 data.price 这一步是必须的，是为了更新刚储存完的id号，typeorm 用id 来建立关系</p>
+<h2 id="环境变量">环境变量</h2>
+<p>process.env. 在for root里不好使，即使在main.ts里提前执行了config()。<br>
+非 for root 使用 require('dotenv').config() rocess.env.<br>
+for root 使用 aynscfor root<br>
+在服务器更新 .env 文件<br>
+##数据库更新<br>
+typeorm 更新的很随缘，如果发现数据格式不符bug。可以把dist文件夹删了 重跑一遍。<br>
+如 enum更新，或Column type更新<br>
+typeorm 从 entity.js 读取column 信息。</p>
+<h2 id="controller">Controller</h2>
+<p>切记不要写这种路径 Get(':id') Get('user')</p>
+<h2 id="swagger-paramter">Swagger paramter</h2>
+<p>参数必须声明类型，swagger才能识别到</p>
+<h2 id="nestjsxcrud">nestjsx/crud</h2>
+<p>版本最好4.6.0， 4.5同时get by id和relation会报sql syntax error</p>
 
                         </div>
                         
@@ -224,7 +243,14 @@
                                 <ul class="markdownIt-TOC">
 <li>
 <ul>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%90%8D">变量名</a></li>
+<li><a href="#eager">eager</a></li>
+<li><a href="#find">find</a></li>
 <li><a href="#onetomany-save">OneToMany Save</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a></li>
+<li><a href="#controller">Controller</a></li>
+<li><a href="#swagger-paramter">Swagger paramter</a></li>
+<li><a href="#nestjsxcrud">nestjsx/crud</a></li>
 </ul>
 </li>
 </ul>
@@ -249,13 +275,13 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/day-15/">
-                                                                                            Day 15
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/angular/">
+                                                                                            Angular
                                                                                         </a>
                                                                                         
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-14/">
-                                                                                                    Day 14
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-10/">
+                                                                                                    Day 10
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -370,7 +396,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1588642562743);
+                    newDate.setTime(1589771979123);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

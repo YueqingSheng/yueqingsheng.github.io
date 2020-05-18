@@ -184,24 +184,17 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Day 12
+                                nestjs template
                             </h1>
                             
                                 <!--en-->
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.2
+                                    href="#">0.6
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">59</a></span>
+                                    <span class="post-words">words:<a href="#">130</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://yueqingsheng.github.io/tag/log/">日常</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -209,21 +202,46 @@
                                 
                         </header>
                         
-                            <img class="post-feature-image" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/e35/52761080_142339270141910_3457615875780863181_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&amp;_nc_cat=102&amp;_nc_ohc=sXoh1t4uvRwAX9g6s2D&amp;oh=c4fc6bee2e988de7a7bcc1f3b0ef8611&amp;oe=5EB2A309" alt="">
-                          
                         <div class="post-content">
-                            <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6852860"><label class="task-list-item-label" for="task-item-6852860"> Angular Components</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2560763"><label class="task-list-item-label" for="task-item-2560763"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4976529"><label class="task-list-item-label" for="task-item-4976529"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3898046"><label class="task-list-item-label" for="task-item-3898046"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1006729"><label class="task-list-item-label" for="task-item-1006729"> code: morning</label></li>
-</ul>
+                            <h1 id="提取user">提取User</h1>
+<p>import { User } from '../../core/decorators/user.decorator';<br>
+import { User as UserEntity } from '../user/user.entity';<br>
+@UseGuards(JwtAuthGuard)<br>
+@ApiBearerAuth()</p>
+<p>Service:<br>
+import { User  } from '../user/user.entity';</p>
+<h1 id="权限">权限</h1>
+<p>@UseGuards(JwtAuthGuard, AccessGuard)<br>
+@Permissions({ role: UserRole.COUNSELOR })<br>
+@ApiBearerAuth()</p>
+<h1 id="token">Token</h1>
+<p>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA1LCJuYW1lIjoid3V4aW4iLCJpYXQiOjE1ODkyNTYwNjIsImV4cCI6MTU5MDQ2NTY2Mn0.K4XNw0eeyC7SE2jmo8zS3Oz0ai6x-5KaUFNJXGSAvyA</p>
+<p>#Relation<br>
+@OneToOne(type =&gt; User, { eager: true })<br>
+@JoinColumn()<br>
+@ApiModelProperty()<br>
+user: User;</p>
+<p>@OneToMany(type =&gt; Post, post =&gt; post.category)</p>
+<h1 id="tableplus-表格导入-提前转utf-8">TablePlus 表格导入 提前转utf-8</h1>
+<p>#TODO<br>
+删除counselor tag<br>
+标签 删除 25到42<br>
+导入数据<br>
+人际关系17  修改setId  3<br>
+匹配修改状态为online</p>
+<p>一级分类<br>
+匹配逻辑 ，匹配返回导师，根据导师里团队 获取信息</p>
 
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E6%8F%90%E5%8F%96user">提取User</a></li>
+<li><a href="#%E6%9D%83%E9%99%90">权限</a></li>
+<li><a href="#token">Token</a></li>
+<li><a href="#tableplus-%E8%A1%A8%E6%A0%BC%E5%AF%BC%E5%85%A5-%E6%8F%90%E5%89%8D%E8%BD%ACutf-8">TablePlus 表格导入 提前转utf-8</a></li>
+</ul>
+
                             </div>
                             
                                 
@@ -234,12 +252,6 @@
                                                                         <span><strong>Tag(s):</strong></span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://yueqingsheng.github.io/tag/log/">#
-                                                日常
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -250,15 +262,7 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/day-13/">
-                                                                                            Day 13
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-11/">
-                                                                                                    Day 11
-                                                                                                </a>
-                                                                                                
                                                                                 </section>
                     </article>
                 </div>

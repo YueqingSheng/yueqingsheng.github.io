@@ -99,7 +99,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1588642562743" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1589771979123" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -118,7 +118,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1588642562743" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1589771979123" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -191,9 +191,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">2.3
+                                    href="#">2.5
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">615</a></span>
+                                    <span class="post-words">words:<a href="#">654</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -247,6 +247,13 @@
 <li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
 <li>js重新打包成cli发布到npm</li>
 </ol>
+<h2 id="001">0.0.1</h2>
+<ol>
+<li>添加relation {} 为 one to one or many to one (default one to one)<br>
+[] 为 one to many or many to many (default one to many)</li>
+<li>只生成entity</li>
+<li>描述 descrption 根据</li>
+</ol>
 <h2 id="已知bug">已知bug</h2>
 <p>json 中不能用id属性，因为id是由primaryGenerateColumn默认生成的。</p>
 
@@ -271,6 +278,7 @@
 <li><a href="#%E8%BF%90%E8%A1%8C">运行</a></li>
 <li><a href="#%E5%AF%B9nestjsxcrud%E7%9A%84%E6%94%B9%E8%BF%9B%E9%83%A8%E5%88%86">对nestjsx/crud的改进部分</a></li>
 <li><a href="#%E4%B9%8B%E5%90%8E%E7%9A%84%E6%89%A9%E5%B1%95%E6%96%B9%E5%90%91">之后的扩展方向</a></li>
+<li><a href="#001">0.0.1</a></li>
 <li><a href="#%E5%B7%B2%E7%9F%A5bug">已知bug</a></li>
 </ul>
 </li>
@@ -296,6 +304,10 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/yong-sao-cong-0-xie-yi-ge-jiao-shou-jia-cli-scafolding-sao/">
+                                                                                            用sao从0写一个脚手架（cli, scafolding, sao）
+                                                                                        </a>
+                                                                                        
                                                                                             
                                                                                                 <a class="next" rel="next" href="https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/">
                                                                                                     青春有你2 评论分析拓展
@@ -413,7 +425,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1588642562743);
+                    newDate.setTime(1589771979123);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

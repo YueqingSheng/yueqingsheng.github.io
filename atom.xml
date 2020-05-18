@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-05T01:36:46.964Z</updated>
+    <updated>2020-05-18T03:19:44.728Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,75 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
     <entry>
+        <title type="html"><![CDATA[RSS订阅（Feedly + Rsshub）]]></title>
+        <id>https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/</id>
+        <link href="https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/">
+        </link>
+        <updated>2020-05-16T13:45:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>每天被各个网站上和app的推荐算法烦到了，被动接受了很多无用信息，RSS 最吸引人之处，就在于它能让你看到「开放互联网未经过滤的样子」，给你一个「自己决定看什么」的机会。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>每天被各个网站上和app的推荐算法烦到了，被动接受了很多无用信息，RSS 最吸引人之处，就在于它能让你看到「开放互联网未经过滤的样子」，给你一个「自己决定看什么」的机会。</p>
+<!-- more -->
+<p>一直有个想法搭个RSS信息聚合的网站，找了一圈发现有很多现成的工具了。完全可以使用这些工具解决。（不用写代码了，yeah!）</p>
+<h2 id="feedly">Feedly</h2>
+<p><a href="https://feedly.com/i/my">网站链接</a><br>
+找了几个，发现feedly是页面展示最好的一个，而且还有手机端app。<br>
+<strong>网页</strong><br>
+<img src="https://yueqingsheng.github.io/post-images/1589768447634.jpg" alt="" loading="lazy"><br>
+<strong>app</strong><br>
+<img src="https://yueqingsheng.github.io/post-images/1589768711428.jpg" alt="" loading="lazy"><br>
+唯一的缺点，对图片的预览不是很好。<br>
+<img src="https://yueqingsheng.github.io/post-images/1589768555955.png" alt="" loading="lazy"><br>
+看图片推荐切换到cards view, 设置成直接打开网站。</p>
+<h2 id="rss源">RSS源</h2>
+<p><a href="https://docs.rsshub.app/">RSSHUB</a>已经包含了大多数获取的来源，如果还没有的话，推荐<a href="https://chrome.google.com/webstore/detail/rsshub-radar/kefjpfngnndepjbopdmoebkipbgkggaa/reviews">RSSHUB Radar</a>这个插件，可以自动获取当前网站是否有rss link。<br>
+<img src="https://yueqingsheng.github.io/post-images/1589768153259.png" alt="" loading="lazy"><br>
+结合这两个基本上，每天所有的信息源都可以获取到了，比如接入常看的youtube频道，网易云歌单, b站up主，画师，微博，电台，直播。</p>
+<blockquote>
+<blockquote>
+<p>RSS 是用于分发Web 站点上的内容的摘要的一种简单的XML 格式。它能够用于共享各种各样的信息。</p>
+</blockquote>
+</blockquote>
+<p>我感觉可以把RSS理解成爬虫爬下来然后整理的一种数据格式，所以基本上，网上能浏览的网页，都可以做成RSS来看。也可以把它利用成获取各种通知和推送的工具，比如看直播课，大学信息，追剧更新。</p>
+<p>RSS里看视频<br>
+<img src="https://yueqingsheng.github.io/post-images/1589771338872.png" alt="" loading="lazy"></p>
+<p>Done! 在想RSS能否扩展成一个网站看所有信息呢？</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[用sao从0写一个脚手架（cli, scafolding, sao）]]></title>
+        <id>https://yueqingsheng.github.io/post/yong-sao-cong-0-xie-yi-ge-jiao-shou-jia-cli-scafolding-sao/</id>
+        <link href="https://yueqingsheng.github.io/post/yong-sao-cong-0-xie-yi-ge-jiao-shou-jia-cli-scafolding-sao/">
+        </link>
+        <updated>2020-05-05T19:19:18.000Z</updated>
+        <content type="html"><![CDATA[<p>看了一些文章，发现saojs 包括了一个简单的generator流程。但是网上详细介绍的文章太少了，作为一个js小白，把流程记录下。</p>
+<h2 id="runtest">Run/Test</h2>
+<p>第一步是先把脚手架跑起来，这里使用了ava测试。<a href="https://saojs.org/guide/testing-generators.html#sao-mock-input-answers-references">参考</a></p>
+<h3 id="ava">AVA</h3>
+<p>安装 ：npm install ava -g<br>
+开始测试：ava</p>
+<h2 id="snapshot-testing">snapshot testing</h2>
+<p>第一次测试ava会生成main.js.snap和main.js.md，然后自动比对之后生成的snapshot是否跟储存的一致。<a href="main.js.md">参考</a><br>
+snapshot更新：ava -u</p>
+<h2 id="sao-generators-test-parameters">Sao generators test parameters</h2>
+<p>测试能跑起来了下面看一下，sao testing的参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1588970116384.jpg" alt="" loading="lazy"><br>
+answers 的格式为 { useRouter: true }</p>
+<h3 id="ejs">Ejs</h3>
+<p><a href="https://ejs.co/#docs">docs</a></p>
+<h3 id="inquiryjs">Inquiryjs</h3>
+<p><a href="https://github.com/SBoudrias/Inquirer.js/">docs</a></p>
+<h2 id="参考">参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/34520943">如何开发一个可爱的CLI（一）</a><br>
+<a href="https://github.com/avajs/ava">ava test</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[nestjs 后端代码自动生成（数据表，curd接口，文档）]]></title>
         <id>https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/</id>
         <link href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
         </link>
-        <updated>2020-04-29T19:43:34.000Z</updated>
+        <updated>2020-04-29T07:43:34.000Z</updated>
         <content type="html"><![CDATA[<h2 id="起因">起因</h2>
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
@@ -59,6 +123,13 @@
 <li>根据list of json 批量生成接口</li>
 <li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
 <li>js重新打包成cli发布到npm</li>
+</ol>
+<h2 id="001">0.0.1</h2>
+<ol>
+<li>添加relation {} 为 one to one or many to one (default one to one)<br>
+[] 为 one to many or many to many (default one to many)</li>
+<li>只生成entity</li>
+<li>描述 descrption 根据</li>
 </ol>
 <h2 id="已知bug">已知bug</h2>
 <p>json 中不能用id属性，因为id是由primaryGenerateColumn默认生成的。</p>
@@ -594,9 +665,9 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-07T05:31:09.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7228642"><label class="task-list-item-label" for="task-item-7228642"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7387122">  vue<br>
-<label class="task-list-item-label" for="task-item-7387122">  vue
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3577672"><label class="task-list-item-label" for="task-item-3577672"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5671726">  vue<br>
+<label class="task-list-item-label" for="task-item-5671726">  vue
 看了 react angular文档，太复杂了。转vue了。</label></li>
 </ul>
 ]]></content>
@@ -608,60 +679,12 @@ cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的
         </link>
         <updated>2020-04-06T05:25:02.000Z</updated>
         <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5650741"><label class="task-list-item-label" for="task-item-5650741"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7145170"><label class="task-list-item-label" for="task-item-7145170"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8157335"><label class="task-list-item-label" for="task-item-8157335"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9002553"><label class="task-list-item-label" for="task-item-9002553"> 评分</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6308490"><label class="task-list-item-label" for="task-item-6308490"> code: chat</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8514826"><label class="task-list-item-label" for="task-item-8514826"> 课程价格</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-752997"><label class="task-list-item-label" for="task-item-752997"> 评价</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1084175"><label class="task-list-item-label" for="task-item-1084175"> 评分</label></li>
 </ul>
 <p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 15]]></title>
-        <id>https://yueqingsheng.github.io/post/day-15/</id>
-        <link href="https://yueqingsheng.github.io/post/day-15/">
-        </link>
-        <updated>2020-04-03T17:28:18.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6798523"><label class="task-list-item-label" for="task-item-6798523"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3862393"><label class="task-list-item-label" for="task-item-3862393"> code: morning</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8675581"><label class="task-list-item-label" for="task-item-8675581"> 订单</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9105359"><label class="task-list-item-label" for="task-item-9105359"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7353860"><label class="task-list-item-label" for="task-item-7353860"> 评价</label></li>
-</ul>
-<p>订单表设计：<br>
-类型： 课程， (谈一谈)talk, 要传<br>
-图片<br>
-课程标题： 订单的话用课程号区分吧，定为timestamp ok, tradeno<br>
-class: 关系<br>
-counselor: 关系</p>
-<p>标题 body, 图片服务器根据type和body查找订单，存储Image和关系</p>
-<p>订单评价：<br>
-评价： comment 包含 counselor, course 里有评价, counselor里 eager， 流程就按post里走<br>
-评分： 每次评价都创建一个即使为空，按 （原来的+new）/总数<br>
-课程价格： price class ， 包含 几天</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[nestjs的坑]]></title>
-        <id>https://yueqingsheng.github.io/post/nestjs-de-keng/</id>
-        <link href="https://yueqingsheng.github.io/post/nestjs-de-keng/">
-        </link>
-        <updated>2020-04-03T07:43:24.000Z</updated>
-        <summary type="html"><![CDATA[<p>不定期更新</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>不定期更新</p>
-<!-- more -->
-<p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。comment 也是关键字，需自己导包，我也是服了。</p>
-<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。eager 只会在find里生效</p>
-<p>find 有很多选项足够用了可以代替 queryBuilder</p>
-<h2 id="onetomany-save">OneToMany Save</h2>
-<p>例子： 商品储存多个价格， data 是发送的商品数据，其中包含了price</p>
-<pre><code class="language-typescript">    data.price = await this.priceRepository.save(price);
-    data = await this.repository.create(data);
-    return await this.repository.save(data);
-</code></pre>
-<p>注意 data.price 这一步是必须的，是为了更新刚储存完的id号，typeorm 用id 来建立关系</p>
 ]]></content>
     </entry>
 </feed>

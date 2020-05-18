@@ -184,24 +184,17 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Day 12
+                                用sao从0写一个脚手架（cli, scafolding, sao）
                             </h1>
                             
                                 <!--en-->
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.2
+                                    href="#">0.7
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">59</a></span>
+                                    <span class="post-words">words:<a href="#">173</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://yueqingsheng.github.io/tag/log/">日常</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -209,21 +202,51 @@
                                 
                         </header>
                         
-                            <img class="post-feature-image" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/e35/52761080_142339270141910_3457615875780863181_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&amp;_nc_cat=102&amp;_nc_ohc=sXoh1t4uvRwAX9g6s2D&amp;oh=c4fc6bee2e988de7a7bcc1f3b0ef8611&amp;oe=5EB2A309" alt="">
-                          
                         <div class="post-content">
-                            <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-6852860"><label class="task-list-item-label" for="task-item-6852860"> Angular Components</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2560763"><label class="task-list-item-label" for="task-item-2560763"> 略微修改了主题，简化了标题下的header，以及返回按钮（加粗），有空加个返回顶部</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4976529"><label class="task-list-item-label" for="task-item-4976529"> 配置了vscode 实现了 terminal 和 editor 全部自动化 和代码高亮主题</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-3898046"><label class="task-list-item-label" for="task-item-3898046"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-1006729"><label class="task-list-item-label" for="task-item-1006729"> code: morning</label></li>
-</ul>
+                            <p>看了一些文章，发现saojs 包括了一个简单的generator流程。但是网上详细介绍的文章太少了，作为一个js小白，把流程记录下。</p>
+<h2 id="runtest">Run/Test</h2>
+<p>第一步是先把脚手架跑起来，这里使用了ava测试。<a href="https://saojs.org/guide/testing-generators.html#sao-mock-input-answers-references">参考</a></p>
+<h3 id="ava">AVA</h3>
+<p>安装 ：npm install ava -g<br>
+开始测试：ava</p>
+<h2 id="snapshot-testing">snapshot testing</h2>
+<p>第一次测试ava会生成main.js.snap和main.js.md，然后自动比对之后生成的snapshot是否跟储存的一致。<a href="main.js.md">参考</a><br>
+snapshot更新：ava -u</p>
+<h2 id="sao-generators-test-parameters">Sao generators test parameters</h2>
+<p>测试能跑起来了下面看一下，sao testing的参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1588970116384.jpg" alt="" loading="lazy"><br>
+answers 的格式为 { useRouter: true }</p>
+<h3 id="ejs">Ejs</h3>
+<p><a href="https://ejs.co/#docs">docs</a></p>
+<h3 id="inquiryjs">Inquiryjs</h3>
+<p><a href="https://github.com/SBoudrias/Inquirer.js/">docs</a></p>
+<h2 id="参考">参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/34520943">如何开发一个可爱的CLI（一）</a><br>
+<a href="https://github.com/avajs/ava">ava test</a></p>
 
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#runtest">Run/Test</a>
+<ul>
+<li><a href="#ava">AVA</a></li>
+</ul>
+</li>
+<li><a href="#snapshot-testing">snapshot testing</a></li>
+<li><a href="#sao-generators-test-parameters">Sao generators test parameters</a>
+<ul>
+<li><a href="#ejs">Ejs</a></li>
+<li><a href="#inquiryjs">Inquiryjs</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</li>
+</ul>
+
                             </div>
                             
                                 
@@ -234,12 +257,6 @@
                                                                         <span><strong>Tag(s):</strong></span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://yueqingsheng.github.io/tag/log/">#
-                                                日常
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -250,13 +267,13 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/day-13/">
-                                                                                            Day 13
+                                                                                        <a class="prev" rel="prev" href="https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/">
+                                                                                            RSS订阅（Feedly + Rsshub）
                                                                                         </a>
                                                                                         
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/day-11/">
-                                                                                                    Day 11
+                                                                                                <a class="next" rel="next" href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
+                                                                                                    nestjs 后端代码自动生成（数据表，curd接口，文档）
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
