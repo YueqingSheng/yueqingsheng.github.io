@@ -99,7 +99,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1590188063784" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1591753326726" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -118,7 +118,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1590188063784" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1591753326726" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -191,9 +191,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">10.0
+                                    href="#">10.6
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">2123</a></span>
+                                    <span class="post-words">words:<a href="#">2226</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -251,6 +251,19 @@ print(html)
 由于列表是可变的，我们不能将列表用作字典中的key。 但可以使用元组作为字典key。</p>
 <h3 id="同构与异构">同构与异构</h3>
 <p>习惯上元组多用于用于存储异构元素，异构元素即不同数据类型的元素，比如(ip,port)。 另一方面，列表用于存储异构元素，这些元素属于相同类型的元素，比如[int1,in2,in3]。</p>
+<h2 id="list">list</h2>
+<h3 id="reverse-sublist">reverse sublist</h3>
+<p>a[start:stop:step] # start through not past stop, by step<br>
+step为-1的时候是reverse order<br>
+a[:-11:-1] # the last 10 items, reversed</p>
+<h3 id="sort">sort</h3>
+<p>The sort() method doesn't return any value. Rather, it changes the original list.<br>
+list.sort(key=..., reverse=...)<br>
+If you want a function to return the sorted list rather than change the original list, use sorted().<br>
+sorted(list, key=..., reverse=...)</p>
+<h4 id="paramter">paramter</h4>
+<p>reverse - If True, the sorted list is reversed (or sorted in Descending order)<br>
+key - function that serves as a key for the sort comparison</p>
 <h2 id="json">JSON</h2>
 <h3 id="python-listdict-to-json-string">Python list(dict) to json string</h3>
 <p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
@@ -337,6 +350,8 @@ a way for ensuring that a clean-up is always used.</p>
 </code></pre>
 <p>with 省去写exception handler和close file</p>
 <h2 id="pandas">pandas</h2>
+<h2 id="read-csv">read csv</h2>
+<p>df = pd.read_csv('tag.csv')</p>
 <h3 id="dataframe">dataframe</h3>
 <h3 id="cut">cut</h3>
 <pre><code class="language-python">将age按0-5，5-20...bins 分成 既几部分，label为[婴儿，青年...]
@@ -524,6 +539,16 @@ if __name__ == '__main__':
 <li><a href="#%E5%90%8C%E6%9E%84%E4%B8%8E%E5%BC%82%E6%9E%84">同构与异构</a></li>
 </ul>
 </li>
+<li><a href="#list">list</a>
+<ul>
+<li><a href="#reverse-sublist">reverse sublist</a></li>
+<li><a href="#sort">sort</a>
+<ul>
+<li><a href="#paramter">paramter</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#json">JSON</a>
 <ul>
 <li><a href="#python-listdict-to-json-string">Python list(dict) to json string</a></li>
@@ -542,7 +567,8 @@ if __name__ == '__main__':
 </ul>
 </li>
 <li><a href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6">写入文件</a></li>
-<li><a href="#pandas">pandas</a>
+<li><a href="#pandas">pandas</a></li>
+<li><a href="#read-csv">read csv</a>
 <ul>
 <li><a href="#dataframe">dataframe</a></li>
 <li><a href="#cut">cut</a></li>
@@ -725,7 +751,7 @@ if __name__ == '__main__':
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1590188063784);
+                    newDate.setTime(1591753326726);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

@@ -99,7 +99,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1590188063784" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1591753326726" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -118,7 +118,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1590188063784" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1591753326726" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -191,9 +191,9 @@
                                 <div class="post-meta en">
 
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.6
+                                    href="#">1.9
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">397</a></span>
+                                    <span class="post-words">words:<a href="#">464</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -240,6 +240,22 @@ typeorm 从 entity.js 读取column 信息。</p>
 <p>类型错误或不匹配时候可以强行转成any<br>
 You can always temporarily cast $ to any:<br>
 delete ($ as any).summernote</p>
+<h2 id="mysql-3306-eradr">mysql: 3306 eradr</h2>
+<p>出现这个错误大概率是，.env或production.env 的问题，本地的话检查下port端口，设置为localhost</p>
+<h2 id="observable">Observable</h2>
+<p>nestjs httpservice 默认返回Observable</p>
+<h3 id="observable异常处理">Observable异常处理</h3>
+<pre><code class="language-typescript">      .pipe(
+        catchError(err =&gt; {
+          return of(err.message);
+        }),
+      );
+</code></pre>
+<h3 id="observable值异步处理">Observable值异步处理</h3>
+<pre><code class="language-typescript">    result.subscribe((value)=&gt; {
+      console.log(value);
+    });
+</code></pre>
 
                         </div>
                         
@@ -256,6 +272,13 @@ delete ($ as any).summernote</p>
 <li><a href="#swagger-paramter">Swagger paramter</a></li>
 <li><a href="#nestjsxcrud">nestjsx/crud</a></li>
 <li><a href="#typescript">typescript</a></li>
+<li><a href="#mysql-3306-eradr">mysql: 3306 eradr</a></li>
+<li><a href="#observable">Observable</a>
+<ul>
+<li><a href="#observable%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">Observable异常处理</a></li>
+<li><a href="#observable%E5%80%BC%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86">Observable值异步处理</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -401,7 +424,7 @@ delete ($ as any).summernote</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1590188063784);
+                    newDate.setTime(1591753326726);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

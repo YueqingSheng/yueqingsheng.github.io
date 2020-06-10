@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>哇哦</title>
-    <updated>2020-05-22T22:57:47.971Z</updated>
+    <updated>2020-06-10T01:42:12.360Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,2905 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 哇哦</rights>
+    <entry>
+        <title type="html"><![CDATA[系统设计 3 sharding&hash]]></title>
+        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-3-databaseandhash/</id>
+        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-3-databaseandhash/">
+        </link>
+        <updated>2020-06-07T15:56:36.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="scale">Scale</h2>
+<h3 id="qps">QPS</h3>
+<h3 id="single-point-failure一台服务器挂">Single point failure(一台服务器挂)</h3>
+<h4 id="sharding-数据拆分">sharding 数据拆分</h4>
+<ol>
+<li>解决 single point failure</li>
+<li>分摊流量</li>
+</ol>
+<h4 id="replica-数据复制">replica 数据复制</h4>
+<ol>
+<li>数据恢复</li>
+<li>分摊流量</li>
+</ol>
+<h2 id="数据库拆分">数据库拆分</h2>
+<h2 id="竖向拆分">竖向拆分</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591722453484.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591722492145.png" alt="" loading="lazy"><br>
+缺点： 当表单特别大，column无法拆分时无法用</p>
+<h2 id="横向拆分">横向拆分</h2>
+<p><strong>新数据放新机器，老数据放老机器的问题是什么？</strong><br>
+根据数据的新旧程度来拆分的话，新数据的访问次数比旧数据的访问次数是要明显多的，会导致数据访问不均匀的问题。<br>
+这种方法并不会导致存储不均匀，最多只有最新的一台机器的数据相对少一些，其他的机器都还是均匀的。也不会导致不知道数据去哪台机器取，比如根据 id 来拆分，0~99在1号机器，1-199 在2号机器的话，根据 id 可以算出对应的机器是哪个<br>
+<img src="https://yueqingsheng.github.io/post-images/1591722936674.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591722974334.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591723056231.png" alt="" loading="lazy"><br>
+75%的数据迁移</p>
+<h2 id="一致性哈希算法">一致性哈希算法</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591724662966.png" alt="" loading="lazy"><br>
+匀走相邻两台机器的一部分数据</p>
+<h3 id="缺陷">缺陷：</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1591724873965.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591724909043.png" alt="" loading="lazy"></p>
+<h2 id="改进">改进：</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591725237232.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591725356209.png" alt="" loading="lazy"><br>
+红黑树（balanced tree）</p>
+<h2 id="数据复制-replica">数据复制 Replica</h2>
+<h3 id="replica-vs-backup">Replica vs Backup</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1591725861122.png" alt="" loading="lazy"></figure>
+<h3 id="sql">SQL</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591725986397.png" alt="" loading="lazy"></figure>
+<h3 id="nosql">NoSQL</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1591726102538.png" alt="" loading="lazy"></figure>
+<h2 id="实战1user-table-sharding">实战1：User Table Sharding</h2>
+<p>怎么取数据就怎么拆数据库<br>
+按照 username找用户 查username-&gt;id表<br>
+<img src="https://yueqingsheng.github.io/post-images/1591752365390.png" alt="" loading="lazy"></p>
+<h2 id="实战2friendship-table-sharding">实战2：Friendship Table Sharding</h2>
+<p>双向好友关系，必须存两条关系</p>
+<h2 id="实战4-news-feedtimeline-sharding">实战4： News Feed/Timeline Sharding</h2>
+<p>owner id/userid</p>
+<h2 id="实战5-lintcode-submission-userproblemstatus">实战5： LintCode Submission (user/problem/status)</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1591753013575.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[jupyter]]></title>
+        <id>https://yueqingsheng.github.io/post/jupyter/</id>
+        <link href="https://yueqingsheng.github.io/post/jupyter/">
+        </link>
+        <updated>2020-06-03T07:31:05.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="自动输出多行">自动输出多行</h2>
+<p>from IPython.core.interactiveshell import InteractiveShell<br>
+InteractiveShell.ast_node_interactivity = &quot;all&quot;</p>
+<h2 id="安装包-can-not-find-module">安装包 can not find module</h2>
+<p>import sys<br>
+!{sys.executable} -m pip install pypinyin</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计 Week 2 Database&Cache(数据库和缓存)]]></title>
+        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/</id>
+        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/">
+        </link>
+        <updated>2020-06-02T20:51:55.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="用户系统">用户系统</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1591478153289.png" alt="" loading="lazy"></figure>
+<h2 id="scenarioqpsservice">Scenario(QPS)&amp;Service</h2>
+<p>QPS = DAU*用户平均每天请求次数/每天多少秒（86400）<br>
+<img src="https://yueqingsheng.github.io/post-images/1591552259685.png" alt="" loading="lazy"></p>
+<h3 id="qps与数据存储">QPS与数据存储</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591552392966.png" alt="" loading="lazy"></figure>
+<h2 id="cache读多写少">Cache（读多写少）</h2>
+<p>File system 可以作为网络请求和计算结果的cache<br>
+跟hashmap区别，cache有淘汰机制（LRU，LSU）<br>
+<img src="https://yueqingsheng.github.io/post-images/1591559774530.png" alt="" loading="lazy"><br>
+ttl: time to live<br>
+<img src="https://yueqingsheng.github.io/post-images/1591593445593.png" alt="" loading="lazy"></p>
+<h3 id="set-user">Set User</h3>
+<p>cache delete, database set.有可能第二个<br>
+<img src="https://yueqingsheng.github.io/post-images/1591593695552.png" alt="" loading="lazy"><br>
+多线程下，可能造成数据不一致。<br>
+当执行完cache delete, 另外线程get user  获取了旧数据（cache）, 再执行database set (新数据-&gt;数据不一致<br>
+<img src="https://yueqingsheng.github.io/post-images/1591594170682.png" alt="" loading="lazy"><br>
+加锁（不同机器，系统)</p>
+<h4 id="常用方法">常用方法</h4>
+<p>database.set, cache.delete<br>
+<img src="https://yueqingsheng.github.io/post-images/1591633218358.png" alt="" loading="lazy"><br>
+同时用 set set, 多进程会有修改数据库情况，然后缓存set旧的data<br>
+第一种情况因为读多改少，出现概率低。cache hit 概率大，通常&gt;98%</p>
+<h3 id="如何解决一致性-问题">如何解决一致性 问题</h3>
+<p>ttl(time to live) 允许短时间的不一致</p>
+<h3 id="读少写多-多用数据库分摊请求">读少写多 （多用数据库，分摊请求）</h3>
+<h4 id="cache-架构">Cache 架构</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1591633744350.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591633807994.png" alt="" loading="lazy"></p>
+<h2 id="登录系统">登录系统</h2>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1591637241224.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>UUID:通常用UUID来作为Session Key(Session Token)，UUID(Universal Unique ID): UUID是由一组32位数的16进制数字所构成，所以UUID理论上的总数为16<sup>32=2</sup>128，约等于3.4 x 10^38。也就是说若每纳秒产生1兆个UUID，要花100亿年才会将所有UUID用完。所以通俗的称之为宇宙爆炸都不会出现重复的ID字段。<br>
+<img src="https://yueqingsheng.github.io/post-images/1591637779482.png" alt="" loading="lazy"><br>
+Cookie里内容越少越好</p>
+</blockquote>
+<h3 id="只允许一台机器登录">只允许一台机器登录</h3>
+<p>存储device token, 监测到不同device, 把其他设备账户logout</p>
+<h2 id="好友关系">好友关系</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591638752848.png" alt="" loading="lazy"><br>
+方案1:<br>
+优点：只存储1条数据，节省一半空间。（当你要存 1 和 2 是好友的时候，你可能存为 &lt;1,2&gt; 也可能存为 &lt;2,1&gt;。我们只存成 &lt;1,2&gt; 的形式，原因有两个，第一是方便查询，否则你查询的时候得分别差 &lt;1,2&gt; 是否存在和 &lt;2,1&gt; 是否存在。第二个是节省一半的存储空间。）<br>
+缺点： 查询时 or 操作慢一些<br>
+方案2:<br>
+优点： 查询语句简单，查询速度快。空间换取时间</p>
+<blockquote>
+<p>Transaction: 事务。代表一些列操作要打包在一起，同时成果或者同时失败。比如我转你 10 块钱，你的余额要 +10，我的余额要 -10。这是两条数据库操作，必须同时成功或者同时失败。不能只有一条操作成功。这种打包，就叫做 Transaction。</p>
+</blockquote>
+<h2 id="nosqlcassandra">NoSQL(Cassandra)</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591639493129.png" alt="" loading="lazy"><br>
+Row key: 存储到哪台机器的索引，nosql 用于分布式<br>
+<img src="https://yueqingsheng.github.io/post-images/1591643551418.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591645626931.png" alt="" loading="lazy"><br>
+Column key: 支持范围查询 和 复合值查询</p>
+<h2 id="nosql-vs-sql">NoSQL VS SQL</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591649259941.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591649307923.png" alt="" loading="lazy"></p>
+<h3 id="选择原则">选择原则：</h3>
+<ol>
+<li>transaction 不能选NoSQL(通常在一台机器完成)</li>
+<li>擅长部分</li>
+<li>一个网站会使用多种数据库<br>
+<img src="https://yueqingsheng.github.io/post-images/1591649707668.png" alt="" loading="lazy"></li>
+</ol>
+<h2 id="nosql-存单向好友关系">NoSql 存单向好友关系</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1591751464392.png" alt="" loading="lazy"></figure>
+<h2 id="nosql-存储user">NoSql 存储User</h2>
+<p>根据 emial/phone/username查询<br>
+<img src="https://yueqingsheng.github.io/post-images/1591751772270.png" alt="" loading="lazy"></p>
+<h2 id="共同好友">共同好友</h2>
+<p>A userid B userid =&gt; A和B交集<br>
+<img src="https://yueqingsheng.github.io/post-images/1591751952888.png" alt="" loading="lazy"></p>
+<h2 id="六度关系">六度关系</h2>
+<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1591752010561.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python cheatsheet]]></title>
+        <id>https://yueqingsheng.github.io/post/python-cheatsheet/</id>
+        <link href="https://yueqingsheng.github.io/post/python-cheatsheet/">
+        </link>
+        <updated>2020-06-01T07:05:44.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="comprehensive-python-cheatsheet">Comprehensive Python Cheatsheet</h1>
+<p><sup><a href="https://raw.githubusercontent.com/gto76/python-cheatsheet/master/README.md">Download text file</a>, <a href="https://transactions.sendowl.com/products/78175486/4422834F/view">Buy PDF</a>, <a href="https://github.com/gto76/python-cheatsheet">Fork me on GitHub</a> or <a href="https://github.com/gto76/python-cheatsheet/wiki/Frequently-Asked-Questions">Check out FAQ</a>.<br>
+</sup></p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/gto76/python-cheatsheet/blob/master/web/image_888.jpeg?raw=true" alt="Monty Python" loading="lazy"></figure>
+<h2 id="contents">Contents</h2>
+<p><strong>   </strong> <strong>1. Collections:</strong> <strong> </strong> <strong><a href="#list"><code>List</code></a></strong><strong>,</strong> <strong><a href="#dictionary"><code>Dictionary</code></a></strong><strong>,</strong> <strong><a href="#set"><code>Set</code></a></strong><strong>,</strong> <strong><a href="#tuple"><code>Tuple</code></a></strong><strong>,</strong> <strong><a href="#range"><code>Range</code></a></strong><strong>,</strong> <strong><a href="#enumerate"><code>Enumerate</code></a></strong><strong>,</strong> <strong><a href="#iterator"><code>Iterator</code></a></strong><strong>,</strong> <strong><a href="#generator"><code>Generator</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>2. Types:</strong> <strong>          </strong>  <strong><a href="#type"><code>Type</code></a></strong><strong>,</strong> <strong><a href="#string"><code>String</code></a></strong><strong>,</strong> <strong><a href="#regex"><code>Regular_Exp</code></a></strong><strong>,</strong> <strong><a href="#format"><code>Format</code></a></strong><strong>,</strong> <strong><a href="#numbers"><code>Numbers</code></a></strong><strong>,</strong> <strong><a href="#combinatorics"><code>Combinatorics</code></a></strong><strong>,</strong> <strong><a href="#datetime"><code>Datetime</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>3. Syntax:</strong> <strong>         </strong>  <strong><a href="#arguments"><code>Args</code></a></strong><strong>,</strong> <strong><a href="#inline"><code>Inline</code></a></strong><strong>,</strong> <strong><a href="#closure"><code>Closure</code></a></strong><strong>,</strong> <strong><a href="#decorator"><code>Decorator</code></a></strong><strong>,</strong> <strong><a href="#class"><code>Class</code></a></strong><strong>,</strong> <strong><a href="#duck-types"><code>Duck_Type</code></a></strong><strong>,</strong> <strong><a href="#enum"><code>Enum</code></a></strong><strong>,</strong> <strong><a href="#exceptions"><code>Exception</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>4. System:</strong> <strong>        </strong>  <strong><a href="#exit"><code>Exit</code></a></strong><strong>,</strong> <strong><a href="#print"><code>Print</code></a></strong><strong>,</strong> <strong><a href="#input"><code>Input</code></a></strong><strong>,</strong> <strong><a href="#command-line-arguments"><code>Command_Line_Arguments</code></a></strong><strong>,</strong> <strong><a href="#open"><code>Open</code></a></strong><strong>,</strong> <strong><a href="#path"><code>Path</code></a></strong><strong>,</strong> <strong><a href="#oscommands"><code>OS_Commands</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>5. Data:</strong> <strong>             </strong>  <strong><a href="#json"><code>JSON</code></a></strong><strong>,</strong> <strong><a href="#pickle"><code>Pickle</code></a></strong><strong>,</strong> <strong><a href="#csv"><code>CSV</code></a></strong><strong>,</strong> <strong><a href="#sqlite"><code>SQLite</code></a></strong><strong>,</strong> <strong><a href="#bytes"><code>Bytes</code></a></strong><strong>,</strong> <strong><a href="#struct"><code>Struct</code></a></strong><strong>,</strong> <strong><a href="#array"><code>Array</code></a></strong><strong>,</strong> <strong><a href="#memory-view"><code>Memory_View</code></a></strong><strong>,</strong> <strong><a href="#deque"><code>Deque</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>6. Advanced:</strong> <strong>   </strong>  <strong><a href="#threading"><code>Threading</code></a></strong><strong>,</strong> <strong><a href="#operator"><code>Operator</code></a></strong><strong>,</strong> <strong><a href="#introspection"><code>Introspection</code></a></strong><strong>,</strong> <strong><a href="#metaprograming"><code>Metaprograming</code></a></strong><strong>,</strong> <strong><a href="#eval"><code>Eval</code></a></strong><strong>,</strong> <strong><a href="#coroutines"><code>Coroutines</code></a></strong><strong>.</strong><br>
+<strong>   </strong> <strong>7. Libraries:</strong> <strong>      </strong>  <strong><a href="#progress-bar"><code>Progress_Bar</code></a></strong><strong>,</strong> <strong><a href="#plot"><code>Plot</code></a></strong><strong>,</strong> <strong><a href="#table"><code>Table</code></a></strong><strong>,</strong> <strong><a href="#curses"><code>Curses</code></a></strong><strong>,</strong> <strong><a href="#logging"><code>Logging</code></a></strong><strong>,</strong> <strong><a href="#scraping"><code>Scraping</code></a></strong><strong>,</strong> <strong><a href="#web"><code>Web</code></a></strong><strong>,</strong> <strong><a href="#profiling"><code>Profile</code></a></strong><strong>,</strong><br>
+<strong>                                 </strong> <strong><a href="#numpy"><code>NumPy</code></a></strong><strong>,</strong> <strong><a href="#image"><code>Image</code></a></strong><strong>,</strong> <strong><a href="#audio"><code>Audio</code></a></strong><strong>,</strong> <strong><a href="#pygame"><code>Pygame</code></a></strong><strong>.</strong></p>
+<h2 id="main">Main</h2>
+<pre><code class="language-python">if __name__ == '__main__':     # Runs main() if file wasn't imported.
+    main()
+</code></pre>
+<h2 id="list">List</h2>
+<pre><code class="language-python">&lt;list&gt; = &lt;list&gt;[from_inclusive : to_exclusive : ±step_size]
+</code></pre>
+<pre><code class="language-python">&lt;list&gt;.append(&lt;el&gt;)            # Or: &lt;list&gt; += [&lt;el&gt;]
+&lt;list&gt;.extend(&lt;collection&gt;)    # Or: &lt;list&gt; += &lt;collection&gt;
+</code></pre>
+<pre><code class="language-python">&lt;list&gt;.sort()
+&lt;list&gt;.reverse()
+&lt;list&gt; = sorted(&lt;collection&gt;)
+&lt;iter&gt; = reversed(&lt;list&gt;)
+</code></pre>
+<pre><code class="language-python">sum_of_elements  = sum(&lt;collection&gt;)
+elementwise_sum  = [sum(pair) for pair in zip(list_a, list_b)]
+sorted_by_second = sorted(&lt;collection&gt;, key=lambda el: el[1])
+sorted_by_both   = sorted(&lt;collection&gt;, key=lambda el: (el[1], el[0]))
+flatter_list     = list(itertools.chain.from_iterable(&lt;list&gt;))
+product_of_elems = functools.reduce(lambda out, el: out * el, &lt;collection&gt;)
+list_of_chars    = list(&lt;str&gt;)
+</code></pre>
+<ul>
+<li><strong>Module <a href="#operator">operator</a> provides functions itemgetter() and mul() that offer the same functionality as <a href="#lambda">lambda</a> expressions above.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;int&gt; = &lt;list&gt;.count(&lt;el&gt;)     # Returns number of occurrences. Also works on strings.
+index = &lt;list&gt;.index(&lt;el&gt;)     # Returns index of first occurrence or raises ValueError.
+&lt;list&gt;.insert(index, &lt;el&gt;)     # Inserts item at index and moves the rest to the right.
+&lt;el&gt; = &lt;list&gt;.pop([index])     # Removes and returns item at index or from the end.
+&lt;list&gt;.remove(&lt;el&gt;)            # Removes first occurrence of item or raises ValueError.
+&lt;list&gt;.clear()                 # Removes all items. Also works on dictionary and set.
+</code></pre>
+<h2 id="dictionary">Dictionary</h2>
+<pre><code class="language-python">&lt;view&gt; = &lt;dict&gt;.keys()                          # Coll. of keys that reflects changes.
+&lt;view&gt; = &lt;dict&gt;.values()                        # Coll. of values that reflects changes.
+&lt;view&gt; = &lt;dict&gt;.items()                         # Coll. of key-value tuples that reflects chgs.
+</code></pre>
+<pre><code class="language-python">value  = &lt;dict&gt;.get(key, default=None)          # Returns default if key is missing.
+value  = &lt;dict&gt;.setdefault(key, default=None)   # Returns and writes default if key is missing.
+&lt;dict&gt; = collections.defaultdict(&lt;type&gt;)        # Creates a dict with default value of type.
+&lt;dict&gt; = collections.defaultdict(lambda: 1)     # Creates a dict with default value 1.
+</code></pre>
+<pre><code class="language-python">&lt;dict&gt; = dict(&lt;collection&gt;)                     # Creates a dict from coll. of key-value pairs.
+&lt;dict&gt; = dict(zip(keys, values))                # Creates a dict from two collections.
+&lt;dict&gt; = dict.fromkeys(keys [, value])          # Creates a dict from collection of keys.
+</code></pre>
+<pre><code class="language-python">&lt;dict&gt;.update(&lt;dict&gt;)                           # Adds items. Replaces ones with matching keys.
+value = &lt;dict&gt;.pop(key)                         # Removes item or raises KeyError.
+{k for k, v in &lt;dict&gt;.items() if v == value}    # Returns set of keys that point to the value.
+{k: v for k, v in &lt;dict&gt;.items() if k in keys}  # Returns a dictionary, filtered by keys.
+</code></pre>
+<h3 id="counter">Counter</h3>
+<pre><code class="language-python">&gt;&gt;&gt; from collections import Counter
+&gt;&gt;&gt; colors = ['blue', 'blue', 'blue', 'red', 'red']
+&gt;&gt;&gt; counter = Counter(colors)
+&gt;&gt;&gt; counter['yellow'] += 1
+Counter({'blue': 3, 'red': 2, 'yellow': 1})
+&gt;&gt;&gt; counter.most_common()[0]
+('blue', 3)
+</code></pre>
+<h2 id="set">Set</h2>
+<pre><code class="language-python">&lt;set&gt; = set()
+</code></pre>
+<pre><code class="language-python">&lt;set&gt;.add(&lt;el&gt;)                                 # Or: &lt;set&gt; |= {&lt;el&gt;}
+&lt;set&gt;.update(&lt;collection&gt;)                      # Or: &lt;set&gt; |= &lt;set&gt;
+</code></pre>
+<pre><code class="language-python">&lt;set&gt;  = &lt;set&gt;.union(&lt;coll.&gt;)                   # Or: &lt;set&gt; | &lt;set&gt;
+&lt;set&gt;  = &lt;set&gt;.intersection(&lt;coll.&gt;)            # Or: &lt;set&gt; &amp; &lt;set&gt;
+&lt;set&gt;  = &lt;set&gt;.difference(&lt;coll.&gt;)              # Or: &lt;set&gt; - &lt;set&gt;
+&lt;set&gt;  = &lt;set&gt;.symmetric_difference(&lt;coll.&gt;)    # Or: &lt;set&gt; ^ &lt;set&gt;
+&lt;bool&gt; = &lt;set&gt;.issubset(&lt;coll.&gt;)                # Or: &lt;set&gt; &lt;= &lt;set&gt;
+&lt;bool&gt; = &lt;set&gt;.issuperset(&lt;coll.&gt;)              # Or: &lt;set&gt; &gt;= &lt;set&gt;
+</code></pre>
+<pre><code class="language-python">&lt;el&gt; = &lt;set&gt;.pop()                              # Raises KeyError if empty.
+&lt;set&gt;.remove(&lt;el&gt;)                              # Raises KeyError if missing.
+&lt;set&gt;.discard(&lt;el&gt;)                             # Doesn't raise an error.
+</code></pre>
+<h3 id="frozen-set">Frozen Set</h3>
+<ul>
+<li><strong>Is immutable and hashable.</strong></li>
+<li><strong>That means it can be used as a key in a dictionary or as an element in a set.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;frozenset&gt; = frozenset(&lt;collection&gt;)
+</code></pre>
+<h2 id="tuple">Tuple</h2>
+<p><strong>Tuple is an immutable and hashable list.</strong></p>
+<pre><code class="language-python">&lt;tuple&gt; = ()
+&lt;tuple&gt; = (&lt;el&gt;, )
+&lt;tuple&gt; = (&lt;el_1&gt;, &lt;el_2&gt; [, ...])
+</code></pre>
+<h3 id="named-tuple">Named Tuple</h3>
+<p><strong>Tuple's subclass with named elements.</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; from collections import namedtuple
+&gt;&gt;&gt; Point = namedtuple('Point', 'x y')
+&gt;&gt;&gt; p = Point(1, y=2)
+Point(x=1, y=2)
+&gt;&gt;&gt; p[0]
+1
+&gt;&gt;&gt; p.x
+1
+&gt;&gt;&gt; getattr(p, 'y')
+2
+&gt;&gt;&gt; p._fields  # Or: Point._fields
+('x', 'y')
+</code></pre>
+<h2 id="range">Range</h2>
+<pre><code class="language-python">&lt;range&gt; = range(to_exclusive)
+&lt;range&gt; = range(from_inclusive, to_exclusive)
+&lt;range&gt; = range(from_inclusive, to_exclusive, ±step_size)
+</code></pre>
+<pre><code class="language-python">from_inclusive = &lt;range&gt;.start
+to_exclusive   = &lt;range&gt;.stop
+</code></pre>
+<h2 id="enumerate">Enumerate</h2>
+<pre><code class="language-python">for i, el in enumerate(&lt;collection&gt; [, i_start]):
+    ...
+</code></pre>
+<h2 id="iterator">Iterator</h2>
+<pre><code class="language-python">&lt;iter&gt; = iter(&lt;collection&gt;)                 # `iter(&lt;iter&gt;)` returns unmodified iterator.
+&lt;iter&gt; = iter(&lt;function&gt;, to_exclusive)     # A sequence of return values until 'to_exclusive'.
+&lt;el&gt;   = next(&lt;iter&gt; [, default])           # Raises StopIteration or returns 'default' on end.
+&lt;list&gt; = list(&lt;iter&gt;)                       # Returns a list of iterator's remaining elements.
+</code></pre>
+<h3 id="itertools">Itertools</h3>
+<pre><code class="language-python">from itertools import count, repeat, cycle, chain, islice
+</code></pre>
+<pre><code class="language-python">&lt;iter&gt; = count(start=0, step=1)             # Returns updated value endlessly. Accepts floats.
+&lt;iter&gt; = repeat(&lt;el&gt; [, times])             # Returns element endlessly or 'times' times.
+&lt;iter&gt; = cycle(&lt;collection&gt;)                # Repeats the sequence endlessly.
+</code></pre>
+<pre><code class="language-python">&lt;iter&gt; = chain(&lt;coll_1&gt;, &lt;coll_2&gt; [, ...])  # Empties collections in order.
+&lt;iter&gt; = chain.from_iterable(&lt;collection&gt;)  # Empties collections inside a collection in order.
+</code></pre>
+<pre><code class="language-python">&lt;iter&gt; = islice(&lt;collection&gt;, to_exclusive)
+&lt;iter&gt; = islice(&lt;collection&gt;, from_inclusive, to_exclusive [, +step_size])
+</code></pre>
+<h2 id="generator">Generator</h2>
+<ul>
+<li><strong>Any function that contains a yield statement returns a generator.</strong></li>
+<li><strong>Generators and iterators are interchangeable.</strong></li>
+</ul>
+<pre><code class="language-python">def count(start, step):
+    while True:
+        yield start
+        start += step
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; counter = count(10, 2)
+&gt;&gt;&gt; next(counter), next(counter), next(counter)
+(10, 12, 14)
+</code></pre>
+<h2 id="type">Type</h2>
+<ul>
+<li><strong>Everything is an object.</strong></li>
+<li><strong>Every object has a type.</strong></li>
+<li><strong>Type and class are synonymous.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;type&gt; = type(&lt;el&gt;)                          # Or: &lt;el&gt;.__class__
+&lt;bool&gt; = isinstance(&lt;el&gt;, &lt;type&gt;)            # Or: issubclass(type(&lt;el&gt;), &lt;type&gt;)
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; type('a'), 'a'.__class__, str
+(&lt;class 'str'&gt;, &lt;class 'str'&gt;, &lt;class 'str'&gt;)
+</code></pre>
+<h4 id="some-types-do-not-have-built-in-names-so-they-must-be-imported">Some types do not have built-in names, so they must be imported:</h4>
+<pre><code class="language-python">from types import FunctionType, MethodType, LambdaType, GeneratorType
+</code></pre>
+<h3 id="abstract-base-classes">Abstract Base Classes</h3>
+<p><strong>Each abstract base class specifies a set of virtual subclasses. These classes are then recognized by isinstance() and issubclass() as subclasses of the ABC, although they are really not.</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; from collections.abc import Sequence, Collection, Iterable
+&gt;&gt;&gt; isinstance([1, 2, 3], Iterable)
+True
+</code></pre>
+<pre><code class="language-text">+------------------+------------+------------+------------+
+|                  |  Sequence  | Collection |  Iterable  |
++------------------+------------+------------+------------+
+| list, range, str |    yes     |    yes     |    yes     |
+| dict, set        |            |    yes     |    yes     |
+| iter             |            |            |    yes     |
++------------------+------------+------------+------------+
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; from numbers import Integral, Rational, Real, Complex, Number
+&gt;&gt;&gt; isinstance(123, Number)
+True
+</code></pre>
+<pre><code class="language-text">+--------------------+----------+----------+----------+----------+----------+
+|                    | Integral | Rational |   Real   | Complex  |  Number  |
++--------------------+----------+----------+----------+----------+----------+
+| int                |   yes    |   yes    |   yes    |   yes    |   yes    |
+| fractions.Fraction |          |   yes    |   yes    |   yes    |   yes    |
+| float              |          |          |   yes    |   yes    |   yes    |
+| complex            |          |          |          |   yes    |   yes    |
+| decimal.Decimal    |          |          |          |          |   yes    |
++--------------------+----------+----------+----------+----------+----------+
+</code></pre>
+<h2 id="string">String</h2>
+<pre><code class="language-python">&lt;str&gt;  = &lt;str&gt;.strip()                       # Strips all whitespace characters from both ends.
+&lt;str&gt;  = &lt;str&gt;.strip('&lt;chars&gt;')              # Strips all passed characters from both ends.
+</code></pre>
+<pre><code class="language-python">&lt;list&gt; = &lt;str&gt;.split()                       # Splits on one or more whitespace characters.
+&lt;list&gt; = &lt;str&gt;.split(sep=None, maxsplit=-1)  # Splits on 'sep' str at most 'maxsplit' times.
+&lt;list&gt; = &lt;str&gt;.splitlines(keepends=False)    # Splits on \n,\r,\r\n. Keeps them if 'keepends'.
+&lt;str&gt;  = &lt;str&gt;.join(&lt;coll_of_strings&gt;)       # Joins elements using string as separator.
+</code></pre>
+<pre><code class="language-python">&lt;bool&gt; = &lt;sub_str&gt; in &lt;str&gt;                  # Checks if string contains a substring.
+&lt;bool&gt; = &lt;str&gt;.startswith(&lt;sub_str&gt;)         # Pass tuple of strings for multiple options.
+&lt;bool&gt; = &lt;str&gt;.endswith(&lt;sub_str&gt;)           # Pass tuple of strings for multiple options.
+&lt;int&gt;  = &lt;str&gt;.find(&lt;sub_str&gt;)               # Returns start index of first match or -1.
+&lt;int&gt;  = &lt;str&gt;.index(&lt;sub_str&gt;)              # Same but raises ValueError if missing.
+</code></pre>
+<pre><code class="language-python">&lt;str&gt;  = &lt;str&gt;.replace(old, new [, count])   # Replaces 'old' with 'new' at most 'count' times.
+&lt;str&gt;  = &lt;str&gt;.translate(&lt;table&gt;)            # Use `str.maketrans(&lt;dict&gt;)` to generate table.
+</code></pre>
+<pre><code class="language-python">&lt;str&gt;  = chr(&lt;int&gt;)                          # Converts int to Unicode char.
+&lt;int&gt;  = ord(&lt;str&gt;)                          # Converts Unicode char to int.
+</code></pre>
+<ul>
+<li><strong>Also: <code>'lstrip()'</code>, <code>'rstrip()'</code>.</strong></li>
+<li><strong>Also: <code>'lower()'</code>, <code>'upper()'</code>, <code>'capitalize()'</code> and <code>'title()'</code>.</strong></li>
+</ul>
+<h3 id="property-methods">Property Methods</h3>
+<pre><code class="language-text">+---------------+----------+----------+----------+----------+----------+
+|               | [ !#$%…] | [a-zA-Z] |  [¼½¾]   |  [²³¹]   |  [0-9]   |
++---------------+----------+----------+----------+----------+----------+
+| isprintable() |   yes    |   yes    |   yes    |   yes    |   yes    |
+| isalnum()     |          |   yes    |   yes    |   yes    |   yes    |
+| isnumeric()   |          |          |   yes    |   yes    |   yes    |
+| isdigit()     |          |          |          |   yes    |   yes    |
+| isdecimal()   |          |          |          |          |   yes    |
++---------------+----------+----------+----------+----------+----------+
+</code></pre>
+<ul>
+<li><strong>Also: <code>'isspace()'</code> checks for <code>'[ \t\n\r\f\v…]'</code>.</strong></li>
+</ul>
+<h2 id="regex">Regex</h2>
+<pre><code class="language-python">import re
+&lt;str&gt;   = re.sub(&lt;regex&gt;, new, text, count=0)  # Substitutes all occurrences with 'new'.
+&lt;list&gt;  = re.findall(&lt;regex&gt;, text)            # Returns all occurrences as strings.
+&lt;list&gt;  = re.split(&lt;regex&gt;, text, maxsplit=0)  # Use brackets in regex to include the matches.
+&lt;Match&gt; = re.search(&lt;regex&gt;, text)             # Searches for first occurrence of the pattern.
+&lt;Match&gt; = re.match(&lt;regex&gt;, text)              # Searches only at the beginning of the text.
+&lt;iter&gt;  = re.finditer(&lt;regex&gt;, text)           # Returns all occurrences as match objects.
+</code></pre>
+<ul>
+<li><strong>Search() and match() return None if they can't find a match.</strong></li>
+<li><strong>Argument <code>'flags=re.IGNORECASE'</code> can be used with all functions.</strong></li>
+<li><strong>Argument <code>'flags=re.MULTILINE'</code> makes <code>'^'</code> and <code>'$'</code> match the start/end of each line.</strong></li>
+<li><strong>Argument <code>'flags=re.DOTALL'</code> makes dot also accept the <code>'\n'</code>.</strong></li>
+<li><strong>Use <code>r'\1'</code> or <code>'\\1'</code> for backreference.</strong></li>
+<li><strong>Add <code>'?'</code> after an operator to make it non-greedy.</strong></li>
+</ul>
+<h3 id="match-object">Match Object</h3>
+<pre><code class="language-python">&lt;str&gt;   = &lt;Match&gt;.group()                      # Returns the whole match. Also group(0).
+&lt;str&gt;   = &lt;Match&gt;.group(1)                     # Returns part in the first bracket.
+&lt;tuple&gt; = &lt;Match&gt;.groups()                     # Returns all bracketed parts.
+&lt;int&gt;   = &lt;Match&gt;.start()                      # Returns start index of the match.
+&lt;int&gt;   = &lt;Match&gt;.end()                        # Returns exclusive end index of the match.
+</code></pre>
+<h3 id="special-sequences">Special Sequences</h3>
+<ul>
+<li><strong>By default digits, alphanumerics and whitespaces from all alphabets are matched, unless <code>'flags=re.ASCII'</code> argument is used.</strong></li>
+<li><strong>Use a capital letter for negation.</strong></li>
+</ul>
+<pre><code class="language-python">'\d' == '[0-9]'                                # Matches any digit.
+'\w' == '[a-zA-Z0-9_]'                         # Matches any alphanumeric.
+'\s' == '[ \t\n\r\f\v]'                        # Matches any whitespace.
+</code></pre>
+<h2 id="format">Format</h2>
+<pre><code class="language-python">&lt;str&gt; = f'{&lt;el_1&gt;}, {&lt;el_2&gt;}'
+&lt;str&gt; = '{}, {}'.format(&lt;el_1&gt;, &lt;el_2&gt;)
+</code></pre>
+<h3 id="attributes">Attributes</h3>
+<pre><code class="language-python">&gt;&gt;&gt; from collections import namedtuple
+&gt;&gt;&gt; Person = namedtuple('Person', 'name height')
+&gt;&gt;&gt; person = Person('Jean-Luc', 187)
+&gt;&gt;&gt; f'{person.height}'
+'187'
+&gt;&gt;&gt; '{p.height}'.format(p=person)
+'187'
+</code></pre>
+<h3 id="general-options">General Options</h3>
+<pre><code class="language-python">{&lt;el&gt;:&lt;10}                                     # '&lt;el&gt;      '
+{&lt;el&gt;:^10}                                     # '   &lt;el&gt;   '
+{&lt;el&gt;:&gt;10}                                     # '      &lt;el&gt;'
+{&lt;el&gt;:.&lt;10}                                    # '&lt;el&gt;......'
+{&lt;el&gt;:&lt;0}                                      # '&lt;el&gt;'
+</code></pre>
+<h3 id="strings">Strings</h3>
+<p><strong><code>'!r'</code> calls object's <a href="#class">repr()</a> method, instead of <a href="#class">str()</a>, to get a string.</strong></p>
+<pre><code class="language-python">{'abcde'!r:10}                                 # &quot;'abcde'   &quot;
+{'abcde':10.3}                                 # 'abc       '
+{'abcde':.3}                                   # 'abc'
+</code></pre>
+<h3 id="numbers">Numbers</h3>
+<pre><code class="language-python">{ 123456:10,}                                  # '   123,456'
+{ 123456:10_}                                  # '   123_456'
+{ 123456:+10}                                  # '   +123456'
+{-123456:=10}                                  # '-   123456'
+{ 123456: }                                    # ' 123456'
+{-123456: }                                    # '-123456'
+</code></pre>
+<h3 id="floats">Floats</h3>
+<pre><code class="language-python">{1.23456:10.3}                                 # '      1.23'
+{1.23456:10.3f}                                # '     1.235'
+{1.23456:10.3e}                                # ' 1.235e+00'
+{1.23456:10.3%}                                # '  123.456%'
+</code></pre>
+<h4 id="comparison-of-presentation-types">Comparison of presentation types:</h4>
+<pre><code class="language-text">+---------------+-----------------+-----------------+-----------------+-----------------+
+|               |    {&lt;float&gt;}    |   {&lt;float&gt;:f}   |   {&lt;float&gt;:e}   |   {&lt;float&gt;:%}   |
++---------------+-----------------+-----------------+-----------------+-----------------+
+|   0.000056789 |    '5.6789e-05' |     '0.000057'  |  '5.678900e-05' |     '0.005679%' |
+|   0.00056789  |    '0.00056789' |     '0.000568'  |  '5.678900e-04' |     '0.056789%' |
+|   0.0056789   |    '0.0056789'  |     '0.005679'  |  '5.678900e-03' |     '0.567890%' |
+|   0.056789    |    '0.056789'   |     '0.056789'  |  '5.678900e-02' |     '5.678900%' |
+|   0.56789     |    '0.56789'    |     '0.567890'  |  '5.678900e-01' |    '56.789000%' |
+|   5.6789      |    '5.6789'     |     '5.678900'  |  '5.678900e+00' |   '567.890000%' |
+|  56.789       |   '56.789'      |    '56.789000'  |  '5.678900e+01' |  '5678.900000%' |
+| 567.89        |  '567.89'       |   '567.890000'  |  '5.678900e+02' | '56789.000000%' |
++---------------+-----------------+-----------------+-----------------+-----------------+
+</code></pre>
+<pre><code class="language-text">+---------------+-----------------+-----------------+-----------------+-----------------+
+|               |   {&lt;float&gt;:.2}  |  {&lt;float&gt;:.2f}  |  {&lt;float&gt;:.2e}  |  {&lt;float&gt;:.2%}  |
++---------------+-----------------+-----------------+-----------------+-----------------+
+|   0.000056789 |    '5.7e-05'    |       '0.00'    |    '5.68e-05'   |       '0.01%'   |
+|   0.00056789  |    '0.00057'    |       '0.00'    |    '5.68e-04'   |       '0.06%'   |
+|   0.0056789   |    '0.0057'     |       '0.01'    |    '5.68e-03'   |       '0.57%'   |
+|   0.056789    |    '0.057'      |       '0.06'    |    '5.68e-02'   |       '5.68%'   |
+|   0.56789     |    '0.57'       |       '0.57'    |    '5.68e-01'   |      '56.79%'   |
+|   5.6789      |    '5.7'        |       '5.68'    |    '5.68e+00'   |     '567.89%'   |
+|  56.789       |    '5.7e+01'    |      '56.79'    |    '5.68e+01'   |    '5678.90%'   |
+| 567.89        |    '5.7e+02'    |     '567.89'    |    '5.68e+02'   |   '56789.00%'   |
++---------------+-----------------+-----------------+-----------------+-----------------+
+</code></pre>
+<h3 id="ints">Ints</h3>
+<pre><code class="language-python">{90:c}                                   # 'Z'
+{90:b}                                   # '1011010'
+{90:X}                                   # '5A'
+</code></pre>
+<h2 id="numbers-2">Numbers</h2>
+<h3 id="types">Types</h3>
+<pre><code class="language-python">&lt;int&gt;      = int(&lt;float/str/bool&gt;)       # Or: math.floor(&lt;float&gt;)
+&lt;float&gt;    = float(&lt;int/str/bool&gt;)       # Or: &lt;real&gt;e±&lt;int&gt;
+&lt;complex&gt;  = complex(real=0, imag=0)     # Or: &lt;real&gt; ± &lt;real&gt;j
+&lt;Fraction&gt; = fractions.Fraction(0, 1)    # Or: Fraction(numerator=0, denominator=1)
+&lt;Decimal&gt;  = decimal.Decimal(&lt;str/int&gt;)  # Or: Decimal((sign, digits, exponent))
+</code></pre>
+<ul>
+<li><strong><code>'int(&lt;str&gt;)'</code> and <code>'float(&lt;str&gt;)'</code> raise ValueError on malformed strings.</strong></li>
+<li><strong>Decimal numbers can be represented exactly, unlike floats where <code>'1.1 + 2.2 != 3.3'</code>.</strong></li>
+<li><strong>Precision of decimal operations is set with: <code>'decimal.getcontext().prec = &lt;int&gt;'</code>.</strong></li>
+</ul>
+<h3 id="basic-functions">Basic Functions</h3>
+<pre><code class="language-python">&lt;num&gt; = pow(&lt;num&gt;, &lt;num&gt;)                # Or: &lt;num&gt; ** &lt;num&gt;
+&lt;num&gt; = abs(&lt;num&gt;)                       # &lt;float&gt; = abs(&lt;complex&gt;)
+&lt;num&gt; = round(&lt;num&gt; [, ±ndigits])        # `round(126, -1) == 130`
+</code></pre>
+<h3 id="math">Math</h3>
+<pre><code class="language-python">from math import e, pi, inf, nan, isinf, isnan
+from math import cos, acos, sin, asin, tan, atan, degrees, radians
+from math import log, log10, log2
+</code></pre>
+<h3 id="statistics">Statistics</h3>
+<pre><code class="language-python">from statistics import mean, median, variance, stdev, pvariance, pstdev
+</code></pre>
+<h3 id="random">Random</h3>
+<pre><code class="language-python">from random import random, randint, choice, shuffle
+&lt;float&gt; = random()
+&lt;int&gt;   = randint(from_inclusive, to_inclusive)
+&lt;el&gt;    = choice(&lt;list&gt;)
+shuffle(&lt;list&gt;)
+</code></pre>
+<h3 id="bin-hex">Bin, Hex</h3>
+<pre><code class="language-python">&lt;int&gt;        = 0b&lt;bin&gt;                   # Or: 0x&lt;hex&gt;
+&lt;int&gt;        = int('±&lt;bin&gt;', 2)          # Or: int('±&lt;hex&gt;', 16)
+&lt;int&gt;        = int('±0b&lt;bin&gt;', 0)        # Or: int('±0x&lt;hex&gt;', 0)
+'[-]0b&lt;bin&gt;' = bin(&lt;int&gt;)                # Or: hex(&lt;int&gt;)
+</code></pre>
+<h3 id="bitwise-operators">Bitwise Operators</h3>
+<pre><code class="language-python">&lt;int&gt;        = &lt;int&gt; &amp; &lt;int&gt;             # And
+&lt;int&gt;        = &lt;int&gt; | &lt;int&gt;             # Or
+&lt;int&gt;        = &lt;int&gt; ^ &lt;int&gt;             # Xor (0 if both bits equal)
+&lt;int&gt;        = &lt;int&gt; &lt;&lt; n_bits           # Shift left (&gt;&gt; for right)
+&lt;int&gt;        = ~&lt;int&gt;                    # Not (also: -&lt;int&gt; - 1)
+</code></pre>
+<h2 id="combinatorics">Combinatorics</h2>
+<ul>
+<li><strong>Every function returns an iterator.</strong></li>
+<li><strong>If you want to print the iterator, you need to pass it to the list() function first!</strong></li>
+</ul>
+<pre><code class="language-python">from itertools import product, combinations, combinations_with_replacement, permutations
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; product([0, 1], repeat=3)
+[(0, 0, 0), (0, 0, 1), (0, 1, 0), (0, 1, 1),
+ (1, 0, 0), (1, 0, 1), (1, 1, 0), (1, 1, 1)]
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; product('ab', '12')
+[('a', '1'), ('a', '2'),
+ ('b', '1'), ('b', '2')]
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; combinations('abc', 2)
+[('a', 'b'), ('a', 'c'),
+ ('b', 'c')]
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; combinations_with_replacement('abc', 2)
+[('a', 'a'), ('a', 'b'), ('a', 'c'),
+ ('b', 'b'), ('b', 'c'),
+ ('c', 'c')]
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; permutations('abc', 2)
+[('a', 'b'), ('a', 'c'),
+ ('b', 'a'), ('b', 'c'),
+ ('c', 'a'), ('c', 'b')]
+</code></pre>
+<h2 id="datetime">Datetime</h2>
+<ul>
+<li><strong>Module 'datetime' provides 'date' <code>&lt;D&gt;</code>, 'time' <code>&lt;T&gt;</code>, 'datetime' <code>&lt;DT&gt;</code> and 'timedelta' <code>&lt;TD&gt;</code> classes. All are immutable and hashable.</strong></li>
+<li><strong>Time and datetime objects can be 'aware' <code>&lt;a&gt;</code>, meaning they have defined timezone, or 'naive' <code>&lt;n&gt;</code>, meaning they don't.</strong></li>
+<li><strong>If object is naive, it is presumed to be in the system's timezone.</strong></li>
+</ul>
+<pre><code class="language-python">from datetime import date, time, datetime, timedelta
+from dateutil.tz import UTC, tzlocal, gettz, resolve_imaginary
+</code></pre>
+<h3 id="constructors">Constructors</h3>
+<pre><code class="language-python">&lt;D&gt;  = date(year, month, day)
+&lt;T&gt;  = time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, fold=0)
+&lt;DT&gt; = datetime(year, month, day, hour=0, minute=0, second=0, ...)
+&lt;TD&gt; = timedelta(days=0, seconds=0, microseconds=0, milliseconds=0,
+                 minutes=0, hours=0, weeks=0)
+</code></pre>
+<ul>
+<li><strong>Use <code>'&lt;D/DT&gt;.weekday()'</code> to get the day of the week (Mon == 0).</strong></li>
+<li><strong><code>'fold=1'</code> means the second pass in case of time jumping back for one hour.</strong></li>
+<li><strong><code>'&lt;DTa&gt; = resolve_imaginary(&lt;DTa&gt;)'</code> fixes DTs that fall into the missing hour.</strong></li>
+</ul>
+<h3 id="now">Now</h3>
+<pre><code class="language-python">&lt;D/DTn&gt;  = D/DT.today()                     # Current local date or naive datetime.
+&lt;DTn&gt;    = DT.utcnow()                      # Naive datetime from current UTC time.
+&lt;DTa&gt;    = DT.now(&lt;tzinfo&gt;)                 # Aware datetime from current tz time.
+</code></pre>
+<ul>
+<li><strong>To extract time use <code>'&lt;DTn&gt;.time()'</code>, <code>'&lt;DTa&gt;.time()'</code> or <code>'&lt;DTa&gt;.timetz()'</code>.</strong></li>
+</ul>
+<h3 id="timezone">Timezone</h3>
+<pre><code class="language-python">&lt;tzinfo&gt; = UTC                              # UTC timezone. London without DST.
+&lt;tzinfo&gt; = tzlocal()                        # Local timezone. Also gettz().
+&lt;tzinfo&gt; = gettz('&lt;Continent&gt;/&lt;City&gt;')      # 'Continent/City_Name' timezone or None.
+&lt;DTa&gt;    = &lt;DT&gt;.astimezone(&lt;tzinfo&gt;)        # Datetime, converted to passed timezone.
+&lt;Ta/DTa&gt; = &lt;T/DT&gt;.replace(tzinfo=&lt;tzinfo&gt;)  # Unconverted object with new timezone.
+</code></pre>
+<h3 id="encode">Encode</h3>
+<pre><code class="language-python">&lt;D/T/DT&gt; = D/T/DT.fromisoformat('&lt;iso&gt;')    # Object from ISO string. Raises ValueError.
+&lt;DT&gt;     = DT.strptime(&lt;str&gt;, '&lt;format&gt;')   # Datetime from str, according to format.
+&lt;D/DTn&gt;  = D/DT.fromordinal(&lt;int&gt;)          # D/DTn from days since Christ, at midnight.
+&lt;DTn&gt;    = DT.fromtimestamp(&lt;real&gt;)         # Local time DTn from seconds since Epoch.
+&lt;DTa&gt;    = DT.fromtimestamp(&lt;real&gt;, &lt;tz.&gt;)  # Aware datetime from seconds since Epoch.
+</code></pre>
+<ul>
+<li><strong>ISO strings come in following forms: <code>'YYYY-MM-DD'</code>, <code>'HH:MM:SS.ffffff[±&lt;offset&gt;]'</code>, or both separated by an arbitrary character. Offset is formatted as: <code>'HH:MM'</code>.</strong></li>
+<li><strong>Epoch on Unix systems is: <code>'1970-01-01 00:00 UTC'</code>, <code>'1970-01-01 01:00 CET'</code>, ...</strong></li>
+</ul>
+<h3 id="decode">Decode</h3>
+<pre><code class="language-python">&lt;str&gt;    = &lt;D/T/DT&gt;.isoformat(sep='T')      # Also timespec='auto/hours/minutes/seconds'.
+&lt;str&gt;    = &lt;D/T/DT&gt;.strftime('&lt;format&gt;')    # Custom string representation.
+&lt;int&gt;    = &lt;D/DT&gt;.toordinal()               # Days since Christ, ignoring time and tz.
+&lt;float&gt;  = &lt;DTn&gt;.timestamp()                # Seconds since Epoch, from DTn in local tz.
+&lt;float&gt;  = &lt;DTa&gt;.timestamp()                # Seconds since Epoch, from DTa.
+</code></pre>
+<h3 id="format-2">Format</h3>
+<pre><code class="language-python">&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; dt = datetime.strptime('2015-05-14 23:39:00.00 +0200', '%Y-%m-%d %H:%M:%S.%f %z')
+&gt;&gt;&gt; dt.strftime(&quot;%A, %dth of %B '%y, %I:%M%p %Z&quot;)
+&quot;Thursday, 14th of May '15, 11:39PM UTC+02:00&quot;
+</code></pre>
+<ul>
+<li><strong>When parsing, <code>'%z'</code> also accepts <code>'±HH:MM'</code>.</strong></li>
+<li><strong>For abbreviated weekday and month use <code>'%a'</code> and <code>'%b'</code>.</strong></li>
+</ul>
+<h3 id="arithmetics">Arithmetics</h3>
+<pre><code class="language-python">&lt;D/DT&gt;   = &lt;D/DT&gt;   ± &lt;TD&gt;                  # Returned datetime can fall into missing hour.
+&lt;TD&gt;     = &lt;D/DTn&gt;  - &lt;D/DTn&gt;               # Returns the difference, ignoring time jumps.
+&lt;TD&gt;     = &lt;DTa&gt;    - &lt;DTa&gt;                 # Ignores time jumps if they share tzinfo object.
+&lt;TD&gt;     = &lt;DT_UTC&gt; - &lt;DT_UTC&gt;              # Convert DTs to UTC to get the actual delta.
+</code></pre>
+<h2 id="arguments">Arguments</h2>
+<h3 id="inside-function-call">Inside Function Call</h3>
+<pre><code class="language-python">&lt;function&gt;(&lt;positional_args&gt;)                  # f(0, 0)
+&lt;function&gt;(&lt;keyword_args&gt;)                     # f(x=0, y=0)
+&lt;function&gt;(&lt;positional_args&gt;, &lt;keyword_args&gt;)  # f(0, y=0)
+</code></pre>
+<h3 id="inside-function-definition">Inside Function Definition</h3>
+<pre><code class="language-python">def f(&lt;nondefault_args&gt;):                      # def f(x, y):
+def f(&lt;default_args&gt;):                         # def f(x=0, y=0):
+def f(&lt;nondefault_args&gt;, &lt;default_args&gt;):      # def f(x, y=0):
+</code></pre>
+<h2 id="splat-operator">Splat Operator</h2>
+<h3 id="inside-function-call-2">Inside Function Call</h3>
+<p><strong>Splat expands a collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.</strong></p>
+<pre><code class="language-python">args   = (1, 2)
+kwargs = {'x': 3, 'y': 4, 'z': 5}
+func(*args, **kwargs)
+</code></pre>
+<h4 id="is-the-same-as">Is the same as:</h4>
+<pre><code class="language-python">func(1, 2, x=3, y=4, z=5)
+</code></pre>
+<h3 id="inside-function-definition-2">Inside Function Definition</h3>
+<p><strong>Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.</strong></p>
+<pre><code class="language-python">def add(*a):
+    return sum(a)
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; add(1, 2, 3)
+6
+</code></pre>
+<h4 id="legal-argument-combinations">Legal argument combinations:</h4>
+<pre><code class="language-python">def f(x, y, z):                # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3) | f(1, 2, 3)
+def f(*, x, y, z):             # f(x=1, y=2, z=3)
+def f(x, *, y, z):             # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(x, y, *, z):             # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3)
+</code></pre>
+<pre><code class="language-python">def f(*args):                  # f(1, 2, 3)
+def f(x, *args):               # f(1, 2, 3)
+def f(*args, z):               # f(1, 2, z=3)
+def f(x, *args, z):            # f(1, 2, z=3)
+</code></pre>
+<pre><code class="language-python">def f(**kwargs):               # f(x=1, y=2, z=3)
+def f(x, **kwargs):            # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(*, x, **kwargs):         # f(x=1, y=2, z=3)
+</code></pre>
+<pre><code class="language-python">def f(*args, **kwargs):        # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3) | f(1, 2, 3)
+def f(x, *args, **kwargs):     # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3) | f(1, 2, 3)
+def f(*args, y, **kwargs):     # f(x=1, y=2, z=3) | f(1, y=2, z=3)
+def f(x, *args, z, **kwargs):  # f(x=1, y=2, z=3) | f(1, y=2, z=3) | f(1, 2, z=3)
+</code></pre>
+<h3 id="other-uses">Other Uses</h3>
+<pre><code class="language-python">&lt;list&gt;  = [*&lt;collection&gt; [, ...]]
+&lt;set&gt;   = {*&lt;collection&gt; [, ...]}
+&lt;tuple&gt; = (*&lt;collection&gt;, [...])
+&lt;dict&gt;  = {**&lt;dict&gt; [, ...]}
+</code></pre>
+<pre><code class="language-python">head, *body, tail = &lt;collection&gt;
+</code></pre>
+<h2 id="inline">Inline</h2>
+<h3 id="lambda">Lambda</h3>
+<pre><code class="language-python">&lt;function&gt; = lambda: &lt;return_value&gt;
+&lt;function&gt; = lambda &lt;argument_1&gt;, &lt;argument_2&gt;: &lt;return_value&gt;
+</code></pre>
+<h3 id="comprehension">Comprehension</h3>
+<pre><code class="language-python">&lt;list&gt; = [i+1 for i in range(10)]                   # [1, 2, ..., 10]
+&lt;set&gt;  = {i for i in range(10) if i &gt; 5}            # {6, 7, 8, 9}
+&lt;iter&gt; = (i+5 for i in range(10))                   # (5, 6, ..., 14)
+&lt;dict&gt; = {i: i*2 for i in range(10)}                # {0: 0, 1: 2, ..., 9: 18}
+</code></pre>
+<pre><code class="language-python">out = [i+j for i in range(10) for j in range(10)]
+</code></pre>
+<h4 id="is-the-same-as-2">Is the same as:</h4>
+<pre><code class="language-python">out = []
+for i in range(10):
+    for j in range(10):
+        out.append(i+j)
+</code></pre>
+<h3 id="map-filter-reduce">Map, Filter, Reduce</h3>
+<pre><code class="language-python">from functools import reduce
+&lt;iter&gt; = map(lambda x: x + 1, range(10))            # (1, 2, ..., 10)
+&lt;iter&gt; = filter(lambda x: x &gt; 5, range(10))         # (6, 7, 8, 9)
+&lt;obj&gt;  = reduce(lambda out, x: out + x, range(10))  # 45
+</code></pre>
+<h3 id="any-all">Any, All</h3>
+<pre><code class="language-python">&lt;bool&gt; = any(&lt;collection&gt;)                          # False if empty.
+&lt;bool&gt; = all(el[1] for el in &lt;collection&gt;)          # True if empty.
+</code></pre>
+<h3 id="if-else">If - Else</h3>
+<pre><code class="language-python">&lt;obj&gt; = &lt;expression_if_true&gt; if &lt;condition&gt; else &lt;expression_if_false&gt;
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; [a if a else 'zero' for a in (0, 1, 2, 3)]
+['zero', 1, 2, 3]
+</code></pre>
+<h3 id="namedtuple-enum-dataclass">Namedtuple, Enum, Dataclass</h3>
+<pre><code class="language-python">from collections import namedtuple
+Point     = namedtuple('Point', 'x y')
+point     = Point(0, 0)
+</code></pre>
+<pre><code class="language-python">from enum import Enum
+Direction = Enum('Direction', 'n e s w')
+direction = Direction.n
+</code></pre>
+<pre><code class="language-python">from dataclasses import make_dataclass
+Creature  = make_dataclass('Creature', ['location', 'direction'])
+creature  = Creature(Point(0, 0), Direction.n)
+</code></pre>
+<h2 id="closure">Closure</h2>
+<p><strong>We have a closure in Python when:</strong></p>
+<ul>
+<li><strong>A nested function references a value of its enclosing function and then</strong></li>
+<li><strong>the enclosing function returns the nested function.</strong></li>
+</ul>
+<pre><code class="language-python">def get_multiplier(a):
+    def out(b):
+        return a * b
+    return out
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; multiply_by_3 = get_multiplier(3)
+&gt;&gt;&gt; multiply_by_3(10)
+30
+</code></pre>
+<ul>
+<li><strong>If multiple nested functions within enclosing function reference the same value, that value gets shared.</strong></li>
+<li><strong>To dynamically access function's first free variable use <code>'&lt;function&gt;.__closure__[0].cell_contents'</code>.</strong></li>
+</ul>
+<h3 id="partial">Partial</h3>
+<pre><code class="language-python">from functools import partial
+&lt;function&gt; = partial(&lt;function&gt; [, &lt;arg_1&gt;, &lt;arg_2&gt;, ...])
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; import operator as op
+&gt;&gt;&gt; multiply_by_3 = partial(op.mul, 3)
+&gt;&gt;&gt; multiply_by_3(10)
+30
+</code></pre>
+<ul>
+<li><strong>Partial is also useful in cases when function needs to be passed as an argument, because it enables us to set its arguments beforehand.</strong></li>
+<li><strong>A few examples being: <code>'defaultdict(&lt;function&gt;)'</code>, <code>'iter(&lt;function&gt;, to_exclusive)'</code> and dataclass's <code>'field(default_factory=&lt;function&gt;)'</code>.</strong></li>
+</ul>
+<h3 id="non-local">Non-Local</h3>
+<p><strong>If variable is being assigned to anywhere in the scope, it is regarded as a local variable, unless it is declared as a 'global' or a 'nonlocal'.</strong></p>
+<pre><code class="language-python">def get_counter():
+    i = 0
+    def out():
+        nonlocal i
+        i += 1
+        return i
+    return out
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; counter = get_counter()
+&gt;&gt;&gt; counter(), counter(), counter()
+(1, 2, 3)
+</code></pre>
+<h2 id="decorator">Decorator</h2>
+<p><strong>A decorator takes a function, adds some functionality and returns it.</strong></p>
+<pre><code class="language-python">@decorator_name
+def function_that_gets_passed_to_decorator():
+    ...
+</code></pre>
+<h3 id="debugger-example">Debugger Example</h3>
+<p><strong>Decorator that prints function's name every time it gets called.</strong></p>
+<pre><code class="language-python">from functools import wraps
+
+def debug(func):
+    @wraps(func)
+    def out(*args, **kwargs):
+        print(func.__name__)
+        return func(*args, **kwargs)
+    return out
+
+@debug
+def add(x, y):
+    return x + y
+</code></pre>
+<ul>
+<li><strong>Wraps is a helper decorator that copies the metadata of the passed function (func) to the function it is wrapping (out).</strong></li>
+<li><strong>Without it <code>'add.__name__'</code> would return <code>'out'</code>.</strong></li>
+</ul>
+<h3 id="lru-cache">LRU Cache</h3>
+<p><strong>Decorator that caches function's return values. All function's arguments must be hashable.</strong></p>
+<pre><code class="language-python">from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fib(n):
+    return n if n &lt; 2 else fib(n-2) + fib(n-1)
+</code></pre>
+<ul>
+<li><strong>CPython interpreter limits recursion depth to 1000 by default. To increase it use <code>'sys.setrecursionlimit(&lt;depth&gt;)'</code>.</strong></li>
+</ul>
+<h3 id="parametrized-decorator">Parametrized Decorator</h3>
+<p><strong>A decorator that accepts arguments and returns a normal decorator that accepts a function.</strong></p>
+<pre><code class="language-python">from functools import wraps
+
+def debug(print_result=False):
+    def decorator(func):
+        @wraps(func)
+        def out(*args, **kwargs):
+            result = func(*args, **kwargs)
+            print(func.__name__, result if print_result else '')
+            return result
+        return out
+    return decorator
+
+@debug(print_result=True)
+def add(x, y):
+    return x + y
+</code></pre>
+<h2 id="class">Class</h2>
+<pre><code class="language-python">class &lt;name&gt;:
+    def __init__(self, a):
+        self.a = a
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        return f'{class_name}({self.a!r})'
+    def __str__(self):
+        return str(self.a)
+
+    @classmethod
+    def get_class_name(cls):
+        return cls.__name__
+</code></pre>
+<ul>
+<li><strong>Return value of repr() should be unambiguous and of str() readable.</strong></li>
+<li><strong>If only repr() is defined, it will also be used for str().</strong></li>
+</ul>
+<h4 id="str-use-cases">Str() use cases:</h4>
+<pre><code class="language-python">print(&lt;el&gt;)
+print(f'{&lt;el&gt;}')
+raise Exception(&lt;el&gt;)
+loguru.logger.debug(&lt;el&gt;)
+csv.writer(&lt;file&gt;).writerow([&lt;el&gt;])
+</code></pre>
+<h4 id="repr-use-cases">Repr() use cases:</h4>
+<pre><code class="language-python">print([&lt;el&gt;])
+print(f'{&lt;el&gt;!r}')
+&gt;&gt;&gt; &lt;el&gt;
+loguru.logger.exception()
+Z = dataclasses.make_dataclass('Z', ['a']); print(Z(&lt;el&gt;))
+</code></pre>
+<h3 id="constructor-overloading">Constructor Overloading</h3>
+<pre><code class="language-python">class &lt;name&gt;:
+    def __init__(self, a=None):
+        self.a = a
+</code></pre>
+<h3 id="inheritance">Inheritance</h3>
+<pre><code class="language-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age  = age
+
+class Employee(Person):
+    def __init__(self, name, age, staff_num):
+        super().__init__(name, age)
+        self.staff_num = staff_num
+</code></pre>
+<h3 id="multiple-inheritance">Multiple Inheritance</h3>
+<pre><code class="language-python">class A: pass
+class B: pass
+class C(A, B): pass
+</code></pre>
+<p><strong>MRO determines the order in which parent classes are traversed when searching for a method:</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; C.mro()
+[&lt;class 'C'&gt;, &lt;class 'A'&gt;, &lt;class 'B'&gt;, &lt;class 'object'&gt;]
+</code></pre>
+<h3 id="property">Property</h3>
+<p><strong>Pythonic way of implementing getters and setters.</strong></p>
+<pre><code class="language-python">class MyClass:
+    @property
+    def a(self):
+        return self._a
+
+    @a.setter
+    def a(self, value):
+        self._a = value
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; el = MyClass()
+&gt;&gt;&gt; el.a = 123
+&gt;&gt;&gt; el.a
+123
+</code></pre>
+<h3 id="dataclass">Dataclass</h3>
+<p><strong>Decorator that automatically generates init(), repr() and eq() special methods.</strong></p>
+<pre><code class="language-python">from dataclasses import dataclass, field
+
+@dataclass(order=False, frozen=False)
+class &lt;class_name&gt;:
+    &lt;attr_name_1&gt;: &lt;type&gt;
+    &lt;attr_name_2&gt;: &lt;type&gt; = &lt;default_value&gt;
+    &lt;attr_name_3&gt;: list/dict/set = field(default_factory=list/dict/set)
+</code></pre>
+<ul>
+<li><strong>Objects can be made sortable with <code>'order=True'</code> and/or immutable and hashable with <code>'frozen=True'</code>.</strong></li>
+<li><strong>Function field() is needed because <code>'&lt;attr_name&gt;: list = []'</code> would make a list that is shared among all instances.</strong></li>
+<li><strong>Default_factory can be any <a href="#callable">callable</a>.</strong></li>
+</ul>
+<h4 id="inline-2">Inline:</h4>
+<pre><code class="language-python">from dataclasses import make_dataclass
+&lt;class&gt; = make_dataclass('&lt;class_name&gt;', &lt;coll_of_attribute_names&gt;)
+&lt;class&gt; = make_dataclass('&lt;class_name&gt;', &lt;coll_of_tuples&gt;)
+&lt;tuple&gt; = ('&lt;attr_name&gt;', &lt;type&gt; [, &lt;default_value&gt;])
+</code></pre>
+<h3 id="slots">Slots</h3>
+<p><strong>Mechanism that restricts objects to attributes listed in 'slots' and significantly reduces their memory footprint.</strong></p>
+<pre><code class="language-python">class MyClassWithSlots:
+    __slots__ = ['a']
+    def __init__(self):
+        self.a = 1
+</code></pre>
+<h3 id="copy">Copy</h3>
+<pre><code class="language-python">from copy import copy, deepcopy
+&lt;object&gt; = copy(&lt;object&gt;)
+&lt;object&gt; = deepcopy(&lt;object&gt;)
+</code></pre>
+<h2 id="duck-types">Duck Types</h2>
+<p><strong>A duck type is an implicit type that prescribes a set of special methods. Any object that has those methods defined is considered a member of that duck type.</strong></p>
+<h3 id="comparable">Comparable</h3>
+<ul>
+<li><strong>If eq() method is not overridden, it returns <code>'id(self) == id(other)'</code>, which is the same as <code>'self is other'</code>.</strong></li>
+<li><strong>That means all objects compare not equal by default.</strong></li>
+<li><strong>Only the left side object has eq() method called, unless it returns NotImplemented, in which case the right object is consulted.</strong></li>
+</ul>
+<pre><code class="language-python">class MyComparable:
+    def __init__(self, a):
+        self.a = a
+    def __eq__(self, other):
+        if isinstance(other, type(self)):
+            return self.a == other.a
+        return NotImplemented
+</code></pre>
+<h3 id="hashable">Hashable</h3>
+<ul>
+<li><strong>Hashable object needs both hash() and eq() methods and its hash value should never change.</strong></li>
+<li><strong>Hashable objects that compare equal must have the same hash value, meaning default hash() that returns <code>'id(self)'</code> will not do.</strong></li>
+<li><strong>That is why Python automatically makes classes unhashable if you only implement eq().</strong></li>
+</ul>
+<pre><code class="language-python">class MyHashable:
+    def __init__(self, a):
+        self._a = a
+    @property
+    def a(self):
+        return self._a
+    def __eq__(self, other):
+        if isinstance(other, type(self)):
+            return self.a == other.a
+        return NotImplemented
+    def __hash__(self):
+        return hash(self.a)
+</code></pre>
+<h3 id="sortable">Sortable</h3>
+<ul>
+<li><strong>With total_ordering decorator, you only need to provide eq() and one of lt(), gt(), le() or ge() special methods.</strong></li>
+</ul>
+<pre><code class="language-python">from functools import total_ordering
+
+@total_ordering
+class MySortable:
+    def __init__(self, a):
+        self.a = a
+    def __eq__(self, other):
+        if isinstance(other, type(self)):
+            return self.a == other.a
+        return NotImplemented
+    def __lt__(self, other):
+        if isinstance(other, type(self)):
+            return self.a &lt; other.a
+        return NotImplemented
+</code></pre>
+<h3 id="iterator-2">Iterator</h3>
+<ul>
+<li><strong>Any object that has methods next() and iter() is an iterator.</strong></li>
+<li><strong>Next() should return next item or raise StopIteration.</strong></li>
+<li><strong>Iter() should return 'self'.</strong></li>
+</ul>
+<pre><code class="language-python">class Counter:
+    def __init__(self):
+        self.i = 0
+    def __next__(self):
+        self.i += 1
+        return self.i
+    def __iter__(self):
+        return self
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; counter = Counter()
+&gt;&gt;&gt; next(counter), next(counter), next(counter)
+(1, 2, 3)
+</code></pre>
+<h4 id="python-has-many-different-iterator-objects">Python has many different iterator objects:</h4>
+<ul>
+<li><strong>Iterators returned by the <a href="#iterator">iter()</a> function, such as list_iterator and set_iterator.</strong></li>
+<li><strong>Objects returned by the <a href="#itertools">itertools</a> module, such as count, repeat and cycle.</strong></li>
+<li><strong>Generators returned by the <a href="#generator">generator functions</a> and <a href="#comprehension">generator expressions</a>.</strong></li>
+<li><strong>File objects returned by the <a href="#open">open()</a> function, etc.</strong></li>
+</ul>
+<h3 id="callable">Callable</h3>
+<ul>
+<li><strong>All functions and classes have a call() method, hence are callable.</strong></li>
+<li><strong>When this cheatsheet uses <code>'&lt;function&gt;'</code> as an argument, it actually means <code>'&lt;callable&gt;'</code>.</strong></li>
+</ul>
+<pre><code class="language-python">class Counter:
+    def __init__(self):
+        self.i = 0
+    def __call__(self):
+        self.i += 1
+        return self.i
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; counter = Counter()
+&gt;&gt;&gt; counter(), counter(), counter()
+(1, 2, 3)
+</code></pre>
+<h3 id="context-manager">Context Manager</h3>
+<ul>
+<li><strong>Enter() should lock the resources and optionally return an object.</strong></li>
+<li><strong>Exit() should release the resources.</strong></li>
+<li><strong>Any exception that happens inside the with block is passed to the exit() method.</strong></li>
+<li><strong>If it wishes to suppress the exception it must return a true value.</strong></li>
+</ul>
+<pre><code class="language-python">class MyOpen:
+    def __init__(self, filename):
+        self.filename = filename
+    def __enter__(self):
+        self.file = open(self.filename)
+        return self.file
+    def __exit__(self, exc_type, exception, traceback):
+        self.file.close()
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; with open('test.txt', 'w') as file:
+...     file.write('Hello World!')
+&gt;&gt;&gt; with MyOpen('test.txt') as file:
+...     print(file.read())
+Hello World!
+</code></pre>
+<h2 id="iterable-duck-types">Iterable Duck Types</h2>
+<h3 id="iterable">Iterable</h3>
+<ul>
+<li><strong>Only required method is iter(). It should return an iterator of object's items.</strong></li>
+<li><strong>Contains() automatically works on any object that has iter() defined.</strong></li>
+</ul>
+<pre><code class="language-python">class MyIterable:
+    def __init__(self, a):
+        self.a = a
+    def __iter__(self):
+        return iter(self.a)
+    def __contains__(self, el):
+        return el in self.a
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; obj = MyIterable([1, 2, 3])
+&gt;&gt;&gt; [el for el in obj]
+[1, 2, 3]
+&gt;&gt;&gt; 1 in obj
+True
+</code></pre>
+<h3 id="collection">Collection</h3>
+<ul>
+<li><strong>Only required methods are iter() and len().</strong></li>
+<li><strong>This cheatsheet actually means <code>'&lt;iterable&gt;'</code> when it uses <code>'&lt;collection&gt;'</code>.</strong></li>
+<li><strong>I chose not to use the name 'iterable' because it sounds scarier and more vague than 'collection'.</strong></li>
+</ul>
+<pre><code class="language-python">class MyCollection:
+    def __init__(self, a):
+        self.a = a
+    def __iter__(self):
+        return iter(self.a)
+    def __contains__(self, el):
+        return el in self.a
+    def __len__(self):
+        return len(self.a)
+</code></pre>
+<h3 id="sequence">Sequence</h3>
+<ul>
+<li><strong>Only required methods are len() and getitem().</strong></li>
+<li><strong>Getitem() should return an item at index or raise IndexError.</strong></li>
+<li><strong>Iter() and contains() automatically work on any object that has getitem() defined.</strong></li>
+<li><strong>Reversed() automatically works on any object that has getitem() and len() defined.</strong></li>
+</ul>
+<pre><code class="language-python">class MySequence:
+    def __init__(self, a):
+        self.a = a
+    def __iter__(self):
+        return iter(self.a)
+    def __contains__(self, el):
+        return el in self.a
+    def __len__(self):
+        return len(self.a)
+    def __getitem__(self, i):
+        return self.a[i]
+    def __reversed__(self):
+        return reversed(self.a)
+</code></pre>
+<h3 id="abc-sequence">ABC Sequence</h3>
+<ul>
+<li><strong>It's a richer interface than the basic sequence.</strong></li>
+<li><strong>Extending it generates iter(), contains(), reversed(), index() and count().</strong></li>
+<li><strong>Unlike <code>'abc.Iterable'</code> and <code>'abc.Collection'</code>, it is not a duck type. That is why <code>'issubclass(MySequence, abc.Sequence)'</code> would return False even if MySequence had all the methods defined.</strong></li>
+</ul>
+<pre><code class="language-python">from collections import abc
+
+class MyAbcSequence(abc.Sequence):
+    def __init__(self, a):
+        self.a = a
+    def __len__(self):
+        return len(self.a)
+    def __getitem__(self, i):
+        return self.a[i]
+</code></pre>
+<h4 id="table-of-required-and-automatically-available-special-methods">Table of required and automatically available special methods:</h4>
+<pre><code class="language-text">+------------+------------+------------+------------+--------------+
+|            |  Iterable  | Collection |  Sequence  | abc.Sequence |
++------------+------------+------------+------------+--------------+
+| iter()     |    REQ     |    REQ     |    Yes     |     Yes      |
+| contains() |    Yes     |    Yes     |    Yes     |     Yes      |
+| len()      |            |    REQ     |    REQ     |     REQ      |
+| getitem()  |            |            |    REQ     |     REQ      |
+| reversed() |            |            |    Yes     |     Yes      |
+| index()    |            |            |            |     Yes      |
+| count()    |            |            |            |     Yes      |
++------------+------------+------------+------------+--------------+
+</code></pre>
+<ul>
+<li><strong>Other ABCs that generate missing methods are: MutableSequence, Set, MutableSet, Mapping and MutableMapping.</strong></li>
+<li><strong>Names of their required methods are stored in <code>'&lt;abc&gt;.__abstractmethods__'</code>.</strong></li>
+</ul>
+<h2 id="enum">Enum</h2>
+<pre><code class="language-python">from enum import Enum, auto
+
+class &lt;enum_name&gt;(Enum):
+    &lt;member_name_1&gt; = &lt;value_1&gt;
+    &lt;member_name_2&gt; = &lt;value_2_a&gt;, &lt;value_2_b&gt;
+    &lt;member_name_3&gt; = auto()
+</code></pre>
+<ul>
+<li><strong>If there are no numeric values before auto(), it returns 1.</strong></li>
+<li><strong>Otherwise it returns an increment of the last numeric value.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;member&gt; = &lt;enum&gt;.&lt;member_name&gt;                 # Returns a member.
+&lt;member&gt; = &lt;enum&gt;['&lt;member_name&gt;']              # Returns a member or raises KeyError.
+&lt;member&gt; = &lt;enum&gt;(&lt;value&gt;)                      # Returns a member or raises ValueError.
+&lt;str&gt;    = &lt;member&gt;.name                        # Returns member's name.
+&lt;obj&gt;    = &lt;member&gt;.value                       # Returns member's value.
+</code></pre>
+<pre><code class="language-python">list_of_members = list(&lt;enum&gt;)
+member_names    = [a.name for a in &lt;enum&gt;]
+member_values   = [a.value for a in &lt;enum&gt;]
+random_member   = random.choice(list(&lt;enum&gt;))
+</code></pre>
+<pre><code class="language-python">def get_next_member(member):
+    members = list(member.__class__)
+    index   = (members.index(member) + 1) % len(members)
+    return members[index]
+</code></pre>
+<h3 id="inline-3">Inline</h3>
+<pre><code class="language-python">Cutlery = Enum('Cutlery', 'fork knife spoon')
+Cutlery = Enum('Cutlery', ['fork', 'knife', 'spoon'])
+Cutlery = Enum('Cutlery', {'fork': 1, 'knife': 2, 'spoon': 3})
+</code></pre>
+<h4 id="user-defined-functions-cannot-be-values-so-they-must-be-wrapped">User-defined functions cannot be values, so they must be wrapped:</h4>
+<pre><code class="language-python">from functools import partial
+LogicOp = Enum('LogicOp', {'AND': partial(lambda l, r: l and r),
+                           'OR' : partial(lambda l, r: l or r)})
+</code></pre>
+<ul>
+<li><strong>Another solution in this particular case is to use built-in functions and_() and or_() from the module <a href="#operator">operator</a>.</strong></li>
+</ul>
+<h2 id="exceptions">Exceptions</h2>
+<h3 id="basic-example">Basic Example</h3>
+<pre><code class="language-python">try:
+    &lt;code&gt;
+except &lt;exception&gt;:
+    &lt;code&gt;
+</code></pre>
+<h3 id="complex-example">Complex Example</h3>
+<pre><code class="language-python">try:
+    &lt;code_1&gt;
+except &lt;exception_a&gt;:
+    &lt;code_2_a&gt;
+except &lt;exception_b&gt;:
+    &lt;code_2_b&gt;
+else:
+    &lt;code_2_c&gt;
+finally:
+    &lt;code_3&gt;
+</code></pre>
+<h3 id="catching-exceptions">Catching Exceptions</h3>
+<pre><code class="language-python">except &lt;exception&gt;:
+except &lt;exception&gt; as &lt;name&gt;:
+except (&lt;exception&gt;, ...):
+except (&lt;exception&gt;, ...) as &lt;name&gt;:
+</code></pre>
+<ul>
+<li><strong>Also catches subclasses of the exception.</strong></li>
+<li><strong>Use <code>'traceback.print_exc()'</code> to print the error message to stderr.</strong></li>
+</ul>
+<h3 id="raising-exceptions">Raising Exceptions</h3>
+<pre><code class="language-python">raise &lt;exception&gt;
+raise &lt;exception&gt;()
+raise &lt;exception&gt;(&lt;el&gt; [, ...])
+</code></pre>
+<h4 id="re-raising-caught-exception">Re-raising caught exception:</h4>
+<pre><code class="language-python">except &lt;exception&gt; as &lt;name&gt;:
+    ...
+    raise
+</code></pre>
+<h3 id="exception-object">Exception Object</h3>
+<pre><code class="language-python">arguments = &lt;name&gt;.args
+exc_type  = &lt;name&gt;.__class__
+filename  = &lt;name&gt;.__traceback__.tb_frame.f_code.co_filename
+func_name = &lt;name&gt;.__traceback__.tb_frame.f_code.co_name
+line      = linecache.getline(filename, &lt;name&gt;.__traceback__.tb_lineno)
+error_msg = traceback.format_exception(exc_type, &lt;name&gt;, &lt;name&gt;.__traceback__)
+</code></pre>
+<h3 id="built-in-exceptions">Built-in Exceptions</h3>
+<pre><code class="language-text">BaseException
+ +-- SystemExit                   # Raised by the sys.exit() function.
+ +-- KeyboardInterrupt            # Raised when the user hits the interrupt key (ctrl-c).
+ +-- Exception                    # User-defined exceptions should be derived from this class.
+      +-- ArithmeticError         # Base class for arithmetic errors.
+      |    +-- ZeroDivisionError  # Raised when dividing by zero.
+      +-- AttributeError          # Raised when an attribute is missing.
+      +-- EOFError                # Raised by input() when it hits end-of-file condition.
+      +-- LookupError             # Raised when a look-up on a collection fails.
+      |    +-- IndexError         # Raised when a sequence index is out of range.
+      |    +-- KeyError           # Raised when a dictionary key or set element is not found.
+      +-- NameError               # Raised when a variable name is not found.
+      +-- OSError                 # Failures such as “file not found” or “disk full”.
+      |    +-- FileNotFoundError  # When a file or directory is requested but doesn't exist.
+      +-- RuntimeError            # Raised by errors that don't fall into other categories.
+      |    +-- RecursionError     # Raised when the maximum recursion depth is exceeded.
+      +-- StopIteration           # Raised by next() when run on an empty iterator.
+      +-- TypeError               # Raised when an argument is of wrong type.
+      +-- ValueError              # When an argument is of right type but inappropriate value.
+           +-- UnicodeError       # Raised when encoding/decoding strings to/from bytes fails.
+</code></pre>
+<h4 id="collections-and-their-exceptions">Collections and their exceptions:</h4>
+<pre><code class="language-text">+-----------+------------+------------+------------+
+|           |    list    |    dict    |    set     |
++-----------+------------+------------+------------+
+| getitem() | IndexError |  KeyError  |            |
+| pop()     | IndexError |  KeyError  |  KeyError  |
+| remove()  | ValueError |            |  KeyError  |
+| index()   | ValueError |            |            |
++-----------+------------+------------+------------+
+</code></pre>
+<h4 id="useful-built-in-exceptions">Useful built-in exceptions:</h4>
+<pre><code class="language-python">raise TypeError('Argument is of wrong type!')
+raise ValueError('Argument is of right type but inappropriate value!')
+raise RuntimeError('None of above!')
+</code></pre>
+<h3 id="user-defined-exceptions">User-defined Exceptions</h3>
+<pre><code class="language-python">class MyError(Exception):
+    pass
+
+class MyInputError(MyError):
+    pass
+</code></pre>
+<h2 id="exit">Exit</h2>
+<p><strong>Exits the interpreter by raising SystemExit exception.</strong></p>
+<pre><code class="language-python">import sys
+sys.exit()                        # Exits with exit code 0 (success).
+sys.exit(&lt;el&gt;)                    # Prints to stderr and exits with 1.
+sys.exit(&lt;int&gt;)                   # Exits with passed exit code.
+</code></pre>
+<h2 id="print">Print</h2>
+<pre><code class="language-python">print(&lt;el_1&gt;, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+</code></pre>
+<ul>
+<li><strong>Use <code>'file=sys.stderr'</code> for messages about errors.</strong></li>
+<li><strong>Use <code>'flush=True'</code> to forcibly flush the stream.</strong></li>
+</ul>
+<h3 id="pretty-print">Pretty Print</h3>
+<pre><code class="language-python">from pprint import pprint
+pprint(&lt;collection&gt;, width=80, depth=None, compact=False, sort_dicts=True)
+</code></pre>
+<ul>
+<li><strong>Levels deeper than 'depth' get replaced by '...'.</strong></li>
+</ul>
+<h2 id="input">Input</h2>
+<p><strong>Reads a line from user input or pipe if present.</strong></p>
+<pre><code class="language-python">&lt;str&gt; = input(prompt=None)
+</code></pre>
+<ul>
+<li><strong>Trailing newline gets stripped.</strong></li>
+<li><strong>Prompt string is printed to the standard output before reading input.</strong></li>
+<li><strong>Raises EOFError when user hits EOF (ctrl-d/z) or input stream gets exhausted.</strong></li>
+</ul>
+<h2 id="command-line-arguments">Command Line Arguments</h2>
+<pre><code class="language-python">import sys
+script_name = sys.argv[0]
+arguments   = sys.argv[1:]
+</code></pre>
+<h3 id="argument-parser">Argument Parser</h3>
+<pre><code class="language-python">from argparse import ArgumentParser, FileType
+p = ArgumentParser(description=&lt;str&gt;)
+p.add_argument('-&lt;short_name&gt;', '--&lt;name&gt;', action='store_true')  # Flag
+p.add_argument('-&lt;short_name&gt;', '--&lt;name&gt;', type=&lt;type&gt;)          # Option
+p.add_argument('&lt;name&gt;', type=&lt;type&gt;, nargs=1)                    # First argument
+p.add_argument('&lt;name&gt;', type=&lt;type&gt;, nargs='+')                  # Remaining arguments
+p.add_argument('&lt;name&gt;', type=&lt;type&gt;, nargs='*')                  # Optional arguments
+args  = p.parse_args()                                            # Exits on error.
+value = args.&lt;name&gt;
+</code></pre>
+<ul>
+<li><strong>Use <code>'help=&lt;str&gt;'</code> to set argument description.</strong></li>
+<li><strong>Use <code>'default=&lt;el&gt;'</code> to set the default value.</strong></li>
+<li><strong>Use <code>'type=FileType(&lt;mode&gt;)'</code> for files.</strong></li>
+</ul>
+<h2 id="open">Open</h2>
+<p><strong>Opens the file and returns a corresponding file object.</strong></p>
+<pre><code class="language-python">&lt;file&gt; = open('&lt;path&gt;', mode='r', encoding=None, newline=None)
+</code></pre>
+<ul>
+<li><strong><code>'encoding=None'</code> means that the default encoding is used, which is platform dependent. Best practice is to use <code>'encoding=&quot;utf-8&quot;'</code> whenever possible.</strong></li>
+<li><strong><code>'newline=None'</code> means all different end of line combinations are converted to '\n' on read, while on write all '\n' characters are converted to system's default line separator.</strong></li>
+<li><strong><code>'newline=&quot;&quot;'</code> means no conversions take place, but input is still broken into chunks by readline() and readlines() on either '\n', '\r' or '\r\n'.</strong></li>
+</ul>
+<h3 id="modes">Modes</h3>
+<ul>
+<li><strong><code>'r'</code>  - Read (default).</strong></li>
+<li><strong><code>'w'</code>  - Write (truncate).</strong></li>
+<li><strong><code>'x'</code>  - Write or fail if the file already exists.</strong></li>
+<li><strong><code>'a'</code>  - Append.</strong></li>
+<li><strong><code>'w+'</code> - Read and write (truncate).</strong></li>
+<li><strong><code>'r+'</code> - Read and write from the start.</strong></li>
+<li><strong><code>'a+'</code> - Read and write from the end.</strong></li>
+<li><strong><code>'t'</code>  - Text mode (default).</strong></li>
+<li><strong><code>'b'</code>  - Binary mode.</strong></li>
+</ul>
+<h3 id="exceptions-2">Exceptions</h3>
+<ul>
+<li><strong><code>'FileNotFoundError'</code> can be raised when reading with <code>'r'</code> or <code>'r+'</code>.</strong></li>
+<li><strong><code>'FileExistsError'</code> can be raised when writing with <code>'x'</code>.</strong></li>
+<li><strong><code>'IsADirectoryError'</code> and <code>'PermissionError'</code> can be raised by any.</strong></li>
+<li><strong><code>'OSError'</code> is the parent class of all listed exceptions.</strong></li>
+</ul>
+<h3 id="file-object">File Object</h3>
+<pre><code class="language-python">&lt;file&gt;.seek(0)                      # Moves to the start of the file.
+&lt;file&gt;.seek(offset)                 # Moves 'offset' chars/bytes from the start.
+&lt;file&gt;.seek(0, 2)                   # Moves to the end of the file.
+&lt;bin_file&gt;.seek(±offset, &lt;anchor&gt;)  # Anchor: 0 start, 1 current position, 2 end.
+</code></pre>
+<pre><code class="language-python">&lt;str/bytes&gt; = &lt;file&gt;.read(size=-1)  # Reads 'size' chars/bytes or until EOF.
+&lt;str/bytes&gt; = &lt;file&gt;.readline()     # Returns a line or empty string/bytes on EOF.
+&lt;list&gt;      = &lt;file&gt;.readlines()    # Returns a list of remaining lines.
+&lt;str/bytes&gt; = next(&lt;file&gt;)          # Returns a line using buffer. Do not mix.
+</code></pre>
+<pre><code class="language-python">&lt;file&gt;.write(&lt;str/bytes&gt;)           # Writes a string or bytes object.
+&lt;file&gt;.writelines(&lt;collection&gt;)     # Writes a coll. of strings or bytes objects.
+&lt;file&gt;.flush()                      # Flushes write buffer.
+</code></pre>
+<ul>
+<li><strong>Methods do not add or strip trailing newlines, even writelines().</strong></li>
+</ul>
+<h3 id="read-text-from-file">Read Text from File</h3>
+<pre><code class="language-python">def read_file(filename):
+    with open(filename, encoding='utf-8') as file:
+        return file.readlines()
+</code></pre>
+<h3 id="write-text-to-file">Write Text to File</h3>
+<pre><code class="language-python">def write_to_file(filename, text):
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(text)
+</code></pre>
+<h2 id="path">Path</h2>
+<pre><code class="language-python">from os import getcwd, path, listdir
+from glob import glob
+</code></pre>
+<pre><code class="language-python">&lt;str&gt;  = getcwd()                   # Returns the current working directory.
+&lt;str&gt;  = path.join(&lt;path&gt;, ...)     # Joins two or more pathname components.
+&lt;str&gt;  = path.abspath(&lt;path&gt;)       # Returns absolute path.
+</code></pre>
+<pre><code class="language-python">&lt;str&gt;  = path.basename(&lt;path&gt;)      # Returns final component of the path.
+&lt;str&gt;  = path.dirname(&lt;path&gt;)       # Returns path without the final component.
+&lt;tup.&gt; = path.splitext(&lt;path&gt;)      # Splits on last period of the final component.
+</code></pre>
+<pre><code class="language-python">&lt;list&gt; = listdir(path='.')          # Returns filenames located at path.
+&lt;list&gt; = glob('&lt;pattern&gt;')          # Returns paths matching the wildcard pattern.
+</code></pre>
+<pre><code class="language-python">&lt;bool&gt; = path.exists(&lt;path&gt;)        # Or: &lt;Path&gt;.exists()
+&lt;bool&gt; = path.isfile(&lt;path&gt;)        # Or: &lt;DirEntry/Path&gt;.is_file()
+&lt;bool&gt; = path.isdir(&lt;path&gt;)         # Or: &lt;DirEntry/Path&gt;.is_dir()
+</code></pre>
+<h3 id="direntry">DirEntry</h3>
+<p><strong>Using scandir() instead of listdir() can significantly increase the performance of code that also needs file type information.</strong></p>
+<pre><code class="language-python">from os import scandir
+</code></pre>
+<pre><code class="language-python">&lt;iter&gt; = scandir(path='.')          # Returns DirEntry objects located at path.
+&lt;str&gt;  = &lt;DirEntry&gt;.path            # Returns path as a string.
+&lt;str&gt;  = &lt;DirEntry&gt;.name            # Returns final component as a string.
+&lt;file&gt; = open(&lt;DirEntry&gt;)           # Opens the file and returns file object.
+</code></pre>
+<h3 id="path-object">Path Object</h3>
+<pre><code class="language-python">from pathlib import Path
+</code></pre>
+<pre><code class="language-python">&lt;Path&gt; = Path(&lt;path&gt; [, ...])       # Accepts strings, Paths and DirEntry objects.
+&lt;Path&gt; = &lt;path&gt; / &lt;path&gt; [/ ...]    # One of the paths must be a Path object.
+</code></pre>
+<pre><code class="language-python">&lt;Path&gt; = Path()                     # Returns relative cwd. Also Path('.').
+&lt;Path&gt; = Path.cwd()                 # Returns absolute cwd. Also Path().resolve().
+&lt;Path&gt; = &lt;Path&gt;.resolve()           # Returns absolute Path without symlinks.
+</code></pre>
+<pre><code class="language-python">&lt;Path&gt; = &lt;Path&gt;.parent              # Returns Path without final component.
+&lt;str&gt;  = &lt;Path&gt;.name                # Returns final component as a string.
+&lt;str&gt;  = &lt;Path&gt;.stem                # Returns final component without extension.
+&lt;str&gt;  = &lt;Path&gt;.suffix              # Returns final component's extension.
+&lt;tup.&gt; = &lt;Path&gt;.parts               # Returns all components as strings.
+</code></pre>
+<pre><code class="language-python">&lt;iter&gt; = &lt;Path&gt;.iterdir()           # Returns dir contents as Path objects.
+&lt;iter&gt; = &lt;Path&gt;.glob('&lt;pattern&gt;')   # Returns Paths matching the wildcard pattern.
+</code></pre>
+<pre><code class="language-python">&lt;str&gt;  = str(&lt;Path&gt;)                # Returns path as a string.
+&lt;file&gt; = open(&lt;Path&gt;)               # Opens the file and returns file object.
+</code></pre>
+<h2 id="os-commands">OS Commands</h2>
+<h3 id="files-and-directories">Files and Directories</h3>
+<ul>
+<li><strong>Paths can be either strings, Paths or DirEntry objects.</strong></li>
+<li><strong>Functions report OS related errors by raising either OSError or one of its <a href="#exceptions-1">subclasses</a>.</strong></li>
+</ul>
+<pre><code class="language-python">import os, shutil
+</code></pre>
+<pre><code class="language-python">os.chdir(&lt;path&gt;)                    # Changes the current working directory.
+os.mkdir(&lt;path&gt;, mode=0o777)        # Creates a directory. Mode is in octal.
+</code></pre>
+<pre><code class="language-python">shutil.copy(from, to)               # Copies the file. 'to' can exist or be a dir.
+shutil.copytree(from, to)           # Copies the directory. 'to' must not exist.
+</code></pre>
+<pre><code class="language-python">os.rename(from, to)                 # Renames/moves the file or directory.
+os.replace(from, to)                # Same, but overwrites 'to' if it exists.
+</code></pre>
+<pre><code class="language-python">os.remove(&lt;path&gt;)                   # Deletes the file.
+os.rmdir(&lt;path&gt;)                    # Deletes the empty directory.
+shutil.rmtree(&lt;path&gt;)               # Deletes the directory.
+</code></pre>
+<h3 id="shell-commands">Shell Commands</h3>
+<pre><code class="language-python">import os
+&lt;str&gt; = os.popen('&lt;shell_command&gt;').read()
+</code></pre>
+<h4 id="sends-1-1-to-the-basic-calculator-and-captures-its-output">Sends '1 + 1' to the basic calculator and captures its output:</h4>
+<pre><code class="language-python">&gt;&gt;&gt; from subprocess import run
+&gt;&gt;&gt; run('bc', input='1 + 1\n', capture_output=True, encoding='utf-8')
+CompletedProcess(args='bc', returncode=0, stdout='2\n', stderr='')
+</code></pre>
+<h4 id="sends-testin-to-the-basic-calculator-running-in-standard-mode-and-saves-its-output-to-testout">Sends test.in to the basic calculator running in standard mode and saves its output to test.out:</h4>
+<pre><code class="language-python">&gt;&gt;&gt; from shlex import split
+&gt;&gt;&gt; os.popen('echo 1 + 1 &gt; test.in')
+&gt;&gt;&gt; run(split('bc -s'), stdin=open('test.in'), stdout=open('test.out', 'w'))
+CompletedProcess(args=['bc', '-s'], returncode=0)
+&gt;&gt;&gt; open('test.out').read()
+'2\n'
+</code></pre>
+<h2 id="json">JSON</h2>
+<p><strong>Text file format for storing collections of strings and numbers.</strong></p>
+<pre><code class="language-python">import json
+&lt;str&gt;    = json.dumps(&lt;object&gt;, ensure_ascii=True, indent=None)
+&lt;object&gt; = json.loads(&lt;str&gt;)
+</code></pre>
+<h3 id="read-object-from-json-file">Read Object from JSON File</h3>
+<pre><code class="language-python">def read_json_file(filename):
+    with open(filename, encoding='utf-8') as file:
+        return json.load(file)
+</code></pre>
+<h3 id="write-object-to-json-file">Write Object to JSON File</h3>
+<pre><code class="language-python">def write_to_json_file(filename, an_object):
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(an_object, file, ensure_ascii=False, indent=2)
+</code></pre>
+<h2 id="pickle">Pickle</h2>
+<p><strong>Binary file format for storing objects.</strong></p>
+<pre><code class="language-python">import pickle
+&lt;bytes&gt;  = pickle.dumps(&lt;object&gt;)
+&lt;object&gt; = pickle.loads(&lt;bytes&gt;)
+</code></pre>
+<h3 id="read-object-from-file">Read Object from File</h3>
+<pre><code class="language-python">def read_pickle_file(filename):
+    with open(filename, 'rb') as file:
+        return pickle.load(file)
+</code></pre>
+<h3 id="write-object-to-file">Write Object to File</h3>
+<pre><code class="language-python">def write_to_pickle_file(filename, an_object):
+    with open(filename, 'wb') as file:
+        pickle.dump(an_object, file)
+</code></pre>
+<h2 id="csv">CSV</h2>
+<p><strong>Text file format for storing spreadsheets.</strong></p>
+<pre><code class="language-python">import csv
+</code></pre>
+<h3 id="read">Read</h3>
+<pre><code class="language-python">&lt;reader&gt; = csv.reader(&lt;file&gt;)       # Also: `dialect='excel', delimiter=','`.
+&lt;list&gt;   = next(&lt;reader&gt;)           # Returns next row as a list of strings.
+&lt;list&gt;   = list(&lt;reader&gt;)           # Returns list of remaining rows.
+</code></pre>
+<ul>
+<li><strong>File must be opened with <code>'newline=&quot;&quot;'</code> argument, or newlines embedded inside quoted fields will not be interpreted correctly!</strong></li>
+</ul>
+<h3 id="write">Write</h3>
+<pre><code class="language-python">&lt;writer&gt; = csv.writer(&lt;file&gt;)       # Also: `dialect='excel', delimiter=','`.
+&lt;writer&gt;.writerow(&lt;collection&gt;)     # Encodes objects using `str(&lt;el&gt;)`.
+&lt;writer&gt;.writerows(&lt;coll_of_coll&gt;)  # Appends multiple rows.
+</code></pre>
+<ul>
+<li><strong>File must be opened with <code>'newline=&quot;&quot;'</code> argument, or '\r' will be added in front of every '\n' on platforms that use '\r\n' line endings!</strong></li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><strong><code>'dialect'</code> - Master parameter that sets the default values.</strong></li>
+<li><strong><code>'delimiter'</code> - A one-character string used to separate fields.</strong></li>
+<li><strong><code>'quotechar'</code> - Character for quoting fields that contain special characters.</strong></li>
+<li><strong><code>'doublequote'</code> - Whether quotechars inside fields get doubled or escaped.</strong></li>
+<li><strong><code>'skipinitialspace'</code> - Whether whitespace after delimiter gets stripped.</strong></li>
+<li><strong><code>'lineterminator'</code> - Specifies how writer terminates rows.</strong></li>
+<li><strong><code>'quoting'</code> - Controls the amount of quoting: 0 - as necessary, 1 - all.</strong></li>
+<li><strong><code>'escapechar'</code> - Character for escaping 'quotechar' if 'doublequote' is False.</strong></li>
+</ul>
+<h3 id="dialects">Dialects</h3>
+<pre><code class="language-text">+------------------+--------------+--------------+--------------+
+|                  |     excel    |   excel-tab  |     unix     |
++------------------+--------------+--------------+--------------+
+| delimiter        |       ','    |      '\t'    |       ','    |
+| quotechar        |       '&quot;'    |       '&quot;'    |       '&quot;'    |
+| doublequote      |      True    |      True    |      True    |
+| skipinitialspace |     False    |     False    |     False    |
+| lineterminator   |    '\r\n'    |    '\r\n'    |      '\n'    |
+| quoting          |         0    |         0    |         1    |
+| escapechar       |      None    |      None    |      None    |
++------------------+--------------+--------------+--------------+
+</code></pre>
+<h3 id="read-rows-from-csv-file">Read Rows from CSV File</h3>
+<pre><code class="language-python">def read_csv_file(filename):
+    with open(filename, encoding='utf-8', newline='') as file:
+        return list(csv.reader(file))
+</code></pre>
+<h3 id="write-rows-to-csv-file">Write Rows to CSV File</h3>
+<pre><code class="language-python">def write_to_csv_file(filename, rows):
+    with open(filename, 'w', encoding='utf-8', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+</code></pre>
+<h2 id="sqlite">SQLite</h2>
+<p><strong>Server-less database engine that stores each database into a separate file.</strong></p>
+<h3 id="connect">Connect</h3>
+<p><strong>Opens a connection to the database file. Creates a new file if path doesn't exist.</strong></p>
+<pre><code class="language-python">import sqlite3
+&lt;con&gt; = sqlite3.connect('&lt;path&gt;')               # Also ':memory:'.
+&lt;con&gt;.close()
+</code></pre>
+<h3 id="read-2">Read</h3>
+<p><strong>Returned values can be of type str, int, float, bytes or None.</strong></p>
+<pre><code class="language-python">&lt;cursor&gt; = &lt;con&gt;.execute('&lt;query&gt;')             # Can raise a subclass of sqlite3.Error.
+&lt;tuple&gt;  = &lt;cursor&gt;.fetchone()                  # Returns next row. Also next(&lt;cursor&gt;).
+&lt;list&gt;   = &lt;cursor&gt;.fetchall()                  # Returns remaining rows. Also list(&lt;cursor&gt;).
+</code></pre>
+<h3 id="write-2">Write</h3>
+<pre><code class="language-python">&lt;con&gt;.execute('&lt;query&gt;')
+&lt;con&gt;.commit()
+</code></pre>
+<h4 id="or">Or:</h4>
+<pre><code class="language-python">with &lt;con&gt;:
+    &lt;con&gt;.execute('&lt;query&gt;')
+</code></pre>
+<h3 id="placeholders">Placeholders</h3>
+<ul>
+<li><strong>Passed values can be of type str, int, float, bytes, None, bool, datetime.date or datetime.datetme.</strong></li>
+<li><strong>Bools will be stored and returned as ints and dates as <a href="#encode">ISO formatted strings</a>.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;con&gt;.execute('&lt;query&gt;', &lt;list/tuple&gt;)          # Replaces '?'s in query with values.
+&lt;con&gt;.execute('&lt;query&gt;', &lt;dict/namedtuple&gt;)     # Replaces ':&lt;key&gt;'s with values.
+&lt;con&gt;.executemany('&lt;query&gt;', &lt;coll_of_above&gt;)   # Runs execute() many times.
+</code></pre>
+<h3 id="example">Example</h3>
+<p><strong>In this example values are not actually saved because <code>'con.commit()'</code> is omitted!</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; con = sqlite3.connect('test.db')
+&gt;&gt;&gt; con.execute('create table person (person_id integer primary key, name, height)')
+&gt;&gt;&gt; con.execute('insert into person values (null, ?, ?)', ('Jean-Luc', 187)).lastrowid
+1
+&gt;&gt;&gt; con.execute('select * from person').fetchall()
+[(1, 'Jean-Luc', 187)]
+</code></pre>
+<h3 id="mysql">MySQL</h3>
+<p><strong>Has a very similar interface, with differences listed below.</strong></p>
+<pre><code class="language-python"># $ pip3 install mysql-connector
+from mysql import connector
+&lt;con&gt; = connector.connect(host=&lt;str&gt;, …)        # `user=&lt;str&gt;, password=&lt;str&gt;, database=&lt;str&gt;`.
+&lt;cursor&gt; = &lt;con&gt;.cursor()                       # Only cursor has execute method.
+&lt;cursor&gt;.execute('&lt;query&gt;')                     # Can raise a subclass of connector.Error.
+&lt;cursor&gt;.execute('&lt;query&gt;', &lt;list/tuple&gt;)       # Replaces '%s's in query with values.
+&lt;cursor&gt;.execute('&lt;query&gt;', &lt;dict/namedtuple&gt;)  # Replaces '%(&lt;key&gt;)s's with values.
+</code></pre>
+<h2 id="bytes">Bytes</h2>
+<p><strong>Bytes object is an immutable sequence of single bytes. Mutable version is called bytearray.</strong></p>
+<pre><code class="language-python">&lt;bytes&gt; = b'&lt;str&gt;'                       # Only accepts ASCII characters and \x00 - \xff.
+&lt;int&gt;   = &lt;bytes&gt;[&lt;index&gt;]               # Returns int in range from 0 to 255.
+&lt;bytes&gt; = &lt;bytes&gt;[&lt;slice&gt;]               # Returns bytes even if it has only one element.
+&lt;bytes&gt; = &lt;bytes&gt;.join(&lt;coll_of_bytes&gt;)  # Joins elements using bytes object as separator.
+</code></pre>
+<h3 id="encode-2">Encode</h3>
+<pre><code class="language-python">&lt;bytes&gt; = bytes(&lt;coll_of_ints&gt;)          # Ints must be in range from 0 to 255.
+&lt;bytes&gt; = bytes(&lt;str&gt;, 'utf-8')          # Or: &lt;str&gt;.encode('utf-8')
+&lt;bytes&gt; = &lt;int&gt;.to_bytes(n_bytes, …)     # `byteorder='big/little', signed=False`.
+&lt;bytes&gt; = bytes.fromhex('&lt;hex&gt;')         # Hex numbers can be separated by spaces.
+</code></pre>
+<h3 id="decode-2">Decode</h3>
+<pre><code class="language-python">&lt;list&gt;  = list(&lt;bytes&gt;)                  # Returns ints in range from 0 to 255.
+&lt;str&gt;   = str(&lt;bytes&gt;, 'utf-8')          # Or: &lt;bytes&gt;.decode('utf-8')
+&lt;int&gt;   = int.from_bytes(&lt;bytes&gt;, …)     # `byteorder='big/little', signed=False`.
+'&lt;hex&gt;' = &lt;bytes&gt;.hex()                  # Returns a string of hexadecimal numbers.
+</code></pre>
+<h3 id="read-bytes-from-file">Read Bytes from File</h3>
+<pre><code class="language-python">def read_bytes(filename):
+    with open(filename, 'rb') as file:
+        return file.read()
+</code></pre>
+<h3 id="write-bytes-to-file">Write Bytes to File</h3>
+<pre><code class="language-python">def write_bytes(filename, bytes_obj):
+    with open(filename, 'wb') as file:
+        file.write(bytes_obj)
+</code></pre>
+<h2 id="struct">Struct</h2>
+<ul>
+<li><strong>Module that performs conversions between a sequence of numbers and a bytes object.</strong></li>
+<li><strong>Machine’s native type sizes and byte order are used by default.</strong></li>
+</ul>
+<pre><code class="language-python">from struct import pack, unpack, iter_unpack
+&lt;bytes&gt;  = pack('&lt;format&gt;', &lt;num_1&gt; [, &lt;num_2&gt;, ...])
+&lt;tuple&gt;  = unpack('&lt;format&gt;', &lt;bytes&gt;)
+&lt;tuples&gt; = iter_unpack('&lt;format&gt;', &lt;bytes&gt;)
+</code></pre>
+<h3 id="example-2">Example</h3>
+<pre><code class="language-python">&gt;&gt;&gt; pack('&gt;hhl', 1, 2, 3)
+b'\x00\x01\x00\x02\x00\x00\x00\x03'
+&gt;&gt;&gt; unpack('&gt;hhl', b'\x00\x01\x00\x02\x00\x00\x00\x03')
+(1, 2, 3)
+</code></pre>
+<h3 id="format-3">Format</h3>
+<h4 id="for-standard-type-sizes-start-format-string-with">For standard type sizes start format string with:</h4>
+<ul>
+<li><strong><code>'='</code> - native byte order</strong></li>
+<li><strong><code>'&lt;'</code> - little-endian</strong></li>
+<li><strong><code>'&gt;'</code> - big-endian (also <code>'!'</code>)</strong></li>
+</ul>
+<h4 id="integer-types-use-a-capital-letter-for-unsigned-type-standard-sizes-are-in-brackets">Integer types. Use a capital letter for unsigned type. Standard sizes are in brackets:</h4>
+<ul>
+<li><strong><code>'x'</code> - pad byte</strong></li>
+<li><strong><code>'b'</code> - char (1)</strong></li>
+<li><strong><code>'h'</code> - short (2)</strong></li>
+<li><strong><code>'i'</code> - int (4)</strong></li>
+<li><strong><code>'l'</code> - long (4)</strong></li>
+<li><strong><code>'q'</code> - long long (8)</strong></li>
+</ul>
+<h4 id="floating-point-types">Floating point types:</h4>
+<ul>
+<li><strong><code>'f'</code> - float (4)</strong></li>
+<li><strong><code>'d'</code> - double (8)</strong></li>
+</ul>
+<h2 id="array">Array</h2>
+<p><strong>List that can only hold numbers of a predefined type. Available types and their sizes in bytes are listed above.</strong></p>
+<pre><code class="language-python">from array import array
+&lt;array&gt; = array('&lt;typecode&gt;', &lt;collection&gt;)    # Array from collection of numbers.
+&lt;array&gt; = array('&lt;typecode&gt;', &lt;bytes&gt;)         # Array from bytes object.
+&lt;array&gt; = array('&lt;typecode&gt;', &lt;array&gt;)         # Treats array as a sequence of numbers.
+&lt;bytes&gt; = bytes(&lt;array&gt;)                       # Or: &lt;array&gt;.tobytes()
+</code></pre>
+<h2 id="memory-view">Memory View</h2>
+<ul>
+<li><strong>A sequence object that points to the memory of another object.</strong></li>
+<li><strong>Each element can reference a single or multiple consecutive bytes, depending on format.</strong></li>
+<li><strong>Order and number of elements can be changed with slicing.</strong></li>
+</ul>
+<pre><code class="language-python">&lt;mview&gt; = memoryview(&lt;bytes/bytearray/array&gt;)  # Immutable if bytes, else mutable.
+&lt;real&gt;  = &lt;mview&gt;[&lt;index&gt;]                     # Returns an int or a float.
+&lt;mview&gt; = &lt;mview&gt;[&lt;slice&gt;]                     # Mview with rearranged elements.
+&lt;mview&gt; = &lt;mview&gt;.cast('&lt;typecode&gt;')           # Casts memoryview to the new format.
+&lt;mview&gt;.release()                              # Releases the object's memory buffer.
+</code></pre>
+<h3 id="decode-3">Decode</h3>
+<pre><code class="language-python">&lt;bin_file&gt;.write(&lt;mview&gt;)                      # Writes mview to the binary file.
+&lt;bytes&gt; = bytes(&lt;mview&gt;)                       # Creates a new bytes object.
+&lt;bytes&gt; = &lt;bytes&gt;.join(&lt;coll_of_mviews&gt;)       # Joins mviews using bytes object as sep.
+&lt;array&gt; = array('&lt;typecode&gt;', &lt;mview&gt;)         # Treats mview as a sequence of numbers.
+</code></pre>
+<pre><code class="language-python">&lt;list&gt;  = list(&lt;mview&gt;)                        # Returns list of ints or floats.
+&lt;str&gt;   = str(&lt;mview&gt;, 'utf-8')                # Treats mview as a bytes object.
+&lt;int&gt;   = int.from_bytes(&lt;mview&gt;, …)           # `byteorder='big/little', signed=False`.
+'&lt;hex&gt;' = &lt;mview&gt;.hex()                        # Treats mview as a bytes object.
+</code></pre>
+<h2 id="deque">Deque</h2>
+<p><strong>A thread-safe list with efficient appends and pops from either side. Pronounced &quot;deck&quot;.</strong></p>
+<pre><code class="language-python">from collections import deque
+&lt;deque&gt; = deque(&lt;collection&gt;, maxlen=None)
+</code></pre>
+<pre><code class="language-python">&lt;deque&gt;.appendleft(&lt;el&gt;)                       # Opposite element is dropped if full.
+&lt;deque&gt;.extendleft(&lt;collection&gt;)               # Collection gets reversed.
+&lt;el&gt; = &lt;deque&gt;.popleft()                       # Raises IndexError if empty.
+&lt;deque&gt;.rotate(n=1)                            # Rotates elements to the right.
+</code></pre>
+<h2 id="threading">Threading</h2>
+<ul>
+<li><strong>CPython interpreter can only run a single thread at a time.</strong></li>
+<li><strong>That is why using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.</strong></li>
+</ul>
+<pre><code class="language-python">from threading import Thread, RLock, Semaphore, Event, Barrier
+</code></pre>
+<h3 id="thread">Thread</h3>
+<pre><code class="language-python">&lt;Thread&gt; = Thread(target=&lt;function&gt;)  # Use `args=&lt;collection&gt;` to set arguments.
+&lt;Thread&gt;.start()                      # Starts the thread.
+&lt;bool&gt; = &lt;Thread&gt;.is_alive()          # Checks if thread has finished executing.
+&lt;Thread&gt;.join()                       # Waits for thread to finish.
+</code></pre>
+<ul>
+<li><strong>Use <code>'kwargs=&lt;dict&gt;'</code> to pass keyword arguments to the function.</strong></li>
+<li><strong>Use <code>'daemon=True'</code>, or the program will not be able to exit while the thread is alive.</strong></li>
+</ul>
+<h3 id="lock">Lock</h3>
+<pre><code class="language-python">&lt;lock&gt; = RLock()
+&lt;lock&gt;.acquire()                      # Waits for lock to be available.
+&lt;lock&gt;.release()                      # Makes the lock available again.
+</code></pre>
+<h4 id="or-2">Or:</h4>
+<pre><code class="language-python">lock = RLock()
+with lock:
+    ...
+</code></pre>
+<h3 id="semaphore-event-barrier">Semaphore, Event, Barrier</h3>
+<pre><code class="language-python">&lt;Semaphore&gt; = Semaphore(value=1)      # Lock that can be acquired 'value' times.
+&lt;Event&gt;     = Event()                 # Method wait() blocks until set() is called.
+&lt;Barrier&gt;   = Barrier(n_times)        # Method wait() blocks until it's called 'n_times'.
+</code></pre>
+<h3 id="thread-pool-executor">Thread Pool Executor</h3>
+<pre><code class="language-python">from concurrent.futures import ThreadPoolExecutor
+with ThreadPoolExecutor(max_workers=None) as executor:         # Does not exit until done.
+    &lt;iter&gt;   = executor.map(lambda x: x + 1, range(3))         # (1, 2, 3)
+    &lt;iter&gt;   = executor.map(lambda x, y: x + y, 'abc', '123')  # ('a1', 'b2', 'c3')
+    &lt;Future&gt; = executor.submit(&lt;function&gt; [, &lt;arg_1&gt;, ...])    # Also visible outside block.
+</code></pre>
+<h4 id="future">Future:</h4>
+<pre><code class="language-python">&lt;bool&gt; = &lt;Future&gt;.done()              # Checks if thread has finished executing.
+&lt;obj&gt;  = &lt;Future&gt;.result()            # Waits for thread to finish and returns result.
+</code></pre>
+<h3 id="queue">Queue</h3>
+<p><strong>A thread-safe FIFO queue. For LIFO queue use LifoQueue.</strong></p>
+<pre><code class="language-python">from queue import Queue
+&lt;Queue&gt; = Queue(maxsize=0)
+</code></pre>
+<pre><code class="language-python">&lt;Queue&gt;.put(&lt;el&gt;)                     # Blocks until queue stops being full.
+&lt;Queue&gt;.put_nowait(&lt;el&gt;)              # Raises queue.Full exception if full.
+&lt;el&gt; = &lt;Queue&gt;.get()                  # Blocks until queue stops being empty.
+&lt;el&gt; = &lt;Queue&gt;.get_nowait()           # Raises queue.Empty exception if empty.
+</code></pre>
+<h2 id="operator">Operator</h2>
+<p><strong>Module of functions that provide the functionality of operators.</strong></p>
+<pre><code class="language-python">from operator import add, sub, mul, truediv, floordiv, mod, pow, neg, abs
+from operator import eq, ne, lt, le, gt, ge
+from operator import and_, or_, not_
+from operator import itemgetter, attrgetter, methodcaller
+</code></pre>
+<pre><code class="language-python">import operator as op
+elementwise_sum  = map(op.add, list_a, list_b)
+sorted_by_second = sorted(&lt;collection&gt;, key=op.itemgetter(1))
+sorted_by_both   = sorted(&lt;collection&gt;, key=op.itemgetter(1, 0))
+product_of_elems = functools.reduce(op.mul, &lt;collection&gt;)
+LogicOp          = enum.Enum('LogicOp', {'AND': op.and_, 'OR' : op.or_})
+last_el          = op.methodcaller('pop')(&lt;list&gt;)
+</code></pre>
+<h2 id="introspection">Introspection</h2>
+<p><strong>Inspecting code at runtime.</strong></p>
+<h3 id="variables">Variables</h3>
+<pre><code class="language-python">&lt;list&gt; = dir()                             # Names of local variables (incl. functions).
+&lt;dict&gt; = vars()                            # Dict of local variables. Also locals().
+&lt;dict&gt; = globals()                         # Dict of global variables.
+</code></pre>
+<h3 id="attributes-2">Attributes</h3>
+<pre><code class="language-python">&lt;list&gt; = dir(&lt;object&gt;)                     # Names of object's attributes (incl. methods).
+&lt;dict&gt; = vars(&lt;object&gt;)                    # Dict of object's fields. Also &lt;obj&gt;.__dict__.
+&lt;bool&gt; = hasattr(&lt;object&gt;, '&lt;attr_name&gt;')  # Checks if getattr() raises an error.
+value  = getattr(&lt;object&gt;, '&lt;attr_name&gt;')  # Raises AttributeError if attribute is missing.
+setattr(&lt;object&gt;, '&lt;attr_name&gt;', value)    # Only works on objects with __dict__ attribute.
+delattr(&lt;object&gt;, '&lt;attr_name&gt;')           # Equivalent to `del &lt;object&gt;.&lt;attr_name&gt;`.
+</code></pre>
+<h3 id="parameters-2">Parameters</h3>
+<pre><code class="language-python">from inspect import signature
+&lt;sig&gt;        = signature(&lt;function&gt;)
+no_of_params = len(&lt;sig&gt;.parameters)
+param_names  = list(&lt;sig&gt;.parameters.keys())
+param_kinds  = [a.kind for a in &lt;sig&gt;.parameters.values()]
+</code></pre>
+<h2 id="metaprograming">Metaprograming</h2>
+<p><strong>Code that generates code.</strong></p>
+<h3 id="type-2">Type</h3>
+<p><strong>Type is the root class. If only passed an object it returns its type (class). Otherwise it creates a new class.</strong></p>
+<pre><code class="language-python">&lt;class&gt; = type('&lt;class_name&gt;', &lt;parents_tuple&gt;, &lt;attributes_dict&gt;)
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; Z = type('Z', (), {'a': 'abcde', 'b': 12345})
+&gt;&gt;&gt; z = Z()
+</code></pre>
+<h3 id="meta-class">Meta Class</h3>
+<p><strong>A class that creates classes.</strong></p>
+<pre><code class="language-python">def my_meta_class(name, parents, attrs):
+    attrs['a'] = 'abcde'
+    return type(name, parents, attrs)
+</code></pre>
+<h4 id="or-3">Or:</h4>
+<pre><code class="language-python">class MyMetaClass(type):
+    def __new__(cls, name, parents, attrs):
+        attrs['a'] = 'abcde'
+        return type.__new__(cls, name, parents, attrs)
+</code></pre>
+<ul>
+<li><strong>New() is a class method that gets called before init(). If it returns an instance of its class, then that instance gets passed to init() as a 'self' argument.</strong></li>
+<li><strong>It receives the same arguments as init(), except for the first one that specifies the desired type of the returned instance (MyMetaClass in our case).</strong></li>
+<li><strong>Like in our case, new() can also be called directly, usually from a new() method of a child class (</strong><code>def __new__(cls): return super().__new__(cls)</code><strong>).</strong></li>
+<li><strong>The only difference between the examples above is that my_meta_class() returns a class of type type, while MyMetaClass() returns a class of type MyMetaClass.</strong></li>
+</ul>
+<h3 id="metaclass-attribute">Metaclass Attribute</h3>
+<p><strong>Right before a class is created it checks if it has the 'metaclass' attribute defined. If not, it recursively checks if any of his parents has it defined and eventually comes to type().</strong></p>
+<pre><code class="language-python">class MyClass(metaclass=MyMetaClass):
+    b = 12345
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; MyClass.a, MyClass.b
+('abcde', 12345)
+</code></pre>
+<h3 id="type-diagram">Type Diagram</h3>
+<pre><code class="language-python">type(MyClass)     == MyMetaClass     # MyClass is an instance of MyMetaClass.
+type(MyMetaClass) == type            # MyMetaClass is an instance of type.
+</code></pre>
+<pre><code class="language-text">+-------------+-------------+
+|   Classes   | Metaclasses |
++-------------+-------------|
+|   MyClass --&gt; MyMetaClass |
+|             |     v       |
+|    object -----&gt; type &lt;+  |
+|             |     ^ +--+  |
+|     str ----------+       |
++-------------+-------------+
+</code></pre>
+<h3 id="inheritance-diagram">Inheritance Diagram</h3>
+<pre><code class="language-python">MyClass.__base__     == object       # MyClass is a subclass of object.
+MyMetaClass.__base__ == type         # MyMetaClass is a subclass of type.
+</code></pre>
+<pre><code class="language-text">+-------------+-------------+
+|   Classes   | Metaclasses |
++-------------+-------------|
+|   MyClass   | MyMetaClass |
+|      v      |     v       |
+|    object &lt;----- type     |
+|      ^      |             |
+|     str     |             |
++-------------+-------------+
+</code></pre>
+<h2 id="eval">Eval</h2>
+<pre><code class="language-python">&gt;&gt;&gt; from ast import literal_eval
+&gt;&gt;&gt; literal_eval('1 + 2')
+3
+&gt;&gt;&gt; literal_eval('[1, 2, 3]')
+[1, 2, 3]
+&gt;&gt;&gt; literal_eval('abs(1)')
+ValueError: malformed node or string
+</code></pre>
+<h2 id="coroutines">Coroutines</h2>
+<ul>
+<li><strong>Coroutines have a lot in common with threads, but unlike threads, they only give up control when they call another coroutine and they don’t use as much memory.</strong></li>
+<li><strong>Coroutine definition starts with <code>'async'</code> and its call with <code>'await'</code>.</strong></li>
+<li><strong><code>'asyncio.run(&lt;coroutine&gt;)'</code> is the main entry point for asynchronous programs.</strong></li>
+<li><strong>Functions wait(), gather() and as_completed() can be used when multiple coroutines need to be started at the same time.</strong></li>
+<li><strong>Asyncio module also provides its own <a href="#queue">Queue</a>, <a href="#semaphore-event-barrier">Event</a>, <a href="#lock">Lock</a> and <a href="#semaphore-event-barrier">Semaphore</a> classes.</strong></li>
+</ul>
+<h4 id="runs-a-terminal-game-where-you-control-an-asterisk-that-must-avoid-numbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4>
+<pre><code class="language-python">import asyncio, collections, curses, enum, random
+
+P = collections.namedtuple('P', 'x y')         # Position
+D = enum.Enum('D', 'n e s w')                  # Direction
+
+def main(screen):
+    curses.curs_set(0)                         # Makes cursor invisible.
+    screen.nodelay(True)                       # Makes getch() non-blocking.
+    asyncio.run(main_coroutine(screen))        # Starts running asyncio code.
+
+async def main_coroutine(screen):
+    state = {'*': P(0, 0), **{id_: P(30, 10) for id_ in range(10)}}
+    moves = asyncio.Queue()
+    coros = (*(random_controller(id_, moves) for id_ in range(10)),
+             human_controller(screen, moves),
+             model(moves, state, *screen.getmaxyx()),
+             view(state, screen))
+    await asyncio.wait(coros, return_when=asyncio.FIRST_COMPLETED)
+
+async def random_controller(id_, moves):
+    while True:
+        moves.put_nowait((id_, random.choice(list(D))))
+        await asyncio.sleep(random.random() / 2)
+
+async def human_controller(screen, moves):
+    while True:
+        ch = screen.getch()
+        key_mappings = {259: D.n, 261: D.e, 258: D.s, 260: D.w}
+        if ch in key_mappings:
+            moves.put_nowait(('*', key_mappings[ch]))
+        await asyncio.sleep(0.01)  
+
+async def model(moves, state, height, width):
+    while state['*'] not in {p for id_, p in state.items() if id_ != '*'}:
+        id_, d = await moves.get()
+        p      = state[id_]
+        deltas = {D.n: P(0, -1), D.e: P(1, 0), D.s: P(0, 1), D.w: P(-1, 0)}
+        new_p  = P(*[sum(a) for a in zip(p, deltas[d])])
+        if 0 &lt;= new_p.x &lt; width-1 and 0 &lt;= new_p.y &lt; height:
+            state[id_] = new_p
+
+async def view(state, screen):
+    while True:
+        screen.clear()
+        for id_, p in state.items():
+            screen.addstr(p.y, p.x, str(id_))
+        await asyncio.sleep(0.01)  
+
+curses.wrapper(main)
+</code></pre>
+<br>
+<h1 id="libraries">Libraries</h1>
+<h2 id="progress-bar">Progress Bar</h2>
+<pre><code class="language-python"># $ pip3 install tqdm
+from tqdm import tqdm
+from time import sleep
+for el in tqdm([1, 2, 3]):
+    sleep(0.2)
+</code></pre>
+<h2 id="plot">Plot</h2>
+<pre><code class="language-python"># $ pip3 install matplotlib
+from matplotlib import pyplot
+pyplot.plot(&lt;y_data&gt; [, label=&lt;str&gt;])
+pyplot.plot(&lt;x_data&gt;, &lt;y_data&gt;)
+pyplot.legend()                                # Adds a legend.
+pyplot.savefig('&lt;path&gt;')                       # Saves the figure.
+pyplot.show()                                  # Displays the figure.
+pyplot.clf()                                   # Clears the figure.
+</code></pre>
+<h2 id="table">Table</h2>
+<h4 id="prints-a-csv-file-as-an-ascii-table">Prints a CSV file as an ASCII table:</h4>
+<pre><code class="language-python"># $ pip3 install tabulate
+import csv, tabulate
+with open('test.csv', encoding='utf-8', newline='') as file:
+    rows   = csv.reader(file)
+    header = [a.title() for a in next(rows)]
+    table  = tabulate.tabulate(rows, header)
+    print(table)
+</code></pre>
+<h2 id="curses">Curses</h2>
+<h4 id="clears-the-terminal-prints-a-message-and-waits-for-the-esc-key-press">Clears the terminal, prints a message and waits for the ESC key press:</h4>
+<pre><code class="language-python">from curses import wrapper, curs_set, ascii
+from curses import KEY_UP, KEY_RIGHT, KEY_DOWN, KEY_LEFT
+
+def main():
+    wrapper(draw)
+
+def draw(screen):
+    curs_set(0)                                # Makes cursor invisible.
+    screen.nodelay(True)                       # Makes getch() non-blocking.
+    screen.clear()
+    screen.addstr(0, 0, 'Press ESC to quit.')  # Coordinates are y, x.
+    while screen.getch() != ascii.ESC:
+        pass
+
+def get_border(screen):
+    from collections import namedtuple
+    P = namedtuple('P', 'x y')
+    height, width = screen.getmaxyx()
+    return P(width-1, height-1)
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<h2 id="logging">Logging</h2>
+<pre><code class="language-python"># $ pip3 install loguru
+from loguru import logger
+</code></pre>
+<pre><code class="language-python">logger.add('debug_{time}.log', colorize=True)  # Connects a log file.
+logger.add('error_{time}.log', level='ERROR')  # Another file for errors or higher.
+logger.&lt;level&gt;('A logging message.')
+</code></pre>
+<ul>
+<li><strong>Levels: <code>'debug'</code>, <code>'info'</code>, <code>'success'</code>, <code>'warning'</code>, <code>'error'</code>, <code>'critical'</code>.</strong></li>
+</ul>
+<h3 id="exceptions-3">Exceptions</h3>
+<p><strong>Exception description, stack trace and values of variables are appended automatically.</strong></p>
+<pre><code class="language-python">try:
+    ...
+except &lt;exception&gt;:
+    logger.exception('An error happened.')
+</code></pre>
+<h3 id="rotation">Rotation</h3>
+<p><strong>Argument that sets a condition when a new log file is created.</strong></p>
+<pre><code class="language-python">rotation=&lt;int&gt;|&lt;datetime.timedelta&gt;|&lt;datetime.time&gt;|&lt;str&gt;
+</code></pre>
+<ul>
+<li><strong><code>'&lt;int&gt;'</code> - Max file size in bytes.</strong></li>
+<li><strong><code>'&lt;timedelta&gt;'</code> - Max age of a file.</strong></li>
+<li><strong><code>'&lt;time&gt;'</code> - Time of day.</strong></li>
+<li><strong><code>'&lt;str&gt;'</code> - Any of above as a string: <code>'100 MB'</code>, <code>'1 month'</code>, <code>'monday at 12:00'</code>, ...</strong></li>
+</ul>
+<h3 id="retention">Retention</h3>
+<p><strong>Sets a condition which old log files get deleted.</strong></p>
+<pre><code class="language-python">retention=&lt;int&gt;|&lt;datetime.timedelta&gt;|&lt;str&gt;
+</code></pre>
+<ul>
+<li><strong><code>'&lt;int&gt;'</code> - Max number of files.</strong></li>
+<li><strong><code>'&lt;timedelta&gt;'</code> - Max age of a file.</strong></li>
+<li><strong><code>'&lt;str&gt;'</code> - Max age as a string: <code>'1 week, 3 days'</code>, <code>'2 months'</code>, ...</strong></li>
+</ul>
+<h2 id="scraping">Scraping</h2>
+<h4 id="scrapes-pythons-url-version-number-and-logo-from-wikipedia-page">Scrapes Python's URL, version number and logo from Wikipedia page:</h4>
+<pre><code class="language-python"># $ pip3 install requests beautifulsoup4
+import requests, sys
+from bs4 import BeautifulSoup
+URL = 'https://en.wikipedia.org/wiki/Python_(programming_language)'
+try:
+    html  = requests.get(URL).text
+    doc   = BeautifulSoup(html, 'html.parser')
+    table = doc.find('table', class_='infobox vevent')
+    rows  = table.find_all('tr')
+    link  = rows[11].find('a')['href']
+    ver   = rows[6].find('div').text.split()[0]
+    url_i = rows[0].find('img')['src']
+    image = requests.get(f'https:{url_i}').content
+    with open('test.png', 'wb') as file:
+        file.write(image)
+    print(link, ver)
+except requests.exceptions.ConnectionError:
+    print(&quot;You've got problems with connection.&quot;, file=sys.stderr)
+</code></pre>
+<h2 id="web">Web</h2>
+<pre><code class="language-python"># $ pip3 install bottle
+from bottle import run, route, static_file, template, post, request, response
+import json
+</code></pre>
+<h3 id="run">Run</h3>
+<pre><code class="language-python">run(host='localhost', port=8080)        # Runs locally.
+run(host='0.0.0.0', port=80)            # Runs globally.
+</code></pre>
+<h3 id="static-request">Static Request</h3>
+<pre><code class="language-python">@route('/img/&lt;image&gt;')
+def send_image(image):
+    return static_file(image, 'img_dir/', mimetype='image/png')
+</code></pre>
+<h3 id="dynamic-request">Dynamic Request</h3>
+<pre><code class="language-python">@route('/&lt;sport&gt;')
+def send_page(sport):
+    return template('&lt;h1&gt;{{title}}&lt;/h1&gt;', title=sport)
+</code></pre>
+<h3 id="rest-request">REST Request</h3>
+<pre><code class="language-python">@post('/odds/&lt;sport&gt;')
+def odds_handler(sport):
+    team = request.forms.get('team')
+    home_odds, away_odds = 2.44, 3.29
+    response.headers['Content-Type'] = 'application/json'
+    response.headers['Cache-Control'] = 'no-cache'
+    return json.dumps([team, home_odds, away_odds])
+</code></pre>
+<h4 id="test">Test:</h4>
+<pre><code class="language-python"># $ pip3 install requests
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; url  = 'http://localhost:8080/odds/football'
+&gt;&gt;&gt; data = {'team': 'arsenal f.c.'}
+&gt;&gt;&gt; response = requests.post(url, data=data)
+&gt;&gt;&gt; response.json()
+['arsenal f.c.', 2.44, 3.29]
+</code></pre>
+<h2 id="profiling">Profiling</h2>
+<h3 id="stopwatch">Stopwatch</h3>
+<pre><code class="language-python">from time import time
+start_time = time()                     # Seconds since the Epoch.
+...
+duration = time() - start_time
+</code></pre>
+<h4 id="high-performance">High performance:</h4>
+<pre><code class="language-python">from time import perf_counter
+start_time = perf_counter()             # Seconds since restart.
+...
+duration = perf_counter() - start_time
+</code></pre>
+<h3 id="timing-a-snippet">Timing a Snippet</h3>
+<pre><code class="language-python">&gt;&gt;&gt; from timeit import timeit
+&gt;&gt;&gt; timeit('&quot;-&quot;.join(str(a) for a in range(100))',
+...        number=10000, globals=globals(), setup='pass')
+0.34986
+</code></pre>
+<h3 id="profiling-by-line">Profiling by Line</h3>
+<pre><code class="language-python"># $ pip3 install line_profiler memory_profiler
+@profile
+def main():
+    a = [*range(10000)]
+    b = {*range(10000)}
+main()
+</code></pre>
+<pre><code class="language-text">$ kernprof -lv test.py
+Line #   Hits     Time  Per Hit   % Time  Line Contents
+=======================================================
+     1                                    @profile
+     2                                    def main():
+     3      1   1128.0   1128.0     27.4      a = [*range(10000)]
+     4      1   2994.0   2994.0     72.6      b = {*range(10000)}
+</code></pre>
+<pre><code class="language-text">$ python3 -m memory_profiler test.py
+Line #         Mem usage      Increment   Line Contents
+=======================================================
+     1        35.387 MiB     35.387 MiB   @profile
+     2                                    def main():
+     3        35.734 MiB      0.348 MiB       a = [*range(10000)]
+     4        36.160 MiB      0.426 MiB       b = {*range(10000)}
+</code></pre>
+<h3 id="call-graph">Call Graph</h3>
+<h4 id="generates-a-png-image-of-a-call-graph-with-highlighted-bottlenecks">Generates a PNG image of a call graph with highlighted bottlenecks:</h4>
+<pre><code class="language-python"># $ pip3 install pycallgraph
+from pycallgraph import output, PyCallGraph
+from datetime import datetime
+time_str = datetime.now().strftime('%Y%m%d%H%M%S')
+filename = f'profile-{time_str}.png'
+drawer = output.GraphvizOutput(output_file=filename)
+with PyCallGraph(drawer):
+    &lt;code_to_be_profiled&gt;
+</code></pre>
+<h2 id="numpy">NumPy</h2>
+<p><strong>Array manipulation mini-language. It can run up to one hundred times faster than the equivalent Python code.</strong></p>
+<pre><code class="language-python"># $ pip3 install numpy
+import numpy as np
+</code></pre>
+<pre><code class="language-python">&lt;array&gt; = np.array(&lt;list&gt;)
+&lt;array&gt; = np.arange(from_inclusive, to_exclusive, ±step_size)
+&lt;array&gt; = np.ones(&lt;shape&gt;)
+&lt;array&gt; = np.random.randint(from_inclusive, to_exclusive, &lt;shape&gt;)
+</code></pre>
+<pre><code class="language-python">&lt;array&gt;.shape = &lt;shape&gt;
+&lt;view&gt;  = &lt;array&gt;.reshape(&lt;shape&gt;)
+&lt;view&gt;  = np.broadcast_to(&lt;array&gt;, &lt;shape&gt;)
+</code></pre>
+<pre><code class="language-python">&lt;array&gt; = &lt;array&gt;.sum(axis)
+indexes = &lt;array&gt;.argmin(axis)
+</code></pre>
+<ul>
+<li><strong>Shape is a tuple of dimension sizes.</strong></li>
+<li><strong>Axis is the index of a dimension that gets collapsed. The leftmost dimension has index 0.</strong></li>
+</ul>
+<h3 id="indexing">Indexing</h3>
+<pre><code class="language-bash">&lt;el&gt;       = &lt;2d_array&gt;[0, 0]        # First element.
+&lt;1d_view&gt;  = &lt;2d_array&gt;[0]           # First row.
+&lt;1d_view&gt;  = &lt;2d_array&gt;[:, 0]        # First column. Also [..., 0].
+&lt;3d_view&gt;  = &lt;2d_array&gt;[None, :, :]  # Expanded by dimension of size 1.
+</code></pre>
+<pre><code class="language-bash">&lt;1d_array&gt; = &lt;2d_array&gt;[&lt;1d_row_indexes&gt;, &lt;1d_column_indexes&gt;]
+&lt;2d_array&gt; = &lt;2d_array&gt;[&lt;2d_row_indexes&gt;, &lt;2d_column_indexes&gt;]
+</code></pre>
+<pre><code class="language-bash">&lt;2d_bools&gt; = &lt;2d_array&gt; &gt; 0
+&lt;1d_array&gt; = &lt;2d_array&gt;[&lt;2d_bools&gt;]
+</code></pre>
+<ul>
+<li><strong>If row and column indexes differ in shape, they are combined with broadcasting.</strong></li>
+</ul>
+<h3 id="broadcasting">Broadcasting</h3>
+<p><strong>Broadcasting is a set of rules by which NumPy functions operate on arrays of different sizes and/or dimensions.</strong></p>
+<pre><code class="language-python">left  = [[0.1], [0.6], [0.8]]        # Shape: (3, 1)
+right = [ 0.1 ,  0.6 ,  0.8 ]        # Shape: (3)
+</code></pre>
+<h4 id="1-if-array-shapes-differ-in-length-left-pad-the-shorter-shape-with-ones">1. If array shapes differ in length, left-pad the shorter shape with ones:</h4>
+<pre><code class="language-python">left  = [[0.1], [0.6], [0.8]]        # Shape: (3, 1)
+right = [[0.1 ,  0.6 ,  0.8]]        # Shape: (1, 3) &lt;- !
+</code></pre>
+<h4 id="2-if-any-dimensions-differ-in-size-expand-the-ones-that-have-size-1-by-duplicating-their-elements">2. If any dimensions differ in size, expand the ones that have size 1 by duplicating their elements:</h4>
+<pre><code class="language-python">left  = [[0.1, 0.1, 0.1], [0.6, 0.6, 0.6], [0.8, 0.8, 0.8]]  # Shape: (3, 3) &lt;- !
+right = [[0.1, 0.6, 0.8], [0.1, 0.6, 0.8], [0.1, 0.6, 0.8]]  # Shape: (3, 3) &lt;- !
+</code></pre>
+<h4 id="3-if-neither-non-matching-dimension-has-size-1-raise-an-error">3. If neither non-matching dimension has size 1, raise an error.</h4>
+<h3 id="example-3">Example</h3>
+<h4 id="for-each-point-returns-index-of-its-nearest-point-01-06-08-1-2-1">For each point returns index of its nearest point (<code>[0.1, 0.6, 0.8] =&gt; [1, 2, 1]</code>):</h4>
+<pre><code class="language-python">&gt;&gt;&gt; points = np.array([0.1, 0.6, 0.8])
+ [ 0.1,  0.6,  0.8]
+&gt;&gt;&gt; wrapped_points = points.reshape(3, 1)
+[[ 0.1],
+ [ 0.6],
+ [ 0.8]]
+&gt;&gt;&gt; distances = wrapped_points - points
+[[ 0. , -0.5, -0.7],
+ [ 0.5,  0. , -0.2],
+ [ 0.7,  0.2,  0. ]]
+&gt;&gt;&gt; distances = np.abs(distances)
+[[ 0. ,  0.5,  0.7],
+ [ 0.5,  0. ,  0.2],
+ [ 0.7,  0.2,  0. ]]
+&gt;&gt;&gt; i = np.arange(3)
+[0, 1, 2]
+&gt;&gt;&gt; distances[i, i] = np.inf
+[[ inf,  0.5,  0.7],
+ [ 0.5,  inf,  0.2],
+ [ 0.7,  0.2,  inf]]
+&gt;&gt;&gt; distances.argmin(1)
+[1, 2, 1]
+</code></pre>
+<h2 id="image">Image</h2>
+<pre><code class="language-python"># $ pip3 install pillow
+from PIL import Image
+</code></pre>
+<pre><code class="language-python">&lt;Image&gt; = Image.new('&lt;mode&gt;', (width, height))
+&lt;Image&gt; = Image.open('&lt;path&gt;')
+&lt;Image&gt; = &lt;Image&gt;.convert('&lt;mode&gt;')
+&lt;Image&gt;.save('&lt;path&gt;')
+&lt;Image&gt;.show()
+</code></pre>
+<pre><code class="language-python">&lt;tuple/int&gt; = &lt;Image&gt;.getpixel((x, y))          # Returns a pixel.
+&lt;Image&gt;.putpixel((x, y), &lt;tuple/int&gt;)           # Writes a pixel to the image.
+&lt;ImagingCore&gt; = &lt;Image&gt;.getdata()               # Returns a sequence of pixels.
+&lt;Image&gt;.putdata(&lt;list/ImagingCore&gt;)             # Writes a sequence of pixels.
+&lt;Image&gt;.paste(&lt;Image&gt;, (x, y))                  # Writes an image to the image.
+</code></pre>
+<pre><code class="language-bash">&lt;2d_array&gt; = np.array(&lt;Image&gt;)                  # Creates NumPy array from greyscale image.
+&lt;3d_array&gt; = np.array(&lt;Image&gt;)                  # Creates NumPy array from color image.
+&lt;Image&gt;    = Image.fromarray(&lt;array&gt;)           # Creates image from NumPy array of floats.
+</code></pre>
+<h3 id="modes-2">Modes</h3>
+<ul>
+<li><strong><code>'1'</code> - 1-bit pixels, black and white, stored with one pixel per byte.</strong></li>
+<li><strong><code>'L'</code> - 8-bit pixels, greyscale.</strong></li>
+<li><strong><code>'RGB'</code> - 3x8-bit pixels, true color.</strong></li>
+<li><strong><code>'RGBA'</code> - 4x8-bit pixels, true color with transparency mask.</strong></li>
+<li><strong><code>'HSV'</code> - 3x8-bit pixels, Hue, Saturation, Value color space.</strong></li>
+</ul>
+<h3 id="examples">Examples</h3>
+<h4 id="creates-a-png-image-of-a-rainbow-gradient">Creates a PNG image of a rainbow gradient:</h4>
+<pre><code class="language-python">WIDTH, HEIGHT = 100, 100
+size = WIDTH * HEIGHT
+hues = [255 * i/size for i in range(size)]
+img = Image.new('HSV', (WIDTH, HEIGHT))
+img.putdata([(int(h), 255, 255) for h in hues])
+img.convert('RGB').save('test.png')
+</code></pre>
+<h4 id="adds-noise-to-a-png-image">Adds noise to a PNG image:</h4>
+<pre><code class="language-python">from random import randint
+add_noise = lambda value: max(0, min(255, value + randint(-20, 20)))
+img = Image.open('test.png').convert('HSV')
+img.putdata([(add_noise(h), s, v) for h, s, v in img.getdata()])
+img.convert('RGB').save('test.png')
+</code></pre>
+<h3 id="drawing">Drawing</h3>
+<pre><code class="language-python">from PIL import ImageDraw
+</code></pre>
+<pre><code class="language-python">&lt;ImageDraw&gt; = ImageDraw.Draw(&lt;Image&gt;)
+&lt;ImageDraw&gt;.point((x, y), fill=None)
+&lt;ImageDraw&gt;.line((x1, y1, x2, y2 [, ...]), fill=None, width=0, joint=None) 
+&lt;ImageDraw&gt;.arc((x1, y1, x2, y2), from_deg, to_deg, fill=None, width=0)
+&lt;ImageDraw&gt;.rectangle((x1, y1, x2, y2), fill=None, outline=None, width=0)
+&lt;ImageDraw&gt;.polygon((x1, y1, x2, y2 [, ...]), fill=None, outline=None)
+&lt;ImageDraw&gt;.ellipse((x1, y1, x2, y2), fill=None, outline=None, width=0)
+</code></pre>
+<ul>
+<li><strong>Use <code>'fill=&lt;color&gt;'</code> to set the primary color.</strong></li>
+<li><strong>Use <code>'outline=&lt;color&gt;'</code> to set the secondary color.</strong></li>
+<li><strong>Color can be specified as a tuple, int, <code>'#rrggbb'</code> string or a color name.</strong></li>
+</ul>
+<h2 id="animation">Animation</h2>
+<h4 id="creates-a-gif-of-a-bouncing-ball">Creates a GIF of a bouncing ball:</h4>
+<pre><code class="language-python"># $ pip3 install pillow imageio
+from PIL import Image, ImageDraw
+import imageio
+WIDTH, R = 126, 10
+frames = []
+for velocity in range(15):
+    y = sum(range(velocity+1))
+    frame = Image.new('L', (WIDTH, WIDTH))
+    draw  = ImageDraw.Draw(frame)
+    draw.ellipse((WIDTH/2-R, y, WIDTH/2+R, y+R*2), fill='white')
+    frames.append(frame)
+frames += reversed(frames[1:-1])
+imageio.mimsave('test.gif', frames, duration=0.03)
+</code></pre>
+<h2 id="audio">Audio</h2>
+<pre><code class="language-python">import wave
+</code></pre>
+<pre><code class="language-python">&lt;Wave_read&gt;  = wave.open('&lt;path&gt;', 'rb')        # Opens the WAV file.
+framerate    = &lt;Wave_read&gt;.getframerate()       # Number of frames per second.
+nchannels    = &lt;Wave_read&gt;.getnchannels()       # Number of samples per frame.
+sampwidth    = &lt;Wave_read&gt;.getsampwidth()       # Sample size in bytes.
+nframes      = &lt;Wave_read&gt;.getnframes()         # Number of frames.
+&lt;params&gt;     = &lt;Wave_read&gt;.getparams()          # Immutable collection of above.
+&lt;bytes&gt;      = &lt;Wave_read&gt;.readframes(nframes)  # Returns next 'nframes' frames.
+</code></pre>
+<pre><code class="language-python">&lt;Wave_write&gt; = wave.open('&lt;path&gt;', 'wb')        # Truncates existing file.
+&lt;Wave_write&gt;.setframerate(&lt;int&gt;)                # 44100 for CD, 48000 for video.
+&lt;Wave_write&gt;.setnchannels(&lt;int&gt;)                # 1 for mono, 2 for stereo.
+&lt;Wave_write&gt;.setsampwidth(&lt;int&gt;)                # 2 for CD quality sound.
+&lt;Wave_write&gt;.setparams(&lt;params&gt;)                # Sets all parameters.
+&lt;Wave_write&gt;.writeframes(&lt;bytes&gt;)               # Appends frames to the file.
+</code></pre>
+<ul>
+<li><strong>Bytes object contains a sequence of frames, each consisting of one or more samples.</strong></li>
+<li><strong>In a stereo signal, the first sample of a frame belongs to the left channel.</strong></li>
+<li><strong>Each sample consists of one or more bytes that, when converted to an integer, indicate the displacement of a speaker membrane at a given moment.</strong></li>
+<li><strong>If sample width is one, then the integer should be encoded unsigned.</strong></li>
+<li><strong>For all other sizes, the integer should be encoded signed with little-endian byte order.</strong></li>
+</ul>
+<h3 id="sample-values">Sample Values</h3>
+<pre><code class="language-text">+-----------+-------------+------+-------------+
+| sampwidth |     min     | zero |     max     |
++-----------+-------------+------+-------------+
+|     1     |           0 |  128 |         255 |
+|     2     |      -32768 |    0 |       32767 |
+|     3     |    -8388608 |    0 |     8388607 |
+|     4     | -2147483648 |    0 |  2147483647 |
++-----------+-------------+------+-------------+
+</code></pre>
+<h3 id="read-float-samples-from-wav-file">Read Float Samples from WAV File</h3>
+<pre><code class="language-python">def read_wav_file(filename):
+    def get_int(a_bytes):
+        an_int = int.from_bytes(a_bytes, 'little', signed=width!=1)
+        return an_int - 128 * (width == 1)
+    with wave.open(filename, 'rb') as file:
+        width  = file.getsampwidth()
+        frames = file.readframes(file.getnframes())
+    byte_samples = (frames[i: i + width] for i in range(0, len(frames), width))
+    return [get_int(b) / pow(2, width * 8 - 1) for b in byte_samples]
+</code></pre>
+<h3 id="write-float-samples-to-wav-file">Write Float Samples to WAV File</h3>
+<pre><code class="language-python">def write_to_wav_file(filename, float_samples, nchannels=1, sampwidth=2, framerate=44100):
+    def get_bytes(a_float):
+        a_float = max(-1, min(1 - 2e-16, a_float))
+        a_float += sampwidth == 1
+        a_float *= pow(2, sampwidth * 8 - 1)
+        return int(a_float).to_bytes(sampwidth, 'little', signed=sampwidth!=1) 
+    with wave.open(filename, 'wb') as file:
+        file.setnchannels(nchannels)
+        file.setsampwidth(sampwidth)
+        file.setframerate(framerate)
+        file.writeframes(b''.join(get_bytes(f) for f in float_samples))
+</code></pre>
+<h3 id="examples-2">Examples</h3>
+<h4 id="saves-a-sine-wave-to-a-mono-wav-file">Saves a sine wave to a mono WAV file:</h4>
+<pre><code class="language-python">from math import pi, sin
+samples_f = (sin(i * 2 * pi * 440 / 44100) for i in range(100000))
+write_to_wav_file('test.wav', samples_f)
+</code></pre>
+<h4 id="adds-noise-to-a-mono-wav-file">Adds noise to a mono WAV file:</h4>
+<pre><code class="language-python">from random import random
+add_noise = lambda value: value + (random() - 0.5) * 0.03
+samples_f = (add_noise(f) for f in read_wav_file('test.wav'))
+write_to_wav_file('test.wav', samples_f)
+</code></pre>
+<h4 id="plays-a-wav-file">Plays a WAV file:</h4>
+<pre><code class="language-python"># $ pip3 install simpleaudio
+from simpleaudio import play_buffer
+with wave.open('test.wav', 'rb') as file:
+    p = file.getparams()
+    frames = file.readframes(p.nframes)
+    play_buffer(frames, p.nchannels, p.sampwidth, p.framerate)
+</code></pre>
+<h3 id="text-to-speech">Text to Speech</h3>
+<pre><code class="language-python"># $ pip3 install pyttsx3
+import pyttsx3
+engine = pyttsx3.init()
+engine.say('Sally sells seashells by the seashore.')
+engine.runAndWait()
+</code></pre>
+<h2 id="synthesizer">Synthesizer</h2>
+<h4 id="plays-popcorn-by-gershon-kingsley">Plays Popcorn by Gershon Kingsley:</h4>
+<pre><code class="language-python"># $ pip3 install simpleaudio
+import simpleaudio, math, struct
+from itertools import chain, repeat
+F  = 44100
+P1 = '71♪,69,,71♪,66,,62♪,66,,59♪,,,'
+P2 = '71♪,73,,74♪,73,,74,,71,,73♪,71,,73,,69,,71♪,69,,71,,67,,71♪,,,'
+get_pause   = lambda seconds: repeat(0, int(seconds * F))
+sin_f       = lambda i, hz: math.sin(i * 2 * math.pi * hz / F)
+get_wave    = lambda hz, seconds: (sin_f(i, hz) for i in range(int(seconds * F)))
+get_hz      = lambda key: 8.176 * 2 ** (int(key) / 12)
+parse_note  = lambda note: (get_hz(note[:2]), 0.25 if '♪' in note else 0.125)
+get_samples = lambda note: get_wave(*parse_note(note)) if note else get_pause(0.125)
+samples_f   = chain.from_iterable(get_samples(n) for n in f'{P1}{P1}{P2}'.split(','))
+samples_b   = b''.join(struct.pack('&lt;h', int(f * 30000)) for f in samples_f)
+simpleaudio.play_buffer(samples_b, 1, 2, F)
+</code></pre>
+<h2 id="pygame">Pygame</h2>
+<h3 id="basic-example-2">Basic Example</h3>
+<pre><code class="language-python"># $ pip3 install pygame
+import pygame as pg
+pg.init()
+screen = pg.display.set_mode((500, 500))
+rect = pg.Rect(240, 240, 20, 20)
+while all(event.type != pg.QUIT for event in pg.event.get()):
+    deltas = {pg.K_UP: (0, -3), pg.K_RIGHT: (3, 0), pg.K_DOWN: (0, 3), pg.K_LEFT: (-3, 0)}
+    for delta in (deltas.get(i) for i, on in enumerate(pg.key.get_pressed()) if on):
+        rect = rect.move(delta) if delta else rect
+    screen.fill((0, 0, 0))
+    pg.draw.rect(screen, (255, 255, 255), rect)
+    pg.display.flip()
+</code></pre>
+<h3 id="rectangle">Rectangle</h3>
+<p><strong>Object for storing rectangular coordinates.</strong></p>
+<pre><code class="language-python">&lt;Rect&gt; = pg.Rect(x, y, width, height)           # X and y are coordinates of topleft corner.
+&lt;int&gt;  = &lt;Rect&gt;.x/y/centerx/centery/…           # Top, right, bottom, left.
+&lt;tup.&gt; = &lt;Rect&gt;.topleft/center/…                # Topright, bottomright, bottomleft.
+&lt;Rect&gt; = &lt;Rect&gt;.move((x, y))                    # Use move_ip() to move in place.
+</code></pre>
+<pre><code class="language-python">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))            # Tests if a point is inside a rectangle.
+&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)             # Tests if two rectangles overlap.
+&lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)     # Returns index of first colliding Rect or -1.
+&lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list_of_Rect&gt;)  # Returns indexes of all colliding Rects.
+</code></pre>
+<h3 id="surface">Surface</h3>
+<p><strong>Object for representing images.</strong></p>
+<pre><code class="language-python">&lt;Surf&gt; = pg.display.set_mode((width, height))   # Returns the display surface.
+&lt;Surf&gt; = pg.Surface((width, height))            # Creates a new surface.
+&lt;Surf&gt; = pg.image.load('&lt;path&gt;')                # Loads the image.
+&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)              # Returns a subsurface.
+</code></pre>
+<pre><code class="language-python">&lt;Surf&gt;.fill(color)                              # Fills the whole surface.
+&lt;Surf&gt;.set_at((x, y), color)                    # Updates pixel.
+&lt;Surf&gt;.blit(&lt;Surface&gt;, (x, y))                  # Draws passed surface to the surface.
+</code></pre>
+<pre><code class="language-python">&lt;Surf&gt; = pg.transform.flip(&lt;Surf&gt;, xbool, ybool)
+&lt;Surf&gt; = pg.transform.rotate(&lt;Surf&gt;, degrees)
+&lt;Surf&gt; = pg.transform.scale(&lt;Surf&gt;, (width, height))
+</code></pre>
+<pre><code class="language-python">pg.draw.line(&lt;Surf&gt;, color, (x1, y1), (x2, y2), width)
+pg.draw.arc(&lt;Surf&gt;, color, &lt;Rect&gt;, from_radians, to_radians)
+pg.draw.rect(&lt;Surf&gt;, color, &lt;Rect&gt;)
+pg.draw.polygon(&lt;Surf&gt;, color, points)
+pg.draw.ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;)
+</code></pre>
+<h3 id="font">Font</h3>
+<pre><code class="language-python">&lt;Font&gt; = pg.font.SysFont('&lt;name&gt;', size, bold=False, italic=False)
+&lt;Font&gt; = pg.font.Font('&lt;path&gt;', size)
+&lt;Surf&gt; = &lt;Font&gt;.render(text, antialias, color, background=None)
+</code></pre>
+<h3 id="sound">Sound</h3>
+<pre><code class="language-python">&lt;Sound&gt; = pg.mixer.Sound('&lt;path&gt;')              # Loads the WAV file.
+&lt;Sound&gt;.play()                                  # Starts playing the sound.
+</code></pre>
+<h3 id="basic-mario-brothers-example">Basic Mario Brothers Example</h3>
+<pre><code class="language-python">import collections, dataclasses, enum, io, pygame, urllib.request, itertools as it
+from random import randint
+
+P = collections.namedtuple('P', 'x y')          # Position
+D = enum.Enum('D', 'n e s w')                   # Direction
+SIZE, MAX_SPEED = 50, P(5, 10)                  # Screen size, Speed limit
+
+def main():
+    def get_screen():
+        pygame.init()
+        return pygame.display.set_mode(2 * [SIZE*16])
+    def get_images():
+        url = 'https://gto76.github.io/python-cheatsheet/web/mario_bros.png'
+        img = pygame.image.load(io.BytesIO(urllib.request.urlopen(url).read()))
+        return [img.subsurface(get_rect(x, 0)) for x in range(img.get_width() // 16)]
+    def get_mario():
+        Mario = dataclasses.make_dataclass('Mario', 'rect spd facing_left frame_cycle'.split())
+        return Mario(get_rect(1, 1), P(0, 0), False, it.cycle(range(3)))
+    def get_tiles():
+        positions = [p for p in it.product(range(SIZE), repeat=2) if {*p} &amp; {0, SIZE-1}] + \
+            [(randint(1, SIZE-2), randint(2, SIZE-2)) for _ in range(SIZE**2 // 10)]
+        return [get_rect(*p) for p in positions]
+    def get_rect(x, y):
+        return pygame.Rect(x*16, y*16, 16, 16)
+    run(get_screen(), get_images(), get_mario(), get_tiles())
+
+def run(screen, images, mario, tiles):
+    clock = pygame.time.Clock()
+    while all(event.type != pygame.QUIT for event in pygame.event.get()):
+        keys = {pygame.K_UP: D.n, pygame.K_RIGHT: D.e, pygame.K_DOWN: D.s, pygame.K_LEFT: D.w}
+        pressed = {keys.get(i) for i, on in enumerate(pygame.key.get_pressed()) if on}
+        update_speed(mario, tiles, pressed)
+        update_position(mario, tiles)
+        draw(screen, images, mario, tiles, pressed)
+        clock.tick(28)
+
+def update_speed(mario, tiles, pressed):
+    x, y = mario.spd
+    x += 2 * ((D.e in pressed) - (D.w in pressed))
+    x -= x // abs(x) if x else 0
+    y += 1 if D.s not in get_boundaries(mario.rect, tiles) else (-10 if D.n in pressed else 0)
+    mario.spd = P(*[max(-limit, min(limit, s)) for limit, s in zip(MAX_SPEED, P(x, y))])
+
+def update_position(mario, tiles):
+    new_p = mario.rect.topleft
+    larger_speed = max(abs(s) for s in mario.spd)
+    for _ in range(larger_speed):
+        mario.spd = stop_on_collision(mario.spd, get_boundaries(mario.rect, tiles))
+        new_p = P(*[a + s/larger_speed for a, s in zip(new_p, mario.spd)])
+        mario.rect.topleft = new_p
+
+def get_boundaries(rect, tiles):
+    deltas = {D.n: P(0, -1), D.e: P(1, 0), D.s: P(0, 1), D.w: P(-1, 0)}
+    return {d for d, delta in deltas.items() if rect.move(delta).collidelist(tiles) != -1}
+
+def stop_on_collision(spd, bounds):
+    return P(x=0 if (D.w in bounds and spd.x &lt; 0) or (D.e in bounds and spd.x &gt; 0) else spd.x,
+             y=0 if (D.n in bounds and spd.y &lt; 0) or (D.s in bounds and spd.y &gt; 0) else spd.y)
+
+def draw(screen, images, mario, tiles, pressed):
+    def get_frame_index():
+        if D.s not in get_boundaries(mario.rect, tiles):
+            return 4
+        return next(mario.frame_cycle) if {D.w, D.e} &amp; pressed else 6
+    screen.fill((85, 168, 255))
+    mario.facing_left = (D.w in pressed) if {D.w, D.e} &amp; pressed else mario.facing_left
+    screen.blit(images[get_frame_index() + mario.facing_left * 9], mario.rect)
+    for rect in tiles:
+        screen.blit(images[18 if {*rect.topleft} &amp; {0, (SIZE-1)*16} else 19], rect)
+    pygame.display.flip()
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<h2 id="basic-script-template">Basic Script Template</h2>
+<pre><code class="language-python">#!/usr/bin/env python3
+#
+# Usage: .py
+#
+
+from collections import namedtuple
+from dataclasses import make_dataclass
+from enum import Enum
+from sys import argv
+import re
+
+
+def main():
+    pass
+
+
+###
+##  UTIL
+#
+
+def read_file(filename):
+    with open(filename, encoding='utf-8') as file:
+        return file.readlines()
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[周报 5月第2期]]></title>
+        <id>https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-2-qi/</id>
+        <link href="https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-2-qi/">
+        </link>
+        <updated>2020-05-26T18:57:12.000Z</updated>
+        <content type="html"><![CDATA[<p>本周有很多互联网趋势的总结报告和AI相关的内容。</p>
+<h2 id="报告">报告</h2>
+<p>行业内最有权威的两个行业趋势报告，在同一周发布<br>
+技术雷达，nestjs 上榜了，感觉这属于nodejs 后端比较适合规模化的一个框架了，有点像前端框架，每个模块可以复用，组合。这一期还包括了一些远程工作的内容。 <a href="hhttps://www.thoughtworks.com/cn/radar"  target="_blank">technology radar</a></p>
+<p>typescript的喜爱度超越了python, 个人感觉虽然ts语法进步了，但是nodejs的包管理，像一个shit hole。虽然原作者已经做出了Denojs（使用URL加载包，本地缓存）, 但还在1.0阶段。不太喜欢nodejs的动不动几万个依赖，简直是噩梦的存在。 Rust 受欢迎度排名第一，因为速度可以媲美C++，而且保证了内存安全。 <a href="https://zhuanlan.zhihu.com/p/144547466"  target="_blank">中文总结</a> <a href="https://insights.stackoverflow.com/survey/2020"  target="_blank">英文源链接</a></p>
+<h2 id="ai">AI</h2>
+<p>一些可以在线使用的AI,文章摘要生成，AI画画之类的 <a href="https://boredhumans.com/"  target="_blank">无聊的人类</a></p>
+<p>OPENAI 发布了1750亿参数的神经网络，应用效果惊人。 <a href="https://www.jiqizhixin.com/articles/2020-05-30-6"  target="_blank">GPT3</a><br>
+只要训练集大，效果吓死人，话说这玩意除了OPENAI,谁能训练。。。</p>
+<h2 id="python">Python</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591479325176.png" alt="" loading="lazy"><br>
+github star很多的一份python快速查阅手册 <a href="https://github.com/gto76/python-cheatsheet"  target="_blank">github源地址 </a> <a href="https://yueqingsheng.github.io/post/python-cheatsheet/"  target="_blank">复制了一份放到博客上，增加了侧栏目录</a></p>
+<h2 id="github">Github</h2>
+<p>这周写了个生成用户假数据的脚本。用了github上的几个项目</p>
+<p>中文人名生成，蛮有意思的一个人名生成器 <a href="https://github.com/mozillazg/python-pinyin"  target="_blank">Chinese-Names-Corpus</a><br>
+汉字转拼音,可以选多种格式，包括声调 <a href="https://github.com/mozillazg/python-pinyin"  target="_blank">python-pinyin</a></p>
+<h2 id="文章">文章</h2>
+<p>一个理想主义者的破灭 <a href="https://app.myzaker.com/news/article.php?pk=5ed9ed368e9f09113d7fc408"  target="_blank">罗永浩：薛定谔的理想主义</a></p>
+<h2 id="视频">视频</h2>
+<p>尽管我们的手中空无一物 <a href="https://app.myzaker.com/news/article.php?pk=5ed9ed368e9f09113d7fc408"  target="_blank">僕らの手には何もないけど</a></p>
+<h2 id="本周词汇">本周词汇</h2>
+<p>解藕： TODO<br>
+敏捷式开发： TODO</p>
+<p>持续更新中。。。。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[后端基础]]></title>
+        <id>https://yueqingsheng.github.io/post/hou-duan-ji-chu/</id>
+        <link href="https://yueqingsheng.github.io/post/hou-duan-ji-chu/">
+        </link>
+        <updated>2020-05-23T04:47:06.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="sql-语句">SQL 语句</h2>
+<p>一般常使用大写</p>
+<h3 id="insert-插入">INSERT 插入</h3>
+<pre><code class="language-SQL">INSERT INTO `post`(数据表名,使用反引号或者不使用反引号也可以)  （`title`, `content`）(表格内字段名) VALUES
+('文章1'，'我是一个内容')，   （标题和内容，分隔用逗号）
+('文章2'，'我是一个内容')；  （结尾用分号）
+</code></pre>
+<h3 id="select-选择">SELECT 选择</h3>
+<pre><code class="language-SQL">SELECT * FROM `post` LIMIT 1 OFFSET 1; (选择所有数据，limit条数， offset 偏移量)
+SELECT `id`, `title` FROM `post` LIMIT 1 OFFSET 1 WHERE `id` = 1;(选择字段， where 查找条件)
+SELECT `id`, `title` FROM `post` LIMIT 1 OFFSET 1 ORDER BY `id` DESC;(排序)
+</code></pre>
+<h3 id="update-更新">UPDATE 更新</h3>
+<h3 id="delete-删除">DELETE 删除</h3>
+<h2 id="index-索引">INDEX 索引</h2>
+<h3 id="定义-有序性的目录">定义 有序性的目录</h3>
+<h3 id="为什么使用">为什么使用？</h3>
+<p>加快表单的查询速度<br>
+加快 where=某个值 和范围查询<br>
+<img src="https://yueqingsheng.github.io/post-images/1590470497172.png" alt="" loading="lazy"></p>
+<h3 id="原理-b树">原理 B+树</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1590470640153.png" alt="" loading="lazy"></figure>
+<h3 id="索引类型">索引类型</h3>
+<p>联合索引，按照两个字段建立索引<br>
+<img src="https://yueqingsheng.github.io/post-images/1590470901458.png" alt="" loading="lazy"></p>
+<h2 id="memcached">MEMCACHED</h2>
+<h2 id="主键和外键">主键和外键</h2>
+<p>主键： 用于表示数据的唯一标示，不能为null。 如：id<br>
+外键： 如果公共关键字在一个关系中是主关键字，那么这个公共关键字被称为另一个关系的外键。由此可见，外键表示了两个关系之间的相关联系。以另一个关系的外键作主关键字的表被称为主表，具有此外键的表被称为主表的从表。 如：post 里的userId</p>
+<h2 id="哈希函数">哈希函数</h2>
+<p>key-hash function-&gt; hash code<br>
+<img src="https://yueqingsheng.github.io/post-images/1591719132105.png" alt="" loading="lazy"></p>
+<h3 id="简单hash-不考虑冲突">简单hash 不考虑冲突</h3>
+<h3 id="put">Put</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591720445693.png" alt="" loading="lazy"></figure>
+<h3 id="get">Get</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1591720489766.png" alt="" loading="lazy"><br>
+hash 是不可逆的</p>
+<h2 id="md5">MD5</h2>
+<p>string=&gt;string(32位16进制字符串)<br>
+相同hash有可能由不同字符串生成<br>
+靠key,hash 对 可以猜到密码。盐（通过添加其他字符，生成不同的hash）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[周报 5月第1期]]></title>
+        <id>https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-1-qi/</id>
+        <link href="https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-1-qi/">
+        </link>
+        <updated>2020-05-22T16:14:40.000Z</updated>
+        <content type="html"><![CDATA[<p>每周会总结一些最近用到的工具或者看到的文章。</p>
+<h2 id="工具">工具</h2>
+<p>比谷歌翻译更好用的AI翻译，翻译的很自然。 <a href="https://www.deepl.com/zh/translator"  target="_blank">DeepL</a><br>
+提供了基本上网上所有的社交媒体和信息来源的RSS <a href="https://docs.rsshub.app/"  target="_blank">RSShub</a><br>
+AI 可溯源的I搜索引擎，可以知道一些词的主要来源和引用<a href="https://magi.com"  target="_blank">Magi</a><br>
+跨端同步文件夹，我用它把mac和windows的Gridea博客文件同步起来。<a href="https://www.jianguoyun.com/"  target="_blank">坚果云</a></p>
+<h2 id="python">python</h2>
+<p>一个很方便的给现成代码添加命令行的库<a href="https://github.com/google/python-fire"  target="_blank">Fire</a><br>
+详细讲了列表生成式的用法。<a href="https://zhuanlan.zhihu.com/p/138311749"  target="_blank">Python成为专业人士笔记–comprehension生成式</a></p>
+<h2 id="后端">后端</h2>
+<p>推荐两个课程虽然都是付费的，但是自己听过还可以<br>
+从0开始学习开发后端，内容很全，一如皓哥平时的风格，视频简练，每个不超过5分钟。可以作为js开发入门，或者后端查阅使用。<a href="https://ninghao.net/package/xb2-node"  target="_blank">小白兔的开发之路</a><br>
+需要一定的算法和后端基础，可以作为进阶学习，主要讲了如何优化后端，如访问量巨大或高并发的情况。至于价格见仁见智，我觉得有点小贵了。优点是讲的比较系统。<a href="https://www.jiuzhang.com/course/28/"  target="_blank">系统设计</a></p>
+<h2 id="文章">文章</h2>
+<p>蛮有意思的一篇文章，一直对这类的文笔比较感兴趣。<a href="http://jandan.net/p/107212"  target="_blank">残局</a><br>
+WannaCry解决者的故事 <a href="https://zhuanlan.zhihu.com/p/141787135"  target="_blank">22岁阻止席卷网络的病毒，却因开发恶意软件被捕，这是传奇黑客马库斯的故事</a></p>
+<h2 id="视频">视频</h2>
+<p>赛博朋克山海经，惊了。<a href="https://www.behance.net/gallery/88971815/Pause-Originals-Cyberpunk-Shaihaiching"  target="_blank">Cyberpunk Shanhaijing</a></p>
+<h2 id="每周英文">每周英文</h2>
+<p>每周读几篇英文文章，或者听电台节目（podcast),或者写点英文技术文章，或者转译一篇。</p>
+<p>本周文章：<br>
+<strong>不要学编程，学会自动化。主要讲了生活中很多重复无聊的事都可以自动化起来，写代码只是其中实现的一个选择。</strong><a href="https://daedtech.com/dont-learn-to-code-learn-to-automate/"  target="_blank">Don’t Learn to Code — Learn to Automate</a></p>
+<p>词汇表：列出英文解释的原因，是我觉得有的时候英文解释比中文更好理解单词原本的意思。</p>
+<table>
+<thead>
+<tr>
+<th>单词</th>
+<th>英文解释</th>
+<th>中文含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heady</td>
+<td>having a powerful effect, making you feel slightly drunk or excited</td>
+<td>令人兴奋，有点冲动的</td>
+</tr>
+<tr>
+<td>surreal</td>
+<td>strange; not seeming real; like a dream</td>
+<td>超现实的,不真实的</td>
+</tr>
+<tr>
+<td>intimaditing</td>
+<td>making you feel frightened or nervous</td>
+<td>令人紧张的，吓人的</td>
+</tr>
+<tr>
+<td>overwhelming</td>
+<td>difficult to fight against</td>
+<td>难以抵挡的；无法抗拒的</td>
+</tr>
+<tr>
+<td>folly</td>
+<td></td>
+<td>愚蠢的</td>
+</tr>
+<tr>
+<td>rebuttal</td>
+<td>a statement that says that something is not true</td>
+<td>反驳</td>
+</tr>
+<tr>
+<td>zeitgeist</td>
+<td>the general set of ideas, beliefs, feelings, etc. that is typical of a particular period in history</td>
+<td>时代思潮</td>
+</tr>
+<tr>
+<td>overarching</td>
+<td>most important, because of including or affecting all other areas</td>
+<td>首要的；包罗万象的，支配一切的</td>
+</tr>
+<tr>
+<td>nuance</td>
+<td>a very slight difference in appearance, meaning, sound, etc.</td>
+<td>（外表、意义、声音等的）细微差别</td>
+</tr>
+<tr>
+<td>hung up</td>
+<td>having a hang-up (= feeling of worry about yourself)</td>
+<td>焦虑的，烦恼的</td>
+</tr>
+<tr>
+<td>per se</td>
+<td>by or of itself</td>
+<td>自身，本身</td>
+</tr>
+<tr>
+<td>savvy</td>
+<td>practical knowledge and ability</td>
+<td>常识；实际能力</td>
+</tr>
+<tr>
+<td>copy editor</td>
+<td>A copy editor is a person whose job it is to check and correct articles in newspapers or magazines before they are printed.</td>
+<td>文字编辑</td>
+</tr>
+<tr>
+<td>wince</td>
+<td></td>
+<td>退缩</td>
+</tr>
+<tr>
+<td>laboriously</td>
+<td>in a way that needs a lot of time and effort</td>
+<td>费力地；艰难地；辛苦地</td>
+</tr>
+</tbody>
+</table>
+<p>拓展:<br>
+ruby 是一门编程语言<br>
+<a href="https://www.youtube.com/watch?time_continue=190&amp;v=nKIu9yen5nc&amp;feature=emb_logo">文章中提及的热火队的广告链接</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于refresh token]]></title>
+        <id>https://yueqingsheng.github.io/post/guan-yu-refresh-token/</id>
+        <link href="https://yueqingsheng.github.io/post/guan-yu-refresh-token/">
+        </link>
+        <updated>2020-05-21T23:53:27.000Z</updated>
+        <content type="html"><![CDATA[<p>refresh token 如何增加后端安全性呢？<br>
+根据refresh token 的实现，它只在每次登陆的时候才会返回。从请求频率的上减少了暴露的可能性（减少了登录接口请求次数）。一般refresh token的有效期很长。<br>
+那跟它相比的是什么呢，是只使用token登陆，考虑两种情况</p>
+<ol>
+<li>有效期较长或永久有效的token(非常不安全)，没有登出或长时间不登出的话，其他用户可以在这个期间进行操作</li>
+<li>请求多次有效期相对较短的token，这样增加了登陆的次数。对用户非常不方便。<br>
+所以refresh token 既减少了登录的次数，又实现了自动刷新token, 减少了用户的操作。主要安全性增强的方面就是在减少登录上。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计 Week 1 4S分析 ]]></title>
+        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-4s-fen-xi/</id>
+        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-4s-fen-xi/">
+        </link>
+        <updated>2020-05-18T02:34:50.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="4s">4s</h2>
+<h3 id="4s是指-scenario场景-service服务-storgae储存-scale升级">4s是指 Scenario(场景) Service(服务)  Storgae(储存) Scale(升级)</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1590460640237.png" alt="" loading="lazy"></figure>
+<h3 id="scenario场景">Scenario(场景)</h3>
+<p>DAU(https://yueqingsheng.github.io/post-images/1590461765777.png)<br>
+MAU(月活跃用户 ) 估计 MAU约等于2*DAU</p>
+<ol>
+<li>Enumerate(列举)列出所有功能</li>
+<li>Sort 筛选核心功能<br>
+<img src="https://yueqingsheng.github.io/post-images/1590462590167.png" alt="" loading="lazy"><br>
+Timeline(用户发布的内容)<br>
+News Feed(用户关注的内容/信息流)<br>
+3.分析 QPS(Queries per second)<br>
+QPS = DAU*用户平均每天请求次数/每天多少秒（86400）<br>
+PEAK(峰值) 约等于= QPS *3<br>
+快速增长 Fast Growing 将来的增长<br>
+读频率<br>
+写频率 &lt;=1 每个用户<br>
+<img src="https://yueqingsheng.github.io/post-images/1590462900274.png" alt="" loading="lazy"><br>
+QPS<br>
+Single point failure(一个坏了，快速切换到另一台服务器)<br>
+普通web server 只能达到 10QPS<br>
+SQL Databsase   1k QPS (join index很慢)<br>
+NoSQL   10k ~ 1m<br>
+<img src="https://yueqingsheng.github.io/post-images/1590463086377.png" alt="" loading="lazy"></li>
+</ol>
+<h3 id="service服务-service-oriented微服务化大系统拆分小服务">Service(服务) Service oriented(微服务化，大系统拆分小服务)</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1590463538305.png" alt="" loading="lazy"></figure>
+<ol>
+<li>Replay 每个需求添加一个服务</li>
+<li>Merge 归并相同的服务</li>
+</ol>
+<h3 id="storage-存储">Storage 存储</h3>
+<ol>
+<li>每个Service 选择存储结构<br>
+Database     File System     Cache</li>
+<li>Schema 细化表结构<br>
+primary key 一般使用id作为primary key,因为username和email有可能被修改，导致连串修改。</li>
+</ol>
+<h3 id="news-feed">News Feed</h3>
+<p>pull model: merge k sorted arrays<br>
+缺点： 现算，每次发送请求</p>
+<h4 id="push-model">push model:</h4>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1590467918616.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>fanout: In message-oriented middleware solutions, fan-out is a messaging pattern used to model an information exchange that implies the delivery (or spreading) of a message to one or multiple destinations possibly in parallel, and not halting the process that executes the messaging to wait for any response to that message.(在面向消息的中间件解决方案中，fan-out是一种用于建模的消息交换体式格局，它意味着向一个或多个目的地可能并行地传递(或传播)一个消息，而不是让执行消息的进程停止等待对该消息的任何响应。)</p>
+</blockquote>
+<blockquote>
+<p>Denormalized 叫去标准化。通俗的解释是，通过在不同的 Table 中存储同一份数据的（也就是说至少一份是冗余数据）的形式，来加速数据的查询。因为当数据只存储在一个固定的 Table A 的时候，其他 Table B访问时如果需要同时取得关联的 Table A 的数据，则需要进行 join 操作之类的，会比较慢。一个例子就是在，统计有多少人点赞了一个帖子，可以通过 select count(<em>) from like_table where post_id=<id> 的方式来获取，但是也可以在 post table 中新增一个 like_count，每次点赞就 +1。这里 like_count 就是一个 denormalized field，因为是可以通过 select count(</em>) 在 like table 中获得的。<br>
+fanout 过程异步执行 async</p>
+</blockquote>
+<h5 id="缺点">缺点</h5>
+<p>粉丝过多，创建的记录会变多<br>
+push 对1对特别多的 现象速度很慢，每次加一个新的内容，通知所有关注的人。</p>
+<h3 id="scale">Scale</h3>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1590542959839.png" alt="" loading="lazy"></figure>
+<h4 id="pull-改进">Pull 改进：</h4>
+<p>Cache N cache请求（N是关注的好友数）<br>
+Trade off: Cache 1000条，或200条</p>
+<h4 id="push-改进">Push 改进：</h4>
+<p>在现有基础上做尽可能小的改动</p>
+<h4 id="push-pull">Push+ Pull</h4>
+<p>普通用户 push<br>
+明星用户 pull<br>
+在获取更新之前，主动merge明星的更新</p>
+<h5 id="定义明星问题">定义明星问题</h5>
+<p>掉粉前，明星不push,掉粉后状态改变，不pull。数据丢失 =》永久状态，只要达到过就固定状态<br>
+<img src="https://yueqingsheng.github.io/post-images/1590544991058.png" alt="" loading="lazy"><br>
+Done is than perfect</p>
+<h2 id="课后习题分析以及改进">课后习题分析以及改进</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591476960374.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591477105928.png" alt="" loading="lazy"><br>
+我的数据结构设计：<br>
+Tweet_extend 扩展tweet加上创建时间。<br>
+tweet 储存每个用户的tweet list<br>
+follow_relation 储存了用户的关注关系表</p>
+<p>答案中关系用了map&lt;int, set<int>&gt; 用户id到这个用户关注的人的id的映射，这样设计1对多关系的映射少了在代码中loop判断用户。提升了查询速度。</p>
+<h3 id="push-model-2">Push model:</h3>
+<p>把每个人建立一个newsfeed map&lt;int, newsfeed&gt;, 每当新建一个新twitter，给所有关注的 newsfeed里添加一个。如果Push的时候是按照时间顺序，获取newsfeed的时候就不用sort，拿头10个就行了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[RSS订阅（Feedly + RSShub）]]></title>
         <id>https://yueqingsheng.github.io/post/rss-ding-yue-feedly-rsshub/</id>
@@ -50,648 +2949,6 @@ Done! 在想RSS能否扩展成一个网站浏览所有信息呢？（使用视�
 <h2 id="拓展-推荐阅读">拓展： 推荐阅读</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/35465550">你的新闻 App 被推荐算法「毁」了，但 RSS 真的能拯救你吗</a><br>
 随着RSS进化，某一天这个技术本身也会拿来做推荐算法的优化。所以重点不是在于技术本身，而是个人是否有寻求有价值信息的能力。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[用sao从0写一个脚手架（cli, scafolding, sao）]]></title>
-        <id>https://yueqingsheng.github.io/post/yong-sao-cong-0-xie-yi-ge-jiao-shou-jia-cli-scafolding-sao/</id>
-        <link href="https://yueqingsheng.github.io/post/yong-sao-cong-0-xie-yi-ge-jiao-shou-jia-cli-scafolding-sao/">
-        </link>
-        <updated>2020-05-05T07:19:18.000Z</updated>
-        <content type="html"><![CDATA[<p>看了一些文章，发现saojs 包括了一个简单的generator流程。但是网上详细介绍的文章太少了，作为一个js小白，把流程记录下。</p>
-<h2 id="runtest">Run/Test</h2>
-<p>第一步是先把脚手架跑起来，这里使用了ava测试。<a href="https://saojs.org/guide/testing-generators.html#sao-mock-input-answers-references">参考</a></p>
-<h3 id="ava">AVA</h3>
-<p>安装 ：npm install ava -g<br>
-开始测试：ava</p>
-<h2 id="snapshot-testing">snapshot testing</h2>
-<p>第一次测试ava会生成main.js.snap和main.js.md，然后自动比对之后生成的snapshot是否跟储存的一致。<a href="main.js.md">参考</a><br>
-snapshot更新：ava -u</p>
-<h2 id="sao-generators-test-parameters">Sao generators test parameters</h2>
-<p>测试能跑起来了下面看一下，sao testing的参数<br>
-<img src="https://yueqingsheng.github.io/post-images/1588970116384.jpg" alt="" loading="lazy"><br>
-answers 的格式为 { useRouter: true }</p>
-<h3 id="ejs">Ejs</h3>
-<p><a href="https://ejs.co/#docs">docs</a></p>
-<h3 id="inquiryjs">Inquiryjs</h3>
-<p><a href="https://github.com/SBoudrias/Inquirer.js/">docs</a></p>
-<p>ps: 放弃使用sao了,不是因为这个包不好。有两个原因，一个是对python比较熟练，系统级操作比较用户友好，jupter直接支持bash命令。第二是因为我需要很多对文件的操作，不单单是替换，用js的话需要用的第三方包太多了，学习成本有点高。</p>
-<h2 id="参考">参考</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/34520943">如何开发一个可爱的CLI（一）</a><br>
-<a href="https://github.com/avajs/ava">ava test</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[nestjs 后端代码自动生成（数据表，curd接口，文档）]]></title>
-        <id>https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/</id>
-        <link href="https://yueqingsheng.github.io/post/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang/">
-        </link>
-        <updated>2020-04-29T07:43:34.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="起因">起因</h2>
-<p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
-一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
-<h2 id="实现结果">实现结果</h2>
-<p>只通过一个json文件（即数据格式），生成一系列接口以及文档。</p>
-<pre><code>test.json
-{&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
-</code></pre>
-<h3 id="生成效果下面都是通过一个json生成的内容">生成效果（下面都是通过一个json生成的内容）</h3>
-<h3 id="生成的文档目录更新了appmodule">生成的文档目录(更新了app.module)</h3>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1588622779097.jpg" alt="" loading="lazy"></figure>
-<h3 id="接口">接口</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1588622024790.png" alt="" loading="lazy"></figure>
-<h3 id="接口内包括筛选查找分页缓存等一系列选项">接口内包括筛选，查找，分页，缓存等一系列选项。</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1588622446855.png" alt="" loading="lazy"></figure>
-<h3 id="数据格式文档">数据格式文档</h3>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1588622674686.png" alt="" loading="lazy"></figure>
-<h3 id="数据表">数据表</h3>
-<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1588623030960.png" alt="" loading="lazy"></figure>
-<h2 id="实现思路">实现思路</h2>
-<ol>
-<li>nesjs有类似component的概念，component之间可以通过插入继承来实现复用。我这里使用了继承，因为想复用的部分都是可以共用的增查删改操作。</li>
-<li>在网上搜索资料的时候发现，有人也有同样的思路，并写了一个包<a href="https://github.com/nestjsx/crud">nestjsx/crud</a>。star数有点少, 不过很好用，暂时只支持typeorm。既然有了轮子就不用自己造了。这个包含了swagger的配置，所以会自动生成文档。</li>
-<li>基于这个包扩展开来，我要做的只是把json转成entity.ts文件，生成module,controller, service(继承crud)以及配置好数据库就行了。实现很简单我用了jupter notebook 然后转成了python。<a href="https://github.com/YueqingSheng/nestjs_a_json_to_all">源码地址</a> 实现过程在ipynb里，py是转换好的文件。</li>
-</ol>
-<h2 id="运行">运行</h2>
-<p>ipython beg.py test(实例/数据表名) test.json(数据内容)</p>
-<h2 id="对nestjsxcrud的改进部分">对nestjsx/crud的改进部分</h2>
-<ol>
-<li>增加了json转entity</li>
-<li>补充了swagger分区（ApiTags）和显示entity内部属性（ApiModelProperty）</li>
-<li>生成module,controller,service,并注入entiity repository</li>
-<li>更新app.module</li>
-</ol>
-<h2 id="之后的扩展方向">之后的扩展方向</h2>
-<ol>
-<li>丰富json数据类型支持，目前只支持string, int, bool</li>
-<li>添加mongodb支持</li>
-<li>提供更多entity column选项</li>
-<li>添加接口权限控制</li>
-<li>根据list of json 批量生成接口</li>
-<li>生成一个接口，供前端使用，前端可以根据数据需求创造接口。</li>
-<li>js重新打包成cli发布到npm</li>
-</ol>
-<h2 id="001">0.0.1</h2>
-<ol>
-<li>添加relation {} 为 one to one or many to one (default one to one)<br>
-[] 为 one to many or many to many (default one to many)</li>
-<li>只生成entity</li>
-<li>描述 descrption 根据</li>
-</ol>
-<h2 id="已知bug">已知bug</h2>
-<p>json 中不能用id属性，因为id是由primaryGenerateColumn默认生成的。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[青春有你2 评论分析拓展]]></title>
-        <id>https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/</id>
-        <link href="https://yueqingsheng.github.io/post/qing-chun-you-ni-2-ping-lun-fen-xi/">
-        </link>
-        <updated>2020-04-20T06:05:39.000Z</updated>
-        <content type="html"><![CDATA[<p>2020/4/30 更新</p>
-<h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
-<h3 id="获取视频列表">获取视频列表</h3>
-<p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
-找到 li标签下 class为play-list-item的data-td属性<br>
-<img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
-<strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
-<h3 id="获取评论列表">获取评论列表</h3>
-<p><a href="https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time">接口</a></p>
-<blockquote>
-<p>url参数：<br>
-content_id: 视频id 通过上方的的视频列表中获取<br>
-last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
-page: 翻页的页数<br>
-page_size: 每页评论的个数<br>
-upremaining: 1最后一页， 0 后面还有内容</p>
-</blockquote>
-<h4 id="如何获取全部评论">如何获取全部评论</h4>
-<p>两个思路</p>
-<ol>
-<li>检查lastid 是否重复了，说明获取到最后一个</li>
-<li>其实返回的data里有一个参数，&quot;upremaining&quot;:0。检查这个为1就可以了。</li>
-</ol>
-<p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
-<strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
-<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论,总共花了1分3秒。不用多线程的话，估计要20多分钟。</strong><br>
-截至2020日4月29日总共爬取了254287条数据。</p>
-<h2 id="2-数据清洗">2. 数据清洗</h2>
-<p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
-如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
-清洗后为 虞书欣冲呀！！！</p>
-<h2 id="3-分词">3. 分词</h2>
-<p><strong>数据请求后, 评论列表不再改变可以转化为tuple使用, tuple的access速度会比list快</strong><br>
-使用tuple分词用了 9分3秒，会比list快十几秒。</p>
-<h2 id="4-选手词频统计">4. 选手词频统计</h2>
-<p>经过26万条评论统计，按前20选手姓名出现频率排序<br>
-<img src="https://yueqingsheng.github.io/post-images/1588269289897.png" alt="" loading="lazy"><br>
-人名去重后，词频少了很多。<br>
-<img src="https://yueqingsheng.github.io/post-images/1588641843216.jpg" alt="" loading="lazy"><br>
-根据25号官方排名，前9名内除第9不一样，其他基本吻合。</p>
-<h2 id="5-词云">5. 词云</h2>
-<p>按照词频显示词云<br>
-<img src="https://yueqingsheng.github.io/post-images/1588269308723.png" alt="" loading="lazy"><br>
-之前用形状和上色绘制了下词云，但是感觉效果没有原生的好。(这个是基于1000条数据生成的)<br>
-<img src="https://yueqingsheng.github.io/post-images/1588211480849.png" alt="" loading="lazy"></p>
-<h2 id="6-节目评价">6. 节目评价</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1588210836624.png" alt="" loading="lazy"><br>
-总体还是正向和中性评价占了绝大多数，95%。<br>
-随机打印一点 评价<br>
-正向：<br>
-['因为看了书欣的电视剧才来看这个的，喜欢她的性格', '我也喜欢左卓', '好喜欢刘雨昕！', '我真的太爱刘雨昕了', '好看好看', '看了这期，真的很心疼喻言', '安崎反差萌真的绝了，好看的颜值和有趣的灵魂她都拥有。', '我也喜欢虞书欣', '虞书欣加油', '冲着虞书欣搞笑视频来的，后面发现太太太多想pick的了。这种模式是看的第一个，努力又融洽的氛围真好。']<br>
-中性：<br>
-['乃万！', '乃万', '我要去看男团了拜拜，记得给我点赞', '大家要帮忙投票了吗我这儿还有13票', '大家有要帮忙投票的吗我还有14', '虞书欣', '乃万简直是可盐可甜可rap 可vocal， 随时写词的到处撩妹的博爱艺术家 。', '谢可寅小姐姐要加油喽。', '刘雨昕', '林凡']<br>
-负面;<br>
-['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', ''安琪的肚子真的不好看 感觉肚子肉好多 总喜欢露着腰,'入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
-<p><strong>模型把很多人名识别成了中性词，对英文的词性识别可能还不是很好。</strong><br>
-<strong>有一些负面评价识别还行，但是也有不准的时候。比如“爱死了”， &quot;小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！&quot;可能把呜呜呜识别成负面了。</strong></p>
-<h2 id="总结">总结</h2>
-<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重，list改用tuple<br>
-经过爬取所有评论和同一句子人名去重后，发现数据可视化后还是变化挺大的。有很多人一个评论发很多重复的一个人名。</p>
-<h3 id="可拓展方面">可拓展方面</h3>
-<p>评论生成，用文本生成模型生成一些青春有你相关的评论。<br>
-其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
-评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。<br>
-评论的用户信息分析，如地区</p>
-<p>生成一个动态直方图，用户根据日期看不同日期的统计变化。<a href="https://www.bilibili.com/video/BV1za4y1x768?spm_id_from=333.905.b_72656c61746564.2">参考视频，随便一个视频几万的播放量，我酸了</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue]]></title>
-        <id>https://yueqingsheng.github.io/post/vue/</id>
-        <link href="https://yueqingsheng.github.io/post/vue/">
-        </link>
-        <updated>2020-04-19T18:58:12.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="使用">使用</h2>
-<h3 id="cdn">CDN</h3>
-<pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<h2 id="数据绑定">数据绑定</h2>
-<h3 id="括号绑定">括号绑定</h3>
-<pre><code>{{message}} //括号中可使用表达式 如 {{message+ message}}
-</code></pre>
-<h3 id="指令式绑定">指令式绑定</h3>
-<pre><code>&lt;div v-bind:id=&quot;message&quot;&gt;&lt;/div&gt;
-</code></pre>
-<h4 id="简写形式">简写形式</h4>
-<pre><code>&lt;div :id=&quot;message&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。</p>
-<h3 id="响应式">响应式</h3>
-<p>可以这样理解：当一个状态改变之后，与这个状态相关的事务也立即随之改变，从前端来看就是数据状态改变后相关 DOM 也随之改变。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。</p>
-<h3 id="v-if-v-else-v-show-v-for">v-if v-else v-show v-for</h3>
-<pre><code class="language-html">  &lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-      {{message}}{{message+ message}}
-      &lt;div :id=&quot;message&quot;&gt;&lt;/div&gt;
-      &lt;ul&gt;
-        &lt;li v-for=&quot;item in list&quot;&gt;
-          &lt;span v-if=&quot;!item.del&quot;&gt;{{item.title}}&lt;/span&gt;
-          &lt;span v-else style=&quot;text-decoration: line-through;&quot;&gt;{{item.title}}&lt;/span&gt;
-          &lt;button v-show=&quot;!item.del&quot;&gt;删除&lt;/button&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-      var vm = new Vue({
-        el: &quot;#app&quot;,
-        data: {
-          message: &quot;Hello World&quot;,
-          list: [
-            {
-              title: &quot;课程1&quot;,
-              del: false,
-            },
-            {
-              title: &quot;课程2&quot;,
-              del: true,
-            },
-          ],
-        },
-      });
-    &lt;/script&gt;
-  &lt;/body&gt;
-</code></pre>
-<h2 id="组件">组件</h2>
-<pre><code class="language-html">     Vue.component(&quot;todo-item&quot;,{
-        props:{
-          title: String,
-          del: {
-            type: Boolean,
-            default: false,
-          },
-        },
-        template: `
-         &lt;li &gt;
-          &lt;span v-if=&quot;!del&quot;&gt;{{title}}&lt;/span&gt;
-          &lt;span v-else style=&quot;text-decoration: line-through;&quot;&gt;{{title}}&lt;/span&gt;
-          &lt;button v-show=&quot;!del&quot;&gt;删除&lt;/button&gt;
-        &lt;/li&gt;
-        `,
-          data: function(){
-            return {}
-          },
-          methods: {
-
-          },
-      })
-
-      Vue.component(&quot;todo-list&quot;, {
-          template: `
-           &lt;ul&gt;
-            &lt;todo-item v-for=&quot;item in list&quot; :title=&quot;item.title&quot; :del=&quot;!item.del&quot;&gt;&lt;/todo-item&gt;
-          &lt;/ul&gt;
-        `,
-          data: function () {
-            return {
-              list: [
-                {
-                  title: &quot;课程1&quot;,
-                  del: false,
-                },
-                {
-                  title: &quot;课程2&quot;,
-                  del: true,
-                },
-            ]}
-          }
-        })
-</code></pre>
-<p>组件中data 不能使用同一个data,因为pass by reference ，在一个地方改变，其他地方也会改变。data要求唯一化。</p>
-<pre><code class="language-html">
-</code></pre>
-<pre><code class="language-html">
-</code></pre>
-<pre><code class="language-html">
-</code></pre>
-<pre><code class="language-html">
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第一次神经网络实践]]></title>
-        <id>https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/</id>
-        <link href="https://yueqingsheng.github.io/post/di-yi-ci-shen-jing-wang-luo-shi-jian/">
-        </link>
-        <updated>2020-04-17T17:44:55.000Z</updated>
-        <content type="html"><![CDATA[<p>简单总结下教训：<br>
-<img src="https://yueqingsheng.github.io/post-images/1587407335871.jpg" alt="" loading="lazy"></p>
-<h2 id="输入输出">输入，输出</h2>
-<p>输入就是 a和 b, 输出是c。</p>
-<h3 id="first-attempt">First attempt</h3>
-<p>一开始想把天数，1到28天作为输入，28天的感染人数作为输出。去找 天数和 感染的函数关系。错误的原因，28天只是任意的28天时间段，去强行找 1-28 和感染的关系是不成立的。也没有关系。</p>
-<h3 id="second-attempt">Second attempt</h3>
-<p>用RNN实现，方向是对的。能力不够复现RNN或LSTM(吐槽下，老师说如果要写的话，要从0复现一个，地狱级难度任务)</p>
-<h3 id="总结">总结</h3>
-<p>其实确认输入输出，最重要的就是确立，想找的是什么与什么直接的关系。相互影响的那两个量。题目写的已经很清楚了，用c_t 和 t_pd 预测 c_inf</p>
-<h2 id="其中忽视的问题">其中忽视的问题</h2>
-<p>只看到了cost变大，没有去考虑原因。原因是因为梯度爆炸。梯度爆炸的原因是，输入之间差值太大，呈现exponetial爆炸增长。</p>
-<h2 id="最重要学到的点什么时候要做归一化即normalizition">！！！！ 最重要学到的点，什么时候要做归一化，即Normalizition</h2>
-<p>归一化，在处理奇异值时候特别重要，如果数据存在极大或极小值，会严重影响weight 的收敛。归一化即，把输入和输出限制在同意范围内，如[0,1],映射到同一维度内。<br>
-<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a></p>
-<p>Anyway, 有空的话，可以用LSTM复现个玩玩。获取一个多维度输入，输出将来的感染人数。直到感染变化为0为止。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Python]]></title>
-        <id>https://yueqingsheng.github.io/post/python/</id>
-        <link href="https://yueqingsheng.github.io/post/python/">
-        </link>
-        <updated>2020-04-15T11:48:28.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="print">Print</h2>
-<p>print 会自动换行，print(end=&quot;&quot;)会取消换行，end为结束后缀</p>
-<h2 id="遍历文件">遍历文件</h2>
-<h3 id="oswalk">os.walk()</h3>
-<p>Python method walk() generates the file names in a directory tree by walking the tree either top-down or bottom-up.</p>
-<pre><code class="language-python">  for root,dirs,files in os.walk(path):
-        for fname in files:
-            if filename in fname:
-                result.append([id,fname])
-</code></pre>
-<h2 id="string-check-contains">string check contains</h2>
-<pre>
-str = "Messi is the best soccer player"
->>> "soccer" in str
-True
->>> "football" in str
-False
-</pre>
-<h2 id="三引号">三引号</h2>
-<p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（<strong>所见即所得</strong>）格式的。</p>
-<pre><code class="language-python">print('''I'm going to the movies''')
-
-html = '''
-&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
-Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;
-&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;
-&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;
-&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back
-ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
-&lt;/BODY&gt;&lt;/HTML&gt;
-'''
-print(html)
-</code></pre>
-<h2 id="元组和列表">元组和列表</h2>
-<h3 id="元组是不可变的-而列表是可变的">元组是不可变的， 而列表是可变的。</h3>
-<p>我们可以修改列表的值，但是不能修改元组的值。<br>
-由于列表是可变的，我们不能将列表用作字典中的key。 但可以使用元组作为字典key。</p>
-<h3 id="同构与异构">同构与异构</h3>
-<p>习惯上元组多用于用于存储异构元素，异构元素即不同数据类型的元素，比如(ip,port)。 另一方面，列表用于存储异构元素，这些元素属于相同类型的元素，比如[int1,in2,in3]。</p>
-<h2 id="json">JSON</h2>
-<h3 id="python-listdict-to-json-string">Python list(dict) to json string</h3>
-<p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
-<pre><code class="language-python">import json
-data = [ { 'b' : 2, 'd' : 4, 'a' : 1, 'c' : 3, 'e' : 5 } ]
-json = json.dumps(data)
-print(json)
-</code></pre>
-<p>[{&quot;b&quot;: 2, &quot;d&quot;: 4, &quot;a&quot;: 1, &quot;c&quot;: 3, &quot;e&quot;: 5}]</p>
-<h3 id="json-string-to-python-listdict_">json string to python list(dict)_</h3>
-<p>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
-<pre><code class="language-python">import json
-jsonData = '{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}'
-text = json.loads(jsonData)  #将string转换为dict
-print(text)
-</code></pre>
-<h2 id="打包并压缩">打包并压缩</h2>
-<p>把当前目录下所有文件打包压缩成a.tar.zip</p>
-<pre><code class="language-python">tar -zcvf a.tar.zip ./
-</code></pre>
-<p>解压<br>
--C 指定目录</p>
-<pre><code class="language-python">tar -zxvf a.tar.zip -C ../
-</code></pre>
-<h2 id="爬虫">爬虫</h2>
-<h3 id="request模块">request模块：</h3>
-<blockquote>
-<p>requests是python实现的简单易用的HTTP库，官网地址：http://cn.python-requests.org/zh_CN/latest/<br>
-requests.get(url)可以发送一个http get请求，返回服务器响应内容。</p>
-</blockquote>
-<h3 id="beautifulsoup库">BeautifulSoup库：</h3>
-<blockquote>
-<p>BeautifulSoup 是一个可以从HTML或XML文件中提取数据的Python库。网址：https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/<br>
-BeautifulSoup支持Python标准库中的HTML解析器,还支持一些第三方的解析器,其中一个是 lxml。<br>
-BeautifulSoup(markup, &quot;html.parser&quot;)或者BeautifulSoup(markup, &quot;lxml&quot;)，推荐使用lxml作为解析器,因为效率更高。</p>
-</blockquote>
-<h3 id="通过tag标签逐层查找">通过tag标签逐层查找:</h3>
-<p>soup.select(&quot;body a&quot;)</p>
-<h3 id="获取属性">获取属性</h3>
-<p>tag.get('href')<br>
-或者<br>
-tag['href']<br>
-如果不确定某个属性是否存在时,用 tag.get('attr') 方法去获取它,跟获取Python字典的key一样<br>
-tag['class']<br>
-<em><strong>KeyError: 'class'</strong></em><br>
-print(tag.get('class'))<br>
-<em><strong>None</strong></em></p>
-<pre><code class="language-python">        link = star['link']
-         headers = { 
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
-    }
-
-        #！！！请在以下完成对每个选手图片的爬取，将所有图片url存储在一个列表pic_urls中！！！    
-        pic_urls = []
-        response = requests.get(link,headers=headers)
-
-        #将一段文档传入BeautifulSoup的构造方法,就能得到一个文档的对象, 可以传入一段字符串
-        soup = BeautifulSoup(response.text,'lxml')
-            
-        pic_list_url = soup.select(&quot;.summary-pic a&quot;)[0]['href']
-        tags1 = soup.select('div .shixian_zhaobiao')
-        tag1 = tags1[0]
-        tag2 = tag1.find(name = 'dl')
-        tags2 = tag2.find_all(name = 'a')
-</code></pre>
-<h3 id="jsonp-to-json">jsonp to json</h3>
-<pre><code>response_json = response[ response.index(&quot;(&quot;) + 1 : response.rindex(&quot;) }
-catch&quot;)]
-</code></pre>
-<p>或者get请求的时候，去掉callback=,则会返回json</p>
-<h3 id="动态请求">动态请求</h3>
-<p>如果数据是动态加载，可以在浏览器network里查看请求的api</p>
-<h2 id="写入文件">写入文件</h2>
-<blockquote>
-<p>With the &quot;With&quot; statement, you get better syntax and exceptions handling.<br>
-&quot;The with statement simplifies exception handling by encapsulating common<br>
-preparation and cleanup tasks.&quot;<br>
-In addition, it will automatically close the file. The with statement provides<br>
-a way for ensuring that a clean-up is always used.</p>
-</blockquote>
-<pre><code class="language-python">with open('output.txt', 'w') as file:  # Use file to refer to the file object
-
-    file.write('Hi there!')
-</code></pre>
-<p>with 省去写exception handler和close file</p>
-<h2 id="pandas">pandas</h2>
-<h3 id="dataframe">dataframe</h3>
-<h3 id="cut">cut</h3>
-<pre><code class="language-python">将age按0-5，5-20...bins 分成 既几部分，label为[婴儿，青年...]
-ages = np.array([1,5,10,40,36,12,58,62,77,89,100,18,20,25,30,32]) #年龄数据
-pd.cut(ages, [0,5,20,30,50,100], labels=[u&quot;婴儿&quot;,u&quot;青年&quot;,u&quot;中年&quot;,u&quot;壮年&quot;,u&quot;老年&quot;])
-</code></pre>
-<p><a href="https://www.cnblogs.com/sench/p/10128216.html">参考</a></p>
-<h3 id="value_counts">value_counts</h3>
-<p>df.value_counts()  以Series形式返回指定列的不同取值的频率,默认按频率从高到低排序</p>
-<h3 id="groupby">groupby</h3>
-<pre><code class="language-python">df['name'].groupby(df['zone'])
-s = grouped.count()
-zone
-中国上海      5
-中国北京      9
-df = pd.DataFrame({'Animal': ['Falcon', 'Falcon',
-                              'Parrot', 'Parrot'],
-                   'Max Speed': [380., 370., 24., 26.]})
-df
-   Animal  Max Speed
-0  Falcon      380.0
-1  Falcon      370.0
-2  Parrot       24.0
-3  Parrot       26.0
-df.groupby(['Animal']).mean()
-        Max Speed
-Animal
-Falcon      375.0
-Parrot       25.0
-</code></pre>
-<h2 id="matplot">matplot</h2>
-<h2 id="size">size</h2>
-<p>plt.figure(figsize=(12, 12))</p>
-<h2 id="matplotlib-inline">%matplotlib inline</h2>
-<p>%matplotlib inline 可以在Ipython编译器里直接使用，功能是可以内嵌绘图，并且可以省略掉plt.show()这一步</p>
-<h2 id="pie">pie</h2>
-<p>参数：</p>
-<blockquote>
-<p>x       :(每一块)的比例，如果sum(x) &gt; 1会使用sum(x)归一化；<br>
-labels  :(每一块)饼图外侧显示的说明文字；<br>
-explode :(每一块)离开中心距离；<br>
-startangle :起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起；<br>
-shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；</p>
-</blockquote>
-<pre><code class="language-python">## draw pie
-labels = [&quot;45-50kg&quot;,'&lt;45kg','50-55kg','55kg']
-plt.pie(weightsfreq.values, explode=(0.1,0.1,0.1,0.1),labels=labels, shadow=True,autopct='%.2f%%',startangle=90)
-plt.axis('equal')
-plt.legend(loc=&quot;upper right&quot;,fontsize=10,bbox_to_anchor=(1.1,1.05),borderaxespad=0.3)
-plt.title('''《青春有你2》选手体重分布''',fontsize = 10)
-plt.savefig('/home/aistudio/work/result/bar_result03.jpg')
-</code></pre>
-<p><a href="https://www.cnblogs.com/biyoulin/p/9565350.html">参考</a></p>
-<h3 id="正圆">正圆</h3>
-<p>plt.axis('equal')</p>
-<h2 id="string-format">string format</h2>
-<h3 id="python-36">python &gt;3.6</h3>
-<blockquote>
-<p>&gt;&gt;&gt; name = 'hoxis'<br>
-&gt;&gt;&gt; age = 18<br>
-&gt;&gt;&gt; f&quot;hi, {name}, are you {age}&quot;<br>
-'hi, hoxis, are you 18'</p>
-</blockquote>
-<h3 id="百分号">百分号</h3>
-<p>%%表示百分号</p>
-<blockquote>
-<p>&gt;&gt;&gt; print('数据的比例是:%.2f%%' %(scale * 100))<br>
-数据的比例是:10.00%<br>
-&gt;&gt;&gt; print('数据的比例是:%d%%' %(scale * 100))<br>
-数据的比例是:10%</p>
-</blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/39128162">参考</a></p>
-<h2 id="词云">词云</h2>
-<pre><code class="language-python"> 根据词频绘制词云图
-    参数 word_f:统计出的词频结果
-    # 生成对象
-    mask = np.array(Image.open(&quot;alice_mask.png&quot;))
-    wc = WordCloud(mask=mask, font_path='SimHei.ttf', mode='RGBA', background_color=None)
-    wc.fit_words(word_f)
-    
-    
-    # 显示词云
-    plt.imshow(wc, interpolation='bilinear')
-    plt.axis(&quot;off&quot;)
-    plt.show()
-    
-    # 保存到文件
-    wc.to_file('wordcloud.png')
-</code></pre>
-<h2 id="matlibplot-加载中文字体">matlibplot 加载中文字体</h2>
-<pre><code class="language-python">	#下载中文字体
-	wget https://mydueros.cdn.bcebos.com/font/simhei.ttf 
-	#在操作系统中创建字体目录fonts（可能已经有
-	mkdir .fonts
-	# 复制字体文件到该路径
-	cp simhei.ttf .fonts/
-	#复制字体到当前使用的conda环境中的matplotlib下的指定路径
-	cp simhei.ttf /opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/
-	# Linux系统默认字体文件路径
-	ls /usr/share/fonts/
-	# 查看系统可用的ttf格式中文字体
-	fc-list :lang=zh | grep &quot;.ttf&quot;
-	 # 设置显示中文
-    matplotlib.rcParams['font.san-serif'] = ['SimHei']
-    # 解决负号'-'显示为方块的问题
-    matplotlib.rcParams['axes.unicode_minus'] = False
-</code></pre>
-<p>如果没成功，尝试</p>
-<pre><code class="language-python">from matplotlib.font_manager import _rebuild
-_rebuild() #reload一下
-</code></pre>
-<h2 id="jieba-分词">jieba 分词</h2>
-<pre><code class="language-python">   jieba.load_userdict('name.txt') #name.txt 为用户自定义分词
-   seg = jieba.lcut(text,cut_all=False)
-</code></pre>
-<h2 id="停用词">停用词</h2>
-<pre><code class="language-python">stopwords = [line.strip() for line in open(file_path, encoding=&quot;UTF-8&quot;).readlines()]
-for word in sentence:
-        if word not in stopwords:
-            if len(word) &gt; 1:
-                counts[word] = counts.get(word, 0) + 1
-</code></pre>
-<p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0<br>
-<a href="https://github.com/goto456/stopwords">中文常用停用词词表</a></p>
-<h2 id="多进程">多进程</h2>
-<p>多进程共同的全局变量，需要使用特殊方式声明：</p>
-<pre><code class="language-python">from multiprocessing import Process, Value, Array, Manager
-
-def f(n, a):
-    n.value = 3.1415927
-    for i in range(len(a)):
-        a[i] = -a[i]
-
-if __name__ == '__main__':
-    num = Value('d', 0.0)
-    arr = Array('i', range(10))
-    lis =  Manager().list()
-    p = Process(target=f, args=(num, arr))
-    p.start()
-    p.join()
-
-    print(num.value)
-    print(arr[:])
-</code></pre>
-<p>多进程list 使用前需转换回普通list， list(lis)<br>
-.join() 可以等待进程执行结束后再输出</p>
-<h3 id="多进程的一个大坑broken-pipe">多进程的一个大坑：broken pipe</h3>
-<p>解决方案不要在主线程外使用shared object,这样主线程使用的时候修改，会影响子线程的这个object<br>
-解决方案：移除主线程的修改，或者把修改放到子线程跑完之后<br>
-<a href="https://stackoverflow.com/questions/45506115/why-does-broken-pipe-error-occur-only-while-accessing-a-shared-list-in-a-speci">解释</a></p>
-<h3 id="join">.join()</h3>
-<p>主线程等待子线程跑完。python默认是先执行完主线程</p>
-<pre><code class="language-python">    process= []
-    for c_id in content_ids:
-        # 每个进程爬取一个视频下的评论
-        p = Process(target=getMovieinfo,args=(c_id,))
-        process.append(p)
-        p.start()
-    
-    #等待所有线程任务结束。
-    for p in process:
-        p.join()
-    print(&quot;总共获取了&quot;,len(comments),'条评论')
-</code></pre>
-<p>这样主线程就会阻塞了<br>
-<a href="https://blog.csdn.net/zhangphil/article/details/88577091">参考</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 18]]></title>
-        <id>https://yueqingsheng.github.io/post/day-18/</id>
-        <link href="https://yueqingsheng.github.io/post/day-18/">
-        </link>
-        <updated>2020-04-09T00:51:57.000Z</updated>
-        <content type="html"><![CDATA[<p>[x] lecture 28<br>
-[x] lecture 29<br>
-[ ] lecture 30 TODO vector embeddings<br>
-[x] lecture 31<br>
-cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的起源，和各种机制设置的原因。整个学期其实就一个Model, 就是人脑神经。从脑科学的角度改进network和思考大脑是如何解决某项任务的，如视觉系统。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 17]]></title>
-        <id>https://yueqingsheng.github.io/post/day-17/</id>
-        <link href="https://yueqingsheng.github.io/post/day-17/">
-        </link>
-        <updated>2020-04-07T05:31:09.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2823812"><label class="task-list-item-label" for="task-item-2823812"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2595416">  vue<br>
-<label class="task-list-item-label" for="task-item-2595416">  vue
-看了 react angular文档，太复杂了。转vue了。</label></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 16]]></title>
-        <id>https://yueqingsheng.github.io/post/day-16/</id>
-        <link href="https://yueqingsheng.github.io/post/day-16/">
-        </link>
-        <updated>2020-04-06T05:25:02.000Z</updated>
-        <content type="html"><![CDATA[<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5258820"><label class="task-list-item-label" for="task-item-5258820"> code: chat</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7608019"><label class="task-list-item-label" for="task-item-7608019"> 课程价格</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2840931"><label class="task-list-item-label" for="task-item-2840931"> 评价</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9970114"><label class="task-list-item-label" for="task-item-9970114"> 评分</label></li>
-</ul>
-<p>今天 windows, mysql 直接抽了，不知道为啥，完全不听typeorm的改动，我服了。本来半天能写完的代码，硬是debug一天。结果发现是数据库的问题。</p>
 ]]></content>
     </entry>
 </feed>
