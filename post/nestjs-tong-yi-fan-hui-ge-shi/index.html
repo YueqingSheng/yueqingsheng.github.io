@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>Day 18 | Random thoughts</title>
+<title>nestjs 统一返回格式 | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -48,7 +48,7 @@
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">Day 18</a>
+						<a href="https://yueqingsheng.github.io" rel="home">nestjs 统一返回格式</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -148,13 +148,13 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-04-07
+										2020-06-12
 									</time>
 									<span>
-										1 min read
+										2 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/day-18/" class="leancloud_visitors"  data-flag-title="Day 18">
+									<span id="/nestjs-tong-yi-fan-hui-ge-shi/" class="leancloud_visitors"  data-flag-title="nestjs 统一返回格式">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -170,31 +170,117 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-8316822"><label class="task-list-item-label" for="task-item-8316822"> lecture 28</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2241206"><label class="task-list-item-label" for="task-item-2241206"> lecture 29</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1636869"><label class="task-list-item-label" for="task-item-1636869"> lecture 30 TODO vector embeddings</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9384552"> lecture 31<br>
-<label class="task-list-item-label" for="task-item-9384552"> lecture 31
-cs489 蛮有意思的，neuro science 从头贯穿到尾，讲neural network 的起源，和各种机制设置的原因。整个学期其实就一个Model, 就是人脑神经。从脑科学的角度改进network和思考大脑是如何解决某项任务的，如视觉系统。</label></li>
-</ul>
+								<h2 id="统一返回格式">统一返回格式</h2>
+<p>｛data：object，message：请求成功，code：200｝</p>
+<h2 id="成功的格式">成功的格式</h2>
+<pre><code class="language-json">{
+ &quot;statusCode&quot;: 200,
+  &quot;data&quot;: {
+    &quot;username&quot;: &quot;string&quot;,
+    &quot;access_token&quot;: &quot;XXX&quot;
+  },
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;请求成功&quot;
+}
+</code></pre>
+<h2 id="失败的格式">失败的格式</h2>
+<pre><code class="language-json">{
+  &quot;statusCode&quot;: 401,
+  &quot;data&quot;: {
+    &quot;error&quot;: &quot;Client Error&quot;
+  },
+  &quot;message&quot;: &quot;请求失败&quot;,
+  &quot;code&quot;: 1,
+  &quot;url&quot;: &quot;/api/auth/profile&quot;
+}
+</code></pre>
+<p>暂定code代表成功，1代表失败，成功data里是返回内容，失败data里是错误信息。</p>
+<h1 id="拦截全部的错误请求">拦截全部的错误请求</h1>
+<p>src/core/filters/all-exception.filter’;</p>
+<pre><code class="language-typescript">import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
+import { Request, Response } from 'express';
+@Catch()
+export class AllExceptionFilter&lt;T&gt; implements ExceptionFilter {
+  catch(exception: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse&lt;Response&gt;();
+    const request = ctx.getRequest&lt;Request&gt;();
+    const status =
+      exception instanceof HttpException
+        ? exception.getStatus()
+        : HttpStatus.INTERNAL_SERVER_ERROR;
+
+    const message = exception.message.message
+      ? exception.message.message
+      : `${status &gt;= 500 ? 'Service Error' : 'Client Error'}`;
+    const errorResponse = {
+      statusCode: status,
+      data: { error: message },
+      message: '请求失败',
+      code: 1, // 自定义code
+    };
+    // 设置返回的状态码、请求头、发送错误信息
+    response.status(status);
+    response.header('Content-Type', 'application/json; charset=utf-8');
+    response.send(errorResponse);
+  }
+}
+</code></pre>
+<h1 id="拦截成功的返回数据">拦截成功的返回数据</h1>
+<p>src/core/interceptors/response.interceptor’;</p>
+<pre><code class="language-typescript">import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Response } from 'express';
+@Injectable()
+export class ResponseInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+    const response = context.switchToHttp().getResponse&lt;Response&gt;();
+    console.log(response.statusCode);
+    return next.handle().pipe(
+      map(data =&gt; {
+        return {
+          data,
+          code: 0,
+          message: '请求成功',
+          statusCode: response.statusCode,
+        };
+      }),
+    );
+  }
+}
+</code></pre>
+<h1 id="全局注册">全局注册</h1>
+<p>main.ts</p>
+<pre><code class="language-typescript">...
+import { TransformInterceptor } from './core/interceptor/transform.interceptor';
+
+async function bootstrap() {
+  ...
+  // 全局注册拦截器
+  app.useGlobalFilters(new AllExceptionFilter());
+  app.useGlobalInterceptors(new ResponseInterceptor());
+  ...
+}
+bootstrap();
+</code></pre>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
-								
-								<a href="https://yueqingsheng.github.io/tag/log/" rel="tag">日常</a>
 								
 							</div>
 							<nav class="navigation3 post-navigation3" role="navigation">
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/python/"
-											rel="prev"> Python</a></div>
 									
-									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/day-17/"
-											rel="next"> Day 17</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/sui-xiang/"
+											rel="next"> 随想</a></div>
 									
 								</div>
 							</nav>
