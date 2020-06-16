@@ -130,7 +130,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1592341794328" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1592344729857" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -148,10 +148,10 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-06-16
+										2020-06-15
 									</time>
 									<span>
-										1 min read
+										2 min read
 									</span>
 									<!-- id 将作为查询条件 -->
 									<span id="/qiang-hua-xue-xi/" class="leancloud_visitors"  data-flag-title="强化学习">
@@ -201,7 +201,32 @@
 奖励是延迟的。迷宫走完，才有奖励。<br>
 <img src="https://yueqingsheng.github.io/post-images/1592341492276.png" alt="" loading="lazy"></p>
 <h2 id="强化学习和其他机器学习的关系">强化学习和其他机器学习的关系</h2>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592341779032.png" alt="" loading="lazy"></figure>
+<p><img src="https://yueqingsheng.github.io/post-images/1592341779032.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592342011873.png" alt="" loading="lazy"><br>
+监督样本一般样本内无关系。强化学习，样本之间相互影响。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592342296638.png" alt="" loading="lazy"><br>
+基于价值会向固定方向走，基于策略随机性更高一些。</p>
+<h2 id="rl-agent-environment-交互接口">RL agent &lt;-&gt; environment 交互接口</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592343026454.png" alt="" loading="lazy"><br>
+reset 重置<br>
+render 渲染目前<br>
+step 交互一步</p>
+<h3 id="step-输出参数">Step 输出参数</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592342821467.png" alt="" loading="lazy"></figure>
+<ol>
+<li>1-36 位置（36格内的位置）</li>
+<li>-1 reward(奖励，每走一步会有惩罚，目标最少步数走完)</li>
+<li>true/false 游戏是否完成</li>
+<li>info 额外信息</li>
+</ol>
+<h3 id="git-clone-depth1">git clone --depth=1</h3>
+<blockquote>
+<p>depth 用于指定克隆深度，为 1 即表示只克隆最近一次 commit. 可以解决项目过大的问题</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592343683260.png" alt="" loading="lazy"></figure>
+<p>拓展：<a href="https://www.zhihu.com/question/23474039/answer/269526476">为什么有人说 Python 的多线程是鸡肋呢？</a></p>
+<p>图片来源：<a href="https://aistudio.baidu.com/aistudio/projectdetail/560767">PARL 强化学习公开课 Lesson1</a></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
