@@ -130,7 +130,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1592024898864" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1592341794328" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -148,10 +148,10 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-05-23
+										2020-05-21
 									</time>
 									<span>
-										2 min read
+										3 min read
 									</span>
 									<!-- id 将作为查询条件 -->
 									<span id="/hou-duan-ji-chu/" class="leancloud_visitors"  data-flag-title="后端基础">
@@ -195,6 +195,9 @@ SELECT `id`, `title` FROM `post` LIMIT 1 OFFSET 1 ORDER BY `id` DESC;(排序)
 <h3 id="索引类型">索引类型</h3>
 <p>联合索引，按照两个字段建立索引<br>
 <img src="https://yueqingsheng.github.io/post-images/1590470901458.png" alt="" loading="lazy"></p>
+<h3 id="复合索引">复合索引</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592186434199.png" alt="" loading="lazy"><br>
+先按 A 不相等的排，相等的话按照B排。不能做 A B 同时的 range query</p>
 <h2 id="memcached">MEMCACHED</h2>
 <h2 id="主键和外键">主键和外键</h2>
 <p>主键： 用于表示数据的唯一标示，不能为null。 如：id<br>
@@ -212,6 +215,19 @@ hash 是不可逆的</p>
 <p>string=&gt;string(32位16进制字符串)<br>
 相同hash有可能由不同字符串生成<br>
 靠key,hash 对 可以猜到密码。盐（通过添加其他字符，生成不同的hash）</p>
+<h2 id="csrfcross-site-request-forgery">CSRF(Cross site request forgery)</h2>
+<pre><code>    CSRF攻击攻击原理及过程如下：
+
+   1. 用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；
+
+   2.在用户信息通过验证后，网站A产生Cookie信息并返回给浏览器，此时用户登录网站A成功，可以正常发送请求到网站A；
+
+   1. 用户未退出网站A之前，在同一浏览器中，打开一个TAB页访问网站B；
+
+   2. 网站B接收到用户请求后，返回一些攻击性代码，并发出一个请求要求访问第三方站点A；
+</code></pre>
+<h2 id="http-status-code">Http Status Code</h2>
+<p><a href="https://httpstatuses.com" target="_blank"> http status code </a></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -221,12 +237,12 @@ hash 是不可逆的</p>
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-2-qi/"
-											rel="prev"> 周报 5月第2期</a></div>
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/guan-yu-refresh-token/"
+											rel="prev"> 关于refresh token</a></div>
 									
 									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/guan-yu-refresh-token/"
-											rel="next"> 关于refresh token</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/zhou-bao-5-yue-di-1-qi 2/"
+											rel="next"> 周报 5月第1期</a></div>
 									
 								</div>
 							</nav>
@@ -381,7 +397,7 @@ hash 是不可逆的</p>
 			<br>
 			<span class="runtime">
 				「我」已经运行了<script type="text/javascript">
-					var urodz = new Date("05/07/2019");
+					var urodz = new Date("13/03/2020");
 					var now = new Date();
 					var ile = now.getTime() - urodz.getTime();
 					var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
@@ -404,7 +420,9 @@ hash 是不可逆的</p>
 
 	<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 
-<script src="https://yueqingsheng.github.io/media/scripts/marlin-scripts.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/gh/YueqingSheng/yueqingsheng.github.io/media/scripts/marlin-scripts.js">
+</script>
 
 <script src="//tokinx.github.io/lately/lately.min.js"></script>
 <script>

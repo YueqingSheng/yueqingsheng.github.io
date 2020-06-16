@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<link rel="apple-touch-icon"
+  href="https://cdn.jsdelivr.net/gh/chiperman/Blog-photos/./img/iocn/aojep-i6dt9.49j3g5o9xbg.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<meta name="apple-mobile-web-app-title" content="XiaoX 博客">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>Python | Random thoughts</title>
+
+<link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
+  rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<!-- 下面是我自己的iconfont -->
+<link href="https://at.alicdn.com/t/font_1651848_9ur7s2zwgll.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://yueqingsheng.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+<script>
+  wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+    live: true
+  });
+  wow.init();
+</script>
+
+</head>
+
+<body class="post-template-default single single-post postid-70 single-format-standard">
+	<div id="wrapper">
+				<header id="header" class="site-header" 
+			style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://images.unsplash.com/photo-1585854467604-cf2080ccef31?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2704&amp;q=80)"
+			>
+			<div class="site-branding">
+				<h1 class="site-title">
+					<div class="post-title-name">
+						<a href="https://yueqingsheng.github.io" rel="home">Python</a>
+					</div>
+				</h1>
+				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
+			</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+						
+
+						<li>
+
+							<a href="https://yueqingsheng.github.io"> 首页</a></li>
+
+						
+
+						<li>
+
+							<a href="/posts"> 归档</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/log"> 日志</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/cheatsheet"> 手册</a></li>
+
+						
+
+						<li>
+
+							<a href="/tags"> 标签</a></li>
+
+						
+
+					</ul>
+					</li>
+
+					</ul>
+				</div>
+			</nav>
+
+			<div class="jingge">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			<form id="gridea-search-form" data-update="1592341794328" action="/search/index.html">
+				<div class="search-box">
+					<input class="search-txt" name="q" placeholder="Type to search" />
+					<a class="search-btn">
+						<i class="iconfont icon-search1" action="/search/index.html"></i>
+					</a>
+				</div>
+			</form>
+		</header>
+		<div id="content" class="container">
+			<div class="row">
+				<div class="col-md-8 site-main">
+					<article id="post-70"
+						class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+						<div class="entry-content">
+							<div class="entry-meta">
+								<div class="entry-info">
+									<time>
+										2020-04-12
+									</time>
+									<span>
+										11 min read
+									</span>
+									<!-- id 将作为查询条件 -->
+									<span id="/python 2/" class="leancloud_visitors"  data-flag-title="Python">
+										<span class="leancloud-visitors-count"></span>次阅读
+									</span>
+									<span class="isTop">
+										<script type="text/javascript">
+											var isTop;
+											isTop = false;
+											if (isTop == true) {
+												// document.write("<i class="iconfont icon-icon-test"></i>")
+												document.write("<span>⭐ Top</span>");
+											}
+										  </script>
+									</span>
+								</div>
+							</div>
+							<div class="wow zoomIn entry-summary song">
+								<h2 id="random">Random</h2>
+<h3 id="int">int</h3>
+<pre><code class="language-python">import random
+random.randint(1,3)
+</code></pre>
+<h3 id="k-unique-samples">k unique samples</h3>
+<pre><code class="language-python">import random
+random.sample(tags_id, 3)
+</code></pre>
+<h2 id="print">Print</h2>
+<p>print 会自动换行，print(end=&quot;&quot;)会取消换行，end为结束后缀</p>
+<h2 id="遍历文件">遍历文件</h2>
+<h3 id="oswalk">os.walk()</h3>
+<p>Python method walk() generates the file names in a directory tree by walking the tree either top-down or bottom-up.</p>
+<pre><code class="language-python">  for root,dirs,files in os.walk(path):
+        for fname in files:
+            if filename in fname:
+                result.append([id,fname])
+</code></pre>
+<h2 id="string-check-contains">string check contains</h2>
+<pre>
+str = "Messi is the best soccer player"
+>>> "soccer" in str
+True
+>>> "football" in str
+False
+</pre>
+<h2 id="三引号">三引号</h2>
+<p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（<strong>所见即所得</strong>）格式的。</p>
+<pre><code class="language-python">print('''I'm going to the movies''')
+
+html = '''
+&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
+Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;
+&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;
+&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back
+ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
+&lt;/BODY&gt;&lt;/HTML&gt;
+'''
+print(html)
+</code></pre>
+<h2 id="元组和列表">元组和列表</h2>
+<h3 id="元组是不可变的-而列表是可变的">元组是不可变的， 而列表是可变的。</h3>
+<p>我们可以修改列表的值，但是不能修改元组的值。<br>
+由于列表是可变的，我们不能将列表用作字典中的key。 但可以使用元组作为字典key。</p>
+<h3 id="同构与异构">同构与异构</h3>
+<p>习惯上元组多用于用于存储异构元素，异构元素即不同数据类型的元素，比如(ip,port)。 另一方面，列表用于存储异构元素，这些元素属于相同类型的元素，比如[int1,in2,in3]。</p>
+<h2 id="list">list</h2>
+<h3 id="reverse-sublist">reverse sublist</h3>
+<p>a[start:stop:step] # start through not past stop, by step<br>
+step为-1的时候是reverse order<br>
+a[:-11:-1] # the last 10 items, reversed</p>
+<h3 id="sort">sort</h3>
+<p>The sort() method doesn't return any value. Rather, it changes the original list.<br>
+list.sort(key=..., reverse=...)<br>
+If you want a function to return the sorted list rather than change the original list, use sorted().<br>
+sorted(list, key=..., reverse=...)</p>
+<h4 id="paramter">paramter</h4>
+<p>reverse - If True, the sorted list is reversed (or sorted in Descending order)<br>
+key - function that serves as a key for the sort comparison</p>
+<h2 id="json">JSON</h2>
+<h3 id="python-listdict-to-json-string">Python list(dict) to json string</h3>
+<p>json.dumps 用于将 Python 对象编码成 JSON 字符串。</p>
+<pre><code class="language-python">import json
+data = [ { 'b' : 2, 'd' : 4, 'a' : 1, 'c' : 3, 'e' : 5 } ]
+json = json.dumps(data)
+print(json)
+</code></pre>
+<p>[{&quot;b&quot;: 2, &quot;d&quot;: 4, &quot;a&quot;: 1, &quot;c&quot;: 3, &quot;e&quot;: 5}]</p>
+<h3 id="json-string-to-python-listdict_">json string to python list(dict)_</h3>
+<p>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
+<pre><code class="language-python">import json
+jsonData = '{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5}'
+text = json.loads(jsonData)  #将string转换为dict
+print(text)
+</code></pre>
+<h2 id="打包并压缩">打包并压缩</h2>
+<p>把当前目录下所有文件打包压缩成a.tar.zip</p>
+<pre><code class="language-python">tar -zcvf a.tar.zip ./
+</code></pre>
+<p>解压<br>
+-C 指定目录</p>
+<pre><code class="language-python">tar -zxvf a.tar.zip -C ../
+</code></pre>
+<h2 id="爬虫">爬虫</h2>
+<h3 id="request模块">request模块：</h3>
+<blockquote>
+<p>requests是python实现的简单易用的HTTP库，官网地址：http://cn.python-requests.org/zh_CN/latest/<br>
+requests.get(url)可以发送一个http get请求，返回服务器响应内容。</p>
+</blockquote>
+<h3 id="beautifulsoup库">BeautifulSoup库：</h3>
+<blockquote>
+<p>BeautifulSoup 是一个可以从HTML或XML文件中提取数据的Python库。网址：https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/<br>
+BeautifulSoup支持Python标准库中的HTML解析器,还支持一些第三方的解析器,其中一个是 lxml。<br>
+BeautifulSoup(markup, &quot;html.parser&quot;)或者BeautifulSoup(markup, &quot;lxml&quot;)，推荐使用lxml作为解析器,因为效率更高。</p>
+</blockquote>
+<h3 id="通过tag标签逐层查找">通过tag标签逐层查找:</h3>
+<p>soup.select(&quot;body a&quot;)</p>
+<h3 id="获取属性">获取属性</h3>
+<p>tag.get('href')<br>
+或者<br>
+tag['href']<br>
+如果不确定某个属性是否存在时,用 tag.get('attr') 方法去获取它,跟获取Python字典的key一样<br>
+tag['class']<br>
+<em><strong>KeyError: 'class'</strong></em><br>
+print(tag.get('class'))<br>
+<em><strong>None</strong></em></p>
+<pre><code class="language-python">        link = star['link']
+         headers = { 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    }
+
+        #！！！请在以下完成对每个选手图片的爬取，将所有图片url存储在一个列表pic_urls中！！！    
+        pic_urls = []
+        response = requests.get(link,headers=headers)
+
+        #将一段文档传入BeautifulSoup的构造方法,就能得到一个文档的对象, 可以传入一段字符串
+        soup = BeautifulSoup(response.text,'lxml')
+            
+        pic_list_url = soup.select(&quot;.summary-pic a&quot;)[0]['href']
+        tags1 = soup.select('div .shixian_zhaobiao')
+        tag1 = tags1[0]
+        tag2 = tag1.find(name = 'dl')
+        tags2 = tag2.find_all(name = 'a')
+</code></pre>
+<h3 id="jsonp-to-json">jsonp to json</h3>
+<pre><code>response_json = response[ response.index(&quot;(&quot;) + 1 : response.rindex(&quot;) }
+catch&quot;)]
+</code></pre>
+<p>或者get请求的时候，去掉callback=,则会返回json</p>
+<h3 id="动态请求">动态请求</h3>
+<p>如果数据是动态加载，可以在浏览器network里查看请求的api</p>
+<h2 id="写入文件">写入文件</h2>
+<blockquote>
+<p>With the &quot;With&quot; statement, you get better syntax and exceptions handling.<br>
+&quot;The with statement simplifies exception handling by encapsulating common<br>
+preparation and cleanup tasks.&quot;<br>
+In addition, it will automatically close the file. The with statement provides<br>
+a way for ensuring that a clean-up is always used.</p>
+</blockquote>
+<pre><code class="language-python">with open('output.txt', 'w') as file:  # Use file to refer to the file object
+
+    file.write('Hi there!')
+</code></pre>
+<p>with 省去写exception handler和close file</p>
+<h2 id="pandas">pandas</h2>
+<h2 id="read-csv">read csv</h2>
+<p>df = pd.read_csv('tag.csv')</p>
+<h3 id="dataframe">dataframe</h3>
+<h3 id="cut">cut</h3>
+<pre><code class="language-python">将age按0-5，5-20...bins 分成 既几部分，label为[婴儿，青年...]
+ages = np.array([1,5,10,40,36,12,58,62,77,89,100,18,20,25,30,32]) #年龄数据
+pd.cut(ages, [0,5,20,30,50,100], labels=[u&quot;婴儿&quot;,u&quot;青年&quot;,u&quot;中年&quot;,u&quot;壮年&quot;,u&quot;老年&quot;])
+</code></pre>
+<p><a href="https://www.cnblogs.com/sench/p/10128216.html">参考</a></p>
+<h3 id="value_counts">value_counts</h3>
+<p>df.value_counts()  以Series形式返回指定列的不同取值的频率,默认按频率从高到低排序</p>
+<h3 id="groupby">groupby</h3>
+<pre><code class="language-python">df['name'].groupby(df['zone'])
+s = grouped.count()
+zone
+中国上海      5
+中国北京      9
+df = pd.DataFrame({'Animal': ['Falcon', 'Falcon',
+                              'Parrot', 'Parrot'],
+                   'Max Speed': [380., 370., 24., 26.]})
+df
+   Animal  Max Speed
+0  Falcon      380.0
+1  Falcon      370.0
+2  Parrot       24.0
+3  Parrot       26.0
+df.groupby(['Animal']).mean()
+        Max Speed
+Animal
+Falcon      375.0
+Parrot       25.0
+</code></pre>
+<h2 id="matplot">matplot</h2>
+<h2 id="size">size</h2>
+<p>plt.figure(figsize=(12, 12))</p>
+<h2 id="matplotlib-inline">%matplotlib inline</h2>
+<p>%matplotlib inline 可以在Ipython编译器里直接使用，功能是可以内嵌绘图，并且可以省略掉plt.show()这一步</p>
+<h2 id="pie">pie</h2>
+<p>参数：</p>
+<blockquote>
+<p>x       :(每一块)的比例，如果sum(x) &gt; 1会使用sum(x)归一化；<br>
+labels  :(每一块)饼图外侧显示的说明文字；<br>
+explode :(每一块)离开中心距离；<br>
+startangle :起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起；<br>
+shadow  :在饼图下面画一个阴影。默认值：False，即不画阴影；</p>
+</blockquote>
+<pre><code class="language-python">## draw pie
+labels = [&quot;45-50kg&quot;,'&lt;45kg','50-55kg','55kg']
+plt.pie(weightsfreq.values, explode=(0.1,0.1,0.1,0.1),labels=labels, shadow=True,autopct='%.2f%%',startangle=90)
+plt.axis('equal')
+plt.legend(loc=&quot;upper right&quot;,fontsize=10,bbox_to_anchor=(1.1,1.05),borderaxespad=0.3)
+plt.title('''《青春有你2》选手体重分布''',fontsize = 10)
+plt.savefig('/home/aistudio/work/result/bar_result03.jpg')
+</code></pre>
+<p><a href="https://www.cnblogs.com/biyoulin/p/9565350.html">参考</a></p>
+<h3 id="正圆">正圆</h3>
+<p>plt.axis('equal')</p>
+<h2 id="string-format">string format</h2>
+<h3 id="python-36">python &gt;3.6</h3>
+<blockquote>
+<p>&gt;&gt;&gt; name = 'hoxis'<br>
+&gt;&gt;&gt; age = 18<br>
+&gt;&gt;&gt; f&quot;hi, {name}, are you {age}&quot;<br>
+'hi, hoxis, are you 18'</p>
+</blockquote>
+<h3 id="百分号">百分号</h3>
+<p>%%表示百分号</p>
+<blockquote>
+<p>&gt;&gt;&gt; print('数据的比例是:%.2f%%' %(scale * 100))<br>
+数据的比例是:10.00%<br>
+&gt;&gt;&gt; print('数据的比例是:%d%%' %(scale * 100))<br>
+数据的比例是:10%</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/39128162">参考</a></p>
+<h2 id="词云">词云</h2>
+<pre><code class="language-python"> 根据词频绘制词云图
+    参数 word_f:统计出的词频结果
+    # 生成对象
+    mask = np.array(Image.open(&quot;alice_mask.png&quot;))
+    wc = WordCloud(mask=mask, font_path='SimHei.ttf', mode='RGBA', background_color=None)
+    wc.fit_words(word_f)
+    
+    
+    # 显示词云
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis(&quot;off&quot;)
+    plt.show()
+    
+    # 保存到文件
+    wc.to_file('wordcloud.png')
+</code></pre>
+<h2 id="matlibplot-加载中文字体">matlibplot 加载中文字体</h2>
+<pre><code class="language-python">	#下载中文字体
+	wget https://mydueros.cdn.bcebos.com/font/simhei.ttf 
+	#在操作系统中创建字体目录fonts（可能已经有
+	mkdir .fonts
+	# 复制字体文件到该路径
+	cp simhei.ttf .fonts/
+	#复制字体到当前使用的conda环境中的matplotlib下的指定路径
+	cp simhei.ttf /opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/
+	# Linux系统默认字体文件路径
+	ls /usr/share/fonts/
+	# 查看系统可用的ttf格式中文字体
+	fc-list :lang=zh | grep &quot;.ttf&quot;
+	 # 设置显示中文
+    matplotlib.rcParams['font.san-serif'] = ['SimHei']
+    # 解决负号'-'显示为方块的问题
+    matplotlib.rcParams['axes.unicode_minus'] = False
+</code></pre>
+<p>如果没成功，尝试</p>
+<pre><code class="language-python">from matplotlib.font_manager import _rebuild
+_rebuild() #reload一下
+</code></pre>
+<h2 id="jieba-分词">jieba 分词</h2>
+<pre><code class="language-python">   jieba.load_userdict('name.txt') #name.txt 为用户自定义分词
+   seg = jieba.lcut(text,cut_all=False)
+</code></pre>
+<h2 id="停用词">停用词</h2>
+<pre><code class="language-python">stopwords = [line.strip() for line in open(file_path, encoding=&quot;UTF-8&quot;).readlines()]
+for word in sentence:
+        if word not in stopwords:
+            if len(word) &gt; 1:
+                counts[word] = counts.get(word, 0) + 1
+</code></pre>
+<p>字典 .get(key,value) value为如果不存在返回的值，counts.get(word, 0)： word不存在于counts中则返回 0<br>
+<a href="https://github.com/goto456/stopwords">中文常用停用词词表</a></p>
+<h2 id="多进程">多进程</h2>
+<p>多进程共同的全局变量，需要使用特殊方式声明：</p>
+<pre><code class="language-python">from multiprocessing import Process, Value, Array, Manager
+
+def f(n, a):
+    n.value = 3.1415927
+    for i in range(len(a)):
+        a[i] = -a[i]
+
+if __name__ == '__main__':
+    num = Value('d', 0.0)
+    arr = Array('i', range(10))
+    lis =  Manager().list()
+    p = Process(target=f, args=(num, arr))
+    p.start()
+    p.join()
+
+    print(num.value)
+    print(arr[:])
+</code></pre>
+<p>多进程list 使用前需转换回普通list， list(lis)<br>
+.join() 可以等待进程执行结束后再输出</p>
+<h3 id="多进程的一个大坑broken-pipe">多进程的一个大坑：broken pipe</h3>
+<p>解决方案不要在主线程外使用shared object,这样主线程使用的时候修改，会影响子线程的这个object<br>
+解决方案：移除主线程的修改，或者把修改放到子线程跑完之后<br>
+<a href="https://stackoverflow.com/questions/45506115/why-does-broken-pipe-error-occur-only-while-accessing-a-shared-list-in-a-speci">解释</a></p>
+<h3 id="join">.join()</h3>
+<p>主线程等待子线程跑完。python默认是先执行完主线程</p>
+<pre><code class="language-python">    process= []
+    for c_id in content_ids:
+        # 每个进程爬取一个视频下的评论
+        p = Process(target=getMovieinfo,args=(c_id,))
+        process.append(p)
+        p.start()
+    
+    #等待所有线程任务结束。
+    for p in process:
+        p.join()
+    print(&quot;总共获取了&quot;,len(comments),'条评论')
+</code></pre>
+<p>这样主线程就会阻塞了<br>
+<a href="https://blog.csdn.net/zhangphil/article/details/88577091">参考</a></p>
+
+							</div>
+							<div class="wow zoomIn vt-post-tags">
+								
+								<a href="https://yueqingsheng.github.io/tag/cheatsheet/" rel="tag">cheatsheet</a>
+								
+							</div>
+							<nav class="navigation3 post-navigation3" role="navigation">
+
+								<div class="nav-links3">
+									
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/python/"
+											rel="prev"> Python</a></div>
+									
+									
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/day-18/"
+											rel="next"> Day 18</a></div>
+									
+								</div>
+							</nav>
+							<div class="wow zoomIn author-info" style="visibility: visible; animation-name: zoomIn;">
+								<div class="author-avatar pull-left"><img
+										src="https://yueqingsheng.github.io/images/avatar.png"></div>
+								
+								<div class="author-description">
+									<div class="author-title">
+										<div class="author-link" rel="author">Pikachu</div>
+									</div>
+									
+									
+									<p class="author-bio">I am a real pikachu!</p>
+								</div>
+							</div>
+							
+						</div>
+					</article>
+					<div id="marlin_lite_about_widget-2" class="wow zoomIn widget marlin_lite_about_widget"
+						data-wow-delay="0.1s">
+
+						
+						
+						<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '5f41987445e31b69b727',
+    clientSecret: '62f2c00923ce2324c7d6d27b43ce328e32856246',
+    repo: 'yueqingsheng.github.io',
+    owner: 'YueqingSheng',
+    admin: ['YueqingSheng'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+						
+						
+						
+						<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://yueqingsheng.github.io/media/scripts/Valine.min.js'></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            visitor: true,
+            
+            
+            emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+            	
+            	
+            
+        });
+    </script> 
+
+
+					</div>
+				</div>
+				<div class="tocc col l3 hide-on-med-and-down">
+
+    <div class="toc-widget">
+
+        <div class="toc-title"></div>
+
+        <div id="toc-content">
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+
+    $(function () {
+        var bt;
+        bt = $('.toc-widget');
+        if ($(document).width() > 480) {
+            $(window).scroll(function () {
+                var st;
+                st = $(window).scrollTop();
+                if (st > 450) {
+                    return bt.css('display', 'block');
+                } else {
+                    return bt.css('display', 'none');
+                }
+            })
+        }
+    });
+</script>
+			</div>
+		</div>
+		<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="copyright">
+			Don't cry because it's over, Smile because it happened.
+			<b>Crafted with 💔 by <a href="https://chiperman.github.io/about/" target="_blank">chiperman</a></b>
+			<br>
+			<b>Eleven forever.</b>
+			<br>
+			<span class="runtime">
+				「我」已经运行了<script type="text/javascript">
+					var urodz = new Date("13/03/2020");
+					var now = new Date();
+					var ile = now.getTime() - urodz.getTime();
+					var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
+					document.write(+dni)
+				</script>天
+				<br>
+			</span>
+			<b>Theme: </b>
+			<a href="https://github.com/chiperman/gridea-theme-xiaox" target="_blank" title="Pan">
+				<span><b>Pan - XiaoX</b></span>
+			</a>
+			<b>. Powered by </b>
+			<a href="https://gridea.dev/" target="_blank" title="Gridea">
+				<span><b>Gridea</b></span>
+			</a>
+		</div>
+	</div><!-- .container -->
+</footer><!-- #colophon -->
+	</div>
+
+	<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+
+<script
+  src="https://cdn.jsdelivr.net/gh/YueqingSheng/yueqingsheng.github.io/media/scripts/marlin-scripts.js">
+</script>
+
+<script src="//tokinx.github.io/lately/lately.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+    $.lately({
+      'target': '.lately-a,.lately-b,.lately-c'
+    })
+  });
+</script>
+<style type="text/css">
+  /* 一键到顶部 */
+  a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 65px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.back_to_top span {
+    color: #888;
+  }
+
+  a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.back_to_top:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .back_to_top {
+      display: none !important;
+    }
+  }
+
+  /* 一键到底部 */
+
+  a.down_to_bottom {
+    text-decoration: none;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.down_to_bottom span {
+    color: #888;
+  }
+
+  a.down_to_bottom:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.down_to_bottom:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .down_to_bottom {
+      display: none !important;
+    }
+  }
+</style>
+
+
+<a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+<a id="down_to_bottom" href="#" class="down_to_bottom"><span><i class="iconfont icon-xiangxia"></i></span>
+</a>
+
+<script src="//instant.page/3.0.0" type="module" defer
+  integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+<script>
+  function getScrollTop() {
+    var scrollTop = 0,
+      bodyScrollTop = 0,
+      documentScrollTop = 0;
+    if (document.body) {
+      bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+      documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+  };
+
+  function getScrollHeight() {
+    var scrollHeight = 0,
+      bodyScrollHeight = 0,
+      documentScrollHeight = 0;
+    if (document.body) {
+      bSH = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+      dSH = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bSH - dSH > 0) ? bSH : dSH;
+    return scrollHeight;
+  };
+
+  function getWindowHeight() {
+    var windowHeight = 0;
+    if (document.compatMode == "CSS1Compat") {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+  };
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block');
+          } else {
+            return bt.css('display', 'none');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#down_to_bottom');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (getScrollTop() + getWindowHeight() == getScrollHeight()) {
+            return bt.css('display', 'none');
+          } else {
+            return bt.css('display', 'block');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: $('body,html')[0].scrollHeight
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+</script>
+	<script data-no-instant>
+		(function ($) {
+			$.extend({
+				adamsOverload: function () {
+					$('.navigation:eq(0)').remove();
+					$("").attr("rel", "external");
+					$("a[rel='external'],a[rel='external nofollow']").attr("target", "_blank");
+					$("a.vi").attr("rel", "");
+					$.viewImage({
+						'target': 'img',
+						'exclude': '.vsmile-icons img,.gallery img',
+						'delay': 300
+					});
+					$.lately({
+						'target': '.commentmetadata a,.infos time,.post-list time'
+					});
+					prettyPrint();
+
+					$('ul.links li a').each(function () {
+						if ($(this).parent().find('.bg').length == 0) {
+							$(this).parent().append(
+								'<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain=' +
+								$(this).attr("href") + ')"></div>--->')
+						}
+					});
+				}
+			});
+		})(jQuery);
+		jQuery.adamsOverload();
+	</script>
+
+</body>
+
+</html>
