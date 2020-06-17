@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-17T23:32:43.751Z</updated>
+    <updated>2020-06-17T23:34:07.592Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -76,11 +76,75 @@ step 交互一步</p>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[系统设计5 基于地理位置的信息系统（Location based service)]]></title>
+        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/</id>
+        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/">
+        </link>
+        <updated>2020-06-12T02:09:06.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="rpcremote-procedure-call">RPC(remote procedure call)</h2>
+<p>不同的机器之间调用函数<br>
+http包含了很多验证信息, 不高效</p>
+<h2 id="google-s2位置储存-查询系统">Google S2(位置储存 查询系统)</h2>
+<p>System design = logic design + infrastructure design(架构设计)</p>
+<h2 id="scenario">Scenario</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592234676481.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592235236181.png" alt="" loading="lazy"><br>
+收集用户信息，预测打车概率。</p>
+<h2 id="service">Service</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592239148033.png" alt="" loading="lazy"></figure>
+<h2 id="storage">Storage</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592246122954.png" alt="" loading="lazy"></figure>
+<h3 id="trip-table单">Trip Table:（单）</h3>
+<p>读多写少 每四秒查一次附近的接单信息</p>
+<h3 id="location-table">Location Table:</h3>
+<p>读少写多 每四秒写一次driver location</p>
+<h2 id="范围查询">范围查询</h2>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592247699767.png" alt="" loading="lazy"></figure>
+<h2 id="二维查询映射到一维">二维查询映射到一维</h2>
+<h3 id="google-s2">Google S2</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592247980056.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592248137315.png" alt="" loading="lazy"></p>
+<h3 id="geohash">Geohash</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592248499067.png" alt="" loading="lazy"><br>
+查看公共前缀相似度，32份，<br>
+<strong>为什么是 1：2？</strong><br>
+4 * 8（180，360）纬经度比<br>
+<strong>为什么上下方两行长？</strong><br>
+因为地球是圆的，上下占的面积相当于三角形<br>
+<strong>为什么是 4*8?</strong><br>
+<img src="https://yueqingsheng.github.io/post-images/1592249368751.png" alt="" loading="lazy"><br>
+缺陷  ：刚好在线上，线两边差距大</p>
+<h4 id="查询-google-半径两公里以内的车">查询 Google 半径两公里以内的车</h4>
+<p>geohash LIKE 9q9hv%, %分号在后面，表示以9q9hv开头<br>
+<img src="https://yueqingsheng.github.io/post-images/1592249754838.png" alt="" loading="lazy"><br>
+Redis value: set 删除 O(1) list 删除O(n)</p>
+<h2 id="匹配">匹配</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592251096560.png" alt="" loading="lazy"></figure>
+<h2 id="scale">Scale</h2>
+<p>迁移成本低，损失成本大。单点 Failure</p>
+<h3 id="db-sharding">DB sharding</h3>
+<p>按Geo hash 前四位<br>
+Uber 使用城市 Sharding</p>
+<h4 id="定义城市">定义城市</h4>
+<p>Geo Fence<br>
+求一个点是否在多边形内<br>
+<img src="https://yueqingsheng.github.io/post-images/1592251619394.png" alt="" loading="lazy"><br>
+乘客在边界上，记录城市连接关系</p>
+<h4 id="机场">机场</h4>
+<p>先找到城市，再查询 airport fence</p>
+<h5 id="减少风险">减少风险</h5>
+<ol>
+<li>Master slave</li>
+<li>换数据库Riak</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[强化学习 Day 2 Sarsa, Q-learning]]></title>
         <id>https://yueqingsheng.github.io/post/qiang-hua-xue-xi-day-2-sarsa-q-learning/</id>
         <link href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi-day-2-sarsa-q-learning/">
         </link>
-        <updated>2020-06-12T05:57:25.000Z</updated>
+        <updated>2020-06-11T17:57:25.000Z</updated>
         <content type="html"><![CDATA[<h2 id="强化学习mdp四元组s-a-p-r">强化学习MDP四元组&lt;S, A, P, R&gt;</h2>
 <p>强化学习是解决跟时间相关的序列决策问题。<br>
 <img src="https://yueqingsheng.github.io/post-images/1592416960594.png" alt="" loading="lazy"></p>
@@ -148,70 +212,6 @@ On policy 对于保留目前探索的成果有好处 ，但容易陷入局部最
 Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多，不适合现实中试错成本太大的尝试。</p>
 <h2 id="拓展">拓展：</h2>
 <p><a href="https://analyticsindiamag.com/reinforcement-learning-policy/">ON-POLICY VS OFF-POLICY REINFORCEMENT LEARNING</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计5 基于地理位置的信息系统（Location based service)]]></title>
-        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/</id>
-        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/">
-        </link>
-        <updated>2020-06-12T02:09:06.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="rpcremote-procedure-call">RPC(remote procedure call)</h2>
-<p>不同的机器之间调用函数<br>
-http包含了很多验证信息, 不高效</p>
-<h2 id="google-s2位置储存-查询系统">Google S2(位置储存 查询系统)</h2>
-<p>System design = logic design + infrastructure design(架构设计)</p>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592234676481.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592235236181.png" alt="" loading="lazy"><br>
-收集用户信息，预测打车概率。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592239148033.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592246122954.png" alt="" loading="lazy"></figure>
-<h3 id="trip-table单">Trip Table:（单）</h3>
-<p>读多写少 每四秒查一次附近的接单信息</p>
-<h3 id="location-table">Location Table:</h3>
-<p>读少写多 每四秒写一次driver location</p>
-<h2 id="范围查询">范围查询</h2>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592247699767.png" alt="" loading="lazy"></figure>
-<h2 id="二维查询映射到一维">二维查询映射到一维</h2>
-<h3 id="google-s2">Google S2</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592247980056.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592248137315.png" alt="" loading="lazy"></p>
-<h3 id="geohash">Geohash</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592248499067.png" alt="" loading="lazy"><br>
-查看公共前缀相似度，32份，<br>
-<strong>为什么是 1：2？</strong><br>
-4 * 8（180，360）纬经度比<br>
-<strong>为什么上下方两行长？</strong><br>
-因为地球是圆的，上下占的面积相当于三角形<br>
-<strong>为什么是 4*8?</strong><br>
-<img src="https://yueqingsheng.github.io/post-images/1592249368751.png" alt="" loading="lazy"><br>
-缺陷  ：刚好在线上，线两边差距大</p>
-<h4 id="查询-google-半径两公里以内的车">查询 Google 半径两公里以内的车</h4>
-<p>geohash LIKE 9q9hv%, %分号在后面，表示以9q9hv开头<br>
-<img src="https://yueqingsheng.github.io/post-images/1592249754838.png" alt="" loading="lazy"><br>
-Redis value: set 删除 O(1) list 删除O(n)</p>
-<h2 id="匹配">匹配</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592251096560.png" alt="" loading="lazy"></figure>
-<h2 id="scale">Scale</h2>
-<p>迁移成本低，损失成本大。单点 Failure</p>
-<h3 id="db-sharding">DB sharding</h3>
-<p>按Geo hash 前四位<br>
-Uber 使用城市 Sharding</p>
-<h4 id="定义城市">定义城市</h4>
-<p>Geo Fence<br>
-求一个点是否在多边形内<br>
-<img src="https://yueqingsheng.github.io/post-images/1592251619394.png" alt="" loading="lazy"><br>
-乘客在边界上，记录城市连接关系</p>
-<h4 id="机场">机场</h4>
-<p>先找到城市，再查询 airport fence</p>
-<h5 id="减少风险">减少风险</h5>
-<ol>
-<li>Master slave</li>
-<li>换数据库Riak</li>
-</ol>
 ]]></content>
     </entry>
     <entry>
