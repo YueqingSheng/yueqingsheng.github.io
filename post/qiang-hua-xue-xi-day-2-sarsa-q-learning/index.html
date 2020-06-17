@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1592436994832" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1592437344163" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -145,7 +145,7 @@
 										2020-06-14
 									</time>
 									<span>
-										5 min read
+										4 min read
 									</span>
 									<!-- id 将作为查询条件 -->
 									<span id="/qiang-hua-xue-xi-day-2-sarsa-q-learning/" class="leancloud_visitors"  data-flag-title="强化学习 Day 2 Sarsa, Q-learning">
@@ -169,72 +169,68 @@
 <img src="https://yueqingsheng.github.io/post-images/1592416960594.png" alt="" loading="lazy"></p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>[</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>t</mi></msub><mi mathvariant="normal">∣</mi><msub><mi>s</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>t</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">p[s_{t+1}, r_{t} | s_{t}, a_{t}]
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></span></p>
-<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;$&#039; in math mode at position 58: …而且拿到 $r_{t}$奖励}$̲$的概率
-&gt; 马尔可夫性质: …'>\text{在$s_ t$时刻，选择$a_t$动作的时候，转移到$s_{t+1}$ 而且拿到 $r_{t}$奖励}$$的概率
-&gt; 马尔可夫性质: 当前时刻的状态仅与前一时刻的状态和动作有关，与其他时刻的状态和动作条件独立。
-
-&gt; 马尔可夫决策过程（Markov Decision Process, MDP）是序贯决策（sequential decision）的数学模型，用于在系统状态具有马尔可夫性质的环境中模拟智能体可实现的随机性策略与回报
-
-![](https://yueqingsheng.github.io/post-images/1592419241042.png)
-P函数：随机性，转移到另外一种状态的概率
-R函数：奖励函数
-
-## Model-based vs Model-free
-Model based: 如果 P, R 已知，则环境是已知的，可以用动态规划计算最优方案。
-Model free: 当解决未知或随机的环境时，即 P, R 未知，可以使用强化学习。
-
-## Q 函数
-![](https://yueqingsheng.github.io/post-images/1592419978987.png)
-![](https://yueqingsheng.github.io/post-images/1592420512413.png)
-Q的目标是未来的总收益
-![](https://yueqingsheng.github.io/post-images/1592420605219.png)
-但是当时间过长时，需要加一个 $\gamma$ 衰减系数，时间越久，对当前的收益影响越小
-
-## 更新Q表格
-![](https://yueqingsheng.github.io/post-images/1592421245188.png)
-下个状态的价值可以用来强化上一个状态的价值，如结合食物和铃声一起影响狗的食欲（流口水）。
-![](https://yueqingsheng.github.io/post-images/1592422219338.jpg)
-这个公式其实就是把每一步的收益逼近于未来收益之和，即走到这一步获得的总收益。每一次向目标值的方向更新一点。
-![](https://yueqingsheng.github.io/post-images/1592422876957.png)
-每次跳转到下一个状态时，通过这些Sarsa参数，便可得知当前状态的Q value。
-![](https://yueqingsheng.github.io/post-images/1592423174750.png)
-算法：每走一步，先选出要做的动作。再走下一步，通过状态$s_2$，从Q表拿到$a_2$, 然后通过下一步和上一步的参数更新 $Q(s_1, a_1)$
-### 如何通过状态 s 去取出动作 a ？ $\epsilon$-greedy
-![](https://yueqingsheng.github.io/post-images/1592424271702.png)
-
-## Sarsa 代码
-![](https://lh6.googleusercontent.com/8jhtLe0-rCvlm69sSpofk5eh3g1hpOmFgBFQPLQKTgw7iUN8d6-mHxrx4JjnQGKI6AwDzpMiePXbNRU1O-NeDy6ER9QWMLjF2IHDDc_BTGKff--BNUZU9iw8QubW3nnBz6Qls7tT)
-[paddle实现链接](https://aistudio.baidu.com/aistudio/projectdetail/567852)
-
-## Off-Policy
-![](https://yueqingsheng.github.io/post-images/1592427661829.png)
-Off-Policy 不和环境交互
-
-## Q-learning
-![](https://i.stack.imgur.com/JE6BY.png)
-
-## Q-learning vs Sarsa
-![](https://yueqingsheng.github.io/post-images/1592427877376.png)
-Q-learning 的下个状态选取使Q最大的action
-![](https://yueqingsheng.github.io/post-images/1592428118258.png)
-## Off-Policy vs On-policy
-&gt; policy: 策略是指通过状态 s 去取出动作 a 的 方法/概率。Policy specifies an action 𝑎, that is taken in a state 𝑠 (or more precisely, 𝜋 is a probability, that an action 𝑎 is taken in a state 𝑠).
-
-![](https://yueqingsheng.github.io/post-images/1592428550500.png)
-&gt; 行为策略：用来与环境互动收集情报、产生数据的策略，即训练过程中的策略。 π(a|s)
-&gt; 目标策略：在行为策略产生的数据中不断学习和优化得到的策略，即学习训练完毕后拿去做行为评估的策略。µ(a|s) 
-
-区别是
-&gt; on-policy 通过的与环境交互的经验更新Q, 按以往经验来。 off-policy 就不管之前经验了，通过任意方式获取action, 比如 greedy。
-
-## 总结
-![](https://yueqingsheng.github.io/post-images/1592431533553.png)
-On policy 对于保留目前探索的成果有好处 ，但容易陷入局部最优。不够冒险。
-Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多，不适合现实中试错成本太大的尝试。
-
-## 拓展：
-[ON-POLICY VS OFF-POLICY REINFORCEMENT LEARNING](https://analyticsindiamag.com/reinforcement-learning-policy/)
-</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mtext>在</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>s</mi><mi>t</mi></msub></mstyle><mtext>时刻，选择</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>a</mi><mi>t</mi></msub></mstyle><mtext>动作的时候，转移到</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mstyle><mtext> 而且拿到 </mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>r</mi><mi>t</mi></msub></mstyle><mtext>奖励</mtext></mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">概</mi><mi mathvariant="normal">率</mi></mrow><annotation encoding="application/x-tex">\text{在$s_ t$时刻，选择$a_t$动作的时候，转移到$s_{t+1}$ 而且拿到 $r_{t}$奖励}的概率
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord text"><span class="mord cjk_fallback">在</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">时刻，选择</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">动作的时候，转移到</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"> </span><span class="mord cjk_fallback">而且拿到</span><span class="mord"> </span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">奖励</span></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">概</span><span class="mord cjk_fallback">率</span></span></span></span></span></p>
+<blockquote>
+<p>马尔可夫性质: 当前时刻的状态仅与前一时刻的状态和动作有关，与其他时刻的状态和动作条件独立。</p>
+</blockquote>
+<blockquote>
+<p>马尔可夫决策过程（Markov Decision Process, MDP）是序贯决策（sequential decision）的数学模型，用于在系统状态具有马尔可夫性质的环境中模拟智能体可实现的随机性策略与回报</p>
+</blockquote>
+<p><img src="https://yueqingsheng.github.io/post-images/1592419241042.png" alt="" loading="lazy"><br>
+P函数：随机性，转移到另外一种状态的概率<br>
+R函数：奖励函数</p>
+<h2 id="model-based-vs-model-free">Model-based vs Model-free</h2>
+<p>Model based: 如果 P, R 已知，则环境是已知的，可以用动态规划计算最优方案。<br>
+Model free: 当解决未知或随机的环境时，即 P, R 未知，可以使用强化学习。</p>
+<h2 id="q-函数">Q 函数</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592419978987.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592420512413.png" alt="" loading="lazy"><br>
+Q的目标是未来的总收益<br>
+<img src="https://yueqingsheng.github.io/post-images/1592420605219.png" alt="" loading="lazy"><br>
+但是当时间过长时，需要加一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span> 衰减系数，时间越久，对当前的收益影响越小</p>
+<h2 id="更新q表格">更新Q表格</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592421245188.png" alt="" loading="lazy"><br>
+下个状态的价值可以用来强化上一个状态的价值，如结合食物和铃声一起影响狗的食欲（流口水）。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592422219338.jpg" alt="" loading="lazy"><br>
+这个公式其实就是把每一步的收益逼近于未来收益之和，即走到这一步获得的总收益。每一次向目标值的方向更新一点。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592422876957.png" alt="" loading="lazy"><br>
+每次跳转到下一个状态时，通过这些Sarsa参数，便可得知当前状态的Q value。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592423174750.png" alt="" loading="lazy"><br>
+算法：每走一步，先选出要做的动作。再走下一步，通过状态<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，从Q表拿到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">a_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 然后通过下一步和上一步的参数更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mo>(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">Q(s_1, a_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">Q</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<h3 id="如何通过状态-s-去取出动作-a-epsilon-greedy">如何通过状态 s 去取出动作 a ？ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>-greedy</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592424271702.png" alt="" loading="lazy"></figure>
+<h2 id="sarsa-代码">Sarsa 代码</h2>
+<p><img src="https://lh6.googleusercontent.com/8jhtLe0-rCvlm69sSpofk5eh3g1hpOmFgBFQPLQKTgw7iUN8d6-mHxrx4JjnQGKI6AwDzpMiePXbNRU1O-NeDy6ER9QWMLjF2IHDDc_BTGKff--BNUZU9iw8QubW3nnBz6Qls7tT" alt="" loading="lazy"><br>
+<a href="https://aistudio.baidu.com/aistudio/projectdetail/567852">paddle实现链接</a></p>
+<h2 id="off-policy">Off-Policy</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592427661829.png" alt="" loading="lazy"><br>
+Off-Policy 不和环境交互</p>
+<h2 id="q-learning">Q-learning</h2>
+<figure data-type="image" tabindex="2"><img src="https://i.stack.imgur.com/JE6BY.png" alt="" loading="lazy"></figure>
+<h2 id="q-learning-vs-sarsa">Q-learning vs Sarsa</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592427877376.png" alt="" loading="lazy"><br>
+Q-learning 的下个状态选取使Q最大的action<br>
+<img src="https://yueqingsheng.github.io/post-images/1592428118258.png" alt="" loading="lazy"></p>
+<h2 id="off-policy-vs-on-policy">Off-Policy vs On-policy</h2>
+<blockquote>
+<p>policy: 策略是指通过状态 s 去取出动作 a 的 方法/概率。Policy specifies an action 𝑎, that is taken in a state 𝑠 (or more precisely, 𝜋 is a probability, that an action 𝑎 is taken in a state 𝑠).</p>
+</blockquote>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592428550500.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>行为策略：用来与环境互动收集情报、产生数据的策略，即训练过程中的策略。 π(a|s)<br>
+目标策略：在行为策略产生的数据中不断学习和优化得到的策略，即学习训练完毕后拿去做行为评估的策略。µ(a|s)</p>
+</blockquote>
+<p>区别是</p>
+<blockquote>
+<p>on-policy 通过的与环境交互的经验更新Q, 按以往经验来。 off-policy 就不管之前经验了，通过任意方式获取action, 比如 greedy。</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592431533553.png" alt="" loading="lazy"><br>
+On policy 对于保留目前探索的成果有好处 ，但容易陷入局部最优。不够冒险。<br>
+Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多，不适合现实中试错成本太大的尝试。</p>
+<h2 id="拓展">拓展：</h2>
+<p><a href="https://analyticsindiamag.com/reinforcement-learning-policy/">ON-POLICY VS OFF-POLICY REINFORCEMENT LEARNING</a></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -244,9 +240,12 @@ Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多
 
 								<div class="nav-links3">
 									
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi/"
+											rel="prev"> 强化学习 Day 1</a></div>
 									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi/"
-											rel="next"> 强化学习 Day 1</a></div>
+									
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/"
+											rel="next"> 系统设计5 基于地理位置的信息系统（Location based service)</a></div>
 									
 								</div>
 							</nav>
