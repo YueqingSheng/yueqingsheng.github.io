@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1592436603312" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1592436759580" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -214,9 +214,11 @@ Q-learning 的下个状态选取使Q最大的action<br>
 <img src="https://yueqingsheng.github.io/post-images/1592428118258.png" alt="" loading="lazy"></p>
 <h2 id="off-policy-vs-on-policy">Off-Policy vs On-policy</h2>
 <blockquote>
-<p>policy: 策略是指通过状态 s 去取出动作 a 的 方法/概率。Policy specifies an action 𝑎, that is taken in a state 𝑠 (or more precisely, 𝜋 is a probability, that an action 𝑎 is taken in a state 𝑠).<br>
-<img src="https://yueqingsheng.github.io/post-images/1592428550500.png" alt="" loading="lazy"><br>
-行为策略：用来与环境互动收集情报、产生数据的策略，即训练过程中的策略。 π(a|s)<br>
+<p>policy: 策略是指通过状态 s 去取出动作 a 的 方法/概率。Policy specifies an action 𝑎, that is taken in a state 𝑠 (or more precisely, 𝜋 is a probability, that an action 𝑎 is taken in a state 𝑠).</p>
+</blockquote>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592428550500.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>行为策略：用来与环境互动收集情报、产生数据的策略，即训练过程中的策略。 π(a|s)<br>
 目标策略：在行为策略产生的数据中不断学习和优化得到的策略，即学习训练完毕后拿去做行为评估的策略。µ(a|s)</p>
 </blockquote>
 <p>区别是</p>
