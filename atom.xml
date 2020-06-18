@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-18T03:45:35.962Z</updated>
+    <updated>2020-06-18T21:30:09.268Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,97 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day 3 神经网络方法]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/">
+        </link>
+        <updated>2020-06-17T17:28:45.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="q-表不适合的场景">Q 表不适合的场景</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592501404580.png" alt="" loading="lazy"><br>
+状态太多或者不可数，表格无法容纳</p>
+<h2 id="值函数近似">值函数近似</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592503297313.png" alt="" loading="lazy"></figure>
+<h2 id="神经网络">神经网络</h2>
+<p>拟合任意函数 map x(输入)-&gt;y（输出）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592503591885.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592503739786.png" alt="" loading="lazy"></p>
+<h2 id="dqn">DQN</h2>
+<p>拟合Q表格，找出 s 到 Q 的 maping, 即 Q 表格<br>
+<img src="https://yueqingsheng.github.io/post-images/1592504045511.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592504377262.png" alt="" loading="lazy"><br>
+s=&gt; Q（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mo>∗</mo></msub></mrow><annotation encoding="application/x-tex">a_*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）, 输出一个包含不同 a 的向量， 逼近 Target Q</p>
+<h3 id="创新点">创新点</h3>
+<h4 id="1-经验回放">1. 经验回放</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592504472911.png" alt="" loading="lazy"><br>
+存储一部分经验数据，从中随机选取一部分 (batch) 更新数据</p>
+<h5 id="off-policy-回顾">off-policy 回顾</h5>
+<p>士兵 (behavior policy):  根据战术攻打堡垒，拿到战斗经验，给到军师分析<br>
+军师 (Target policy): 根据经验，提升战术，让前方战士打的更好<br>
+战术 (Q table)<br>
+DQN， 军师从士兵的经验池随机抽取一部分经验。使用缓冲区存储经验，经验可以重复利用。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592505463466.png" alt="" loading="lazy"><br>
+sample 输入 batch_size 输出抽取的5个数组<br>
+<img src="https://yueqingsheng.github.io/post-images/1592505685903.png" alt="" loading="lazy"></p>
+<h4 id="2-固定-q-目标">2. 固定 Q 目标</h4>
+<p>保持 Q_target 稳定， 定期 copy Q<br>
+<img src="https://yueqingsheng.github.io/post-images/1592512287833.png" alt="" loading="lazy"></p>
+<h3 id="dqn-流程图">DQN 流程图</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592512821261.png" alt="" loading="lazy"></figure>
+<h2 id="parl-dqn">PARL DQN</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592513030605.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592513082474.png" alt="" loading="lazy"><br>
+model 神经网络， Algorithm  loss function , agent 和环境交互</p>
+<h3 id="modelpy">model.py</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592513356656.png" alt="" loading="lazy"><br>
+输入 obs(S)，通过神经网络计算 Q 值</p>
+<h3 id="algorithm">algorithm</h3>
+<p>init : 输入model 和 参数，copy model, 初始化参数,model , target_model<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513526805.png" alt="" loading="lazy"><br>
+sync_target: 同步 model, target_model 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513630399.png" alt="" loading="lazy"><br>
+predict: 返回 model 的值， Q</p>
+<h4 id="learn">learn:</h4>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592514289290.png" alt="" loading="lazy"></figure>
+<ol>
+<li>计算 target_Q<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513814629.png" alt="" loading="lazy"><br>
+freeze target_Q, 阻止梯度传递，防止参数更新</li>
+<li>计算 Q(s,a)<br>
+layers.cast(done) true 返回 1， false 返回 0<br>
+action 做 onehot， 乘以 Q(s,a) 得到 real Q</li>
+<li>计算 loss</li>
+</ol>
+<h4 id="agent">agent:</h4>
+<p>更新网络，获取 Q 值。</p>
+<h4 id="cartpole">CartPole</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592514818545.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592514957943.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592515112909.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592515130186.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592515451246.png" alt="" loading="lazy"><br>
+跟 Q learning 主要区别就是使用神经网络计算 Q 值，扩展了 Q 值的范围。并使用经验回放和固定Q目标，重复利用了经验样本和稳定了算法。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
+        </link>
+        <updated>2020-06-17T06:56:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
+<h2 id="scenario">Scenario</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
+微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
+<h2 id="service">Service</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
+<h2 id="storage">Storage</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 2 Sarsa & Q-learning 实现思路]]></title>
         <id>https://yueqingsheng.github.io/day-2-zuo-ye-si-lu/</id>
@@ -519,104 +610,6 @@ centralized mysql + distributed memcached<br>
 <p>当卡在某个bug自己短时间内无法解决时，或找不到原因，最有效率的方式是去搜索这个问题，查看别人是怎么解决的。</p>
 <h3 id="时间规划">时间规划</h3>
 <p>可以给计划设个下限和上限，以避免规划没达到的心里落差。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[jupyter]]></title>
-        <id>https://yueqingsheng.github.io/jupyter/</id>
-        <link href="https://yueqingsheng.github.io/jupyter/">
-        </link>
-        <updated>2020-06-03T07:31:05.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="自动输出多行">自动输出多行</h2>
-<p>from IPython.core.interactiveshell import InteractiveShell<br>
-InteractiveShell.ast_node_interactivity = &quot;all&quot;</p>
-<h2 id="安装包-can-not-find-module">安装包 can not find module</h2>
-<p>import sys<br>
-!{sys.executable} -m pip install pypinyin</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计 Week 2 Database&Cache(数据库和缓存)]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/">
-        </link>
-        <updated>2020-06-02T20:51:55.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="用户系统">用户系统</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1591478153289.png" alt="" loading="lazy"></figure>
-<h2 id="scenarioqpsservice">Scenario(QPS)&amp;Service</h2>
-<p>QPS = DAU*用户平均每天请求次数/每天多少秒（86400）<br>
-<img src="https://yueqingsheng.github.io/post-images/1591552259685.png" alt="" loading="lazy"></p>
-<h3 id="qps与数据存储">QPS与数据存储</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591552392966.png" alt="" loading="lazy"></figure>
-<h2 id="cache读多写少">Cache（读多写少）</h2>
-<p>File system 可以作为网络请求和计算结果的cache<br>
-跟hashmap区别，cache有淘汰机制（LRU，LSU）<br>
-<img src="https://yueqingsheng.github.io/post-images/1591559774530.png" alt="" loading="lazy"><br>
-ttl: time to live<br>
-<img src="https://yueqingsheng.github.io/post-images/1591593445593.png" alt="" loading="lazy"></p>
-<h3 id="set-user">Set User</h3>
-<p>cache delete, database set.有可能第二个<br>
-<img src="https://yueqingsheng.github.io/post-images/1591593695552.png" alt="" loading="lazy"><br>
-多线程下，可能造成数据不一致。<br>
-当执行完cache delete, 另外线程get user  获取了旧数据（cache）, 再执行database set (新数据-&gt;数据不一致<br>
-<img src="https://yueqingsheng.github.io/post-images/1591594170682.png" alt="" loading="lazy"><br>
-加锁（不同机器，系统)</p>
-<h4 id="常用方法">常用方法</h4>
-<p>database.set, cache.delete<br>
-<img src="https://yueqingsheng.github.io/post-images/1591633218358.png" alt="" loading="lazy"><br>
-同时用 set set, 多进程会有修改数据库情况，然后缓存set旧的data<br>
-第一种情况因为读多改少，出现概率低。cache hit 概率大，通常&gt;98%</p>
-<h3 id="如何解决一致性-问题">如何解决一致性 问题</h3>
-<p>ttl(time to live) 允许短时间的不一致</p>
-<h3 id="读少写多-多用数据库分摊请求">读少写多 （多用数据库，分摊请求）</h3>
-<h4 id="cache-架构">Cache 架构</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1591633744350.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591633807994.png" alt="" loading="lazy"></p>
-<h2 id="登录系统">登录系统</h2>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1591637241224.png" alt="" loading="lazy"></figure>
-<blockquote>
-<p>UUID:通常用UUID来作为Session Key(Session Token)，UUID(Universal Unique ID): UUID是由一组32位数的16进制数字所构成，所以UUID理论上的总数为16<sup>32=2</sup>128，约等于3.4 x 10^38。也就是说若每纳秒产生1兆个UUID，要花100亿年才会将所有UUID用完。所以通俗的称之为宇宙爆炸都不会出现重复的ID字段。<br>
-<img src="https://yueqingsheng.github.io/post-images/1591637779482.png" alt="" loading="lazy"><br>
-Cookie里内容越少越好</p>
-</blockquote>
-<h3 id="只允许一台机器登录">只允许一台机器登录</h3>
-<p>存储device token, 监测到不同device, 把其他设备账户logout</p>
-<h2 id="好友关系">好友关系</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591638752848.png" alt="" loading="lazy"><br>
-方案1:<br>
-优点：只存储1条数据，节省一半空间。（当你要存 1 和 2 是好友的时候，你可能存为 &lt;1,2&gt; 也可能存为 &lt;2,1&gt;。我们只存成 &lt;1,2&gt; 的形式，原因有两个，第一是方便查询，否则你查询的时候得分别差 &lt;1,2&gt; 是否存在和 &lt;2,1&gt; 是否存在。第二个是节省一半的存储空间。）<br>
-缺点： 查询时 or 操作慢一些<br>
-方案2:<br>
-优点： 查询语句简单，查询速度快。空间换取时间</p>
-<blockquote>
-<p>Transaction: 事务。代表一些列操作要打包在一起，同时成果或者同时失败。比如我转你 10 块钱，你的余额要 +10，我的余额要 -10。这是两条数据库操作，必须同时成功或者同时失败。不能只有一条操作成功。这种打包，就叫做 Transaction。</p>
-</blockquote>
-<h2 id="nosqlcassandra">NoSQL(Cassandra)</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591639493129.png" alt="" loading="lazy"><br>
-Row key: 存储到哪台机器的索引，nosql 用于分布式<br>
-<img src="https://yueqingsheng.github.io/post-images/1591643551418.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591645626931.png" alt="" loading="lazy"><br>
-Column key: 支持范围查询 和 复合值查询</p>
-<h2 id="nosql-vs-sql">NoSQL VS SQL</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591649259941.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591649307923.png" alt="" loading="lazy"></p>
-<h3 id="选择原则">选择原则：</h3>
-<ol>
-<li>transaction 不能选NoSQL(通常在一台机器完成)</li>
-<li>擅长部分</li>
-<li>一个网站会使用多种数据库<br>
-<img src="https://yueqingsheng.github.io/post-images/1591649707668.png" alt="" loading="lazy"></li>
-</ol>
-<h2 id="nosql-存单向好友关系">NoSql 存单向好友关系</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1591751464392.png" alt="" loading="lazy"></figure>
-<h2 id="nosql-存储user">NoSql 存储User</h2>
-<p>根据 emial/phone/username查询<br>
-<img src="https://yueqingsheng.github.io/post-images/1591751772270.png" alt="" loading="lazy"></p>
-<h2 id="共同好友">共同好友</h2>
-<p>A userid B userid =&gt; A和B交集<br>
-<img src="https://yueqingsheng.github.io/post-images/1591751952888.png" alt="" loading="lazy"></p>
-<h2 id="六度关系">六度关系</h2>
-<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1591752010561.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
