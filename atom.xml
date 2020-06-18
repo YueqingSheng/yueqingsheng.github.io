@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-18T03:16:57.177Z</updated>
+    <updated>2020-06-18T03:45:35.962Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,11 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
-        <title type="html"><![CDATA[Day 2 作业思路]]></title>
-        <id>https://yueqingsheng.github.io/post/day-2-zuo-ye-si-lu/</id>
-        <link href="https://yueqingsheng.github.io/post/day-2-zuo-ye-si-lu/">
+        <title type="html"><![CDATA[Day 2 Sarsa & Q-learning 实现思路]]></title>
+        <id>https://yueqingsheng.github.io/day-2-zuo-ye-si-lu/</id>
+        <link href="https://yueqingsheng.github.io/day-2-zuo-ye-si-lu/">
         </link>
-        <updated>2020-06-14T12:20:09.000Z</updated>
+        <updated>2020-06-14T00:20:09.000Z</updated>
         <content type="html"><![CDATA[<h2 id="第一步把-q-table-看一下">第一步把 Q table 看一下</h2>
 <p><img src="https://yueqingsheng.github.io/post-images/1592440727420.png" alt="" loading="lazy"><br>
 16行4列的np array， 每一格为Q(state, action)的值</p>
@@ -65,76 +65,11 @@ env = FrozenLakeWapper(env)
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[强化学习 Day 1]]></title>
-        <id>https://yueqingsheng.github.io/post/qiang-hua-xue-xi/</id>
-        <link href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi/">
+        <title type="html"><![CDATA[强化学习 Day 2 Sarsa & Q-learning]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-2-sarsa-q-learning/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-2-sarsa-q-learning/">
         </link>
-        <updated>2020-06-14T08:41:16.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="什么是强化学习">什么是强化学习？</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592340187285.png" alt="" loading="lazy"></figure>
-<h2 id="两部分-三要素">两部分 三要素</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592340281494.png" alt="" loading="lazy"><br>
-在 Flappy bird 中</p>
-<table>
-<thead>
-<tr>
-<th>agent</th>
-<th>environment</th>
-<th>state</th>
-<th>action</th>
-<th>reward</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>鸟</td>
-<td>鸟周围的环境，水管、天空（包括小鸟本身）</td>
-<td>拍个照（目前的像素）</td>
-<td>向上向下动作</td>
-<td>距离（越远奖励越高）</td>
-</tr>
-</tbody>
-</table>
-<p>动一下截个图 再决定下一个动作<br>
-跟环境交互，决策。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592341430929.png" alt="" loading="lazy"><br>
-奖励是延迟的。迷宫走完，才有奖励。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592341492276.png" alt="" loading="lazy"></p>
-<h2 id="强化学习和其他机器学习的关系">强化学习和其他机器学习的关系</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592341779032.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592342011873.png" alt="" loading="lazy"><br>
-监督样本一般样本内无关系。强化学习，样本之间相互影响。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592342296638.png" alt="" loading="lazy"><br>
-基于价值会向固定方向走，基于策略随机性更高一些。</p>
-<h2 id="rl-agent-environment-交互接口">RL agent &lt;-&gt; environment 交互接口</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592343026454.png" alt="" loading="lazy"><br>
-reset 重置<br>
-render 渲染目前<br>
-step 交互一步</p>
-<h3 id="step-输出参数">Step 输出参数</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592342821467.png" alt="" loading="lazy"></figure>
-<ol>
-<li>1-36 位置（36格内的位置）</li>
-<li>-1 reward(奖励，每走一步会有惩罚，目标最少步数走完)</li>
-<li>true/false 游戏是否完成</li>
-<li>info 额外信息</li>
-</ol>
-<h3 id="git-clone-depth1">git clone --depth=1</h3>
-<blockquote>
-<p>depth 用于指定克隆深度，为 1 即表示只克隆最近一次 commit. 可以解决项目过大的问题</p>
-</blockquote>
-<h2 id="总结">总结</h2>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592343683260.png" alt="" loading="lazy"></figure>
-<p>拓展：<a href="https://www.zhihu.com/question/23474039/answer/269526476">为什么有人说 Python 的多线程是鸡肋呢？</a></p>
-<p>图片来源：<a href="https://aistudio.baidu.com/aistudio/projectdetail/560767">PARL 强化学习公开课 Lesson1</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day 2 Sarsa, Q-learning]]></title>
-        <id>https://yueqingsheng.github.io/post/qiang-hua-xue-xi-day-2-sarsa-q-learning/</id>
-        <link href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi-day-2-sarsa-q-learning/">
-        </link>
-        <updated>2020-06-14T05:57:25.000Z</updated>
+        <updated>2020-06-13T05:57:25.000Z</updated>
         <content type="html"><![CDATA[<h2 id="强化学习mdp四元组s-a-p-r">强化学习MDP四元组&lt;S, A, P, R&gt;</h2>
 <p>强化学习是解决跟时间相关的序列决策问题。<br>
 <img src="https://yueqingsheng.github.io/post-images/1592416960594.png" alt="" loading="lazy"></p>
@@ -205,9 +140,74 @@ Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[强化学习 Day 1 Introduction]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi/">
+        </link>
+        <updated>2020-06-12T20:41:16.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="什么是强化学习">什么是强化学习？</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592340187285.png" alt="" loading="lazy"></figure>
+<h2 id="两部分-三要素">两部分 三要素</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592340281494.png" alt="" loading="lazy"><br>
+在 Flappy bird 中</p>
+<table>
+<thead>
+<tr>
+<th>agent</th>
+<th>environment</th>
+<th>state</th>
+<th>action</th>
+<th>reward</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鸟</td>
+<td>鸟周围的环境，水管、天空（包括小鸟本身）</td>
+<td>拍个照（目前的像素）</td>
+<td>向上向下动作</td>
+<td>距离（越远奖励越高）</td>
+</tr>
+</tbody>
+</table>
+<p>动一下截个图 再决定下一个动作<br>
+跟环境交互，决策。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592341430929.png" alt="" loading="lazy"><br>
+奖励是延迟的。迷宫走完，才有奖励。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592341492276.png" alt="" loading="lazy"></p>
+<h2 id="强化学习和其他机器学习的关系">强化学习和其他机器学习的关系</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592341779032.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592342011873.png" alt="" loading="lazy"><br>
+监督样本一般样本内无关系。强化学习，样本之间相互影响。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592342296638.png" alt="" loading="lazy"><br>
+基于价值会向固定方向走，基于策略随机性更高一些。</p>
+<h2 id="rl-agent-environment-交互接口">RL agent &lt;-&gt; environment 交互接口</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592343026454.png" alt="" loading="lazy"><br>
+reset 重置<br>
+render 渲染目前<br>
+step 交互一步</p>
+<h3 id="step-输出参数">Step 输出参数</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592342821467.png" alt="" loading="lazy"></figure>
+<ol>
+<li>1-36 位置（36格内的位置）</li>
+<li>-1 reward(奖励，每走一步会有惩罚，目标最少步数走完)</li>
+<li>true/false 游戏是否完成</li>
+<li>info 额外信息</li>
+</ol>
+<h3 id="git-clone-depth1">git clone --depth=1</h3>
+<blockquote>
+<p>depth 用于指定克隆深度，为 1 即表示只克隆最近一次 commit. 可以解决项目过大的问题</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592343683260.png" alt="" loading="lazy"></figure>
+<p>拓展：<a href="https://www.zhihu.com/question/23474039/answer/269526476">为什么有人说 Python 的多线程是鸡肋呢？</a></p>
+<p>图片来源：<a href="https://aistudio.baidu.com/aistudio/projectdetail/560767">PARL 强化学习公开课 Lesson1</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[系统设计5 基于地理位置的信息系统（Location based service)]]></title>
-        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/</id>
-        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/">
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/">
         </link>
         <updated>2020-06-12T02:09:06.000Z</updated>
         <content type="html"><![CDATA[<h2 id="rpcremote-procedure-call">RPC(remote procedure call)</h2>
@@ -270,8 +270,8 @@ Uber 使用城市 Sharding</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[nestjs 统一返回格式]]></title>
-        <id>https://yueqingsheng.github.io/post/nestjs-tong-yi-fan-hui-ge-shi/</id>
-        <link href="https://yueqingsheng.github.io/post/nestjs-tong-yi-fan-hui-ge-shi/">
+        <id>https://yueqingsheng.github.io/nestjs-tong-yi-fan-hui-ge-shi/</id>
+        <link href="https://yueqingsheng.github.io/nestjs-tong-yi-fan-hui-ge-shi/">
         </link>
         <updated>2020-06-11T12:40:09.000Z</updated>
         <content type="html"><![CDATA[<h2 id="统一返回格式">统一返回格式</h2>
@@ -377,8 +377,8 @@ bootstrap();
     </entry>
     <entry>
         <title type="html"><![CDATA[系统设计4 API设计和短网址]]></title>
-        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-4-duan-lian-jie/</id>
-        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-4-duan-lian-jie/">
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-4-duan-lian-jie/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-4-duan-lian-jie/">
         </link>
         <updated>2020-06-10T07:55:26.000Z</updated>
         <content type="html"><![CDATA[<h2 id="网站系统域名">网站系统，域名</h2>
@@ -442,8 +442,8 @@ centralized mysql + distributed memcached<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[系统设计 3 sharding&hash]]></title>
-        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-3-databaseandhash/</id>
-        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-3-databaseandhash/">
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-3-databaseandhash/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-3-databaseandhash/">
         </link>
         <updated>2020-06-07T15:56:36.000Z</updated>
         <content type="html"><![CDATA[<h2 id="scale">Scale</h2>
@@ -503,8 +503,8 @@ centralized mysql + distributed memcached<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[随想]]></title>
-        <id>https://yueqingsheng.github.io/post/sui-xiang 2/</id>
-        <link href="https://yueqingsheng.github.io/post/sui-xiang 2/">
+        <id>https://yueqingsheng.github.io/sui-xiang 2/</id>
+        <link href="https://yueqingsheng.github.io/sui-xiang 2/">
         </link>
         <updated>2020-06-07T05:36:42.000Z</updated>
         <summary type="html"><![CDATA[<p>会记录一些突然想到的想法到这里</p>
@@ -523,8 +523,8 @@ centralized mysql + distributed memcached<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[jupyter]]></title>
-        <id>https://yueqingsheng.github.io/post/jupyter/</id>
-        <link href="https://yueqingsheng.github.io/post/jupyter/">
+        <id>https://yueqingsheng.github.io/jupyter/</id>
+        <link href="https://yueqingsheng.github.io/jupyter/">
         </link>
         <updated>2020-06-03T07:31:05.000Z</updated>
         <content type="html"><![CDATA[<h2 id="自动输出多行">自动输出多行</h2>
@@ -537,8 +537,8 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[系统设计 Week 2 Database&Cache(数据库和缓存)]]></title>
-        <id>https://yueqingsheng.github.io/post/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/</id>
-        <link href="https://yueqingsheng.github.io/post/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/">
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-week-2-databaseandcacheshu-ju-ku-he-huan-cun/">
         </link>
         <updated>2020-06-02T20:51:55.000Z</updated>
         <content type="html"><![CDATA[<h2 id="用户系统">用户系统</h2>

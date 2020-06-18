@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<link rel="apple-touch-icon"
+  href="https://cdn.jsdelivr.net/gh/chiperman/Blog-photos/./img/iocn/aojep-i6dt9.49j3g5o9xbg.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<meta name="apple-mobile-web-app-title" content="XiaoX 博客">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>青春有你2 评论分析拓展 | Random thoughts</title>
+
+<link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
+  rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<!-- 下面是我自己的iconfont -->
+<link href="https://at.alicdn.com/t/font_1651848_9ur7s2zwgll.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://yueqingsheng.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+
+<script>
+  wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+    live: true
+  });
+  wow.init();
+</script>
+
+</head>
+
+<body class="post-template-default single single-post postid-70 single-format-standard">
+	<div id="wrapper">
+				<header id="header" class="site-header" 
+			style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://pic2.zhimg.com/v2-9886dcf26fb3e8c265230da710fbe3ad_r.jpg)"
+			>
+			<div class="site-branding">
+				<h1 class="site-title">
+					<div class="post-title-name">
+						<a href="https://yueqingsheng.github.io" rel="home">青春有你2 评论分析拓展</a>
+					</div>
+				</h1>
+				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
+			</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+						
+
+						<li>
+
+							<a href="https://yueqingsheng.github.io"> 首页</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/log"> 日志</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/cheatsheet"> 手册</a></li>
+
+						
+
+						<li>
+
+							<a href="/tags"> 标签</a></li>
+
+						
+
+					</ul>
+					</li>
+
+					</ul>
+				</div>
+			</nav>
+
+			<div class="jingge">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			<form id="gridea-search-form" data-update="1592451912116" action="/search/index.html">
+				<div class="search-box">
+					<input class="search-txt" name="q" placeholder="Type to search" />
+					<a class="search-btn">
+						<i class="iconfont icon-search1" action="/search/index.html"></i>
+					</a>
+				</div>
+			</form>
+		</header>
+		<div id="content" class="container">
+			<div class="row">
+				<div class="col-md-8 site-main">
+					<article id="post-70"
+						class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+						<div class="entry-content">
+							<div class="entry-meta">
+								<div class="entry-info">
+									<time>
+										2020-04-19
+									</time>
+									<span>
+										5 min read
+									</span>
+									<!-- id 将作为查询条件 -->
+									<span id="/qing-chun-you-ni-2-ping-lun-fen-xi 2/" class="leancloud_visitors"  data-flag-title="青春有你2 评论分析拓展">
+										<span class="leancloud-visitors-count"></span>次阅读
+									</span>
+									<span class="isTop">
+										<script type="text/javascript">
+											var isTop;
+											isTop = false;
+											if (isTop == true) {
+												// document.write("<i class="iconfont icon-icon-test"></i>")
+												document.write("<span>⭐ Top</span>");
+											}
+										  </script>
+									</span>
+								</div>
+							</div>
+							<div class="wow zoomIn entry-summary song">
+								<p>2020/4/30 更新</p>
+<h2 id="1-多线程数据爬取">1. 多线程数据爬取</h2>
+<h3 id="获取视频列表">获取视频列表</h3>
+<p>获取视频列表的url为https://www.iqiyi.com/v_19ryi480ks.html。 即任意一期右侧的正片这一栏。<img src="https://yueqingsheng.github.io/post-images/1588097362211.png" alt="" loading="lazy"><br>
+找到 li标签下 class为play-list-item的data-td属性<br>
+<img src="https://yueqingsheng.github.io/post-images/1588098764168.png" alt="" loading="lazy"><br>
+<strong>需要注意爬取后的列表第一个为预告，可以去掉，这里只爬取所有正片</strong></p>
+<h3 id="获取评论列表">获取评论列表</h3>
+<p><a href="https://sns-comment.iqiyi.com/v3/comment/get_comments.action?agent_type=118&amp;agent_version=9.11.5&amp;authcookie=null&amp;business_type=17&amp;content_id=15533381100&amp;hot_size=0&amp;last_id=15533381100&amp;page=4&amp;page_size=40&amp;types=time">接口</a></p>
+<blockquote>
+<p>url参数：<br>
+content_id: 视频id 通过上方的的视频列表中获取<br>
+last_id: 上个最后的视频id，每次获取完成后，使用最后一个id，作为下次获取的last_id<br>
+page: 翻页的页数<br>
+page_size: 每页评论的个数<br>
+upremaining: 1最后一页， 0 后面还有内容</p>
+</blockquote>
+<h4 id="如何获取全部评论">如何获取全部评论</h4>
+<p>两个思路</p>
+<ol>
+<li>检查lastid 是否重复了，说明获取到最后一个</li>
+<li>其实返回的data里有一个参数，&quot;upremaining&quot;:0。检查这个为1就可以了。</li>
+</ol>
+<p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
+<strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
+<strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论,总共花了1分3秒。不用多线程的话，估计要20多分钟。</strong><br>
+截至2020日4月29日总共爬取了254287条数据。</p>
+<h2 id="2-数据清洗">2. 数据清洗</h2>
+<p>发现很多评论里出现多次刷同一个选手名的现象。所以做一下选手名去重，这样能在预测选手成绩时能保证合理性，防止多计算出现次数。<br>
+如: 虞书欣虞书欣虞书欣虞书欣虞书欣冲呀！！！<br>
+清洗后为 虞书欣冲呀！！！</p>
+<h2 id="3-分词">3. 分词</h2>
+<p><strong>数据请求后, 评论列表不再改变可以转化为tuple使用, tuple的access速度会比list快</strong><br>
+使用tuple分词用了 9分3秒，会比list快十几秒。</p>
+<h2 id="4-选手词频统计">4. 选手词频统计</h2>
+<p>经过26万条评论统计，按前20选手姓名出现频率排序<br>
+<img src="https://yueqingsheng.github.io/post-images/1588269289897.png" alt="" loading="lazy"><br>
+人名去重后，词频少了很多。<br>
+<img src="https://yueqingsheng.github.io/post-images/1588641843216.jpg" alt="" loading="lazy"><br>
+根据25号官方排名，前9名内除第9不一样，其他基本吻合。</p>
+<h2 id="5-词云">5. 词云</h2>
+<p>按照词频显示词云<br>
+<img src="https://yueqingsheng.github.io/post-images/1588269308723.png" alt="" loading="lazy"><br>
+之前用形状和上色绘制了下词云，但是感觉效果没有原生的好。(这个是基于1000条数据生成的)<br>
+<img src="https://yueqingsheng.github.io/post-images/1588211480849.png" alt="" loading="lazy"></p>
+<h2 id="6-节目评价">6. 节目评价</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1588210836624.png" alt="" loading="lazy"><br>
+总体还是正向和中性评价占了绝大多数，95%。<br>
+随机打印一点 评价<br>
+正向：<br>
+['因为看了书欣的电视剧才来看这个的，喜欢她的性格', '我也喜欢左卓', '好喜欢刘雨昕！', '我真的太爱刘雨昕了', '好看好看', '看了这期，真的很心疼喻言', '安崎反差萌真的绝了，好看的颜值和有趣的灵魂她都拥有。', '我也喜欢虞书欣', '虞书欣加油', '冲着虞书欣搞笑视频来的，后面发现太太太多想pick的了。这种模式是看的第一个，努力又融洽的氛围真好。']<br>
+中性：<br>
+['乃万！', '乃万', '我要去看男团了拜拜，记得给我点赞', '大家要帮忙投票了吗我这儿还有13票', '大家有要帮忙投票的吗我还有14', '虞书欣', '乃万简直是可盐可甜可rap 可vocal， 随时写词的到处撩妹的博爱艺术家 。', '谢可寅小姐姐要加油喽。', '刘雨昕', '林凡']<br>
+负面;<br>
+['刘雨昕你咋不是个男的啊太帅了', '看得累死了磨磨叽叽', '我爱死所有训练生了', '傅如乔 爱死你了', '我就是看美女跳舞的，谁是谁，这个真不关心，长的都挺好看的，挺养眼', ''安琪的肚子真的不好看 感觉肚子肉好多 总喜欢露着腰,'入股不亏', '赵小棠什么鬼哦！', '真失望  为什么不是刘雨欣！  突然不想看了', '不要脸', '小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！真的很棒！']</p>
+<p><strong>模型把很多人名识别成了中性词，对英文的词性识别可能还不是很好。</strong><br>
+<strong>有一些负面评价识别还行，但是也有不准的时候。比如“爱死了”， &quot;小蝴蝶胡馨尹很棒，呜呜呜不好意思之前没有发现你，不管在哪里都要继续加油呀！&quot;可能把呜呜呜识别成负面了。</strong></p>
+<h2 id="总结">总结</h2>
+<p>跟原项目主要区别：多进程爬虫，多视频爬取，选手名去重，list改用tuple<br>
+经过爬取所有评论和同一句子人名去重后，发现数据可视化后还是变化挺大的。有很多人一个评论发很多重复的一个人名。</p>
+<h3 id="可拓展方面">可拓展方面</h3>
+<p>评论生成，用文本生成模型生成一些青春有你相关的评论。<br>
+其实表情也是很好的反映观众心情的label, 也可以做这方面情感分析，finetuning 一下。根据评论生成表情，也会很有意思。<br>
+评论中还包括了大量的图片和动图，抓取下来，也可以做一些相应的拓展。<br>
+评论的用户信息分析，如地区</p>
+<p>生成一个动态直方图，用户根据日期看不同日期的统计变化。<a href="https://www.bilibili.com/video/BV1za4y1x768?spm_id_from=333.905.b_72656c61746564.2">参考视频，随便一个视频几万的播放量，我酸了</a></p>
+
+							</div>
+							<div class="wow zoomIn vt-post-tags">
+								
+							</div>
+							<nav class="navigation3 post-navigation3" role="navigation">
+
+								<div class="nav-links3">
+									
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/nestjs-hou-duan-dai-ma-zi-dong-sheng-cheng-shu-ju-biao-curd-jie-kou-wen-dang 2/"
+											rel="prev"> nestjs 后端代码自动生成（数据表，curd接口，文档）</a></div>
+									
+									
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/vue 2/"
+											rel="next"> Vue</a></div>
+									
+								</div>
+							</nav>
+							<div class="wow zoomIn author-info" style="visibility: visible; animation-name: zoomIn;">
+								<div class="author-avatar pull-left"><img
+										src="https://yueqingsheng.github.io/images/avatar.png"></div>
+								
+								<div class="author-description">
+									<div class="author-title">
+										<div class="author-link" rel="author">Pikachu</div>
+									</div>
+									
+									
+									<p class="author-bio">I am a real pikachu!</p>
+								</div>
+							</div>
+							
+						</div>
+					</article>
+					<div id="marlin_lite_about_widget-2" class="wow zoomIn widget marlin_lite_about_widget"
+						data-wow-delay="0.1s">
+
+						
+						<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://yueqingsheng.github.io/media/scripts/Valine.min.js'></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            visitor: true,
+            
+            admin_email:'shengyueqing@gmail.com',
+            
+            
+            emoticon_url: 'cloud.panjunwen.com/alu',
+             
+            emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+            
+                app_id: '9vtiINMPgbFcdSycGh2Caf3c-gzGzoHsz',
+                 	
+            
+                app_key: '4eMRDOWuv7ieh8e6YRVeyklF',
+            	
+            
+                placeholder: '欢迎评论😊'
+            
+        });
+    </script> 
+
+
+					</div>
+				</div>
+				<div class="tocc col l3 hide-on-med-and-down">
+
+    <div class="toc-widget">
+
+        <div class="toc-title"></div>
+
+        <div id="toc-content">
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+
+    $(function () {
+        var bt;
+        bt = $('.toc-widget');
+        if ($(document).width() > 480) {
+            $(window).scroll(function () {
+                var st;
+                st = $(window).scrollTop();
+                if (st > 450) {
+                    return bt.css('display', 'block');
+                } else {
+                    return bt.css('display', 'none');
+                }
+            })
+        }
+    });
+</script>
+			</div>
+		</div>
+		<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="copyright">
+			Don't cry because it's over, Smile because it happened.
+			<b>Crafted with 💔 by <a href="https://chiperman.github.io/about/" target="_blank">chiperman</a></b>
+			<br>
+			<b>Eleven forever.</b>
+			<br>
+			<span class="runtime">
+				「我」已经运行了<script type="text/javascript">
+					var urodz = new Date("13/03/2020");
+					var now = new Date();
+					var ile = now.getTime() - urodz.getTime();
+					var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
+					document.write(+dni)
+				</script>天
+				<br>
+			</span>
+			<b>Theme: </b>
+			<a href="https://github.com/chiperman/gridea-theme-xiaox" target="_blank" title="Pan">
+				<span><b>Pan - XiaoX</b></span>
+			</a>
+			<b>. Powered by </b>
+			<a href="https://gridea.dev/" target="_blank" title="Gridea">
+				<span><b>Gridea</b></span>
+			</a>
+		</div>
+	</div><!-- .container -->
+</footer><!-- #colophon -->
+	</div>
+
+	<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+
+<script
+  src="https://cdn.jsdelivr.net/gh/YueqingSheng/yueqingsheng.github.io/media/scripts/marlin-scripts.js">
+</script>
+
+<script src="//tokinx.github.io/lately/lately.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+    $.lately({
+      'target': '.lately-a,.lately-b,.lately-c'
+    })
+  });
+</script>
+<style type="text/css">
+  /* 一键到顶部 */
+  a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 65px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.back_to_top span {
+    color: #888;
+  }
+
+  a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.back_to_top:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .back_to_top {
+      display: none !important;
+    }
+  }
+
+  /* 一键到底部 */
+
+  a.down_to_bottom {
+    text-decoration: none;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.down_to_bottom span {
+    color: #888;
+  }
+
+  a.down_to_bottom:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.down_to_bottom:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .down_to_bottom {
+      display: none !important;
+    }
+  }
+</style>
+
+
+<a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+<a id="down_to_bottom" href="#" class="down_to_bottom"><span><i class="iconfont icon-xiangxia"></i></span>
+</a>
+
+<script src="//instant.page/3.0.0" type="module" defer
+  integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+<script>
+  function getScrollTop() {
+    var scrollTop = 0,
+      bodyScrollTop = 0,
+      documentScrollTop = 0;
+    if (document.body) {
+      bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+      documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+  };
+
+  function getScrollHeight() {
+    var scrollHeight = 0,
+      bodyScrollHeight = 0,
+      documentScrollHeight = 0;
+    if (document.body) {
+      bSH = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+      dSH = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bSH - dSH > 0) ? bSH : dSH;
+    return scrollHeight;
+  };
+
+  function getWindowHeight() {
+    var windowHeight = 0;
+    if (document.compatMode == "CSS1Compat") {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+  };
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block');
+          } else {
+            return bt.css('display', 'none');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#down_to_bottom');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (getScrollTop() + getWindowHeight() == getScrollHeight()) {
+            return bt.css('display', 'none');
+          } else {
+            return bt.css('display', 'block');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: $('body,html')[0].scrollHeight
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+</script>
+	<script data-no-instant>
+		(function ($) {
+			$.extend({
+				adamsOverload: function () {
+					$('.navigation:eq(0)').remove();
+					$("").attr("rel", "external");
+					$("a[rel='external'],a[rel='external nofollow']").attr("target", "_blank");
+					$("a.vi").attr("rel", "");
+					$.viewImage({
+						'target': 'img',
+						'exclude': '.vsmile-icons img,.gallery img',
+						'delay': 300
+					});
+					$.lately({
+						'target': '.commentmetadata a,.infos time,.post-list time'
+					});
+					prettyPrint();
+
+					$('ul.links li a').each(function () {
+						if ($(this).parent().find('.bg').length == 0) {
+							$(this).parent().append(
+								'<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain=' +
+								$(this).attr("href") + ')"></div>--->')
+						}
+					});
+				}
+			});
+		})(jQuery);
+		jQuery.adamsOverload();
+	</script>
+
+</body>
+
+</html>

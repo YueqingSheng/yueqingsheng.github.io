@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<link rel="apple-touch-icon"
+  href="https://cdn.jsdelivr.net/gh/chiperman/Blog-photos/./img/iocn/aojep-i6dt9.49j3g5o9xbg.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<meta name="apple-mobile-web-app-title" content="XiaoX 博客">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>系统设计 3 sharding&amp;hash | Random thoughts</title>
+
+<link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
+  rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<!-- 下面是我自己的iconfont -->
+<link href="https://at.alicdn.com/t/font_1651848_9ur7s2zwgll.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://yueqingsheng.github.io/media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/js/Card/prism.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@1.0.12/CDN/css/Card/prism.min.css" />
+
+<script>
+  wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+    live: true
+  });
+  wow.init();
+</script>
+
+</head>
+
+<body class="post-template-default single single-post postid-70 single-format-standard">
+	<div id="wrapper">
+				<header id="header" class="site-header" >
+			<div class="site-branding">
+				<h1 class="site-title">
+					<div class="post-title-name">
+						<a href="https://yueqingsheng.github.io" rel="home">系统设计 3 sharding&amp;hash</a>
+					</div>
+				</h1>
+				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
+			</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+						
+
+						<li>
+
+							<a href="https://yueqingsheng.github.io"> 首页</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/log"> 日志</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/cheatsheet"> 手册</a></li>
+
+						
+
+						<li>
+
+							<a href="/tags"> 标签</a></li>
+
+						
+
+					</ul>
+					</li>
+
+					</ul>
+				</div>
+			</nav>
+
+			<div class="jingge">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			<form id="gridea-search-form" data-update="1592451912116" action="/search/index.html">
+				<div class="search-box">
+					<input class="search-txt" name="q" placeholder="Type to search" />
+					<a class="search-btn">
+						<i class="iconfont icon-search1" action="/search/index.html"></i>
+					</a>
+				</div>
+			</form>
+		</header>
+		<div id="content" class="container">
+			<div class="row">
+				<div class="col-md-8 site-main">
+					<article id="post-70"
+						class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+						<div class="entry-content">
+							<div class="entry-meta">
+								<div class="entry-info">
+									<time>
+										2020-06-07
+									</time>
+									<span>
+										2 min read
+									</span>
+									<!-- id 将作为查询条件 -->
+									<span id="/xi-tong-she-ji-3-databaseandhash/" class="leancloud_visitors"  data-flag-title="系统设计 3 sharding&amp;hash">
+										<span class="leancloud-visitors-count"></span>次阅读
+									</span>
+									<span class="isTop">
+										<script type="text/javascript">
+											var isTop;
+											isTop = false;
+											if (isTop == true) {
+												// document.write("<i class="iconfont icon-icon-test"></i>")
+												document.write("<span>⭐ Top</span>");
+											}
+										  </script>
+									</span>
+								</div>
+							</div>
+							<div class="wow zoomIn entry-summary song">
+								<h2 id="scale">Scale</h2>
+<h3 id="qps">QPS</h3>
+<h3 id="single-point-failure一台服务器挂">Single point failure(一台服务器挂)</h3>
+<h4 id="sharding-数据拆分">sharding 数据拆分</h4>
+<ol>
+<li>解决 single point failure</li>
+<li>分摊流量</li>
+</ol>
+<h4 id="replica-数据复制">replica 数据复制</h4>
+<ol>
+<li>数据恢复</li>
+<li>分摊流量</li>
+</ol>
+<h2 id="数据库拆分">数据库拆分</h2>
+<h2 id="竖向拆分">竖向拆分</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591722453484.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591722492145.png" alt="" loading="lazy"><br>
+缺点： 当表单特别大，column无法拆分时无法用</p>
+<h2 id="横向拆分">横向拆分</h2>
+<p><strong>新数据放新机器，老数据放老机器的问题是什么？</strong><br>
+根据数据的新旧程度来拆分的话，新数据的访问次数比旧数据的访问次数是要明显多的，会导致数据访问不均匀的问题。<br>
+这种方法并不会导致存储不均匀，最多只有最新的一台机器的数据相对少一些，其他的机器都还是均匀的。也不会导致不知道数据去哪台机器取，比如根据 id 来拆分，0~99在1号机器，1-199 在2号机器的话，根据 id 可以算出对应的机器是哪个<br>
+<img src="https://yueqingsheng.github.io/post-images/1591722936674.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591722974334.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591723056231.png" alt="" loading="lazy"><br>
+75%的数据迁移</p>
+<h2 id="一致性哈希算法">一致性哈希算法</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591724662966.png" alt="" loading="lazy"><br>
+匀走相邻两台机器的一部分数据</p>
+<h3 id="缺陷">缺陷：</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1591724873965.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591724909043.png" alt="" loading="lazy"></p>
+<h2 id="改进">改进：</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1591725237232.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1591725356209.png" alt="" loading="lazy"><br>
+红黑树（balanced tree）</p>
+<h2 id="数据复制-replica">数据复制 Replica</h2>
+<h3 id="replica-vs-backup">Replica vs Backup</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1591725861122.png" alt="" loading="lazy"></figure>
+<h3 id="sql">SQL</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591725986397.png" alt="" loading="lazy"></figure>
+<h3 id="nosql">NoSQL</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1591726102538.png" alt="" loading="lazy"></figure>
+<h2 id="实战1user-table-sharding">实战1：User Table Sharding</h2>
+<p>怎么取数据就怎么拆数据库<br>
+按照 username找用户 查username-&gt;id表<br>
+<img src="https://yueqingsheng.github.io/post-images/1591752365390.png" alt="" loading="lazy"></p>
+<h2 id="实战2friendship-table-sharding">实战2：Friendship Table Sharding</h2>
+<p>双向好友关系，必须存两条关系</p>
+<h2 id="实战4-news-feedtimeline-sharding">实战4： News Feed/Timeline Sharding</h2>
+<p>owner id/userid</p>
+<h2 id="实战5-lintcode-submission-userproblemstatus">实战5： LintCode Submission (user/problem/status)</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1591753013575.png" alt="" loading="lazy"></figure>
+
+							</div>
+							<div class="wow zoomIn vt-post-tags">
+								
+							</div>
+							<nav class="navigation3 post-navigation3" role="navigation">
+
+								<div class="nav-links3">
+									
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/xi-tong-she-ji-4-duan-lian-jie/"
+											rel="prev"> 系统设计4 API设计和短网址</a></div>
+									
+									
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/sui-xiang 2/"
+											rel="next"> 随想</a></div>
+									
+								</div>
+							</nav>
+							<div class="wow zoomIn author-info" style="visibility: visible; animation-name: zoomIn;">
+								<div class="author-avatar pull-left"><img
+										src="https://yueqingsheng.github.io/images/avatar.png"></div>
+								
+								<div class="author-description">
+									<div class="author-title">
+										<div class="author-link" rel="author">Pikachu</div>
+									</div>
+									
+									
+									<p class="author-bio">I am a real pikachu!</p>
+								</div>
+							</div>
+							
+						</div>
+					</article>
+					<div id="marlin_lite_about_widget-2" class="wow zoomIn widget marlin_lite_about_widget"
+						data-wow-delay="0.1s">
+
+						
+						<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://yueqingsheng.github.io/media/scripts/Valine.min.js'></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            visitor: true,
+            
+            admin_email:'shengyueqing@gmail.com',
+            
+            
+            emoticon_url: 'cloud.panjunwen.com/alu',
+             
+            emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+            
+                app_id: '9vtiINMPgbFcdSycGh2Caf3c-gzGzoHsz',
+                 	
+            
+                app_key: '4eMRDOWuv7ieh8e6YRVeyklF',
+            	
+            
+                placeholder: '欢迎评论😊'
+            
+        });
+    </script> 
+
+
+					</div>
+				</div>
+				<div class="tocc col l3 hide-on-med-and-down">
+
+    <div class="toc-widget">
+
+        <div class="toc-title"></div>
+
+        <div id="toc-content">
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+
+    $(function () {
+        var bt;
+        bt = $('.toc-widget');
+        if ($(document).width() > 480) {
+            $(window).scroll(function () {
+                var st;
+                st = $(window).scrollTop();
+                if (st > 450) {
+                    return bt.css('display', 'block');
+                } else {
+                    return bt.css('display', 'none');
+                }
+            })
+        }
+    });
+</script>
+			</div>
+		</div>
+		<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="copyright">
+			Don't cry because it's over, Smile because it happened.
+			<b>Crafted with 💔 by <a href="https://chiperman.github.io/about/" target="_blank">chiperman</a></b>
+			<br>
+			<b>Eleven forever.</b>
+			<br>
+			<span class="runtime">
+				「我」已经运行了<script type="text/javascript">
+					var urodz = new Date("13/03/2020");
+					var now = new Date();
+					var ile = now.getTime() - urodz.getTime();
+					var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
+					document.write(+dni)
+				</script>天
+				<br>
+			</span>
+			<b>Theme: </b>
+			<a href="https://github.com/chiperman/gridea-theme-xiaox" target="_blank" title="Pan">
+				<span><b>Pan - XiaoX</b></span>
+			</a>
+			<b>. Powered by </b>
+			<a href="https://gridea.dev/" target="_blank" title="Gridea">
+				<span><b>Gridea</b></span>
+			</a>
+		</div>
+	</div><!-- .container -->
+</footer><!-- #colophon -->
+	</div>
+
+	<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+
+<script
+  src="https://cdn.jsdelivr.net/gh/YueqingSheng/yueqingsheng.github.io/media/scripts/marlin-scripts.js">
+</script>
+
+<script src="//tokinx.github.io/lately/lately.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+    $.lately({
+      'target': '.lately-a,.lately-b,.lately-c'
+    })
+  });
+</script>
+<style type="text/css">
+  /* 一键到顶部 */
+  a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 65px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.back_to_top span {
+    color: #888;
+  }
+
+  a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.back_to_top:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .back_to_top {
+      display: none !important;
+    }
+  }
+
+  /* 一键到底部 */
+
+  a.down_to_bottom {
+    text-decoration: none;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+  }
+
+  a.down_to_bottom span {
+    color: #888;
+  }
+
+  a.down_to_bottom:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+  }
+
+  a.down_to_bottom:hover span {
+    color: #555;
+  }
+
+  @media print,
+  screen and (max-width: 580px) {
+    .down_to_bottom {
+      display: none !important;
+    }
+  }
+</style>
+
+
+<a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+<a id="down_to_bottom" href="#" class="down_to_bottom"><span><i class="iconfont icon-xiangxia"></i></span>
+</a>
+
+<script src="//instant.page/3.0.0" type="module" defer
+  integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+<script>
+  function getScrollTop() {
+    var scrollTop = 0,
+      bodyScrollTop = 0,
+      documentScrollTop = 0;
+    if (document.body) {
+      bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+      documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+  };
+
+  function getScrollHeight() {
+    var scrollHeight = 0,
+      bodyScrollHeight = 0,
+      documentScrollHeight = 0;
+    if (document.body) {
+      bSH = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+      dSH = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bSH - dSH > 0) ? bSH : dSH;
+    return scrollHeight;
+  };
+
+  function getWindowHeight() {
+    var windowHeight = 0;
+    if (document.compatMode == "CSS1Compat") {
+      windowHeight = document.documentElement.clientHeight;
+    } else {
+      windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+  };
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block');
+          } else {
+            return bt.css('display', 'none');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+
+  $(document).ready((function (_this) {
+    return function () {
+      var bt;
+      bt = $('#down_to_bottom');
+      if ($(document).width() > 480) {
+        $(window).scroll(function () {
+          var st;
+          st = $(window).scrollTop();
+          if (getScrollTop() + getWindowHeight() == getScrollHeight()) {
+            return bt.css('display', 'none');
+          } else {
+            return bt.css('display', 'block');
+          }
+        });
+        return bt.click(function () {
+          $('body,html').animate({
+            scrollTop: $('body,html')[0].scrollHeight
+          }, 800);
+          return false;
+        });
+      }
+    };
+  })(this));
+</script>
+	<script data-no-instant>
+		(function ($) {
+			$.extend({
+				adamsOverload: function () {
+					$('.navigation:eq(0)').remove();
+					$("").attr("rel", "external");
+					$("a[rel='external'],a[rel='external nofollow']").attr("target", "_blank");
+					$("a.vi").attr("rel", "");
+					$.viewImage({
+						'target': 'img',
+						'exclude': '.vsmile-icons img,.gallery img',
+						'delay': 300
+					});
+					$.lately({
+						'target': '.commentmetadata a,.infos time,.post-list time'
+					});
+					prettyPrint();
+
+					$('ul.links li a').each(function () {
+						if ($(this).parent().find('.bg').length == 0) {
+							$(this).parent().append(
+								'<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain=' +
+								$(this).attr("href") + ')"></div>--->')
+						}
+					});
+				}
+			});
+		})(jQuery);
+		jQuery.adamsOverload();
+	</script>
+
+</body>
+
+</html>
