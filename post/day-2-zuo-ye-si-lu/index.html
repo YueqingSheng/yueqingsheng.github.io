@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>nestjs的坑 | Random thoughts</title>
+<title>Day 2 作业思路 | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -44,13 +44,11 @@
 
 <body class="post-template-default single single-post postid-70 single-format-standard">
 	<div id="wrapper">
-				<header id="header" class="site-header" 
-			style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://images.unsplash.com/photo-1590013330575-05efd5b0be61?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80)"
-			>
+				<header id="header" class="site-header" >
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">nestjs的坑</a>
+						<a href="https://yueqingsheng.github.io" rel="home">Day 2 作业思路</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -144,13 +142,13 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-03-28
+										2020-06-14
 									</time>
 									<span>
 										2 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/nestjs-de-keng 2/" class="leancloud_visitors"  data-flag-title="nestjs的坑">
+									<span id="/day-2-zuo-ye-si-lu/" class="leancloud_visitors"  data-flag-title="Day 2 作业思路">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -166,57 +164,52 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<p>不定期更新</p>
-<!-- more -->
-<h2 id="变量名">变量名</h2>
-<p>变量命名时尽量不要用type, class 这些名称，以免用的时候，报一些奇怪的错误。编译器不知道是，自定义的名，还是语法里的意思。comment 也是关键字，需自己导包，我也是服了。</p>
-<h2 id="eager">eager</h2>
-<p>eager 谨慎使用，特别是relation有相互包含的时候。必须只能加在一边，防止重复包含，导致stack overflow。<br>
-eager 只会在find里生效,querybuilder 必须join</p>
-<h2 id="find">find</h2>
-<p>find 有很多选项足够用了可以代替 queryBuilder</p>
-<h2 id="onetomany-save">OneToMany Save</h2>
-<p>例子： 商品储存多个价格， data 是发送的商品数据，其中包含了price</p>
-<pre><code class="language-typescript">    data.price = await this.priceRepository.save(price);
-    data = await this.repository.create(data);
-    return await this.repository.save(data);
+								<h2 id="第一步把-q-table-看一下">第一步把 Q table 看一下</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592440727420.png" alt="" loading="lazy"><br>
+16行4列的np array， 每一格为Q(state, action)的值</p>
+<h2 id="sample和predict-就是epsilon-greedy算法">sample和predict:  就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>-greedy算法</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592439809913.png" alt="" loading="lazy"></figure>
+<h3 id="sample">sample</h3>
+<p>在 0-1 roll 一个数，如果这个数小于等于1- <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span> 就触发argmax事件，否则触发随机行动。</p>
+<p>可能会用到的函数：</p>
+<blockquote>
+<p>numpy.random.uniform(low=0.0, high=1.0, size=None)<br>
+在 low 到 high 范围取size个样本，默认0到1取一个样本</p>
+</blockquote>
+<blockquote>
+<p>numpy.random.choice(a, size=None, replace=True, p=None)<br>
+从 a 列表里随机选size个数， a可以是1维列表或者int, int的话就是 range(a)<br>
+Parameters: a: If an ndarray, a random sample is generated from its elements. If an int, the random sample is generated as if a was np.arange(n)</p>
+</blockquote>
+<h3 id="predict">predict</h3>
+<p>从第 s/obs 行，取 Q 值最大的 a。=&gt; find the max index of value，即求最大值的坐标。<br>
+因为有可能有多个最大值，我们不想每次都走同一个action, 所以从这些最大值的坐标随机出一个。</p>
+<p>可能会用到的函数：</p>
+<blockquote>
+<p>从 2D Numpy Array 选某行：  ndArray[row_index] 或者 ndArray[row_index, :]<br>
+numpy.where(condition) 输出满足条件 ((condition)) 元素的坐标 (等价于numpy.nonzero)。这里的坐标以tuple的形式给出。</p>
+</blockquote>
+<p>这里 np.where 返回类似 (array([0, 1, 2, 3]),) 元组这种格式。所以用下标取出第一个array</p>
+<h2 id="learn">learn</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592444105446.png" alt="" loading="lazy"><br>
+这里就是先把方括号里的算出来，再乘 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span> 加上原来的值<br>
+Q learning 的 sample 和 predict 和 Sarsa 完全一样，唯一就是 更新 Q 的公式不同。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592428118258.png" alt="" loading="lazy"></p>
+<h2 id="显示视图">显示视图</h2>
+<p>把 test_episode 里的这两行反注释掉<br>
+<img src="https://yueqingsheng.github.io/post-images/1592449956397.png" alt="" loading="lazy"><br>
+gridworld.py 下载地址：https://raw.githubusercontent.com/PaddlePaddle/PARL/develop/examples/tutorials/lesson1/gridworld.py</p>
+<pre><code class="language-python">from gridworld import FrozenLakeWapper
+env = gym.make(&quot;FrozenLake-v0&quot;, is_slippery=False) 
+env = FrozenLakeWapper(env)
 </code></pre>
-<p>注意 data.price 这一步是必须的，是为了更新刚储存完的id号，typeorm 用id 来建立关系</p>
-<h2 id="环境变量">环境变量</h2>
-<p>process.env. 在for root里不好使，即使在main.ts里提前执行了config()。<br>
-非 for root 使用 require('dotenv').config() rocess.env.<br>
-for root 使用 aynscfor root<br>
-在服务器更新 .env 文件<br>
-##数据库更新<br>
-typeorm 更新的很随缘，如果发现数据格式不符bug。可以把dist文件夹删了 重跑一遍。<br>
-如 enum更新，或Column type更新<br>
-typeorm 从 entity.js 读取column 信息。</p>
-<h2 id="controller">Controller</h2>
-<p>切记不要写这种路径 Get(':id') Get('user')</p>
-<h2 id="swagger-paramter">Swagger paramter</h2>
-<p>参数必须声明类型，swagger才能识别到</p>
-<h2 id="nestjsxcrud">nestjsx/crud</h2>
-<p>版本最好4.6.0， 4.5同时get by id和relation会报sql syntax error</p>
-<h2 id="typescript">typescript</h2>
-<p>类型错误或不匹配时候可以强行转成any<br>
-You can always temporarily cast $ to any:<br>
-delete ($ as any).summernote</p>
-<h2 id="mysql-3306-eradr">mysql: 3306 eradr</h2>
-<p>出现这个错误大概率是，.env或production.env 的问题，本地的话检查下port端口，设置为localhost</p>
-<h2 id="observable">Observable</h2>
-<p>nestjs httpservice 默认返回Observable</p>
-<h3 id="observable异常处理">Observable异常处理</h3>
-<pre><code class="language-typescript">      .pipe(
-        catchError(err =&gt; {
-          return of(err.message);
-        }),
-      );
-</code></pre>
-<h3 id="observable值异步处理">Observable值异步处理</h3>
-<pre><code class="language-typescript">    result.subscribe((value)=&gt; {
-      console.log(value);
-    });
-</code></pre>
+<h2 id="错误no-display-name-and-no-display-environment-variable">错误：no display name and no $DISPLAY environment variable</h2>
+<p>Jupyter没有窗口环境，要本地运行，或者远程terminal跑才行</p>
+<h2 id="结果展示">结果展示</h2>
+<h3 id="sarsa">Sarsa</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592448717310.gif" alt="" loading="lazy"></figure>
+<h3 id="q-learning">Q-learning</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592449876779.gif" alt="" loading="lazy"></figure>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -226,12 +219,9 @@ delete ($ as any).summernote</p>
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/post/angular 2/"
-											rel="prev"> Angular</a></div>
 									
-									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/day-10 2/"
-											rel="next"> Day 10</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/post/qiang-hua-xue-xi/"
+											rel="next"> 强化学习 Day 1</a></div>
 									
 								</div>
 							</nav>
