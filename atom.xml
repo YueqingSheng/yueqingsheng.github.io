@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-18T21:30:09.268Z</updated>
+    <updated>2020-06-21T17:21:45.854Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,202 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
+        <title type="html"><![CDATA[Windows 本地运行 Jupyter 作业教程]]></title>
+        <id>https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/</id>
+        <link href="https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/">
+        </link>
+        <updated>2020-06-21T05:04:45.000Z</updated>
+        <content type="html"><![CDATA[<p>推荐 Anaconda 傻瓜式安装，安装完后启动 Jupyter<br>
+<img src="https://yueqingsheng.github.io/post-images/1592759276980.png" alt="" loading="lazy"></p>
+<p>直接在本地运行下载下来的 notebook 会有几个问题，提供下解决方案：</p>
+<h2 id="1-error-invalid-requirement">1. ERROR: Invalid requirement: '#'</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592759420716.png" alt="" loading="lazy"><br>
+当命令行语句和注释在同一行时候会报错，可以把同行的注释去掉，或者挪到上面</p>
+<h2 id="2-module-could-not-be-found-找不到雅达利-乒乓环境">2. module could not be found 找不到雅达利 乒乓环境</h2>
+<p>做如下几步</p>
+<ol>
+<li>
+<p>卸载 gym and atari-py (If already installed):<br>
+pip uninstall atari-py<br>
+pip uninstall gym[atari]</p>
+</li>
+<li>
+<p>下载 VS build 工具 : https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=16</p>
+</li>
+<li>
+<p>运行并选择  &quot;C++ build tools&quot;安装.<br>
+<img src="https://yueqingsheng.github.io/post-images/1592759774751.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>重启电脑</p>
+</li>
+<li>
+<p>安装 cmake, atari-py and gym<br>
+pip install cmake<br>
+pip install atari-py<br>
+pip install gym[atari]</p>
+</li>
+<li>
+<p>跑一下测试:<br>
+import atari_py<br>
+print(atari_py.list_games())<br>
+如果成功会 print 下面</p>
+</li>
+</ol>
+<pre><code>['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
+</code></pre>
+<h2 id="3-wrn-found-non-empty-cuda_visible_devices-but-parl-found-that-paddle-was-not-complied-with-cuda-which-may-cause-issues-keneral-dead">3. WRN Found non-empty CUDA_VISIBLE_DEVICES. But PARL found that Paddle was not complied with CUDA, which may cause issues. keneral dead</h2>
+<p>这个错误 Kernel 会挂掉，然后无限重启，主要是 检测到了电脑里的GPU, 但是没有安装 Cuda 导致的。 因为这里我们只使用 CPU 来跑，所以把 GPU 检测关闭就好了<br>
+在最后运行代码前加上这两行：</p>
+<pre><code>import os
+os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
+        </link>
+        <updated>2020-06-21T03:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
+DQN 扩展到连续控制动作空间<br>
+策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
+Q 网络逼近 Q-target, 使用 MSE<br>
+Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
+为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
+只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计7 GFS]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
+        </link>
+        <updated>2020-06-20T17:13:25.000Z</updated>
+        <content type="html"><![CDATA[<p>as</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day 4 基于策略方法]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/">
+        </link>
+        <updated>2020-06-18T06:28:35.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="value-based-vs-policy-based">Value-based vs policy-based</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592591392361.png" alt="" loading="lazy"><br>
+policy based :  直接求action<br>
+policy based:  输出动作的概率<br>
+<img src="https://yueqingsheng.github.io/post-images/1592591618895.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592591641683.png" alt="" loading="lazy"><br>
+最后一层 softmax<br>
+episode: 每轮游戏<br>
+优化目的： max 每个episode的总reward<br>
+<img src="https://yueqingsheng.github.io/post-images/1592602759204.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592602819167.png" alt="" loading="lazy"><br>
+环境的随机性无法控制</p>
+<h2 id="期望回报">期望回报</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592603030920.png" alt="" loading="lazy"><br>
+环境概率是未知的， N是 episode数。</p>
+<h3 id="优化策略函数">优化策略函数</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592603189106.png" alt="" loading="lazy"><br>
+优化目标 期望回报最大， 梯度上升<br>
+<img src="https://yueqingsheng.github.io/post-images/1592610701005.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592623362667.png" alt="" loading="lazy"><br>
+蒙特卡洛每个 Episode 更新一次， 时序差分每个action更新一次<br>
+<img src="https://yueqingsheng.github.io/post-images/1592623555097.png" alt="" loading="lazy"><br>
+根据公式反向推到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">G_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="reinforce">Reinforce</h2>
+<p>每个 Episode , 通过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>s</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>t</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(s_t, a_t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 求出 G_t, 对于每一步使用 ln 函数更新神经网络参数值<br>
+<img src="https://yueqingsheng.github.io/post-images/1592624092549.png" alt="" loading="lazy"><br>
+类比 Cross entrophy, 因为sum_ln 不一定是正确的acition, 只是真实的action, 所以需要乘上总奖励系数 G<br>
+<img src="https://yueqingsheng.github.io/post-images/1592624728691.png" alt="" loading="lazy"></p>
+<h3 id="流程图">流程图</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592625148267.png" alt="" loading="lazy"></figure>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592625752484.png" alt="" loading="lazy"></figure>
+<p><img src="https://yueqingsheng.github.io/post-images/1592626079005.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592626129133.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
+        </link>
+        <updated>2020-06-16T18:56:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
+<h2 id="scenario">Scenario</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
+微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
+<h2 id="service">Service</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
+<h2 id="storage">Storage</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
+<h3 id="thread-table-会话">Thread table (会话)</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
+有些信息是私有的，未读，静音<br>
+<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
+<h4 id="方法-1">方法 1</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
+私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
+弊端：需要跨表查询比较慢</p>
+<h4 id="方法-2">方法 2</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
+实际情况下使用cache , 减少跨表次数。</p>
+<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
+<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
+<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
+<h2 id="thread-sql">Thread SQL</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
+<h3 id="nosql">NoSQL</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
+<h2 id="可行解">可行解</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>实时<br>
+Push notification<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
+局限性： 无法支持 Web 端<br>
+Socket: 支持 Server push 给客户端<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
+<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
+channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
+因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
+<h3 id="q-a">Q &amp; A</h3>
+<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
+<h2 id="多机登录">多机登录</h2>
+<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
+<h2 id="用户在线状态显示">用户在线状态显示</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[强化学习 Day 3 神经网络方法]]></title>
         <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/</id>
         <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/">
         </link>
-        <updated>2020-06-17T17:28:45.000Z</updated>
+        <updated>2020-06-16T17:28:45.000Z</updated>
         <content type="html"><![CDATA[<h2 id="q-表不适合的场景">Q 表不适合的场景</h2>
 <p><img src="https://yueqingsheng.github.io/post-images/1592501404580.png" alt="" loading="lazy"><br>
 状态太多或者不可数，表格无法容纳</p>
@@ -81,24 +272,8 @@ action 做 onehot， 乘以 Q(s,a) 得到 real Q</li>
 <h2 id="总结">总结</h2>
 <p><img src="https://yueqingsheng.github.io/post-images/1592515451246.png" alt="" loading="lazy"><br>
 跟 Q learning 主要区别就是使用神经网络计算 Q 值，扩展了 Q 值的范围。并使用经验回放和固定Q目标，重复利用了经验样本和稳定了算法。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
-        </link>
-        <updated>2020-06-17T06:56:09.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
-微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
+<h2 id="拓展">拓展</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/63368522">DQN调参</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -357,259 +532,6 @@ Uber 使用城市 Sharding</p>
 <li>Master slave</li>
 <li>换数据库Riak</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[nestjs 统一返回格式]]></title>
-        <id>https://yueqingsheng.github.io/nestjs-tong-yi-fan-hui-ge-shi/</id>
-        <link href="https://yueqingsheng.github.io/nestjs-tong-yi-fan-hui-ge-shi/">
-        </link>
-        <updated>2020-06-11T12:40:09.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="统一返回格式">统一返回格式</h2>
-<p>｛data：object，message：请求成功，code：200｝</p>
-<h2 id="成功的格式">成功的格式</h2>
-<pre><code class="language-json">{
- &quot;statusCode&quot;: 200,
-  &quot;data&quot;: {
-    &quot;username&quot;: &quot;string&quot;,
-    &quot;access_token&quot;: &quot;XXX&quot;
-  },
-  &quot;code&quot;: 0,
-  &quot;message&quot;: &quot;请求成功&quot;
-}
-</code></pre>
-<h2 id="失败的格式">失败的格式</h2>
-<pre><code class="language-json">{
-  &quot;statusCode&quot;: 401,
-  &quot;data&quot;: {
-    &quot;error&quot;: &quot;Client Error&quot;
-  },
-  &quot;message&quot;: &quot;请求失败&quot;,
-  &quot;code&quot;: 1,
-  &quot;url&quot;: &quot;/api/auth/profile&quot;
-}
-</code></pre>
-<p>暂定code代表成功，1代表失败，成功data里是返回内容，失败data里是错误信息。</p>
-<h1 id="拦截全部的错误请求">拦截全部的错误请求</h1>
-<p>src/core/filters/all-exception.filter’;</p>
-<pre><code class="language-typescript">import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
-import { Request, Response } from 'express';
-@Catch()
-export class AllExceptionFilter&lt;T&gt; implements ExceptionFilter {
-  catch(exception: HttpException, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const response = ctx.getResponse&lt;Response&gt;();
-    const request = ctx.getRequest&lt;Request&gt;();
-    const status =
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR;
-
-    const message = exception.message.message
-      ? exception.message.message
-      : `${status &gt;= 500 ? 'Service Error' : 'Client Error'}`;
-    const errorResponse = {
-      statusCode: status,
-      data: { error: message },
-      message: '请求失败',
-      code: 1, // 自定义code
-    };
-    // 设置返回的状态码、请求头、发送错误信息
-    response.status(status);
-    response.header('Content-Type', 'application/json; charset=utf-8');
-    response.send(errorResponse);
-  }
-}
-</code></pre>
-<h1 id="拦截成功的返回数据">拦截成功的返回数据</h1>
-<p>src/core/interceptors/response.interceptor’;</p>
-<pre><code class="language-typescript">import {
-  CallHandler,
-  ExecutionContext,
-  Injectable,
-  NestInterceptor,
-} from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Response } from 'express';
-@Injectable()
-export class ResponseInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
-    const response = context.switchToHttp().getResponse&lt;Response&gt;();
-    console.log(response.statusCode);
-    return next.handle().pipe(
-      map(data =&gt; {
-        return {
-          data,
-          code: 0,
-          message: '请求成功',
-          statusCode: response.statusCode,
-        };
-      }),
-    );
-  }
-}
-</code></pre>
-<h1 id="全局注册">全局注册</h1>
-<p>main.ts</p>
-<pre><code class="language-typescript">...
-import { TransformInterceptor } from './core/interceptor/transform.interceptor';
-
-async function bootstrap() {
-  ...
-  // 全局注册拦截器
-  app.useGlobalFilters(new AllExceptionFilter());
-  app.useGlobalInterceptors(new ResponseInterceptor());
-  ...
-}
-bootstrap();
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计4 API设计和短网址]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-4-duan-lian-jie/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-4-duan-lian-jie/">
-        </link>
-        <updated>2020-06-10T07:55:26.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="网站系统域名">网站系统，域名</h2>
-<h3 id="访问google">访问Google</h3>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592078252769.png" alt="" loading="lazy"></figure>
-<ol>
-<li>You type maps.google.com into the address bar of your browser.</li>
-<li>The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.</li>
-<li>The browser sends an HTTP request to the webserver.</li>
-<li>webserver =&gt; http server(Apache, nginx)</li>
-<li>http server =&gt; WebApplication(Django, nodejs)</li>
-<li>webapplication response<br>
-<img src="https://yueqingsheng.github.io/post-images/1592079735308.png" alt="" loading="lazy"></li>
-</ol>
-<h2 id="api-设计">API 设计</h2>
-<p>直接使用user id是不安全的，正确方式是通过登陆后的token获取id<br>
-<img src="https://yueqingsheng.github.io/post-images/1592083213524.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592083280425.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592083338439.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592087205505.png" alt="" loading="lazy"></p>
-<h3 id="news-feed-list-web-api">News Feed List Web Api</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592088686604.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592088214530.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592088839355.png" alt="" loading="lazy"></p>
-<h3 id="翻页-pagination">翻页 Pagination</h3>
-<p>多请求一个 page_size = n + 1, max_id = the last item id, real displayed = n items<br>
-<img src="https://yueqingsheng.github.io/post-images/1592090634903.png" alt="" loading="lazy"></p>
-<h4 id="refresh">refresh</h4>
-<p>find items id &gt; max_id (latest)</p>
-<h3 id="mention">Mention</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592114459940.png" alt="" loading="lazy"></figure>
-<h4 id="直接返回a缺点">直接返回<a>缺点</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592114602952.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592114695897.png" alt="" loading="lazy"></p>
-<h2 id="短网址">短网址</h2>
-<h3 id="service">Service</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592116210957.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592116301504.png" alt="" loading="lazy"></p>
-<h3 id="转换算法">转换算法</h3>
-<p>随机生成去重<br>
-<img src="https://yueqingsheng.github.io/post-images/1592116830654.png" alt="" loading="lazy"></p>
-<h4 id="sql">SQL</h4>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592153139387.png" alt="" loading="lazy"></figure>
-<h4 id="nosql">NoSQL</h4>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592153194128.png" alt="" loading="lazy"></figure>
-<h3 id="scale">Scale</h3>
-<h4 id="优化-response-time">优化 response time</h4>
-<ol>
-<li>Use Cache</li>
-<li>地理位置提速<br>
-centralized mysql + distributed memcached<br>
-<img src="https://yueqingsheng.github.io/post-images/1592163807150.png" alt="" loading="lazy"></li>
-</ol>
-<h3 id="一台数据库服务器搞不定">一台数据库服务器搞不定</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592185289011.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592185509180.png" alt="" loading="lazy"></p>
-<h2 id="练习-custom-url-自定义链接-转-longurl">练习 Custom url (自定义链接 转 longurl)</h2>
-<p>自增Id法： 单独创建一个 cutsom url -&gt; longurl 数据表<br>
-随机生成法： 直接存储 custom url</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计 3 sharding&hash]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-3-databaseandhash/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-3-databaseandhash/">
-        </link>
-        <updated>2020-06-07T15:56:36.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="scale">Scale</h2>
-<h3 id="qps">QPS</h3>
-<h3 id="single-point-failure一台服务器挂">Single point failure(一台服务器挂)</h3>
-<h4 id="sharding-数据拆分">sharding 数据拆分</h4>
-<ol>
-<li>解决 single point failure</li>
-<li>分摊流量</li>
-</ol>
-<h4 id="replica-数据复制">replica 数据复制</h4>
-<ol>
-<li>数据恢复</li>
-<li>分摊流量</li>
-</ol>
-<h2 id="数据库拆分">数据库拆分</h2>
-<h2 id="竖向拆分">竖向拆分</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591722453484.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591722492145.png" alt="" loading="lazy"><br>
-缺点： 当表单特别大，column无法拆分时无法用</p>
-<h2 id="横向拆分">横向拆分</h2>
-<p><strong>新数据放新机器，老数据放老机器的问题是什么？</strong><br>
-根据数据的新旧程度来拆分的话，新数据的访问次数比旧数据的访问次数是要明显多的，会导致数据访问不均匀的问题。<br>
-这种方法并不会导致存储不均匀，最多只有最新的一台机器的数据相对少一些，其他的机器都还是均匀的。也不会导致不知道数据去哪台机器取，比如根据 id 来拆分，0~99在1号机器，1-199 在2号机器的话，根据 id 可以算出对应的机器是哪个<br>
-<img src="https://yueqingsheng.github.io/post-images/1591722936674.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591722974334.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591723056231.png" alt="" loading="lazy"><br>
-75%的数据迁移</p>
-<h2 id="一致性哈希算法">一致性哈希算法</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591724662966.png" alt="" loading="lazy"><br>
-匀走相邻两台机器的一部分数据</p>
-<h3 id="缺陷">缺陷：</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1591724873965.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591724909043.png" alt="" loading="lazy"></p>
-<h2 id="改进">改进：</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1591725237232.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1591725356209.png" alt="" loading="lazy"><br>
-红黑树（balanced tree）</p>
-<h2 id="数据复制-replica">数据复制 Replica</h2>
-<h3 id="replica-vs-backup">Replica vs Backup</h3>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1591725861122.png" alt="" loading="lazy"></figure>
-<h3 id="sql">SQL</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1591725986397.png" alt="" loading="lazy"></figure>
-<h3 id="nosql">NoSQL</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1591726102538.png" alt="" loading="lazy"></figure>
-<h2 id="实战1user-table-sharding">实战1：User Table Sharding</h2>
-<p>怎么取数据就怎么拆数据库<br>
-按照 username找用户 查username-&gt;id表<br>
-<img src="https://yueqingsheng.github.io/post-images/1591752365390.png" alt="" loading="lazy"></p>
-<h2 id="实战2friendship-table-sharding">实战2：Friendship Table Sharding</h2>
-<p>双向好友关系，必须存两条关系</p>
-<h2 id="实战4-news-feedtimeline-sharding">实战4： News Feed/Timeline Sharding</h2>
-<p>owner id/userid</p>
-<h2 id="实战5-lintcode-submission-userproblemstatus">实战5： LintCode Submission (user/problem/status)</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1591753013575.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[随想]]></title>
-        <id>https://yueqingsheng.github.io/sui-xiang 2/</id>
-        <link href="https://yueqingsheng.github.io/sui-xiang 2/">
-        </link>
-        <updated>2020-06-07T05:36:42.000Z</updated>
-        <summary type="html"><![CDATA[<p>会记录一些突然想到的想法到这里</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>会记录一些突然想到的想法到这里</p>
-<!-- more -->
-<h3 id="开会">开会</h3>
-<p>会议中有太多的干扰项，具体实现的方案应该放在会议前去做。多人的交流和干扰，反而会使想出一个好的解决方案的效率降低。</p>
-<h3 id="项目宏伟的缺陷">项目宏伟的缺陷</h3>
-<p>一些宏伟项目想法在提出来的时候，可能会很好。但是应该在每部分的实现逻辑（细节）尽可能完善后（想出来，或者demo实现一下），再招聘程序员去做。</p>
-<h3 id="bug解决方案">bug解决方案</h3>
-<p>当卡在某个bug自己短时间内无法解决时，或找不到原因，最有效率的方式是去搜索这个问题，查看别人是怎么解决的。</p>
-<h3 id="时间规划">时间规划</h3>
-<p>可以给计划设个下限和上限，以避免规划没达到的心里落差。</p>
 ]]></content>
     </entry>
 </feed>
