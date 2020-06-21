@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1592760095159" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1592760633746" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -142,7 +142,7 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-06-21
+										2020-06-20
 									</time>
 									<span>
 										2 min read
@@ -201,12 +201,12 @@ print(atari_py.list_games())<br>
 如果成功会 print 下面</p>
 </li>
 </ol>
-<pre><code>['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
+<pre><code class="language-python">['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
 </code></pre>
 <h2 id="3-wrn-found-non-empty-cuda_visible_devices-but-parl-found-that-paddle-was-not-complied-with-cuda-which-may-cause-issues-keneral-dead">3. WRN Found non-empty CUDA_VISIBLE_DEVICES. But PARL found that Paddle was not complied with CUDA, which may cause issues. keneral dead</h2>
 <p>这个错误 Kernel 会挂掉，然后无限重启，主要是 检测到了电脑里的GPU, 但是没有安装 Cuda 导致的。 因为这里我们只使用 CPU 来跑，所以把 GPU 检测关闭就好了<br>
 在最后运行代码前加上这两行：</p>
-<pre><code>import os
+<pre><code class="language-python">import os
 os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 </code></pre>
 
@@ -218,9 +218,12 @@ os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 
 								<div class="nav-links3">
 									
+									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/"
+											rel="prev"> 系统设计7 GFS</a></div>
 									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/"
-											rel="next"> 强化学习 Day5 连续空间动作 DDPG</a></div>
+									
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/"
+											rel="next"> 强化学习 Day 4 基于策略方法</a></div>
 									
 								</div>
 							</nav>

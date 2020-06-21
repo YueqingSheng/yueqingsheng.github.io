@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-21T17:21:45.854Z</updated>
+    <updated>2020-06-21T17:30:40.363Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,43 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
+        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
+        </link>
+        <updated>2020-06-21T03:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
+DQN 扩展到连续控制动作空间<br>
+策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
+Q 网络逼近 Q-target, 使用 MSE<br>
+Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
+为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
+只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计7 GFS]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
+        </link>
+        <updated>2020-06-20T17:13:25.000Z</updated>
+        <content type="html"><![CDATA[<p>as</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Windows 本地运行 Jupyter 作业教程]]></title>
         <id>https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/</id>
         <link href="https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/">
         </link>
-        <updated>2020-06-21T05:04:45.000Z</updated>
+        <updated>2020-06-20T05:04:45.000Z</updated>
         <content type="html"><![CDATA[<p>推荐 Anaconda 傻瓜式安装，安装完后启动 Jupyter<br>
 <img src="https://yueqingsheng.github.io/post-images/1592759276980.png" alt="" loading="lazy"></p>
 <p>直接在本地运行下载下来的 notebook 会有几个问题，提供下解决方案：</p>
@@ -53,46 +85,14 @@ print(atari_py.list_games())<br>
 如果成功会 print 下面</p>
 </li>
 </ol>
-<pre><code>['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
+<pre><code class="language-python">['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
 </code></pre>
 <h2 id="3-wrn-found-non-empty-cuda_visible_devices-but-parl-found-that-paddle-was-not-complied-with-cuda-which-may-cause-issues-keneral-dead">3. WRN Found non-empty CUDA_VISIBLE_DEVICES. But PARL found that Paddle was not complied with CUDA, which may cause issues. keneral dead</h2>
 <p>这个错误 Kernel 会挂掉，然后无限重启，主要是 检测到了电脑里的GPU, 但是没有安装 Cuda 导致的。 因为这里我们只使用 CPU 来跑，所以把 GPU 检测关闭就好了<br>
 在最后运行代码前加上这两行：</p>
-<pre><code>import os
+<pre><code class="language-python">import os
 os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
-        </link>
-        <updated>2020-06-21T03:21:00.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
-DQN 扩展到连续控制动作空间<br>
-策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
-<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
-Q 网络逼近 Q-target, 使用 MSE<br>
-Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
-<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
-为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
-<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
-只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
-<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
-<h2 id="总结">总结</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计7 GFS]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
-        </link>
-        <updated>2020-06-20T17:13:25.000Z</updated>
-        <content type="html"><![CDATA[<p>as</p>
 ]]></content>
     </entry>
     <entry>
