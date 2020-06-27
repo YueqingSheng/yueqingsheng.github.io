@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-21T17:30:40.363Z</updated>
+    <updated>2020-06-27T02:44:54.910Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,35 +11,182 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
-        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
+        <title type="html"><![CDATA[递归]]></title>
+        <id>https://yueqingsheng.github.io/di-gui/</id>
+        <link href="https://yueqingsheng.github.io/di-gui/">
         </link>
-        <updated>2020-06-21T03:21:00.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
-DQN 扩展到连续控制动作空间<br>
-策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
-<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
-Q 网络逼近 Q-target, 使用 MSE<br>
-Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
-<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
-为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
-<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
-只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
-<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
-<h2 id="总结">总结</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
+        <updated>2020-06-26T08:07:04.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="递归模板记住递归是对每一层做的操作">递归模板，记住递归是对每一层做的操作</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593212226238.png" alt="" loading="lazy"></figure>
+<h2 id="二叉树的最大深度">二叉树的最大深度</h2>
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root: TreeNode) -&gt; int:
+        if not root:
+            return 0
+        ldepth = self.maxDepth(root.left) + 1 
+        rdepth = self.maxDepth(root.right) + 1
+        return max(ldepth, rdepth) 
+</code></pre>
+<p>可以把判断叶子节点去掉的原因，可以多走一层走到叶子节点下一层发现没有就返回上来0。每走一层就加1，走到叶子节点下一层，返回0 +1 也是一样的。</p>
+<p>官方解法，每往下走一层就+1， 然后每层取左右两边最大的深度</p>
+<pre><code class="language-python">class Solution:
+    def maxDepth(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot; 
+        if root is None: 
+            return 0 
+        else: 
+            left_height = self.maxDepth(root.left) 
+            right_height = self.maxDepth(root.right) 
+            return max(left_height, right_height) + 1 
+</code></pre>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[系统设计7 GFS]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
+        <title type="html"><![CDATA[  树、二叉树]]></title>
+        <id>https://yueqingsheng.github.io/shu-er-cha-shu/</id>
+        <link href="https://yueqingsheng.github.io/shu-er-cha-shu/">
         </link>
-        <updated>2020-06-20T17:13:25.000Z</updated>
-        <content type="html"><![CDATA[<p>as</p>
+        <updated>2020-06-25T18:29:23.000Z</updated>
+        <content type="html"><![CDATA[<p>数跟图的区别是有没有闭环<br>
+<img src="https://yueqingsheng.github.io/post-images/1593196326489.png" alt="" loading="lazy"></p>
+<h2 id="二叉搜索树">二叉搜索树：</h2>
+<h3 id="遍历">遍历</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1593198432381.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593198530487.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593198604293.png" alt="" loading="lazy"><br>
+查询，插入 logn<br>
+插入：先查找位置，再插入<br>
+删除，去第一个大于parent node的节点。<br>
+平均 O(log(n)) 最差情况 O(n)</p>
+<h2 id="题目1-n-叉树前序遍历">题目1： N 叉树前序遍历</h2>
+<p>给定一个 N 叉树，返回其节点值的前序遍历。<br>
+<img src="https://yueqingsheng.github.io/post-images/1593201852265.png" alt="" loading="lazy"></p>
+<pre><code class="language-python">&quot;&quot;&quot;
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+&quot;&quot;&quot;
+
+class Solution:
+    def preorder(self, root: 'Node') -&gt; List[int]:
+        path = []
+        def traverse(node):
+            if node:
+                path.append(node.val)
+                for n in node.children:
+                    traverse(n)
+        traverse(root)
+        return path
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[链表]]></title>
+        <id>https://yueqingsheng.github.io/lian-biao/</id>
+        <link href="https://yueqingsheng.github.io/lian-biao/">
+        </link>
+        <updated>2020-06-25T13:49:36.000Z</updated>
+        <content type="html"><![CDATA[<p>数组访问 O(1), 添加删除 O(n)<br>
+链表访问O(n), 添加删除 O(1)</p>
+<h2 id="跳表">跳表</h2>
+<p>log(n)<br>
+基于有序的链表 Redis  LevelDB<br>
+<img src="https://yueqingsheng.github.io/post-images/1593179884875.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593179968260.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593180120060.png" alt="" loading="lazy"></p>
+<h3 id="python-swap">python swap</h3>
+<p>x, y = y, x</p>
+<h2 id="题目1-删除排序数组中的重复项">题目1： 删除排序数组中的重复项</h2>
+<h3 id="解法1一开始的思路是把数组循环一遍有重复的就删除掉on2-的效率">解法1：一开始的思路是把数组循环一遍，有重复的就删除掉，O(n^2) 的效率</h3>
+<p>数组循环删除的方法，复制一遍数组或者使用反向遍历<br>
+为什么反向遍历不会出现 index 的错误？<br>
+This implies that if you iterate the list back to front, if you remove an item at the current index, everything to it's right shifts left - but that doesn't matter, since you've already dealt with all the elements to the right of the current position, and you're moving left - the next element to the left is unaffected by the change, and so the iterator gives you the element you expect.<br>
+a b c x d<br>
+a b c d</p>
+<h5 id="python-range">python range</h5>
+<p>range(start, stop, step)<br>
+reverse: range(len(x)-1, -1, -1)</p>
+<pre><code class="language-python">class Solution:
+    def removeDuplicates(self, nums: List[int]) -&gt; int:
+        if len(nums) == 1:
+            return len(nums)
+        for i in range(len(nums)-1,0,-1):
+            if nums[i] == nums[i-1]:
+                nums.pop(i)
+        return len(nums)
+</code></pre>
+<h3 id="解法2-双指针-on">解法2： 双指针  O(n)</h3>
+<p>一个指针指向要放不同element的下标，另外一个指针用来搜索下一个要放的元素</p>
+<pre><code class="language-python">class Solution:
+    def removeDuplicates(self, nums: List[int]) -&gt; int:
+        i = 0
+        for j in range(len(nums)):
+            if nums[i] != nums[j]:
+                nums[i+1] = nums[j]
+                i = i + 1
+        return len(nums[:i+1])
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[算法基础]]></title>
+        <id>https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/</id>
+        <link href="https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/">
+        </link>
+        <updated>2020-06-23T00:18:19.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="时间复杂度和空间复杂度分析">时间复杂度和空间复杂度分析</h1>
+<h2 id="时间复杂度">时间复杂度：</h2>
+<p>Big O noataion<br>
+<img src="https://yueqingsheng.github.io/post-images/1593131066367.png" alt="" loading="lazy"></p>
+<p>递归分析：<br>
+<img src="https://yueqingsheng.github.io/post-images/1593131294007.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593131391447.png" alt="" loading="lazy"></p>
+<p>Master Theorem<br>
+<img src="https://yueqingsheng.github.io/post-images/1593144733931.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593131483674.png" alt="" loading="lazy"><br>
+二叉树遍历 O(n)<br>
+DFS, BFS O(n)</p>
+<h2 id="空间复杂度">空间复杂度</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593145072638.png" alt="" loading="lazy"></figure>
+<ol>
+<li>方向</li>
+<li>学历，读研？<br>
+mobile shuffer regnet<br>
+backpropation<br>
+传统算法<br>
+互联网行业，实体<br>
+网站：<br>
+应届生论坛<br>
+公众号：校招实验室<br>
+牛客网<br>
+校招：<br>
+大学宣讲会<br>
+Boss直聘<br>
+小公司-&gt;大公司</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[周报 6月1期]]></title>
+        <id>https://yueqingsheng.github.io/zhou-bao-6-yue-1-qi/</id>
+        <link href="https://yueqingsheng.github.io/zhou-bao-6-yue-1-qi/">
+        </link>
+        <updated>2020-06-22T02:00:31.000Z</updated>
+        <content type="html"><![CDATA[<p>getaway 短假 We're planning a romantic getaway to the south of France.<br>
+inviting 诱人的<br>
+laid-back 放松</p>
 ]]></content>
     </entry>
     <entry>
@@ -93,6 +240,105 @@ print(atari_py.list_games())<br>
 <pre><code class="language-python">import os
 os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
+        </link>
+        <updated>2020-06-19T15:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
+DQN 扩展到连续控制动作空间<br>
+策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
+Q 网络逼近 Q-target, 使用 MSE<br>
+Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
+为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
+只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计7 GFS]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
+        </link>
+        <updated>2020-06-18T17:13:25.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592838132417.png" alt="" loading="lazy"></figure>
+<h2 id="scenario">Scenario</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592937998924.png" alt="" loading="lazy"></figure>
+<h2 id="service">Service</h2>
+<p>clinet + Server<br>
+多台机器怎么沟通？<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938077078.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938113585.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938321692.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938364579.png" alt="" loading="lazy"></p>
+<h2 id="storage">Storage</h2>
+<h2 id="保存一个文件">保存一个文件</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592938764791.png" alt="" loading="lazy"><br>
+MetaData 的访问更多，A, B 两种存储结构<br>
+机械硬盘，磁头调需要时间，所以选择A<br>
+文件内容分段储存还是连续存储，B 适合修改或追加内容<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938947650.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592939145448.png" alt="" loading="lazy"><br>
+100T，block 太多，增加 block 大小， 4k -&gt; 64M, 劣势浪费了小空间， 4m 占用了64m空间<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939321203.png" alt="" loading="lazy"><br>
+10P，一台电脑 0.1P<br>
+offset 可以只存在 Chunk server 上<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939740947.png" alt="" loading="lazy"><br>
+换格子不用通知 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939893628.png" alt="" loading="lazy"></p>
+<h2 id="read-write">Read &amp; Write</h2>
+<h3 id="写入">写入</h3>
+<p>一次写入还是多次写入，传输单位是Chunk<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940093322.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940144296.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940260498.png" alt="" loading="lazy"><br>
+和Master 沟通，直接给chunk server 写<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940431060.png" alt="" loading="lazy"></p>
+<h3 id="读入">读入</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592940583035.png" alt="" loading="lazy"><br>
+并行从不同 Chunk server 读入<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940638455.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>单 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940743044.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940828767.png" alt="" loading="lazy"><br>
+检查损坏<br>
+CheckSum, XOR(exclusive OR) 相同为0， 不同为1，有误检情况，极低<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941171998.png" alt="" loading="lazy"><br>
+1 个 cheksum 4bytes, 1 个 chunk 1个 chunksum<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941328271.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941393981.png" alt="" loading="lazy"></p>
+<h3 id="replica-备份">Replica 备份</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592941646023.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941630620.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941717310.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941741519.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942222483.png" alt="" loading="lazy"><br>
+B. 单次通讯<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941853201.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941886863.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941945801.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942052569.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942111752.png" alt="" loading="lazy"></p>
+<h2 id="实战">实战</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592942352741.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942408792.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942469829.png" alt="" loading="lazy"><br>
+QPS<br>
+<img src="https://yueqingsheng.github.io/post-images/1592942546504.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942743390.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942782661.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942892343.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
@@ -199,339 +445,6 @@ channel service 里的 key 就是 channel 的名字，value 是在这个 channel
 <p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day 3 神经网络方法]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/">
-        </link>
-        <updated>2020-06-16T17:28:45.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="q-表不适合的场景">Q 表不适合的场景</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592501404580.png" alt="" loading="lazy"><br>
-状态太多或者不可数，表格无法容纳</p>
-<h2 id="值函数近似">值函数近似</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592503297313.png" alt="" loading="lazy"></figure>
-<h2 id="神经网络">神经网络</h2>
-<p>拟合任意函数 map x(输入)-&gt;y（输出）<br>
-<img src="https://yueqingsheng.github.io/post-images/1592503591885.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592503739786.png" alt="" loading="lazy"></p>
-<h2 id="dqn">DQN</h2>
-<p>拟合Q表格，找出 s 到 Q 的 maping, 即 Q 表格<br>
-<img src="https://yueqingsheng.github.io/post-images/1592504045511.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592504377262.png" alt="" loading="lazy"><br>
-s=&gt; Q（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mo>∗</mo></msub></mrow><annotation encoding="application/x-tex">a_*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）, 输出一个包含不同 a 的向量， 逼近 Target Q</p>
-<h3 id="创新点">创新点</h3>
-<h4 id="1-经验回放">1. 经验回放</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592504472911.png" alt="" loading="lazy"><br>
-存储一部分经验数据，从中随机选取一部分 (batch) 更新数据</p>
-<h5 id="off-policy-回顾">off-policy 回顾</h5>
-<p>士兵 (behavior policy):  根据战术攻打堡垒，拿到战斗经验，给到军师分析<br>
-军师 (Target policy): 根据经验，提升战术，让前方战士打的更好<br>
-战术 (Q table)<br>
-DQN， 军师从士兵的经验池随机抽取一部分经验。使用缓冲区存储经验，经验可以重复利用。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592505463466.png" alt="" loading="lazy"><br>
-sample 输入 batch_size 输出抽取的5个数组<br>
-<img src="https://yueqingsheng.github.io/post-images/1592505685903.png" alt="" loading="lazy"></p>
-<h4 id="2-固定-q-目标">2. 固定 Q 目标</h4>
-<p>保持 Q_target 稳定， 定期 copy Q<br>
-<img src="https://yueqingsheng.github.io/post-images/1592512287833.png" alt="" loading="lazy"></p>
-<h3 id="dqn-流程图">DQN 流程图</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592512821261.png" alt="" loading="lazy"></figure>
-<h2 id="parl-dqn">PARL DQN</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592513030605.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592513082474.png" alt="" loading="lazy"><br>
-model 神经网络， Algorithm  loss function , agent 和环境交互</p>
-<h3 id="modelpy">model.py</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592513356656.png" alt="" loading="lazy"><br>
-输入 obs(S)，通过神经网络计算 Q 值</p>
-<h3 id="algorithm">algorithm</h3>
-<p>init : 输入model 和 参数，copy model, 初始化参数,model , target_model<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513526805.png" alt="" loading="lazy"><br>
-sync_target: 同步 model, target_model 参数<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513630399.png" alt="" loading="lazy"><br>
-predict: 返回 model 的值， Q</p>
-<h4 id="learn">learn:</h4>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592514289290.png" alt="" loading="lazy"></figure>
-<ol>
-<li>计算 target_Q<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513814629.png" alt="" loading="lazy"><br>
-freeze target_Q, 阻止梯度传递，防止参数更新</li>
-<li>计算 Q(s,a)<br>
-layers.cast(done) true 返回 1， false 返回 0<br>
-action 做 onehot， 乘以 Q(s,a) 得到 real Q</li>
-<li>计算 loss</li>
-</ol>
-<h4 id="agent">agent:</h4>
-<p>更新网络，获取 Q 值。</p>
-<h4 id="cartpole">CartPole</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592514818545.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592514957943.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592515112909.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592515130186.png" alt="" loading="lazy"></p>
-<h2 id="总结">总结</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592515451246.png" alt="" loading="lazy"><br>
-跟 Q learning 主要区别就是使用神经网络计算 Q 值，扩展了 Q 值的范围。并使用经验回放和固定Q目标，重复利用了经验样本和稳定了算法。</p>
-<h2 id="拓展">拓展</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/63368522">DQN调参</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 2 Sarsa & Q-learning 实现思路]]></title>
-        <id>https://yueqingsheng.github.io/day-2-zuo-ye-si-lu/</id>
-        <link href="https://yueqingsheng.github.io/day-2-zuo-ye-si-lu/">
-        </link>
-        <updated>2020-06-14T00:20:09.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="第一步把-q-table-看一下">第一步把 Q table 看一下</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592440727420.png" alt="" loading="lazy"><br>
-16行4列的np array， 每一格为Q(state, action)的值</p>
-<h2 id="sample和predict-就是epsilon-greedy算法">sample和predict:  就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>-greedy算法</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592439809913.png" alt="" loading="lazy"></figure>
-<h3 id="sample">sample</h3>
-<p>在 0-1 roll 一个数，如果这个数小于等于1- <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span> 就触发argmax事件，否则触发随机行动。</p>
-<p>可能会用到的函数：</p>
-<blockquote>
-<p>numpy.random.uniform(low=0.0, high=1.0, size=None)<br>
-在 low 到 high 范围取size个样本，默认0到1取一个样本</p>
-</blockquote>
-<blockquote>
-<p>numpy.random.choice(a, size=None, replace=True, p=None)<br>
-从 a 列表里随机选size个数， a可以是1维列表或者int, int的话就是 range(a)<br>
-Parameters: a: If an ndarray, a random sample is generated from its elements. If an int, the random sample is generated as if a was np.arange(n)</p>
-</blockquote>
-<h3 id="predict">predict</h3>
-<p>从第 s/obs 行，取 Q 值最大的 a。=&gt; find the max index of value，即求最大值的坐标。<br>
-因为有可能有多个最大值，我们不想每次都走同一个action, 所以从这些最大值的坐标随机出一个。</p>
-<p>可能会用到的函数：</p>
-<blockquote>
-<p>从 2D Numpy Array 选某行：  ndArray[row_index] 或者 ndArray[row_index, :]<br>
-numpy.where(condition) 输出满足条件 ((condition)) 元素的坐标 (等价于numpy.nonzero)。这里的坐标以tuple的形式给出。</p>
-</blockquote>
-<p>这里 np.where 返回类似 (array([0, 1, 2, 3]),) 元组这种格式。所以用下标取出第一个array</p>
-<h2 id="learn">learn</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592444105446.png" alt="" loading="lazy"><br>
-这里就是先把方括号里的算出来，再乘 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span> 加上原来的值<br>
-Q learning 的 sample 和 predict 和 Sarsa 完全一样，唯一就是 更新 Q 的公式不同。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592428118258.png" alt="" loading="lazy"></p>
-<h2 id="显示视图">显示视图</h2>
-<p>把 test_episode 里的这两行反注释掉<br>
-<img src="https://yueqingsheng.github.io/post-images/1592449956397.png" alt="" loading="lazy"><br>
-gridworld.py 下载地址：https://raw.githubusercontent.com/PaddlePaddle/PARL/develop/examples/tutorials/lesson1/gridworld.py</p>
-<pre><code class="language-python">from gridworld import FrozenLakeWapper
-env = gym.make(&quot;FrozenLake-v0&quot;, is_slippery=False) 
-env = FrozenLakeWapper(env)
-</code></pre>
-<h2 id="错误no-display-name-and-no-display-environment-variable">错误：no display name and no $DISPLAY environment variable</h2>
-<p>Jupyter没有窗口环境，要本地运行，或者远程terminal跑才行</p>
-<h2 id="结果展示">结果展示</h2>
-<h3 id="sarsa">Sarsa</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592448717310.gif" alt="" loading="lazy"></figure>
-<h3 id="q-learning">Q-learning</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592449876779.gif" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day 2 Sarsa & Q-learning]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-2-sarsa-q-learning/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-2-sarsa-q-learning/">
-        </link>
-        <updated>2020-06-13T05:57:25.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="强化学习mdp四元组s-a-p-r">强化学习MDP四元组&lt;S, A, P, R&gt;</h2>
-<p>强化学习是解决跟时间相关的序列决策问题。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592416960594.png" alt="" loading="lazy"></p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>[</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>t</mi></msub><mi mathvariant="normal">∣</mi><msub><mi>s</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>t</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">p[s_{t+1}, r_{t} | s_{t}, a_{t}]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></span></p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mtext>在</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>s</mi><mi>t</mi></msub></mstyle><mtext>时刻，选择</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>a</mi><mi>t</mi></msub></mstyle><mtext>动作的时候，转移到</mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mstyle><mtext> 而且拿到 </mtext><mstyle scriptlevel="0" displaystyle="false"><msub><mi>r</mi><mi>t</mi></msub></mstyle><mtext>奖励</mtext></mrow><mi mathvariant="normal">的</mi><mi mathvariant="normal">概</mi><mi mathvariant="normal">率</mi></mrow><annotation encoding="application/x-tex">\text{在$s_ t$时刻，选择$a_t$动作的时候，转移到$s_{t+1}$ 而且拿到 $r_{t}$奖励}的概率
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord text"><span class="mord cjk_fallback">在</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">时刻，选择</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">动作的时候，转移到</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"> </span><span class="mord cjk_fallback">而且拿到</span><span class="mord"> </span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">奖励</span></span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">概</span><span class="mord cjk_fallback">率</span></span></span></span></span></p>
-<blockquote>
-<p>马尔可夫性质: 当前时刻的状态仅与前一时刻的状态和动作有关，与其他时刻的状态和动作条件独立。</p>
-</blockquote>
-<blockquote>
-<p>马尔可夫决策过程（Markov Decision Process, MDP）是序贯决策（sequential decision）的数学模型，用于在系统状态具有马尔可夫性质的环境中模拟智能体可实现的随机性策略与回报</p>
-</blockquote>
-<p><img src="https://yueqingsheng.github.io/post-images/1592419241042.png" alt="" loading="lazy"><br>
-P函数：随机性，转移到另外一种状态的概率<br>
-R函数：奖励函数</p>
-<h2 id="model-based-vs-model-free">Model-based vs Model-free</h2>
-<p>Model based: 如果 P, R 已知，则环境是已知的，可以用动态规划计算最优方案。<br>
-Model free: 当解决未知或随机的环境时，即 P, R 未知，可以使用强化学习。</p>
-<h2 id="q-函数">Q 函数</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592419978987.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592420512413.png" alt="" loading="lazy"><br>
-Q的目标是未来的总收益<br>
-<img src="https://yueqingsheng.github.io/post-images/1592420605219.png" alt="" loading="lazy"><br>
-但是当时间过长时，需要加一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>γ</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05556em;">γ</span></span></span></span> 衰减系数，时间越久，对当前的收益影响越小</p>
-<h2 id="更新q表格">更新Q表格</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592421245188.png" alt="" loading="lazy"><br>
-下个状态的价值可以用来强化上一个状态的价值，如结合食物和铃声一起影响狗的食欲（流口水）。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592422219338.jpg" alt="" loading="lazy"><br>
-这个公式其实就是把每一步的收益逼近于未来收益之和，即走到这一步获得的总收益。每一次向目标值的方向更新一点。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592422876957.png" alt="" loading="lazy"><br>
-每次跳转到下一个状态时，通过这些Sarsa参数，便可得知当前状态的Q value。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592423174750.png" alt="" loading="lazy"><br>
-算法：每走一步，先选出要做的动作。再走下一步，通过状态<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，从Q表拿到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">a_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 然后通过下一步和上一步的参数更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mo>(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">Q(s_1, a_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">Q</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
-<h3 id="如何通过状态-s-去取出动作-a-epsilon-greedy">如何通过状态 s 去取出动作 a ？ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>-greedy</h3>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592424271702.png" alt="" loading="lazy"></figure>
-<h2 id="sarsa-代码">Sarsa 代码</h2>
-<p><img src="https://lh6.googleusercontent.com/8jhtLe0-rCvlm69sSpofk5eh3g1hpOmFgBFQPLQKTgw7iUN8d6-mHxrx4JjnQGKI6AwDzpMiePXbNRU1O-NeDy6ER9QWMLjF2IHDDc_BTGKff--BNUZU9iw8QubW3nnBz6Qls7tT" alt="" loading="lazy"><br>
-<a href="https://aistudio.baidu.com/aistudio/projectdetail/567852">paddle实现链接</a></p>
-<h2 id="off-policy">Off-Policy</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592427661829.png" alt="" loading="lazy"><br>
-Off-Policy 不和环境交互</p>
-<h2 id="q-learning">Q-learning</h2>
-<figure data-type="image" tabindex="2"><img src="https://i.stack.imgur.com/JE6BY.png" alt="" loading="lazy"></figure>
-<h2 id="q-learning-vs-sarsa">Q-learning vs Sarsa</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592427877376.png" alt="" loading="lazy"><br>
-Q-learning 的下个状态选取使Q最大的action<br>
-<img src="https://yueqingsheng.github.io/post-images/1592428118258.png" alt="" loading="lazy"></p>
-<h2 id="off-policy-vs-on-policy">Off-Policy vs On-policy</h2>
-<blockquote>
-<p>policy: 策略是指通过状态 s 去取出动作 a 的 方法/概率。Policy specifies an action 𝑎, that is taken in a state 𝑠 (or more precisely, 𝜋 is a probability, that an action 𝑎 is taken in a state 𝑠).</p>
-</blockquote>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592428550500.png" alt="" loading="lazy"></figure>
-<blockquote>
-<p>行为策略：用来与环境互动收集情报、产生数据的策略，即训练过程中的策略。 π(a|s)<br>
-目标策略：在行为策略产生的数据中不断学习和优化得到的策略，即学习训练完毕后拿去做行为评估的策略。µ(a|s)</p>
-</blockquote>
-<p>区别是</p>
-<blockquote>
-<p>on-policy 通过的与环境交互的经验更新Q, 按以往经验来。 off-policy 就不管之前经验了，通过任意方式获取action, 比如 greedy。</p>
-</blockquote>
-<h2 id="总结">总结</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592431533553.png" alt="" loading="lazy"><br>
-On policy 对于保留目前探索的成果有好处 ，但容易陷入局部最优。不够冒险。<br>
-Off policy 够冒险，容易达到全局最优，但收敛更慢，试错更多，不适合现实中试错成本太大的尝试。</p>
-<h2 id="拓展">拓展：</h2>
-<p><a href="https://analyticsindiamag.com/reinforcement-learning-policy/">ON-POLICY VS OFF-POLICY REINFORCEMENT LEARNING</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day 1 Introduction]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi/">
-        </link>
-        <updated>2020-06-12T20:41:16.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="什么是强化学习">什么是强化学习？</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592340187285.png" alt="" loading="lazy"></figure>
-<h2 id="两部分-三要素">两部分 三要素</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592340281494.png" alt="" loading="lazy"><br>
-在 Flappy bird 中</p>
-<table>
-<thead>
-<tr>
-<th>agent</th>
-<th>environment</th>
-<th>state</th>
-<th>action</th>
-<th>reward</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>鸟</td>
-<td>鸟周围的环境，水管、天空（包括小鸟本身）</td>
-<td>拍个照（目前的像素）</td>
-<td>向上向下动作</td>
-<td>距离（越远奖励越高）</td>
-</tr>
-</tbody>
-</table>
-<p>动一下截个图 再决定下一个动作<br>
-跟环境交互，决策。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592341430929.png" alt="" loading="lazy"><br>
-奖励是延迟的。迷宫走完，才有奖励。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592341492276.png" alt="" loading="lazy"></p>
-<h2 id="强化学习和其他机器学习的关系">强化学习和其他机器学习的关系</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592341779032.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592342011873.png" alt="" loading="lazy"><br>
-监督样本一般样本内无关系。强化学习，样本之间相互影响。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592342296638.png" alt="" loading="lazy"><br>
-基于价值会向固定方向走，基于策略随机性更高一些。</p>
-<h2 id="rl-agent-environment-交互接口">RL agent &lt;-&gt; environment 交互接口</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592343026454.png" alt="" loading="lazy"><br>
-reset 重置<br>
-render 渲染目前<br>
-step 交互一步</p>
-<h3 id="step-输出参数">Step 输出参数</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592342821467.png" alt="" loading="lazy"></figure>
-<ol>
-<li>1-36 位置（36格内的位置）</li>
-<li>-1 reward(奖励，每走一步会有惩罚，目标最少步数走完)</li>
-<li>true/false 游戏是否完成</li>
-<li>info 额外信息</li>
-</ol>
-<h3 id="git-clone-depth1">git clone --depth=1</h3>
-<blockquote>
-<p>depth 用于指定克隆深度，为 1 即表示只克隆最近一次 commit. 可以解决项目过大的问题</p>
-</blockquote>
-<h2 id="总结">总结</h2>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592343683260.png" alt="" loading="lazy"></figure>
-<p>拓展：<a href="https://www.zhihu.com/question/23474039/answer/269526476">为什么有人说 Python 的多线程是鸡肋呢？</a></p>
-<p>图片来源：<a href="https://aistudio.baidu.com/aistudio/projectdetail/560767">PARL 强化学习公开课 Lesson1</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计5 基于地理位置的信息系统（Location based service)]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-5-ji-yu-di-li-wei-zhi-de-xin-xi-xi-tong-location-based-service/">
-        </link>
-        <updated>2020-06-12T02:09:06.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="rpcremote-procedure-call">RPC(remote procedure call)</h2>
-<p>不同的机器之间调用函数<br>
-http包含了很多验证信息, 不高效</p>
-<h2 id="google-s2位置储存-查询系统">Google S2(位置储存 查询系统)</h2>
-<p>System design = logic design + infrastructure design(架构设计)</p>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592234676481.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592235236181.png" alt="" loading="lazy"><br>
-收集用户信息，预测打车概率。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592239148033.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592246122954.png" alt="" loading="lazy"></figure>
-<h3 id="trip-table单">Trip Table:（单）</h3>
-<p>读多写少 每四秒查一次附近的接单信息</p>
-<h3 id="location-table">Location Table:</h3>
-<p>读少写多 每四秒写一次driver location</p>
-<h2 id="范围查询">范围查询</h2>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592247699767.png" alt="" loading="lazy"></figure>
-<h2 id="二维查询映射到一维">二维查询映射到一维</h2>
-<h3 id="google-s2">Google S2</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592247980056.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592248137315.png" alt="" loading="lazy"></p>
-<h3 id="geohash">Geohash</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592248499067.png" alt="" loading="lazy"><br>
-查看公共前缀相似度，32份，<br>
-<strong>为什么是 1：2？</strong><br>
-4 * 8（180，360）纬经度比<br>
-<strong>为什么上下方两行长？</strong><br>
-因为地球是圆的，上下占的面积相当于三角形<br>
-<strong>为什么是 4*8?</strong><br>
-<img src="https://yueqingsheng.github.io/post-images/1592249368751.png" alt="" loading="lazy"><br>
-缺陷  ：刚好在线上，线两边差距大</p>
-<h4 id="查询-google-半径两公里以内的车">查询 Google 半径两公里以内的车</h4>
-<p>geohash LIKE 9q9hv%, %分号在后面，表示以9q9hv开头<br>
-<img src="https://yueqingsheng.github.io/post-images/1592249754838.png" alt="" loading="lazy"><br>
-Redis value: set 删除 O(1) list 删除O(n)</p>
-<h2 id="匹配">匹配</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592251096560.png" alt="" loading="lazy"></figure>
-<h2 id="scale">Scale</h2>
-<p>迁移成本低，损失成本大。单点 Failure</p>
-<h3 id="db-sharding">DB sharding</h3>
-<p>按Geo hash 前四位<br>
-Uber 使用城市 Sharding</p>
-<h4 id="定义城市">定义城市</h4>
-<p>Geo Fence<br>
-求一个点是否在多边形内<br>
-<img src="https://yueqingsheng.github.io/post-images/1592251619394.png" alt="" loading="lazy"><br>
-乘客在边界上，记录城市连接关系</p>
-<h4 id="机场">机场</h4>
-<p>先找到城市，再查询 airport fence</p>
-<h5 id="减少风险">减少风险</h5>
-<ol>
-<li>Master slave</li>
-<li>换数据库Riak</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
