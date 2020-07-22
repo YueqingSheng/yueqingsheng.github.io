@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1593235921405" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1595385956969" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -145,7 +145,7 @@
 										2020-06-22
 									</time>
 									<span>
-										1 min read
+										2 min read
 									</span>
 									<!-- id 将作为查询条件 -->
 									<span id="/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/" class="leancloud_visitors"  data-flag-title="算法基础">
@@ -178,22 +178,57 @@
 DFS, BFS O(n)</p>
 <h2 id="空间复杂度">空间复杂度</h2>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593145072638.png" alt="" loading="lazy"></figure>
-<ol>
-<li>方向</li>
-<li>学历，读研？<br>
-mobile shuffer regnet<br>
-backpropation<br>
-传统算法<br>
-互联网行业，实体<br>
-网站：<br>
-应届生论坛<br>
-公众号：校招实验室<br>
-牛客网<br>
-校招：<br>
-大学宣讲会<br>
-Boss直聘<br>
-小公司-&gt;大公司</li>
-</ol>
+<h2 id="入门题1-strstr">入门题1: StrStr</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1593391012386.png" alt="" loading="lazy"><br>
+注意检查空字符串</p>
+<pre><code class="language-python">class Solution:
+    def strStr(self, haystack: str, needle: str) -&gt; int:
+        if len(needle) == 0 :
+            return 0
+        for i in range(len(haystack)):
+            if haystack[i : i + len(needle)] == needle:
+                return i
+        return -1
+</code></pre>
+<h2 id="入门题2-子集">入门题2: 子集</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1593391087028.png" alt="" loading="lazy"><br>
+分解问题使用递归解决</p>
+<h3 id="我的解法把所有可能过一遍去重">我的解法：把所有可能过一遍，去重</h3>
+<pre><code class="language-python">class Solution:
+    def subsets(self, nums) :
+        subsets = [[]]
+        def subset(nums):
+            if len(nums) == 0:
+                return
+            subsets.append(nums)
+            for n in nums:
+                nums_copy = nums[:]
+                nums_copy.remove(n)
+                if nums_copy not in subsets:
+                    subset(nums_copy)
+            return
+        subset(nums)
+        return subsets
+</code></pre>
+<h3 id="官方解法1-从小到大每次有新数出现的时候把之前的可能序列合并上这个数">官方解法1: 从小到大，每次有新数出现的时候，把之前的可能序列合并上这个数</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1593391785024.png" alt="" loading="lazy"></figure>
+<pre><code class="language-python">class Solution:
+    def subsets(self, nums: List[int]) -&gt; List[List[int]]:
+        n = len(nums)
+        output = [[]]
+        
+        for num in nums:
+            output += [curr + [num] for curr in output]
+        
+        return output
+</code></pre>
+<h4 id="python-listt-concatenata">python listt concatenata</h4>
+<p>a = []<br>
+a += [3]<br>
+a = a+ [3]</p>
+<h3 id="官方解法2-回溯法">官方解法2: 回溯法</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1593393082311.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593393119046.png" alt="" loading="lazy"></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -207,8 +242,8 @@ Boss直聘<br>
 											rel="prev"> 链表</a></div>
 									
 									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/zhou-bao-6-yue-1-qi/"
-											rel="next"> 周报 6月1期</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/"
+											rel="next"> Windows 本地运行 Jupyter 作业教程</a></div>
 									
 								</div>
 							</nav>

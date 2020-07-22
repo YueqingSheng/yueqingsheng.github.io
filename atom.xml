@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-06-27T05:32:06.865Z</updated>
+    <updated>2020-07-22T02:46:37.167Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,10 +15,10 @@
         <id>https://yueqingsheng.github.io/di-gui/</id>
         <link href="https://yueqingsheng.github.io/di-gui/">
         </link>
-        <updated>2020-06-26T08:07:04.000Z</updated>
+        <updated>2020-06-25T20:07:04.000Z</updated>
         <content type="html"><![CDATA[<h2 id="递归模板记住递归是对每一层做的操作">递归模板，记住递归是对每一层做的操作</h2>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593212226238.png" alt="" loading="lazy"></figure>
-<h2 id="二叉树的最大深度">二叉树的最大深度</h2>
+<h2 id="题目1二叉树的最大深度">题目1：二叉树的最大深度</h2>
 <pre><code class="language-python"># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -147,7 +147,7 @@ reverse: range(len(x)-1, -1, -1)</p>
         <id>https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/</id>
         <link href="https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/">
         </link>
-        <updated>2020-06-23T00:18:19.000Z</updated>
+        <updated>2020-06-22T12:18:19.000Z</updated>
         <content type="html"><![CDATA[<h1 id="时间复杂度和空间复杂度分析">时间复杂度和空间复杂度分析</h1>
 <h2 id="时间复杂度">时间复杂度：</h2>
 <p>Big O noataion<br>
@@ -162,33 +162,57 @@ reverse: range(len(x)-1, -1, -1)</p>
 DFS, BFS O(n)</p>
 <h2 id="空间复杂度">空间复杂度</h2>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593145072638.png" alt="" loading="lazy"></figure>
-<ol>
-<li>方向</li>
-<li>学历，读研？<br>
-mobile shuffer regnet<br>
-backpropation<br>
-传统算法<br>
-互联网行业，实体<br>
-网站：<br>
-应届生论坛<br>
-公众号：校招实验室<br>
-牛客网<br>
-校招：<br>
-大学宣讲会<br>
-Boss直聘<br>
-小公司-&gt;大公司</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[周报 6月1期]]></title>
-        <id>https://yueqingsheng.github.io/zhou-bao-6-yue-1-qi/</id>
-        <link href="https://yueqingsheng.github.io/zhou-bao-6-yue-1-qi/">
-        </link>
-        <updated>2020-06-22T02:00:31.000Z</updated>
-        <content type="html"><![CDATA[<p>getaway 短假 We're planning a romantic getaway to the south of France.<br>
-inviting 诱人的<br>
-laid-back 放松</p>
+<h2 id="入门题1-strstr">入门题1: StrStr</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1593391012386.png" alt="" loading="lazy"><br>
+注意检查空字符串</p>
+<pre><code class="language-python">class Solution:
+    def strStr(self, haystack: str, needle: str) -&gt; int:
+        if len(needle) == 0 :
+            return 0
+        for i in range(len(haystack)):
+            if haystack[i : i + len(needle)] == needle:
+                return i
+        return -1
+</code></pre>
+<h2 id="入门题2-子集">入门题2: 子集</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1593391087028.png" alt="" loading="lazy"><br>
+分解问题使用递归解决</p>
+<h3 id="我的解法把所有可能过一遍去重">我的解法：把所有可能过一遍，去重</h3>
+<pre><code class="language-python">class Solution:
+    def subsets(self, nums) :
+        subsets = [[]]
+        def subset(nums):
+            if len(nums) == 0:
+                return
+            subsets.append(nums)
+            for n in nums:
+                nums_copy = nums[:]
+                nums_copy.remove(n)
+                if nums_copy not in subsets:
+                    subset(nums_copy)
+            return
+        subset(nums)
+        return subsets
+</code></pre>
+<h3 id="官方解法1-从小到大每次有新数出现的时候把之前的可能序列合并上这个数">官方解法1: 从小到大，每次有新数出现的时候，把之前的可能序列合并上这个数</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1593391785024.png" alt="" loading="lazy"></figure>
+<pre><code class="language-python">class Solution:
+    def subsets(self, nums: List[int]) -&gt; List[List[int]]:
+        n = len(nums)
+        output = [[]]
+        
+        for num in nums:
+            output += [curr + [num] for curr in output]
+        
+        return output
+</code></pre>
+<h4 id="python-listt-concatenata">python listt concatenata</h4>
+<p>a = []<br>
+a += [3]<br>
+a = a+ [3]</p>
+<h3 id="官方解法2-回溯法">官方解法2: 回溯法</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1593393082311.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1593393119046.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
@@ -447,6 +471,81 @@ channel service 里的 key 就是 channel 的名字，value 是在这个 channel
 <p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day 3 神经网络方法]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/">
+        </link>
+        <updated>2020-06-16T17:28:45.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="q-表不适合的场景">Q 表不适合的场景</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592501404580.png" alt="" loading="lazy"><br>
+状态太多或者不可数，表格无法容纳</p>
+<h2 id="值函数近似">值函数近似</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592503297313.png" alt="" loading="lazy"></figure>
+<h2 id="神经网络">神经网络</h2>
+<p>拟合任意函数 map x(输入)-&gt;y（输出）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592503591885.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592503739786.png" alt="" loading="lazy"></p>
+<h2 id="dqn">DQN</h2>
+<p>拟合Q表格，找出 s 到 Q 的 maping, 即 Q 表格<br>
+<img src="https://yueqingsheng.github.io/post-images/1592504045511.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592504377262.png" alt="" loading="lazy"><br>
+s=&gt; Q（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mo>∗</mo></msub></mrow><annotation encoding="application/x-tex">a_*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）, 输出一个包含不同 a 的向量， 逼近 Target Q</p>
+<h3 id="创新点">创新点</h3>
+<h4 id="1-经验回放">1. 经验回放</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592504472911.png" alt="" loading="lazy"><br>
+存储一部分经验数据，从中随机选取一部分 (batch) 更新数据</p>
+<h5 id="off-policy-回顾">off-policy 回顾</h5>
+<p>士兵 (behavior policy):  根据战术攻打堡垒，拿到战斗经验，给到军师分析<br>
+军师 (Target policy): 根据经验，提升战术，让前方战士打的更好<br>
+战术 (Q table)<br>
+DQN， 军师从士兵的经验池随机抽取一部分经验。使用缓冲区存储经验，经验可以重复利用。<br>
+<img src="https://yueqingsheng.github.io/post-images/1592505463466.png" alt="" loading="lazy"><br>
+sample 输入 batch_size 输出抽取的5个数组<br>
+<img src="https://yueqingsheng.github.io/post-images/1592505685903.png" alt="" loading="lazy"></p>
+<h4 id="2-固定-q-目标">2. 固定 Q 目标</h4>
+<p>保持 Q_target 稳定， 定期 copy Q<br>
+<img src="https://yueqingsheng.github.io/post-images/1592512287833.png" alt="" loading="lazy"></p>
+<h3 id="dqn-流程图">DQN 流程图</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592512821261.png" alt="" loading="lazy"></figure>
+<h2 id="parl-dqn">PARL DQN</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592513030605.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592513082474.png" alt="" loading="lazy"><br>
+model 神经网络， Algorithm  loss function , agent 和环境交互</p>
+<h3 id="modelpy">model.py</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592513356656.png" alt="" loading="lazy"><br>
+输入 obs(S)，通过神经网络计算 Q 值</p>
+<h3 id="algorithm">algorithm</h3>
+<p>init : 输入model 和 参数，copy model, 初始化参数,model , target_model<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513526805.png" alt="" loading="lazy"><br>
+sync_target: 同步 model, target_model 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513630399.png" alt="" loading="lazy"><br>
+predict: 返回 model 的值， Q</p>
+<h4 id="learn">learn:</h4>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592514289290.png" alt="" loading="lazy"></figure>
+<ol>
+<li>计算 target_Q<br>
+<img src="https://yueqingsheng.github.io/post-images/1592513814629.png" alt="" loading="lazy"><br>
+freeze target_Q, 阻止梯度传递，防止参数更新</li>
+<li>计算 Q(s,a)<br>
+layers.cast(done) true 返回 1， false 返回 0<br>
+action 做 onehot， 乘以 Q(s,a) 得到 real Q</li>
+<li>计算 loss</li>
+</ol>
+<h4 id="agent">agent:</h4>
+<p>更新网络，获取 Q 值。</p>
+<h4 id="cartpole">CartPole</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592514818545.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592514957943.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592515112909.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592515130186.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592515451246.png" alt="" loading="lazy"><br>
+跟 Q learning 主要区别就是使用神经网络计算 Q 值，扩展了 Q 值的范围。并使用经验回放和固定Q目标，重复利用了经验样本和稳定了算法。</p>
+<h2 id="拓展">拓展</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/63368522">DQN调参</a></p>
 ]]></content>
     </entry>
 </feed>
