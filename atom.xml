@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-07-22T02:46:37.167Z</updated>
+    <updated>2020-08-04T05:43:51.887Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,33 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
+    <entry>
+        <title type="html"><![CDATA[月报 7月]]></title>
+        <id>https://yueqingsheng.github.io/zhou-bao-7-yue/</id>
+        <link href="https://yueqingsheng.github.io/zhou-bao-7-yue/">
+        </link>
+        <updated>2020-07-27T03:11:51.000Z</updated>
+        <content type="html"><![CDATA[<p>两个多月没出现过了🙁，最近打算在自学 GRE 考试，看的内容不多。这个最火的就是 GPT-3 demo 了，有些自然语言到代码生成的样例确实蛮意思的，根据描述就可以生成 SQL, Figma 或者 CSS 样式了。</p>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1596519527755.png" alt="" loading="lazy"></figure>
+<h2 id="ai">AI</h2>
+<p>CNN 入门讲解，对基础概念理解比较不错 <a href="https://zhuanlan.zhihu.com/p/161640214"  target="_blank">什么是CNN？写给小白的机器学习入门贴</a></p>
+<p>用之前提到过的 OPENAI 的 GPT-3 API 做的样例，包括了根据描述生成代码之类的比较有意思的东西 <a href="https://machinelearningtokyo.com/2020/07/26/10-cool-gpt-3-demos/"  target="_blank">10 COOL GPT-3 DEMOS</a></p>
+<p>Github 上整理的 demo  <a href="https://github.com/elyase/awesome-gpt3"  target="_blank">awesome-gpt3</a></p>
+<h2 id="文章">文章</h2>
+<p>感觉把 Computer Science 这个行业讲的蛮好的，建议毕业生或有兴趣从事 CS 的都看一下 《黑客与画家》 第二章<a href="https://weread.qq.com/web/reader/5b9328f05dd9fb5b922d1ebk65132ca01b6512bd43d90e3"  target="_blank">2 黑客与画家</a></p>
+<h2 id="视频">视频</h2>
+<p>软饭硬吃，哈哈，有以前毅吧那味了<br>
+<a href="https://www.bilibili.com/video/BV1z54y1S7AX"  target="_blank">广东爱情故事</a></p>
+<div class="aspect-ratio">
+        <iframe src="//player.bilibili.com/player.html?aid=839022882&bvid=BV1z54y1S7AX&cid=219392622&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+<p>认真做历史科普的人不多了，老阴阳师做科普的更不多了。最近读了篇 GRE 文章讲，虽然在科技发展如此快的时代，有些科学常识是如此的珍贵，对于普通人却像腐烂在温室里的花，无人在乎。<br>
+<a href="https://www.bilibili.com/video/BV1z54y1S7AX"  target="_blank">西方灾难史：美国大萧条（全集），点这里看全集哦</a></p>
+<div class="aspect-ratio">
+<iframe style="min-width: 500px;min-height: 300px"   src="https://www.acfun.cn/player/ac16518467" id="ACPlayer-re"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[递归]]></title>
         <id>https://yueqingsheng.github.io/di-gui/</id>
@@ -471,81 +498,6 @@ channel service 里的 key 就是 channel 的名字，value 是在这个 channel
 <p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[强化学习 Day 3 神经网络方法]]></title>
-        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/</id>
-        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/">
-        </link>
-        <updated>2020-06-16T17:28:45.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="q-表不适合的场景">Q 表不适合的场景</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592501404580.png" alt="" loading="lazy"><br>
-状态太多或者不可数，表格无法容纳</p>
-<h2 id="值函数近似">值函数近似</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592503297313.png" alt="" loading="lazy"></figure>
-<h2 id="神经网络">神经网络</h2>
-<p>拟合任意函数 map x(输入)-&gt;y（输出）<br>
-<img src="https://yueqingsheng.github.io/post-images/1592503591885.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592503739786.png" alt="" loading="lazy"></p>
-<h2 id="dqn">DQN</h2>
-<p>拟合Q表格，找出 s 到 Q 的 maping, 即 Q 表格<br>
-<img src="https://yueqingsheng.github.io/post-images/1592504045511.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592504377262.png" alt="" loading="lazy"><br>
-s=&gt; Q（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mo>∗</mo></msub></mrow><annotation encoding="application/x-tex">a_*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）, 输出一个包含不同 a 的向量， 逼近 Target Q</p>
-<h3 id="创新点">创新点</h3>
-<h4 id="1-经验回放">1. 经验回放</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592504472911.png" alt="" loading="lazy"><br>
-存储一部分经验数据，从中随机选取一部分 (batch) 更新数据</p>
-<h5 id="off-policy-回顾">off-policy 回顾</h5>
-<p>士兵 (behavior policy):  根据战术攻打堡垒，拿到战斗经验，给到军师分析<br>
-军师 (Target policy): 根据经验，提升战术，让前方战士打的更好<br>
-战术 (Q table)<br>
-DQN， 军师从士兵的经验池随机抽取一部分经验。使用缓冲区存储经验，经验可以重复利用。<br>
-<img src="https://yueqingsheng.github.io/post-images/1592505463466.png" alt="" loading="lazy"><br>
-sample 输入 batch_size 输出抽取的5个数组<br>
-<img src="https://yueqingsheng.github.io/post-images/1592505685903.png" alt="" loading="lazy"></p>
-<h4 id="2-固定-q-目标">2. 固定 Q 目标</h4>
-<p>保持 Q_target 稳定， 定期 copy Q<br>
-<img src="https://yueqingsheng.github.io/post-images/1592512287833.png" alt="" loading="lazy"></p>
-<h3 id="dqn-流程图">DQN 流程图</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592512821261.png" alt="" loading="lazy"></figure>
-<h2 id="parl-dqn">PARL DQN</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592513030605.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592513082474.png" alt="" loading="lazy"><br>
-model 神经网络， Algorithm  loss function , agent 和环境交互</p>
-<h3 id="modelpy">model.py</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592513356656.png" alt="" loading="lazy"><br>
-输入 obs(S)，通过神经网络计算 Q 值</p>
-<h3 id="algorithm">algorithm</h3>
-<p>init : 输入model 和 参数，copy model, 初始化参数,model , target_model<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513526805.png" alt="" loading="lazy"><br>
-sync_target: 同步 model, target_model 参数<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513630399.png" alt="" loading="lazy"><br>
-predict: 返回 model 的值， Q</p>
-<h4 id="learn">learn:</h4>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592514289290.png" alt="" loading="lazy"></figure>
-<ol>
-<li>计算 target_Q<br>
-<img src="https://yueqingsheng.github.io/post-images/1592513814629.png" alt="" loading="lazy"><br>
-freeze target_Q, 阻止梯度传递，防止参数更新</li>
-<li>计算 Q(s,a)<br>
-layers.cast(done) true 返回 1， false 返回 0<br>
-action 做 onehot， 乘以 Q(s,a) 得到 real Q</li>
-<li>计算 loss</li>
-</ol>
-<h4 id="agent">agent:</h4>
-<p>更新网络，获取 Q 值。</p>
-<h4 id="cartpole">CartPole</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592514818545.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592514957943.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592515112909.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592515130186.png" alt="" loading="lazy"></p>
-<h2 id="总结">总结</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592515451246.png" alt="" loading="lazy"><br>
-跟 Q learning 主要区别就是使用神经网络计算 Q 值，扩展了 Q 值的范围。并使用经验回放和固定Q目标，重复利用了经验样本和稳定了算法。</p>
-<h2 id="拓展">拓展</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/63368522">DQN调参</a></p>
 ]]></content>
     </entry>
 </feed>

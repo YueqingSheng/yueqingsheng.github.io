@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>CSS cheatsheet | Random thoughts</title>
+<title>月报 7月 | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -45,12 +45,12 @@
 <body class="post-template-default single single-post postid-70 single-format-standard">
 	<div id="wrapper">
 				<header id="header" class="site-header" 
-			style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://i.redd.it/30v6xswffto41.png)"
+			style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://i2.hoopchina.com.cn/hupuapp/bbs/195682362583775/thread_195682362583775_20191011235918_s_1098763_w_640_h_360_12014.gif)"
 			>
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">CSS cheatsheet</a>
+						<a href="https://yueqingsheng.github.io" rel="home">月报 7月</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -144,13 +144,13 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-03-23
+										2020-07-26
 									</time>
 									<span>
-										3 min read
+										2 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/css/" class="leancloud_visitors"  data-flag-title="CSS cheatsheet">
+									<span id="/zhou-bao-7-yue/" class="leancloud_visitors"  data-flag-title="月报 7月">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -166,126 +166,37 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<h1 id="目的">目的</h1>
-<p>结构样式相分离, html只做结构，css做样式</p>
- <style>
-        h1 {
-            color: orange;
-        }
-        p {
-            color: pink;
-        }
-    </style>
-<h1 id="字体">字体</h1>
-<h2 id="font-size">font-size</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1585162949496.jpg" alt="" loading="lazy"></figure>
-<h2 id="font-family">font-family</h2>
-<p>支持汉字， 默认14px microsoft yahei，<br>
-尽量使用偶数号，各种字体用逗号隔开<br>
-&quot;微软雅黑&quot;,arial, sans-serif 按顺序没有的话往后找<br>
-如果字体内包括 空格 #$ 需要加引号<br>
-尽量使用默认字体</p>
-<h3 id="unicode-字体">Unicode 字体</h3>
-<p>不支持中文字体的时候，使用Unicode代替</p>
-<h2 id="font-weight">font-weight</h2>
-<p>normal bold bolder lighter, 100-900 100的整数倍</p>
-<h2 id="font-style">font-style</h2>
-<p>normal italic</p>
-<h2 id="综合字体样式">综合字体样式</h2>
-<p><code>{font: font-style font-weight font-size font-family;}</code>必须按顺序 前面可以省略，必须包括 font-size 和 font-family</p>
-<h1 id="注释">注释</h1>
-<p>快捷键 ctrl + / 或者 /* 注释*/</p>
-<h1 id="选择器">选择器</h1>
-<h2 id="标签选择器">标签选择器</h2>
-<p><code>p{ } div{ }</code> 标签作为选择器</p>
-<h2 id="类选择器">类选择器</h2>
-<pre><code class="language-html">.类名{属性：属性1
-}
-&lt;div class=&quot;类名&quot;&gt;
-</code></pre>
-<h3 id="命名规则">命名规则</h3>
-<p>相应的效果 或者主体名 （见名知义）</p>
-<h3 id="多类名选择器">多类名选择器</h3>
-<p><code>&lt;div class=&quot;font20 pink&quot;&gt;</code></p>
-<h2 id="id选择器">id选择器</h2>
-<pre><code class="language-html">#class{
-
-}
-&lt;div id=&quot;class&quot;&gt;
-</code></pre>
-<h2 id="class选择器和id选择器区别">class选择器和id选择器区别</h2>
-<p>类选择器是可以重复多次使用的，如人名<br>
-id选择器好比身份证，是唯一的</p>
-<h2 id="通配符选择器">通配符选择器</h2>
-<pre><code class="language-html">*{  *代表所有选择器
-    color: red;
-}
-&lt;div id=&quot;class&quot;&gt;
-</code></pre>
-<h2 id="伪类选择器">伪类选择器</h2>
-<h3 id="链接伪类">链接伪类</h3>
-<p>主要针对于<code>&lt;a&gt;</code><br>
-<img src="https://yueqingsheng.github.io/post-images/1585196800520.png" alt="" loading="lazy"></p>
-<h4 id="简写方式">简写方式</h4>
-<pre><code class="language-html">a{}
-a:hover{}
-</code></pre>
-<h2 id="派生选择器">派生选择器</h2>
-<p>比方说，你希望列表中的 strong 元素变为斜体字，而不是通常的粗体字，可以这样定义一个派生选择器：</p>
-<pre><code>li strong {
-    font-style: italic;
-    font-weight: normal;
-}
-</code></pre>
-<h2 id="群选择器">群选择器</h2>
-<pre><code>#main, #header{
-    main 跟 header 共同的样式
-}
-</code></pre>
-<h1 id="样式">样式</h1>
-<h2 id="内嵌样式">内嵌样式</h2>
-<p><code>&lt;h2 style=&quot;color:green&quot; &gt;测试&lt;/h2&gt;</code></p>
-<h2 id="外部样式">外部样式</h2>
-<pre><code>&lt;link rel=&quot;stylesheet&quot;样式表 href=&quot;outside_style.css&quot; type=&quot;text/css&quot; /&gt;
-</code></pre>
-<h1 id="css-特性">CSS 特性</h1>
-<h2 id="继承">继承</h2>
-<p>内部标签会继承外部内部的样式<br>
-不是所有的属性都会被继承，如边框，边距</p>
-<h2 id="层叠">层叠</h2>
-<p>内部标签会叠加所有外部的样式，<br>
-如果外部样式有冲突，继承离最近的外部标签，或者当前定义的样式<br>
-标签&lt;类 &lt;id &lt;行内样式  行内style，派生选择器会累计分数，#mainbody h2 101</p>
-<h1 id="盒模型">盒模型</h1>
-<p><img src="https://yueqingsheng.github.io/post-images/1585254293197.jpg" alt="" loading="lazy"><br>
-小技巧： margin:0 auto; (上下边距0，左右边距自动，即居中)</p>
-<h1 id="浮动">浮动</h1>
-<p>img style=&quot;float:right;margin-left:20px;margin-bottom:20px<br>
-h2 style=&quot;clear:both&quot;<br>
-<img src="https://yueqingsheng.github.io/post-images/1585260606084.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1585260612292.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1585260617291.png" alt="" loading="lazy"></p>
-<h1 id="背景">背景</h1>
-<p>background: url(b.jpg) ;</p>
-<h1 id="定位">定位</h1>
-<p>position: absolute;right:0;top:0:</p>
+								<p>两个多月没出现过了🙁，最近打算在自学 GRE 考试，看的内容不多。这个最火的就是 GPT-3 demo 了，有些自然语言到代码生成的样例确实蛮意思的，根据描述就可以生成 SQL, Figma 或者 CSS 样式了。</p>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1596519527755.png" alt="" loading="lazy"></figure>
+<h2 id="ai">AI</h2>
+<p>CNN 入门讲解，对基础概念理解比较不错 <a href="https://zhuanlan.zhihu.com/p/161640214"  target="_blank">什么是CNN？写给小白的机器学习入门贴</a></p>
+<p>用之前提到过的 OPENAI 的 GPT-3 API 做的样例，包括了根据描述生成代码之类的比较有意思的东西 <a href="https://machinelearningtokyo.com/2020/07/26/10-cool-gpt-3-demos/"  target="_blank">10 COOL GPT-3 DEMOS</a></p>
+<p>Github 上整理的 demo  <a href="https://github.com/elyase/awesome-gpt3"  target="_blank">awesome-gpt3</a></p>
+<h2 id="文章">文章</h2>
+<p>感觉把 Computer Science 这个行业讲的蛮好的，建议毕业生或有兴趣从事 CS 的都看一下 《黑客与画家》 第二章<a href="https://weread.qq.com/web/reader/5b9328f05dd9fb5b922d1ebk65132ca01b6512bd43d90e3"  target="_blank">2 黑客与画家</a></p>
+<h2 id="视频">视频</h2>
+<p>软饭硬吃，哈哈，有以前毅吧那味了<br>
+<a href="https://www.bilibili.com/video/BV1z54y1S7AX"  target="_blank">广东爱情故事</a></p>
+<div class="aspect-ratio">
+        <iframe src="//player.bilibili.com/player.html?aid=839022882&bvid=BV1z54y1S7AX&cid=219392622&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+<p>认真做历史科普的人不多了，老阴阳师做科普的更不多了。最近读了篇 GRE 文章讲，虽然在科技发展如此快的时代，有些科学常识是如此的珍贵，对于普通人却像腐烂在温室里的花，无人在乎。<br>
+<a href="https://www.bilibili.com/video/BV1z54y1S7AX"  target="_blank">西方灾难史：美国大萧条（全集），点这里看全集哦</a></p>
+<div class="aspect-ratio">
+<iframe style="min-width: 500px;min-height: 300px"   src="https://www.acfun.cn/player/ac16518467" id="ACPlayer-re"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
-								
-								<a href="https://yueqingsheng.github.io/tag/cheatsheet/" rel="tag">cheatsheet</a>
 								
 							</div>
 							<nav class="navigation3 post-navigation3" role="navigation">
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/day-4 2/"
-											rel="prev"> Day 4</a></div>
 									
-									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/day3 2/"
-											rel="next"> Day 3</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/di-gui/"
+											rel="next"> 递归</a></div>
 									
 								</div>
 							</nav>
