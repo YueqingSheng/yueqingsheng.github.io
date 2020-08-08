@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-08-08T01:14:35.113Z</updated>
+    <updated>2020-08-08T01:21:10.354Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,29 +10,6 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
-    <entry>
-        <title type="html"><![CDATA[月报 8月]]></title>
-        <id>https://yueqingsheng.github.io/yue-bao-8-yue/</id>
-        <link href="https://yueqingsheng.github.io/yue-bao-8-yue/">
-        </link>
-        <updated>2020-08-03T07:12:33.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p><strong>RPA</strong>: Robotic process automation (or RPA) is a form of business process automation technology based on metaphorical software robots (bots) or on artificial intelligence (AI)/digital workers. It is sometimes referred to as software robotics.</p>
-</blockquote>
-<p>办公自动化<br>
-powershell, python ? RPA?</p>
-<p>PowerShell 美化计划<br>
-https://juejin.im/post/6844904106025287687<br>
-字体坑<br>
-http://www.zer0-nu1l.com/2020/03/08/%E3%80%90%E9%A3%9E%E8%9B%BE%E6%89%91%E7%81%AB%E3%80%91%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%B8%A9%E5%9D%91/</p>
-<p>不需要一行 Python 代码，也可以自动获取数据<br>
-https://vip.fxxkpython.com/?p=5990<br>
-不用一行代码，就写了个爬虫！这款谷歌插件已经打包好了！<br>
-https://blog.csdn.net/sinat_33224091/article/details/105283246<br>
-这些高级的 Google 搜索秘籍，小帅b忍痛传授给你<br>
-https://zhuanlan.zhihu.com/p/62870136</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[月报 7月]]></title>
         <id>https://yueqingsheng.github.io/zhou-bao-7-yue/</id>
@@ -457,6 +434,70 @@ episode: 每轮游戏<br>
 <figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592625752484.png" alt="" loading="lazy"></figure>
 <p><img src="https://yueqingsheng.github.io/post-images/1592626079005.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592626129133.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
+        </link>
+        <updated>2020-06-16T18:56:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
+<h2 id="scenario">Scenario</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
+微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
+<h2 id="service">Service</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
+<h2 id="storage">Storage</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
+<h3 id="thread-table-会话">Thread table (会话)</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
+有些信息是私有的，未读，静音<br>
+<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
+<h4 id="方法-1">方法 1</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
+私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
+弊端：需要跨表查询比较慢</p>
+<h4 id="方法-2">方法 2</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
+实际情况下使用cache , 减少跨表次数。</p>
+<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
+<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
+<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
+<h2 id="thread-sql">Thread SQL</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
+<h3 id="nosql">NoSQL</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
+<h2 id="可行解">可行解</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>实时<br>
+Push notification<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
+局限性： 无法支持 Web 端<br>
+Socket: 支持 Server push 给客户端<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
+<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
+channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
+因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
+<h3 id="q-a">Q &amp; A</h3>
+<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
+<h2 id="多机登录">多机登录</h2>
+<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
+<h2 id="用户在线状态显示">用户在线状态显示</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
