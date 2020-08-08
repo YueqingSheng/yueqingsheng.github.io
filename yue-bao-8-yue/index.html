@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>链表 | Random thoughts</title>
+<title>月报 8月 | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -48,7 +48,7 @@
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">链表</a>
+						<a href="https://yueqingsheng.github.io" rel="home">月报 8月</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -142,13 +142,13 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-06-24
+										2020-08-03
 									</time>
 									<span>
-										2 min read
+										1 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/lian-biao/" class="leancloud_visitors"  data-flag-title="链表">
+									<span id="/yue-bao-8-yue/" class="leancloud_visitors"  data-flag-title="月报 8月">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -164,48 +164,21 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<p>数组访问 O(1), 添加删除 O(n)<br>
-链表访问O(n), 添加删除 O(1)</p>
-<h2 id="跳表">跳表</h2>
-<p>log(n)<br>
-基于有序的链表 Redis  LevelDB<br>
-<img src="https://yueqingsheng.github.io/post-images/1593179884875.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593179968260.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593180120060.png" alt="" loading="lazy"></p>
-<h3 id="python-swap">python swap</h3>
-<p>x, y = y, x</p>
-<h2 id="题目1-删除排序数组中的重复项">题目1： 删除排序数组中的重复项</h2>
-<h3 id="解法1一开始的思路是把数组循环一遍有重复的就删除掉on2-的效率">解法1：一开始的思路是把数组循环一遍，有重复的就删除掉，O(n^2) 的效率</h3>
-<p>数组循环删除的方法，复制一遍数组或者使用反向遍历<br>
-为什么反向遍历不会出现 index 的错误？<br>
-This implies that if you iterate the list back to front, if you remove an item at the current index, everything to it's right shifts left - but that doesn't matter, since you've already dealt with all the elements to the right of the current position, and you're moving left - the next element to the left is unaffected by the change, and so the iterator gives you the element you expect.<br>
-a b c x d<br>
-a b c d</p>
-<blockquote>
-<p>python range<br>
-range(start, stop, step)<br>
-reverse: range(len(x)-1, -1, -1)</p>
+								<blockquote>
+<p><strong>RPA</strong>: Robotic process automation (or RPA) is a form of business process automation technology based on metaphorical software robots (bots) or on artificial intelligence (AI)/digital workers. It is sometimes referred to as software robotics.</p>
 </blockquote>
-<pre><code class="language-python">class Solution:
-    def removeDuplicates(self, nums: List[int]) -&gt; int:
-        if len(nums) == 1:
-            return len(nums)
-        for i in range(len(nums)-1,0,-1):
-            if nums[i] == nums[i-1]:
-                nums.pop(i)
-        return len(nums)
-</code></pre>
-<h3 id="解法2-双指针-on">解法2： 双指针  O(n)</h3>
-<p>一个指针指向要放不同element的下标，另外一个指针用来搜索下一个要放的元素</p>
-<pre><code class="language-python">class Solution:
-    def removeDuplicates(self, nums: List[int]) -&gt; int:
-        i = 0
-        for j in range(len(nums)):
-            if nums[i] != nums[j]:
-                nums[i+1] = nums[j]
-                i = i + 1
-        return len(nums[:i+1])
-</code></pre>
+<p>办公自动化<br>
+powershell, python ? RPA?</p>
+<p>PowerShell 美化计划<br>
+https://juejin.im/post/6844904106025287687<br>
+字体坑<br>
+http://www.zer0-nu1l.com/2020/03/08/%E3%80%90%E9%A3%9E%E8%9B%BE%E6%89%91%E7%81%AB%E3%80%91%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96%E8%B8%A9%E5%9D%91/</p>
+<p>不需要一行 Python 代码，也可以自动获取数据<br>
+https://vip.fxxkpython.com/?p=5990<br>
+不用一行代码，就写了个爬虫！这款谷歌插件已经打包好了！<br>
+https://blog.csdn.net/sinat_33224091/article/details/105283246<br>
+这些高级的 Google 搜索秘籍，小帅b忍痛传授给你<br>
+https://zhuanlan.zhihu.com/p/62870136</p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -215,12 +188,9 @@ reverse: range(len(x)-1, -1, -1)</p>
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/shu-er-cha-shu/"
-											rel="prev">   树、二叉树</a></div>
 									
-									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/"
-											rel="next"> 算法基础</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/zhou-bao-7-yue/"
+											rel="next"> 月报 7月</a></div>
 									
 								</div>
 							</nav>
