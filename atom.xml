@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-08-08T01:21:10.354Z</updated>
+    <updated>2020-08-10T02:05:59.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,91 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
+    <entry>
+        <title type="html"><![CDATA[GRE 笔记]]></title>
+        <id>https://yueqingsheng.github.io/gre-bi-ji/</id>
+        <link href="https://yueqingsheng.github.io/gre-bi-ji/">
+        </link>
+        <updated>2020-08-07T14:55:43.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="89-阅读初测-1020-2h">8.9 阅读初测 10/20 2h</h1>
+<p>一道题目只有1.5min, 也就说 一个小短文, 从看文章到做完2个Question, 你只有3min</p>
+<h2 id="r1">R1</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1597022725946.png" alt="" loading="lazy"></figure>
+<h3 id="第一句">第一句</h3>
+<p><strong>Although the passenger pigeons, now extinct, were abundant in eighteenth- and nineteenth-century America, archaeological studies at twelfth-century Cahokian sites in the present day United States examined household food trash and found that traces of passenger pigeon were quite rare.</strong></p>
+<p>timeline从前往后,  timeline 就是 time+event<br>
+12世纪的sites, 鸽子trace少，18, 19世纪, 鸽子多;  20-21世纪, 鸽子灭绝.</p>
+<blockquote>
+<p>What is not an opinion?<br>
+1. An opinion is not a statement of fact.<br>
+2. An opinion is not a question.<br>
+3. An opinion is not a fragment.<br>
+4. An opinion expresses one idea.<br>
+5. An opinion does not simply announce the idea you will argue.</p>
+</blockquote>
+<p>第一句话不是一个观点，因为符合1。观点所有时间地点人物事件 转折, 都要有。ETS<br>
+一定会有一个 “转”</p>
+<h3 id="第二句">第二句</h3>
+<p><strong>Given that the sites were close to a huge passenger pigeon roost documented by John James Audubon in the nineteenth century and that Cahokians consumed almost every other animal protein source available, the archaeologists conducting the studies concluded the passenger pigeon population had once been very limited before increasing dramatically in post-Columbian America.</strong></p>
+<p>前半句不是观点，是个客观事实。后半句= view 考古学者提出来了一个conclusion， 所以是个观点。</p>
+<blockquote>
+<p>post-Columbian: Referring to the cultures of the American continent after the European influence, specifically to the era after the continent was visited by Christopher Columbus.被哥伦布发现后的时期。<br>
+哥伦布是个男的，那么拉丁文的 地名呢, 要换成女性 阴性词所以呢是Columbia</p>
+</blockquote>
+<p>秦始皇统一了中国, 秦就是chin，a就是地名的阴性后缀。<br>
+为啥都是阴性后缀 - 拉丁文地名 约定俗成,</p>
+<blockquote>
+<p>Europa<br>
+Europa, or Jupiter II, is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet of all the 79 known moons of Jupiter. It is also the sixth-largest moon in the Solar System.</p>
+</blockquote>
+<blockquote>
+<p>OG考察题材:<br>
+Physical sciences<br>
+Biological sciences<br>
+Social sciences<br>
+Arts and humanities<br>
+Everyday topics</p>
+</blockquote>
+<p>第二句强调一个 change，12世纪- 1492少 ，1492-now 多。</p>
+<h3 id="第三句">第三句</h3>
+<p><strong>Other archaeologists have criticized those conclusions on the grounds that passenger pigeon bones would not be likely to be preserved.</strong></p>
+<p>主要是攻击了这个 on the gound that = reason/evidence 论点 (不是结论conclusion)<br>
+<strong>opinion = view = conclusion = claim</strong><br>
+<strong>on the ground that  = for the reason that = because</strong><br>
+12世纪鸽子也许很多,  土著人也吃了无数鸽子,但是吃过的骨头都没有保存下来, 而已。反驳上面说的鸽子骨头少（这个evidence） -&gt; 12世纪-1492没有什么鸽子</p>
+<h3 id="第四句">第四句</h3>
+<p><strong>But all the archaeological projects found plenty of bird bones- and even  bones from fish.</strong><br>
+不可能保存不下骨头，反驳上一句，对证据的反向驳斥再取反，  counter - counter -view。</p>
+<h3 id="总结">总结</h3>
+<p>文章结构 : 第一句话 fact<br>
+第二句话 提出 opinion = view<br>
+第三句话 提出反对的 counter -view<br>
+最后一句 counter - counter -view<br>
+最后一句话, 是对第二句话的取同<br>
+view = counter-counter-view 取同</p>
+<blockquote>
+<ol>
+<li>文章多层结构解析法(40%)<br>
+教你如何彻底读懂一篇GRE英文阅读文章(100~500 words), 永远读懂句子内部关系,句子与句子之间的逻辑关系, 几个段落之间逻辑关系, 文章主要的pros and cons.<br>
+Active engagement with the text,<br>
+asking questions,<br>
+formulating and evaluating hypotheses,<br>
+reflecting on the relationship of the particular text to other texts and information.<br>
+- Are they contrasting? Are they consistent?<br>
+- Does one support the other?<br>
+- Does one spell another out in greater detail?<br>
+- Is one an application of another to a particular circumstance?</li>
+</ol>
+</blockquote>
+<h3 id="题目">题目</h3>
+<h4 id="第一题">第一题</h4>
+<p>E counter - counter -view 对应了counter- objection</p>
+<h4 id="第二题">第二题</h4>
+<p>Which of the following, if true, would most call into question the reasoning of “the archaeologists conducting the studies”?</p>
+<p>E. Passenger pigeons tended not to roost at the same sites for very many generations</p>
+<p>12世纪的 Cahokian sites 很小 没有鸽子, 不能说明 100% 美洲都没有鸽子，也许其他纽约 洛杉矶有鸽子聚集地呢。12世纪也许恰好 Cahokian 没有鸽子。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[月报 7月]]></title>
         <id>https://yueqingsheng.github.io/zhou-bao-7-yue/</id>
@@ -434,70 +519,6 @@ episode: 每轮游戏<br>
 <figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592625752484.png" alt="" loading="lazy"></figure>
 <p><img src="https://yueqingsheng.github.io/post-images/1592626079005.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592626129133.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
-        </link>
-        <updated>2020-06-16T18:56:09.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
-微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
-<h3 id="thread-table-会话">Thread table (会话)</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
-有些信息是私有的，未读，静音<br>
-<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
-<h4 id="方法-1">方法 1</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
-私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
-弊端：需要跨表查询比较慢</p>
-<h4 id="方法-2">方法 2</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
-实际情况下使用cache , 减少跨表次数。</p>
-<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
-<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
-<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
-<h2 id="thread-sql">Thread SQL</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
-<h3 id="nosql">NoSQL</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
-<h2 id="可行解">可行解</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
-<h2 id="scale">Scale</h2>
-<p>实时<br>
-Push notification<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
-局限性： 无法支持 Web 端<br>
-Socket: 支持 Server push 给客户端<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
-<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
-channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
-因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
-<h3 id="q-a">Q &amp; A</h3>
-<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
-<h2 id="多机登录">多机登录</h2>
-<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
-<h2 id="用户在线状态显示">用户在线状态显示</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
