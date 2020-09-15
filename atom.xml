@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-08-15T22:53:43.223Z</updated>
+    <updated>2020-09-15T03:03:48.334Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,40 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
+        <title type="html"><![CDATA[GRE 数学]]></title>
+        <id>https://yueqingsheng.github.io/gre-shu-xue/</id>
+        <link href="https://yueqingsheng.github.io/gre-shu-xue/">
+        </link>
+        <updated>2020-09-02T00:20:59.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="错题整理">错题整理</h2>
+<blockquote>
+<p>Which of the two quantities is greater?<br>
+Quantity A: 35,043×25,430<br>
+Quantity B: 35,430×25,043</p>
+</blockquote>
+<p>Explanation:If we have two pairs of numbers, and both pairs add up to the same total, then the pair with the larger product will be the pair that's closer together. So the answer is the first pair.</p>
+<p>(This picture might help: if you want a rectangle with a fixed perimeter to have the biggest possible area, you want it to be a square.)<br>
+周长为固定及和为固定时，边长接近的面积(乘积)最大</p>
+<blockquote>
+<p>To fill a larger concert hall, a madrigal singing group consisting of sopranos, altos, and basses, in a 5:7:3 ratio, needs 40 singers. What is the least number of basses the group will need?</p>
+</blockquote>
+<p>The ratio is : 5 singers, 7 altos , and 3 basses AND you know there are at least 40 singers.</p>
+<p>Using the unknown multiplier which is the sum of the ratios or 15 X</p>
+<p>Now, 15 divided for the first ratio 5 is 3. So you must have 3 times ALL the elements present in the group.</p>
+<p>The least number of singer we said that is 40. As a matter of fact, this is confirmed by 15*3=45. (the questions tell you that you do have 40 ≥≥ singers.</p>
+<p>7*3 = 21 (≥≥)</p>
+<p>and 3*3= 9 (≥≥)</p>
+<p>The answer is <strong>9</strong>, 注意按比例要45个不是40个</p>
+<h2 id="计算时差">计算时差</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1599093220457.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[GRE 笔记4 填空51-98]]></title>
         <id>https://yueqingsheng.github.io/ytjfWdszp/</id>
         <link href="https://yueqingsheng.github.io/ytjfWdszp/">
         </link>
-        <updated>2020-08-10T04:13:25.000Z</updated>
+        <updated>2020-08-08T16:13:25.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
 <p>填空技巧：填空三选，如果一个正面，一个负面，一个中性，排除中性。如果两个正向，或两个负向，一般是选另外一个。</p>
 </blockquote>
@@ -48,7 +77,10 @@ Although + 否定词（not, counterintutive） 转折前后取同<br>
 for all =despite<br>
 while not/ although not/ 程度不同的取同<br>
 protoscience -&gt; modern science<br>
-transformative = mindblowing = new view</p>
+transformative = mindblowing = new view<br>
+toll 通行费<br>
+substaintial 大量的<br>
+三空题，注意第三个空可能会重复之前空或者文章意思。</p>
 ]]></content>
     </entry>
     <entry>
@@ -535,59 +567,6 @@ a = a+ [3]</p>
 <h3 id="官方解法2-回溯法">官方解法2: 回溯法</h3>
 <p><img src="https://yueqingsheng.github.io/post-images/1593393082311.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1593393119046.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 本地运行 Jupyter 作业教程]]></title>
-        <id>https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/</id>
-        <link href="https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/">
-        </link>
-        <updated>2020-06-20T05:04:45.000Z</updated>
-        <content type="html"><![CDATA[<p>推荐 Anaconda 傻瓜式安装，安装完后启动 Jupyter<br>
-<img src="https://yueqingsheng.github.io/post-images/1592759276980.png" alt="" loading="lazy"></p>
-<p>直接在本地运行下载下来的 notebook 会有几个问题，提供下解决方案：</p>
-<h2 id="1-error-invalid-requirement">1. ERROR: Invalid requirement: '#'</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592759420716.png" alt="" loading="lazy"><br>
-当命令行语句和注释在同一行时候会报错，可以把同行的注释去掉，或者挪到上面</p>
-<h2 id="2-module-could-not-be-found-找不到雅达利-乒乓环境">2. module could not be found 找不到雅达利 乒乓环境</h2>
-<p>做如下几步</p>
-<ol>
-<li>
-<p>卸载 gym and atari-py (If already installed):<br>
-pip uninstall atari-py<br>
-pip uninstall gym[atari]</p>
-</li>
-<li>
-<p>下载 VS build 工具 : https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=16</p>
-</li>
-<li>
-<p>运行并选择  &quot;C++ build tools&quot;安装.<br>
-<img src="https://yueqingsheng.github.io/post-images/1592759774751.png" alt="" loading="lazy"></p>
-</li>
-<li>
-<p>重启电脑</p>
-</li>
-<li>
-<p>安装 cmake, atari-py and gym<br>
-pip install cmake<br>
-pip install atari-py<br>
-pip install gym[atari]</p>
-</li>
-<li>
-<p>跑一下测试:<br>
-import atari_py<br>
-print(atari_py.list_games())<br>
-如果成功会 print 下面</p>
-</li>
-</ol>
-<pre><code class="language-python">['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
-</code></pre>
-<h2 id="3-wrn-found-non-empty-cuda_visible_devices-but-parl-found-that-paddle-was-not-complied-with-cuda-which-may-cause-issues-keneral-dead">3. WRN Found non-empty CUDA_VISIBLE_DEVICES. But PARL found that Paddle was not complied with CUDA, which may cause issues. keneral dead</h2>
-<p>这个错误 Kernel 会挂掉，然后无限重启，主要是 检测到了电脑里的GPU, 但是没有安装 Cuda 导致的。 因为这里我们只使用 CPU 来跑，所以把 GPU 检测关闭就好了<br>
-在最后运行代码前加上这两行：</p>
-<pre><code class="language-python">import os
-os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
-</code></pre>
 ]]></content>
     </entry>
 </feed>
