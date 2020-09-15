@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-09-15T03:03:48.334Z</updated>
+    <updated>2020-09-15T03:06:28.866Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -338,6 +338,15 @@ at least 选项有 80% 可能是正确的</p>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[月报 8月]]></title>
+        <id>https://yueqingsheng.github.io/yue-bao-8-yue/</id>
+        <link href="https://yueqingsheng.github.io/yue-bao-8-yue/">
+        </link>
+        <updated>2020-07-31T19:12:33.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">月报 8月</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[月报 7月]]></title>
         <id>https://yueqingsheng.github.io/zhou-bao-7-yue/</id>
         <link href="https://yueqingsheng.github.io/zhou-bao-7-yue/">
@@ -494,79 +503,6 @@ reverse: range(len(x)-1, -1, -1)</p>
                 i = i + 1
         return len(nums[:i+1])
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[算法基础]]></title>
-        <id>https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/</id>
-        <link href="https://yueqingsheng.github.io/shi-jian-fu-za-du-he-kong-jian-fu-za-du-fen-xi/">
-        </link>
-        <updated>2020-06-22T12:18:19.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="时间复杂度和空间复杂度分析">时间复杂度和空间复杂度分析</h1>
-<h2 id="时间复杂度">时间复杂度：</h2>
-<p>Big O noataion<br>
-<img src="https://yueqingsheng.github.io/post-images/1593131066367.png" alt="" loading="lazy"></p>
-<p>递归分析：<br>
-<img src="https://yueqingsheng.github.io/post-images/1593131294007.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593131391447.png" alt="" loading="lazy"></p>
-<p>Master Theorem<br>
-<img src="https://yueqingsheng.github.io/post-images/1593144733931.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593131483674.png" alt="" loading="lazy"><br>
-二叉树遍历 O(n)<br>
-DFS, BFS O(n)</p>
-<h2 id="空间复杂度">空间复杂度</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593145072638.png" alt="" loading="lazy"></figure>
-<h2 id="入门题1-strstr">入门题1: StrStr</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1593391012386.png" alt="" loading="lazy"><br>
-注意检查空字符串</p>
-<pre><code class="language-python">class Solution:
-    def strStr(self, haystack: str, needle: str) -&gt; int:
-        if len(needle) == 0 :
-            return 0
-        for i in range(len(haystack)):
-            if haystack[i : i + len(needle)] == needle:
-                return i
-        return -1
-</code></pre>
-<h2 id="入门题2-子集">入门题2: 子集</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1593391087028.png" alt="" loading="lazy"><br>
-分解问题使用递归解决</p>
-<h3 id="我的解法把所有可能过一遍去重">我的解法：把所有可能过一遍，去重</h3>
-<pre><code class="language-python">class Solution:
-    def subsets(self, nums) :
-        subsets = [[]]
-        def subset(nums):
-            if len(nums) == 0:
-                return
-            subsets.append(nums)
-            for n in nums:
-                nums_copy = nums[:]
-                nums_copy.remove(n)
-                if nums_copy not in subsets:
-                    subset(nums_copy)
-            return
-        subset(nums)
-        return subsets
-</code></pre>
-<h3 id="官方解法1-从小到大每次有新数出现的时候把之前的可能序列合并上这个数">官方解法1: 从小到大，每次有新数出现的时候，把之前的可能序列合并上这个数</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1593391785024.png" alt="" loading="lazy"></figure>
-<pre><code class="language-python">class Solution:
-    def subsets(self, nums: List[int]) -&gt; List[List[int]]:
-        n = len(nums)
-        output = [[]]
-        
-        for num in nums:
-            output += [curr + [num] for curr in output]
-        
-        return output
-</code></pre>
-<h4 id="python-listt-concatenata">python listt concatenata</h4>
-<p>a = []<br>
-a += [3]<br>
-a = a+ [3]</p>
-<h3 id="官方解法2-回溯法">官方解法2: 回溯法</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1593393082311.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593393119046.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
