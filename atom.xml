@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-10-10T17:36:41.322Z</updated>
+    <updated>2020-10-10T18:25:08.268Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,33 +11,38 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
-        <title type="html"><![CDATA[GRE 数学]]></title>
-        <id>https://yueqingsheng.github.io/gre-shu-xue/</id>
-        <link href="https://yueqingsheng.github.io/gre-shu-xue/">
+        <title type="html"><![CDATA[算法笔记]]></title>
+        <id>https://yueqingsheng.github.io/suan-fa-bi-ji/</id>
+        <link href="https://yueqingsheng.github.io/suan-fa-bi-ji/">
         </link>
-        <updated>2020-09-01T12:20:59.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="错题整理">错题整理</h2>
-<blockquote>
-<p>Which of the two quantities is greater?<br>
-Quantity A: 35,043×25,430<br>
-Quantity B: 35,430×25,043</p>
-</blockquote>
-<p>Explanation:If we have two pairs of numbers, and both pairs add up to the same total, then the pair with the larger product will be the pair that's closer together. So the answer is the first pair.</p>
-<p>(This picture might help: if you want a rectangle with a fixed perimeter to have the biggest possible area, you want it to be a square.)<br>
-周长为固定及和为固定时，边长接近的面积(乘积)最大</p>
-<blockquote>
-<p>To fill a larger concert hall, a madrigal singing group consisting of sopranos, altos, and basses, in a 5:7:3 ratio, needs 40 singers. What is the least number of basses the group will need?</p>
-</blockquote>
-<p>The ratio is : 5 singers, 7 altos , and 3 basses AND you know there are at least 40 singers.</p>
-<p>Using the unknown multiplier which is the sum of the ratios or 15 X</p>
-<p>Now, 15 divided for the first ratio 5 is 3. So you must have 3 times ALL the elements present in the group.</p>
-<p>The least number of singer we said that is 40. As a matter of fact, this is confirmed by 15*3=45. (the questions tell you that you do have 40 ≥≥ singers.</p>
-<p>7*3 = 21 (≥≥)</p>
-<p>and 3*3= 9 (≥≥)</p>
-<p>The answer is <strong>9</strong>, 注意按比例要45个不是40个</p>
-<h2 id="计算时差">计算时差</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1599093220457.png" alt="" loading="lazy"></figure>
-<p>A并B并C＝A+B+C-(AB+AC+BC)+ABC.</p>
+        <updated>2020-10-08T06:12:55.000Z</updated>
+        <content type="html"><![CDATA[<style>
+a.b {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+
+a.b:link, a.b:visited, a.b:focus {
+  background: pink;
+}
+
+a.b:hover {     
+  background: orange;
+}
+
+a.b:active {
+  background: red;
+  color: white;
+}
+</style>
+<p><a class="b" href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">点击跳转</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -343,7 +348,7 @@ at least 选项有 80% 可能是正确的</p>
         <id>https://yueqingsheng.github.io/yue-bao-8-yue/</id>
         <link href="https://yueqingsheng.github.io/yue-bao-8-yue/">
         </link>
-        <updated>2020-07-31T19:12:33.000Z</updated>
+        <updated>2020-07-31T07:12:33.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">月报 8月</a></p>
 ]]></content>
     </entry>
@@ -352,7 +357,7 @@ at least 选项有 80% 可能是正确的</p>
         <id>https://yueqingsheng.github.io/zhou-bao-7-yue/</id>
         <link href="https://yueqingsheng.github.io/zhou-bao-7-yue/">
         </link>
-        <updated>2020-07-23T03:11:51.000Z</updated>
+        <updated>2020-07-22T03:11:51.000Z</updated>
         <content type="html"><![CDATA[<p>两个多月没出现过了🙁，最近打算在自学 GRE 考试，看的内容不多。这个月最火的就是 GPT-3 demo 了，有些自然语言到代码生成的样例确实蛮意思的，根据描述就可以生成 SQL, Figma 或者 CSS 样式了。</p>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1596519527755.png" alt="" loading="lazy"></figure>
 <h2 id="ai">AI</h2>
@@ -375,135 +380,155 @@ at least 选项有 80% 可能是正确的</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[递归]]></title>
-        <id>https://yueqingsheng.github.io/di-gui/</id>
-        <link href="https://yueqingsheng.github.io/di-gui/">
+        <title type="html"><![CDATA[Windows 本地运行 Jupyter 作业教程]]></title>
+        <id>https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/</id>
+        <link href="https://yueqingsheng.github.io/windows-ben-di-yun-xing-jupyter-zuo-ye-jiao-cheng/">
         </link>
-        <updated>2020-06-25T20:07:04.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="递归模板记住递归是对每一层做的操作">递归模板，记住递归是对每一层做的操作</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1593212226238.png" alt="" loading="lazy"></figure>
-<h2 id="题目1二叉树的最大深度">题目1：二叉树的最大深度</h2>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-class Solution:
-    def maxDepth(self, root: TreeNode) -&gt; int:
-        if not root:
-            return 0
-        ldepth = self.maxDepth(root.left) + 1 
-        rdepth = self.maxDepth(root.right) + 1
-        return max(ldepth, rdepth) 
+        <updated>2020-06-20T05:04:45.000Z</updated>
+        <content type="html"><![CDATA[<p>推荐 Anaconda 傻瓜式安装，安装完后启动 Jupyter<br>
+<img src="https://yueqingsheng.github.io/post-images/1592759276980.png" alt="" loading="lazy"></p>
+<p>直接在本地运行下载下来的 notebook 会有几个问题，提供下解决方案：</p>
+<h2 id="1-error-invalid-requirement">1. ERROR: Invalid requirement: '#'</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592759420716.png" alt="" loading="lazy"><br>
+当命令行语句和注释在同一行时候会报错，可以把同行的注释去掉，或者挪到上面</p>
+<h2 id="2-module-could-not-be-found-找不到雅达利-乒乓环境">2. module could not be found 找不到雅达利 乒乓环境</h2>
+<p>做如下几步</p>
+<ol>
+<li>
+<p>卸载 gym and atari-py (If already installed):<br>
+pip uninstall atari-py<br>
+pip uninstall gym[atari]</p>
+</li>
+<li>
+<p>下载 VS build 工具 : https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=16</p>
+</li>
+<li>
+<p>运行并选择  &quot;C++ build tools&quot;安装.<br>
+<img src="https://yueqingsheng.github.io/post-images/1592759774751.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>重启电脑</p>
+</li>
+<li>
+<p>安装 cmake, atari-py and gym<br>
+pip install cmake<br>
+pip install atari-py<br>
+pip install gym[atari]</p>
+</li>
+<li>
+<p>跑一下测试:<br>
+import atari_py<br>
+print(atari_py.list_games())<br>
+如果成功会 print 下面</p>
+</li>
+</ol>
+<pre><code class="language-python">['adventure', 'air_raid', 'alien', 'amidar', 'assault', 'asterix', 'asteroids', 'atlantis', 'bank_heist', 'battle_zone', 'beam_rider', 'berzerk', 'bowling', 'boxing', 'breakout', 'carnival', 'centipede', 'chopper_command', 'crazy_climber', 'defender', 'demon_attack', 'double_dunk', 'elevator_action', 'enduro', 'fishing_derby', 'freeway', 'frostbite', 'gopher', 'gravitar', 'hero', 'ice_hockey', 'jamesbond', 'journey_escape', 'kaboom', 'kangaroo', 'krull', 'kung_fu_master', 'montezuma_revenge', 'ms_pacman', 'name_this_game', 'phoenix', 'pitfall', 'pong', 'pooyan', 'private_eye', 'qbert', 'riverraid', 'road_runner', 'robotank', 'seaquest', 'skiing', 'solaris', 'space_invaders', 'star_gunner', 'tennis', 'time_pilot', 'tutankham', 'up_n_down', 'venture', 'video_pinball', 'wizard_of_wor', 'yars_revenge', 'zaxxon']
 </code></pre>
-<p>可以把判断叶子节点去掉的原因，可以多走一层走到叶子节点下一层发现没有就返回上来0。每走一层就加1，走到叶子节点下一层，返回0 +1 也是一样的。</p>
-<p>官方解法，每往下走一层就+1， 然后每层取左右两边最大的深度</p>
-<pre><code class="language-python">class Solution:
-    def maxDepth(self, root):
-        &quot;&quot;&quot;
-        :type root: TreeNode
-        :rtype: int
-        &quot;&quot;&quot; 
-        if root is None: 
-            return 0 
-        else: 
-            left_height = self.maxDepth(root.left) 
-            right_height = self.maxDepth(root.right) 
-            return max(left_height, right_height) + 1 
+<h2 id="3-wrn-found-non-empty-cuda_visible_devices-but-parl-found-that-paddle-was-not-complied-with-cuda-which-may-cause-issues-keneral-dead">3. WRN Found non-empty CUDA_VISIBLE_DEVICES. But PARL found that Paddle was not complied with CUDA, which may cause issues. keneral dead</h2>
+<p>这个错误 Kernel 会挂掉，然后无限重启，主要是 检测到了电脑里的GPU, 但是没有安装 Cuda 导致的。 因为这里我们只使用 CPU 来跑，所以把 GPU 检测关闭就好了<br>
+在最后运行代码前加上这两行：</p>
+<pre><code class="language-python">import os
+os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 </code></pre>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[  树、二叉树]]></title>
-        <id>https://yueqingsheng.github.io/shu-er-cha-shu/</id>
-        <link href="https://yueqingsheng.github.io/shu-er-cha-shu/">
+        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
         </link>
-        <updated>2020-06-25T18:29:23.000Z</updated>
-        <content type="html"><![CDATA[<p>数跟图的区别是有没有闭环<br>
-<img src="https://yueqingsheng.github.io/post-images/1593196326489.png" alt="" loading="lazy"></p>
-<h2 id="二叉搜索树">二叉搜索树：</h2>
-<h3 id="遍历">遍历</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1593198432381.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593198530487.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593198604293.png" alt="" loading="lazy"><br>
-查询，插入 logn<br>
-插入：先查找位置，再插入<br>
-删除，去第一个大于parent node的节点。<br>
-平均 O(log(n)) 最差情况 O(n)</p>
-<h2 id="题目1-n-叉树前序遍历">题目1： N 叉树前序遍历</h2>
-<p>给定一个 N 叉树，返回其节点值的前序遍历。<br>
-<img src="https://yueqingsheng.github.io/post-images/1593201852265.png" alt="" loading="lazy"></p>
-<pre><code class="language-python">&quot;&quot;&quot;
-# Definition for a Node.
-class Node:
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-&quot;&quot;&quot;
-
-class Solution:
-    def preorder(self, root: 'Node') -&gt; List[int]:
-        path = []
-        def traverse(node):
-            if node:
-                path.append(node.val)
-                for n in node.children:
-                    traverse(n)
-        traverse(root)
-        return path
-</code></pre>
+        <updated>2020-06-19T15:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
+DQN 扩展到连续控制动作空间<br>
+策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
+Q 网络逼近 Q-target, 使用 MSE<br>
+Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
+为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
+只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[链表]]></title>
-        <id>https://yueqingsheng.github.io/lian-biao/</id>
-        <link href="https://yueqingsheng.github.io/lian-biao/">
+        <title type="html"><![CDATA[系统设计7 GFS]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
         </link>
-        <updated>2020-06-25T01:49:36.000Z</updated>
-        <content type="html"><![CDATA[<p>数组访问 O(1), 添加删除 O(n)<br>
-链表访问O(n), 添加删除 O(1)</p>
-<h2 id="跳表">跳表</h2>
-<p>log(n)<br>
-基于有序的链表 Redis  LevelDB<br>
-<img src="https://yueqingsheng.github.io/post-images/1593179884875.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593179968260.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1593180120060.png" alt="" loading="lazy"></p>
-<h3 id="python-swap">python swap</h3>
-<p>x, y = y, x</p>
-<h2 id="题目1-删除排序数组中的重复项">题目1： 删除排序数组中的重复项</h2>
-<h3 id="解法1一开始的思路是把数组循环一遍有重复的就删除掉on2-的效率">解法1：一开始的思路是把数组循环一遍，有重复的就删除掉，O(n^2) 的效率</h3>
-<p>数组循环删除的方法，复制一遍数组或者使用反向遍历<br>
-为什么反向遍历不会出现 index 的错误？<br>
-This implies that if you iterate the list back to front, if you remove an item at the current index, everything to it's right shifts left - but that doesn't matter, since you've already dealt with all the elements to the right of the current position, and you're moving left - the next element to the left is unaffected by the change, and so the iterator gives you the element you expect.<br>
-a b c x d<br>
-a b c d</p>
-<blockquote>
-<p>python range<br>
-range(start, stop, step)<br>
-reverse: range(len(x)-1, -1, -1)</p>
-</blockquote>
-<pre><code class="language-python">class Solution:
-    def removeDuplicates(self, nums: List[int]) -&gt; int:
-        if len(nums) == 1:
-            return len(nums)
-        for i in range(len(nums)-1,0,-1):
-            if nums[i] == nums[i-1]:
-                nums.pop(i)
-        return len(nums)
-</code></pre>
-<h3 id="解法2-双指针-on">解法2： 双指针  O(n)</h3>
-<p>一个指针指向要放不同element的下标，另外一个指针用来搜索下一个要放的元素</p>
-<pre><code class="language-python">class Solution:
-    def removeDuplicates(self, nums: List[int]) -&gt; int:
-        i = 0
-        for j in range(len(nums)):
-            if nums[i] != nums[j]:
-                nums[i+1] = nums[j]
-                i = i + 1
-        return len(nums[:i+1])
-</code></pre>
+        <updated>2020-06-18T17:13:25.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592838132417.png" alt="" loading="lazy"></figure>
+<h2 id="scenario">Scenario</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592937998924.png" alt="" loading="lazy"></figure>
+<h2 id="service">Service</h2>
+<p>clinet + Server<br>
+多台机器怎么沟通？<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938077078.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938113585.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938321692.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938364579.png" alt="" loading="lazy"></p>
+<h2 id="storage">Storage</h2>
+<h2 id="保存一个文件">保存一个文件</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592938764791.png" alt="" loading="lazy"><br>
+MetaData 的访问更多，A, B 两种存储结构<br>
+机械硬盘，磁头调需要时间，所以选择A<br>
+文件内容分段储存还是连续存储，B 适合修改或追加内容<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938947650.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592939145448.png" alt="" loading="lazy"><br>
+100T，block 太多，增加 block 大小， 4k -&gt; 64M, 劣势浪费了小空间， 4m 占用了64m空间<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939321203.png" alt="" loading="lazy"><br>
+10P，一台电脑 0.1P<br>
+offset 可以只存在 Chunk server 上<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939740947.png" alt="" loading="lazy"><br>
+换格子不用通知 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939893628.png" alt="" loading="lazy"></p>
+<h2 id="read-write">Read &amp; Write</h2>
+<h3 id="写入">写入</h3>
+<p>一次写入还是多次写入，传输单位是Chunk<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940093322.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940144296.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940260498.png" alt="" loading="lazy"><br>
+和Master 沟通，直接给chunk server 写<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940431060.png" alt="" loading="lazy"></p>
+<h3 id="读入">读入</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592940583035.png" alt="" loading="lazy"><br>
+并行从不同 Chunk server 读入<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940638455.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>单 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940743044.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940828767.png" alt="" loading="lazy"><br>
+检查损坏<br>
+CheckSum, XOR(exclusive OR) 相同为0， 不同为1，有误检情况，极低<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941171998.png" alt="" loading="lazy"><br>
+1 个 cheksum 4bytes, 1 个 chunk 1个 chunksum<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941328271.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941393981.png" alt="" loading="lazy"></p>
+<h3 id="replica-备份">Replica 备份</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592941646023.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941630620.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941717310.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941741519.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942222483.png" alt="" loading="lazy"><br>
+B. 单次通讯<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941853201.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941886863.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941945801.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942052569.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942111752.png" alt="" loading="lazy"></p>
+<h2 id="实战">实战</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592942352741.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942408792.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942469829.png" alt="" loading="lazy"><br>
+QPS<br>
+<img src="https://yueqingsheng.github.io/post-images/1592942546504.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942743390.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942782661.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942892343.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

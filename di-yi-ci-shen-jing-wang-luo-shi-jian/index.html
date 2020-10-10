@@ -76,7 +76,7 @@
 
 						<li>
 
-							<a href="/tag/log"> 日志</a></li>
+							<a href="/tag/notes"> 笔记</a></li>
 
 						
 
@@ -89,6 +89,12 @@
 						<li>
 
 							<a href="/tags"> 标签</a></li>
+
+						
+
+						<li>
+
+							<a href="/tag/monthly_report"> 月报</a></li>
 
 						
 
@@ -126,7 +132,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1602351395892" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1602354303268" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -180,8 +186,8 @@
 <p>只看到了cost变大，没有去考虑原因。原因是因为梯度爆炸。梯度爆炸的原因是，输入之间差值太大，呈现exponetial爆炸增长。</p>
 <h2 id="最重要学到的点什么时候要做归一化即normalizition">！！！！ 最重要学到的点，什么时候要做归一化，即Normalizition</h2>
 <p>归一化，在处理奇异值时候特别重要，如果数据存在极大或极小值，会严重影响weight 的收敛。归一化即，把输入和输出限制在同意范围内，如[0,1],映射到同一维度内。<br>
-<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a></p>
-<p>Anyway, 有空的话，可以用LSTM复现个玩玩。获取一个多维度输入，输出将来的感染人数。直到感染变化为0为止。</p>
+<a href="https://blog.csdn.net/zenghaitao0128/article/details/78361038">参考:机器学习——标准化/归一化的目的和作用</a><br>
+由于给的数据趋于指数化增加，范围变化太多，所以要做归一化处理。</p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
