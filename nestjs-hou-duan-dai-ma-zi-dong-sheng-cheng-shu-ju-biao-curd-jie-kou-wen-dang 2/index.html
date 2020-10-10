@@ -88,12 +88,6 @@
 
 						<li>
 
-							<a href="/tags"> 标签</a></li>
-
-						
-
-						<li>
-
 							<a href="/tag/monthly_report"> 月报</a></li>
 
 						
@@ -132,7 +126,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1602354303268" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1602354888468" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -150,7 +144,7 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-04-28
+										2020-04-26
 									</time>
 									<span>
 										3 min read
@@ -162,7 +156,7 @@
 									<span class="isTop">
 										<script type="text/javascript">
 											var isTop;
-											isTop = false;
+											isTop = true;
 											if (isTop == true) {
 												// document.write("<i class="iconfont icon-icon-test"></i>")
 												document.write("<span>⭐ Top</span>");
@@ -172,12 +166,13 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<h2 id="起因">起因</h2>
+								<p>已开源 <a href="https://github.com/YueqingSheng/nestjs_a_json_to_all">github</a></p>
+<h2 id="起因">起因</h2>
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
 <h2 id="实现结果">实现结果</h2>
 <p>只通过一个json文件（即数据格式），生成一系列接口以及文档。</p>
-<pre><code>test.json
+<pre><code class="language-json">test.json
 {&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
 </code></pre>
 <h3 id="生成效果下面都是通过一个json生成的内容">生成效果（下面都是通过一个json生成的内容）</h3>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-10-10T18:25:08.268Z</updated>
+    <updated>2020-10-10T18:34:54.998Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yueqingsheng.github.io/suan-fa-bi-ji/</id>
         <link href="https://yueqingsheng.github.io/suan-fa-bi-ji/">
         </link>
-        <updated>2020-10-08T06:12:55.000Z</updated>
+        <updated>2020-10-07T18:12:55.000Z</updated>
         <content type="html"><![CDATA[<style>
 a.b {
   outline: none;
@@ -42,7 +42,7 @@ a.b:active {
   color: white;
 }
 </style>
-<p><a class="b" href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">点击跳转</a></p>
+<p><a class="b" href="https://www.notion.so/a5c08ffa2ad44af5b5bcc1807cdcdc07" target="_blank">点击跳转</a></p>
 ]]></content>
     </entry>
     <entry>
