@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>系统设计6 聊天系统 | Random thoughts</title>
+<title>机器学习复习及项目整理 | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -48,7 +48,7 @@
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">系统设计6 聊天系统</a>
+						<a href="https://yueqingsheng.github.io" rel="home">机器学习复习及项目整理</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -142,13 +142,13 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-06-16
+										2020-10-09
 									</time>
 									<span>
-										2 min read
+										1 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/xi-tong-she-ji-6-liao-tian-xi-tong/" class="leancloud_visitors"  data-flag-title="系统设计6 聊天系统">
+									<span id="/ji-qi-xue-xi-fu-xi-ji-xiang-mu-zheng-li/" class="leancloud_visitors"  data-flag-title="机器学习复习及项目整理">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -164,62 +164,33 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<h2 id="设计微信">设计微信</h2>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
-微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
-<h3 id="thread-table-会话">Thread table (会话)</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
-有些信息是私有的，未读，静音<br>
-<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
-<h4 id="方法-1">方法 1</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
-私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
-弊端：需要跨表查询比较慢</p>
-<h4 id="方法-2">方法 2</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
-实际情况下使用cache , 减少跨表次数。</p>
-<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
-<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
-<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
-<h2 id="thread-sql">Thread SQL</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
-<h3 id="nosql">NoSQL</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
-<h2 id="可行解">可行解</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
-<h2 id="scale">Scale</h2>
-<p>实时<br>
-Push notification<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
-局限性： 无法支持 Web 端<br>
-Socket: 支持 Server push 给客户端<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
-<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
-channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
-因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
-<h3 id="q-a">Q &amp; A</h3>
-<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
-<h2 id="多机登录">多机登录</h2>
-<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
-<h2 id="用户在线状态显示">用户在线状态显示</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
+								<style>
+a.b {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+
+a.b:link, a.b:visited, a.b:focus {
+  background: pink;
+}
+
+a.b:hover {     
+  background: orange;
+}
+
+a.b:active {
+  background: red;
+  color: white;
+}
+</style>
+<p><a class="b" href="https://www.notion.so/6523bbfc72df444482947f33712a5408" target="_blank">点击跳转</a></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">
@@ -229,12 +200,9 @@ channel service 里的 key 就是 channel 的名字，value 是在这个 channel
 
 								<div class="nav-links3">
 									
-									<div class="wow zoomIn nav-previous3"><a href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/"
-											rel="prev"> 强化学习 Day 4 基于策略方法</a></div>
 									
-									
-									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-3-shen-jing-wang-luo-fang-fa/"
-											rel="next"> 强化学习 Day 3 神经网络方法</a></div>
+									<div class="wow zoomIn nav-next3"><a href="https://yueqingsheng.github.io/suan-fa-bi-ji/"
+											rel="next"> 算法笔记</a></div>
 									
 								</div>
 							</nav>

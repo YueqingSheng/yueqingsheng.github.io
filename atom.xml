@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-10-10T18:34:54.998Z</updated>
+    <updated>2020-10-11T01:06:32.932Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -11,11 +11,46 @@
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Random thoughts</rights>
     <entry>
+        <title type="html"><![CDATA[机器学习复习及项目整理]]></title>
+        <id>https://yueqingsheng.github.io/ji-qi-xue-xi-fu-xi-ji-xiang-mu-zheng-li/</id>
+        <link href="https://yueqingsheng.github.io/ji-qi-xue-xi-fu-xi-ji-xiang-mu-zheng-li/">
+        </link>
+        <updated>2020-10-10T01:03:15.000Z</updated>
+        <content type="html"><![CDATA[<style>
+a.b {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+
+a.b:link, a.b:visited, a.b:focus {
+  background: pink;
+}
+
+a.b:hover {     
+  background: orange;
+}
+
+a.b:active {
+  background: red;
+  color: white;
+}
+</style>
+<p><a class="b" href="https://www.notion.so/6523bbfc72df444482947f33712a5408" target="_blank">点击跳转</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[算法笔记]]></title>
         <id>https://yueqingsheng.github.io/suan-fa-bi-ji/</id>
         <link href="https://yueqingsheng.github.io/suan-fa-bi-ji/">
         </link>
-        <updated>2020-10-07T18:12:55.000Z</updated>
+        <updated>2020-10-06T18:12:55.000Z</updated>
         <content type="html"><![CDATA[<style>
 a.b {
   outline: none;
@@ -348,8 +383,33 @@ at least 选项有 80% 可能是正确的</p>
         <id>https://yueqingsheng.github.io/yue-bao-8-yue/</id>
         <link href="https://yueqingsheng.github.io/yue-bao-8-yue/">
         </link>
-        <updated>2020-07-31T07:12:33.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">月报 8月</a></p>
+        <updated>2020-07-30T19:12:33.000Z</updated>
+        <content type="html"><![CDATA[<p><a class="b" href="https://www.notion.so/8-20d76760643140de9868129d5d95ca8a" target="_blank">月报 8月</a></p>
+<style>
+a.b {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+
+a.b:link, a.b:visited, a.b:focus {
+  background: pink;
+}
+
+a.b:hover {     
+  background: orange;
+}
+
+a.b:active {
+  background: red;
+  color: white;
+}
 ]]></content>
     </entry>
     <entry>
@@ -453,82 +513,6 @@ Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_acti
 <img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
 <h2 id="总结">总结</h2>
 <figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计7 GFS]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
-        </link>
-        <updated>2020-06-18T17:13:25.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592838132417.png" alt="" loading="lazy"></figure>
-<h2 id="scenario">Scenario</h2>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592937998924.png" alt="" loading="lazy"></figure>
-<h2 id="service">Service</h2>
-<p>clinet + Server<br>
-多台机器怎么沟通？<br>
-<img src="https://yueqingsheng.github.io/post-images/1592938077078.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592938113585.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592938321692.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592938364579.png" alt="" loading="lazy"></p>
-<h2 id="storage">Storage</h2>
-<h2 id="保存一个文件">保存一个文件</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592938764791.png" alt="" loading="lazy"><br>
-MetaData 的访问更多，A, B 两种存储结构<br>
-机械硬盘，磁头调需要时间，所以选择A<br>
-文件内容分段储存还是连续存储，B 适合修改或追加内容<br>
-<img src="https://yueqingsheng.github.io/post-images/1592938947650.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592939145448.png" alt="" loading="lazy"><br>
-100T，block 太多，增加 block 大小， 4k -&gt; 64M, 劣势浪费了小空间， 4m 占用了64m空间<br>
-<img src="https://yueqingsheng.github.io/post-images/1592939321203.png" alt="" loading="lazy"><br>
-10P，一台电脑 0.1P<br>
-offset 可以只存在 Chunk server 上<br>
-<img src="https://yueqingsheng.github.io/post-images/1592939740947.png" alt="" loading="lazy"><br>
-换格子不用通知 Master<br>
-<img src="https://yueqingsheng.github.io/post-images/1592939893628.png" alt="" loading="lazy"></p>
-<h2 id="read-write">Read &amp; Write</h2>
-<h3 id="写入">写入</h3>
-<p>一次写入还是多次写入，传输单位是Chunk<br>
-<img src="https://yueqingsheng.github.io/post-images/1592940093322.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592940144296.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592940260498.png" alt="" loading="lazy"><br>
-和Master 沟通，直接给chunk server 写<br>
-<img src="https://yueqingsheng.github.io/post-images/1592940431060.png" alt="" loading="lazy"></p>
-<h3 id="读入">读入</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592940583035.png" alt="" loading="lazy"><br>
-并行从不同 Chunk server 读入<br>
-<img src="https://yueqingsheng.github.io/post-images/1592940638455.png" alt="" loading="lazy"></p>
-<h2 id="scale">Scale</h2>
-<p>单 Master<br>
-<img src="https://yueqingsheng.github.io/post-images/1592940743044.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592940828767.png" alt="" loading="lazy"><br>
-检查损坏<br>
-CheckSum, XOR(exclusive OR) 相同为0， 不同为1，有误检情况，极低<br>
-<img src="https://yueqingsheng.github.io/post-images/1592941171998.png" alt="" loading="lazy"><br>
-1 个 cheksum 4bytes, 1 个 chunk 1个 chunksum<br>
-<img src="https://yueqingsheng.github.io/post-images/1592941328271.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941393981.png" alt="" loading="lazy"></p>
-<h3 id="replica-备份">Replica 备份</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592941646023.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941630620.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941717310.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941741519.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942222483.png" alt="" loading="lazy"><br>
-B. 单次通讯<br>
-<img src="https://yueqingsheng.github.io/post-images/1592941853201.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941886863.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592941945801.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942052569.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942111752.png" alt="" loading="lazy"></p>
-<h2 id="实战">实战</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592942352741.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942408792.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942469829.png" alt="" loading="lazy"><br>
-QPS<br>
-<img src="https://yueqingsheng.github.io/post-images/1592942546504.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942743390.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942782661.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592942892343.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
