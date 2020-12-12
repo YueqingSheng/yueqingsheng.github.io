@@ -126,7 +126,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1602378366501" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1607750021401" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -144,7 +144,7 @@
 							<div class="entry-meta">
 								<div class="entry-info">
 									<time>
-										2020-04-26
+										2020-04-27
 									</time>
 									<span>
 										3 min read
@@ -171,7 +171,7 @@
 <p>最近给公司写接口的过程中，发现每有一种新的数据形式，出现就需要重新写一个数据表，并提供相关的数据接口。这个过程中有很多的代码复用。<br>
 一开始我写了一组使用范类的常用controller和service，并让新写的controller和service继承他们，效果还可以，但是还是要自己写entity以及配置数据库一些重复的操作。所以我想能否也省去写这些部分的时间。</p>
 <h2 id="实现结果">实现结果</h2>
-<p>只通过一个json文件（即数据格式），生成一系列接口以及文档。</p>
+<p>只通过一个json文件（预定义数据结构），生成一系列接口以及文档。</p>
 <pre><code class="language-json">test.json
 {&quot;name&quot;: &quot;hi&quot;, &quot;age&quot;: 1} 
 </code></pre>

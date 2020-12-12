@@ -126,7 +126,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1602378366501" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1607750021401" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -189,7 +189,7 @@ upremaining: 1最后一页， 0 后面还有内容</p>
 <li>检查lastid 是否重复了，说明获取到最后一个</li>
 <li>其实返回的data里有一个参数，&quot;upremaining&quot;:0。检查这个为1就可以了。</li>
 </ol>
-<p><strong>大部分同学都使用last_id翻页，其实参数里自带page,使用page=1，2，3，4也可以实现翻页</strong><br>
+<p><strong>参数里自带page,使用page=1，2，3，4实现翻页，最后一页remaining 参数为 1</strong><br>
 <strong>page_size可以设大一点，减少请求次数。最大为40</strong><br>
 <strong>因为评论数量过多，使用多进程爬取。每一个进程爬取一个视频下的评论,总共花了1分3秒。不用多线程的话，估计要20多分钟。</strong><br>
 截至2020日4月29日总共爬取了254287条数据。</p>
