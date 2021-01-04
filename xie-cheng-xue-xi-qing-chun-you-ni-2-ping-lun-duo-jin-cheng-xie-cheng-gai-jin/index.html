@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程+异步比较） | Random thoughts</title>
+<title>协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程异步比较） | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -48,7 +48,7 @@
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程+异步比较）</a>
+						<a href="https://yueqingsheng.github.io" rel="home">协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程异步比较）</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1607750021401" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1609726324995" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -148,7 +148,7 @@
 										4 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/xie-cheng-xue-xi-qing-chun-you-ni-2-ping-lun-duo-jin-cheng-xie-cheng-gai-jin/" class="leancloud_visitors"  data-flag-title="协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程+异步比较）">
+									<span id="/xie-cheng-xue-xi-qing-chun-you-ni-2-ping-lun-duo-jin-cheng-xie-cheng-gai-jin/" class="leancloud_visitors"  data-flag-title="协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程异步比较）">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -165,7 +165,9 @@
 							</div>
 							<div class="wow zoomIn entry-summary song">
 								<h2 id="什么是协程">什么是协程</h2>
-<p>协程个人理解是相当于单个线程下的异步IO, 当程序运行到协程的时候，不等待结果返回直接向后执行，等IO 操作结束后，返回结果通知到消息队列，再做之后的操作。</p>
+<p>协程个人理解是相当于单个线程下的异步IO, 当程序运行到协程的时候，不等待结果返回直接向后执行，等IO 操作结束后，返回结果通知到消息队列，再做之后的操作。<br>
+1.4 更新<br>
+阅读 Linux Kernel Development 发现协程只存在用户态的一种形式，不对内核态暴露。这样就大大减少了，用户态和内核态切换的开销。有的语言设计，将协程的栈存放在堆中，切换的时候，直接从堆中读取，连上下文切换都节省了。</p>
 <h2 id="python-协程">Python 协程</h2>
 <h3 id="1-协程函数">1. 协程函数</h3>
 <p>async 可以来声明协程函数。<br>

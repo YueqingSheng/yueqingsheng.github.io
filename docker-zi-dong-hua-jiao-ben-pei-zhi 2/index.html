@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>docker 自动化脚本配置 | Random thoughts</title>
+<title>使用 Githook + shell 脚本 实现服务器端自动更新docker | Random thoughts</title>
 
 <link rel="stylesheet" href="https://yueqingsheng.github.io/styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
@@ -50,7 +50,7 @@
 			<div class="site-branding">
 				<h1 class="site-title">
 					<div class="post-title-name">
-						<a href="https://yueqingsheng.github.io" rel="home">docker 自动化脚本配置</a>
+						<a href="https://yueqingsheng.github.io" rel="home">使用 Githook + shell 脚本 实现服务器端自动更新docker</a>
 					</div>
 				</h1>
 				<h2 class="site-description">Don't Learn to Code — Learn to Automate</h2>
@@ -126,7 +126,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1607750021401" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1609726324995" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -147,10 +147,10 @@
 										2020-03-25
 									</time>
 									<span>
-										1 min read
+										3 min read
 									</span>
 									<!-- id 将作为查询条件 -->
-									<span id="/docker-zi-dong-hua-jiao-ben-pei-zhi 2/" class="leancloud_visitors"  data-flag-title="docker 自动化脚本配置">
+									<span id="/docker-zi-dong-hua-jiao-ben-pei-zhi 2/" class="leancloud_visitors"  data-flag-title="使用 Githook + shell 脚本 实现服务器端自动更新docker">
 										<span class="leancloud-visitors-count"></span>次阅读
 									</span>
 									<span class="isTop">
@@ -166,18 +166,54 @@
 								</div>
 							</div>
 							<div class="wow zoomIn entry-summary song">
-								<ol>
-<li>clone https://github.com/YueqingSheng/auto-deploy.git</li>
-<li>在主目录下编写脚本</li>
-<li>在 routes/index.js 下添加接口 参考Route<a href="https://expressjs.com/en/guide/routing.html">这里</a></li>
-<li>push</li>
-<li>服务器 脚本添加权限</li>
-<li>forever restart  ./bin/www</li>
+								<h1 id="提供一个nestjs-docker服务器自动编译部署-简单解决方案">提供一个nestjs docker服务器自动编译部署 简单解决方案</h1>
+<p>目前根据皓哥的视频，写了个nestjs的后端，并部署到阿里云了。发现每次本地修改code，推送后，都要上服务器手动pull，并更新docker很麻烦，后面去查解决方案，发现主要有git hook 和 GitHub webhook 两种方案， 理解原理后，我想能不能向服务器提交请求后自动执行脚本，结果发现是可行的。这样不涉及任何github的设置，只需要加几行code就行了， 实现步骤如下：</p>
+<h2 id="1-配置脚本">1. 配置脚本</h2>
+<p>在项目目录下建一个脚本，例如：deploy.sh, 输入以下代码：<br>
+<em><strong>12月20日更新</strong></em><br>
+向github提交的时候发现服务器自动部署没成功，调用deploy.sh的时候文件路径在根目录下，需要添加一行cd directory, 更改文件路径到存放代码的路径下</p>
+<pre><code class="language-bash">#!/bin/bash
+cd /你的git存放存放目录
+git pull
+docker-compose -f production.yml build nest
+docker-compose -f production.yml up -d
+docker-compose -f production.yml ps
+docker-compose -f production.yml logs nest
+</code></pre>
+<h2 id="2使用-githook">2.使用 Githook</h2>
+<p>git仓库和git裸仓库的钩子所在位置不同。</p>
+<ol>
+<li>git普通仓库钩子在.git/hooks/中</li>
+<li>git裸仓库钩子在hooks/中</li>
 </ol>
-<p>TODO:<br>
-自动化 4-6步 By webhook</p>
-<p><a href="https://yijiebuyi.com/blog/3ec57c3c46170789eed1aa73792d99e5.html">spawn exec方法 在 node.js child_process模块中的应用及区别 解决 Error: maxBuffer exceeded</a></p>
-<p><a href="https://www.jianshu.com/p/1eb1d1d3f25e">docker logs－查看docker容器日志</a></p>
+<p>新建一个 post_service 文件,并设置权限。然后把上方的脚本文件内容复制到 post_service 文件里就可以实现自动监听 git push 操作，然后更新仓库和 docker 了。</p>
+<pre><code class="language-bash">cd .git/hooks
+mv post_receive.sample post_receive
+chmod 777 post-receive
+vim post_service
+</code></pre>
+<h2 id="3-之前的方法建立一个depoly接口不安全且每次都要发送请求已弃用">3. 之前的方法：建立一个depoly接口(不安全且每次都要发送请求，<strong>已弃用</strong>)</h2>
+<p>controller:</p>
+<pre><code class="language-Typescript">@Post('deploy')
+  async deploy() {
+    return await this.postService.deploy();
+  }
+</code></pre>
+<p>service:</p>
+<pre><code class="language-Typescript">async deploy() {
+    const commands = `./deploy.sh`;
+    return await exec(commands, (err, stdout, stderr) =&gt; {
+      if (err) {
+        console.error(err);
+      }
+      console.log(stdout + stderr);
+    });
+  }
+</code></pre>
+<h2 id="done">Done!</h2>
+<p>就是这么简单，每次本地修改完code，git push。然后静静等几分钟，docker就自动更新完成了😁。<br>
+（p.s 继续改进，没有想到如何查询目前更新的进度，因为docker 更新通常要几分钟。使用接口倒是可以查看日志，只使用 githook + 脚本的无法将进度返回给本地）</p>
+<p>参考链接：<a href="https://www.jianshu.com/p/feea3fc4f9f5">搭建Git服务器并感受hook使用</a></p>
 
 							</div>
 							<div class="wow zoomIn vt-post-tags">

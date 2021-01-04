@@ -2,22 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2020-12-12T05:13:45.347Z</updated>
+    <updated>2021-01-04T02:12:15.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
     <subtitle>Don&apos;t Learn to Code — Learn to Automate</subtitle>
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Random thoughts</rights>
+    <rights>All rights reserved 2021, Random thoughts</rights>
     <entry>
-        <title type="html"><![CDATA[协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程+异步比较）]]></title>
+        <title type="html"><![CDATA[协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程异步比较）]]></title>
         <id>https://yueqingsheng.github.io/xie-cheng-xue-xi-qing-chun-you-ni-2-ping-lun-duo-jin-cheng-xie-cheng-gai-jin/</id>
         <link href="https://yueqingsheng.github.io/xie-cheng-xue-xi-qing-chun-you-ni-2-ping-lun-duo-jin-cheng-xie-cheng-gai-jin/">
         </link>
         <updated>2020-12-12T02:56:21.000Z</updated>
         <content type="html"><![CDATA[<h2 id="什么是协程">什么是协程</h2>
-<p>协程个人理解是相当于单个线程下的异步IO, 当程序运行到协程的时候，不等待结果返回直接向后执行，等IO 操作结束后，返回结果通知到消息队列，再做之后的操作。</p>
+<p>协程个人理解是相当于单个线程下的异步IO, 当程序运行到协程的时候，不等待结果返回直接向后执行，等IO 操作结束后，返回结果通知到消息队列，再做之后的操作。<br>
+1.4 更新<br>
+阅读 Linux Kernel Development 发现协程只存在用户态的一种形式，不对内核态暴露。这样就大大减少了，用户态和内核态切换的开销。有的语言设计，将协程的栈存放在堆中，切换的时候，直接从堆中读取，连上下文切换都节省了。</p>
 <h2 id="python-协程">Python 协程</h2>
 <h3 id="1-协程函数">1. 协程函数</h3>
 <p>async 可以来声明协程函数。<br>
@@ -126,7 +128,7 @@ a.b:active {
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[算法笔记]]></title>
+        <title type="html"><![CDATA[面试准备]]></title>
         <id>https://yueqingsheng.github.io/suan-fa-bi-ji/</id>
         <link href="https://yueqingsheng.github.io/suan-fa-bi-ji/">
         </link>
@@ -157,305 +159,9 @@ a.b:active {
   color: white;
 }
 </style>
-<p><a class="b" href="https://www.notion.so/a5c08ffa2ad44af5b5bcc1807cdcdc07" target="_blank">点击跳转</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GRE 笔记4 填空51-98]]></title>
-        <id>https://yueqingsheng.github.io/ytjfWdszp/</id>
-        <link href="https://yueqingsheng.github.io/ytjfWdszp/">
-        </link>
-        <updated>2020-08-08T16:13:25.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>填空技巧：填空三选，如果一个正面，一个负面，一个中性，排除中性。如果两个正向，或两个负向，一般是选另外一个。</p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>填空技巧：填空三选，如果一个正面，一个负面，一个中性，排除中性。如果两个正向，或两个负向，一般是选另外一个。</p>
-</blockquote>
-<!-- more -->
-<p>53.loath 不情愿的<br>
-54.第二空对应competing 同义词<br>
-58.defined 清晰的， scientifc 是正向的，一般不会100%错。<br>
-63.</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">英</mi><mi mathvariant="normal">国</mi><mi mathvariant="normal">人</mi><mi mathvariant="normal">口</mi><mi mathvariant="normal">构</mi><mi mathvariant="normal">成</mi><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">北</mi><mi mathvariant="normal">欧</mi><mi mathvariant="normal">三</mi><mi mathvariant="normal">国</mi><mi mathvariant="normal">（</mi><mi mathvariant="normal">斯</mi><mi mathvariant="normal">堪</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">纳</mi><mi mathvariant="normal">维</mi><mi mathvariant="normal">亚</mi><mi>S</mi><mi>c</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>n</mi><mi>a</mi><mi>v</mi><mi>i</mi><mi>a</mi><mi>n</mi><mi mathvariant="normal">）</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">欧</mi><mi mathvariant="normal">洲</mi><mi mathvariant="normal">：</mi><mi mathvariant="normal">法</mi><mi mathvariant="normal">国</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">荷</mi><mi mathvariant="normal">兰</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">英国人口构成
-\begin{cases}
-北欧三国（斯堪的纳维亚 Scandinavian）\\
-欧洲：法国，荷兰
-\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="mord cjk_fallback">英</span><span class="mord cjk_fallback">国</span><span class="mord cjk_fallback">人</span><span class="mord cjk_fallback">口</span><span class="mord cjk_fallback">构</span><span class="mord cjk_fallback">成</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">北</span><span class="mord cjk_fallback">欧</span><span class="mord cjk_fallback">三</span><span class="mord cjk_fallback">国</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">斯</span><span class="mord cjk_fallback">堪</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">纳</span><span class="mord cjk_fallback">维</span><span class="mord cjk_fallback">亚</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">c</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">i</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">）</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">欧</span><span class="mord cjk_fallback">洲</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">国</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">荷</span><span class="mord cjk_fallback">兰</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<ol start="69">
-<li></li>
-</ol>
-<blockquote>
-<p>one theory: theory of everything, String theory and M-theory have been proposed as theories of everything.</p>
-</blockquote>
-<p>71.finding 新的发现<br>
-Although + 否定词（not, counterintutive） 转折前后取同<br>
-80.strait 海峡，churlish=rude, admire 赞赏 ~= credit 名誉<br>
-82.scientific 伽利略之后时期（靠观测，实验）， Aristotle 古代科学（纯理论）<br>
-84.alleged 声称的 = fake<br>
-87.selective 认真挑选过的 对应 assembled detail<br>
-for all =despite<br>
-while not/ although not/ 程度不同的取同<br>
-protoscience -&gt; modern science<br>
-transformative = mindblowing = new view<br>
-toll 通行费<br>
-substaintial 大量的<br>
-三空题，注意第三个空可能会重复之前空或者文章意思。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GRE 笔记2 填空1-50 单词和常识]]></title>
-        <id>https://yueqingsheng.github.io/ma3bpEnOQ/</id>
-        <link href="https://yueqingsheng.github.io/ma3bpEnOQ/">
-        </link>
-        <updated>2020-08-06T04:38:15.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>Tips for TC<br>
-Do not merely try to consider each possible combination of answers; doing so will take too long and is open to error. Instead, try to analyze the passage in the following way:<br>
-<strong>1.	Read through the passage to get an overall sense of it.<br>
-2.	Identify words or phrases that seem particularly significant.<br>
-3.	Think up your own words for the blanks.<br>
-4.	Do not assume that the first blank is the one that should be filled first.<br>
-5.	Double-check your answers.</strong></p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>Tips for TC<br>
-Do not merely try to consider each possible combination of answers; doing so will take too long and is open to error. Instead, try to analyze the passage in the following way:<br>
-<strong>1.	Read through the passage to get an overall sense of it.<br>
-2.	Identify words or phrases that seem particularly significant.<br>
-3.	Think up your own words for the blanks.<br>
-4.	Do not assume that the first blank is the one that should be filled first.<br>
-5.	Double-check your answers.</strong></p>
-</blockquote>
-<!-- more -->
-<p>2.Humanitarian emergencies 人道主义救援<br>
-rather 后不跟 than 时后可省略<br>
-resign to 屈服 （阅读时可省略）联想记忆： Trump resign to 学校抗议遣返。</p>
-<blockquote>
-<p>Math review 复习时看OG</p>
-</blockquote>
-<p>5.language instinct 和 viusal engineer 相同，表示两个状态同时存在，和后面 think of language 和 of instinct 分别的两个观点对立</p>
-<p>7.protoscientific 词根：第一，原始的<br>
-protoscience 和 modern science分界点， Galileo （伽利略）通过observation 木星，推翻地心说。<br>
-at all 一点<br>
-supreme court 最高法院<br>
-supremacy 霸权 quantum supremacy 量子霸权<br>
-两句话时间对比</p>
-<p>8.promise 前途 希望</p>
-<blockquote>
-<p>remote sensing 遥感是指非接触的，远距离的探测技术。一般指运用传感器/遥感器对物体的电磁波的辐射、反射特性的探测。<br>
-sites 遗址<br>
-Archaelogy 考古学</p>
-</blockquote>
-<p>12.一些伦理学家担心，更深入地理解大脑也许无异于为某些行为开脱。如果我们发现自由意志只是神经回路系统制造的一种假象，要如何令人们为自己的行为负责?<br>
-如果人类发现自由意志是假的就不会控制自己的行为了，找到理由开脱。<br>
-词根: ex = not , culp = criminal exculpation = 脱罪 culprit 犯罪的人</p>
-<p>14.Thought not 让步转折， 不是那么强烈，还是很强烈<br>
-如果选 unbounded的话，就会变成，“Though 不是强烈到没边了，还是太强烈以至于“ 强烈到没边（unbounded） 和 great 形成程度取反关系。类比一下，小明跑步虽然不是世界上最快的，还是太快以至于一般人追赶不上。</p>
-<p>18.sluggish = lazy</p>
-<p>19.motley 混杂的，assortment 各种各样，混合物 -&gt; 相反对于 monolithic 单一的</p>
-<p>20.founders 创立人<br>
-&gt; 美国开国元勋（英语：Founding Fathers of the United States）是指签署《美国独立宣言》和《美国宪法》的政治领导人以及参与美国革命的领袖，又译作建国先贤。约翰·亚当斯、 本杰明·富兰克林、亚历山大·汉密尔顿、约翰·杰伊、托马斯·杰斐逊、詹姆斯·麦迪逊和乔治·华盛顿.<br>
-concur 赞同<br>
-in their own views, in reality 对比</p>
-<p>23.by virtue of = because of 由于<br>
-incisivive 准确的 = right<br>
-priori assumption = cliche 陈词滥调 前后取反<br>
-a priori 未经观察分析的，既定的<br>
-vitiate 损害</p>
-<p>25.lament 悲痛（追悼会）<br>
-has never been greater   不能更好了<br>
-perenial lament 常年抱怨 -&gt; 取反</p>
-<p>30.解析：in one direction they have a affinity with newspaper photographs 对应的就是空格，newspaper photographs 就是写实的特征，所以正确答案选 B 选项。documentary 纪实的。<br>
-翻译：在莫卧儿王朝时期的印度创作的画在志向上是纪实性的但在表现上却是装饰性的：一方面它们和报纸的照片类似，一方面它们有珠宝的错综复杂。</p>
-<p>33.demographic 人口构成，人口学</p>
-<p>34.aver 断言， averse 反对 , avow  公开宣称， disavow 否认 <strong>注意区分</strong></p>
-<p>39.live up to 能达到，遵守，不辜负</p>
-<p>45.satirize 讽刺， aspirant 欲望</p>
-<p>48.scifi-fiction 科幻小说</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GRE 笔记3 阅读2]]></title>
-        <id>https://yueqingsheng.github.io/gre-bi-ji-3-yue-du-2/</id>
-        <link href="https://yueqingsheng.github.io/gre-bi-ji-3-yue-du-2/">
-        </link>
-        <updated>2020-08-06T02:05:23.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>early view = some = tended to = because = seem</p>
-</blockquote>
-<h2 id="r11">R11</h2>
-<p>tended to = early view<br>
-elect to 选择 保持单身<br>
-as champion of 和 as critics of 形成对比<br>
-institution 事情<br>
-Yet 但是 = but<br>
-distort 曲解<br>
-this view = feminist scholar<br>
-consequently<br>
-author = new view, imply<br>
-oppressive 残酷</p>
-<h2 id="r13">R13</h2>
-<p>thereby + ing 通过。。方式<br>
-Because = early view<br>
-compelling 令人幸福的, 让人相信的<br>
-evolve = timeline 取反<br>
-compromise 损害<br>
-premodern 农业改革之前<br>
-dismiss 不接受<br>
-physiology 生理学</p>
-<h2 id="r15">R15</h2>
-<p>fiction 和 life history = document 对应 反义<br>
-hiatus = gap<br>
-curb 控制或限制</p>
-<h2 id="r16">R16</h2>
-<p>double-edged: of a knife, having two cutting edges<br>
-对不同人名观点做笔记<br>
-protagonist 主人公</p>
-<h2 id="r18">R18</h2>
-<p>Some = early view<br>
-hunter-gatherer 农业改革之前，智人<br>
-澳洲比美国环境恶劣，却有证据，说明美国之前根本没有人</p>
-<h2 id="r19">R19</h2>
-<p>segregated South 南方种族隔离<br>
-determination 决心<br>
-literacy 识字率<br>
-record circulation 破纪录的发行量</p>
-<h2 id="r20">R20</h2>
-<p>chronically 长期的<br>
-present 存在<br>
-qualitatively 质变</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[GRE 笔记1 阅读1 结构分析法]]></title>
-        <id>https://yueqingsheng.github.io/gre-bi-ji/</id>
-        <link href="https://yueqingsheng.github.io/gre-bi-ji/">
-        </link>
-        <updated>2020-08-01T14:55:43.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p><strong>1. 文章多层结构解析法(40%)<br>
-教你如何彻底读懂一篇GRE英文阅读文章(100~500 words), 永远读懂句子内部关系,句子与句子之间的逻辑关系, 几个段落之间逻辑关系, 文章主要的pros and cons.<br>
-Active engagement with the text,<br>
-asking questions,<br>
-formulating and evaluating hypotheses,<br>
-reflecting on the relationship of the particular text to other texts and information.<br>
-- Are they contrasting? Are they consistent?<br>
-- Does one support the other?<br>
-- Does one spell another out in greater detail?<br>
-- Is one an application of another to a particular circumstance?</strong></p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p><strong>1. 文章多层结构解析法(40%)<br>
-教你如何彻底读懂一篇GRE英文阅读文章(100~500 words), 永远读懂句子内部关系,句子与句子之间的逻辑关系, 几个段落之间逻辑关系, 文章主要的pros and cons.<br>
-Active engagement with the text,<br>
-asking questions,<br>
-formulating and evaluating hypotheses,<br>
-reflecting on the relationship of the particular text to other texts and information.<br>
-- Are they contrasting? Are they consistent?<br>
-- Does one support the other?<br>
-- Does one spell another out in greater detail?<br>
-- Is one an application of another to a particular circumstance?</strong></p>
-</blockquote>
-<!-- more -->
-<h1 id="89-阅读初测-1020-2h">8.9 阅读初测 10/20 2h</h1>
-<p>一道题目只有1.5min, 也就说 一个小短文, 从看文章到做完2个Question, 你只有3min</p>
-<h2 id="r1">R1</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1597022725946.png" alt="" loading="lazy"></figure>
-<h3 id="第一句">第一句</h3>
-<p><strong>Although the passenger pigeons, now extinct, were abundant in eighteenth- and nineteenth-century America, archaeological studies at twelfth-century Cahokian sites in the present day United States examined household food trash and found that traces of passenger pigeon were quite rare.</strong></p>
-<p>timeline从前往后,  timeline 就是 time+event<br>
-12世纪的sites, 鸽子trace少，18, 19世纪, 鸽子多;  20-21世纪, 鸽子灭绝.</p>
-<blockquote>
-<p>What is not an opinion?<br>
-1. An opinion is not a statement of fact.<br>
-2. An opinion is not a question.<br>
-3. An opinion is not a fragment.<br>
-4. An opinion expresses one idea.<br>
-5. An opinion does not simply announce the idea you will argue.</p>
-</blockquote>
-<p>第一句话不是一个观点，因为符合1。观点所有时间地点人物事件 转折, 都要有。ETS<br>
-一定会有一个 “转”</p>
-<h3 id="第二句">第二句</h3>
-<p><strong>Given that the sites were close to a huge passenger pigeon roost documented by John James Audubon in the nineteenth century and that Cahokians consumed almost every other animal protein source available, the archaeologists conducting the studies concluded the passenger pigeon population had once been very limited before increasing dramatically in post-Columbian America.</strong></p>
-<p>前半句不是观点，是个客观事实。后半句= view 考古学者提出来了一个conclusion， 所以是个观点。</p>
-<blockquote>
-<p>post-Columbian: Referring to the cultures of the American continent after the European influence, specifically to the era after the continent was visited by Christopher Columbus.被哥伦布发现后的时期。<br>
-哥伦布是个男的，那么拉丁文的 地名呢, 要换成女性 阴性词所以呢是Columbia</p>
-</blockquote>
-<p>秦始皇统一了中国, 秦就是chin，a就是地名的阴性后缀。<br>
-为啥都是阴性后缀 - 拉丁文地名 约定俗成,</p>
-<blockquote>
-<p>Europa<br>
-Europa, or Jupiter II, is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet of all the 79 known moons of Jupiter. It is also the sixth-largest moon in the Solar System.</p>
-</blockquote>
-<blockquote>
-<p>OG考察题材:<br>
-Physical sciences<br>
-Biological sciences<br>
-Social sciences<br>
-Arts and humanities<br>
-Everyday topics</p>
-</blockquote>
-<p>第二句强调一个 change，12世纪- 1492少 ，1492-now 多。</p>
-<h3 id="第三句">第三句</h3>
-<p><strong>Other archaeologists have criticized those conclusions on the grounds that passenger pigeon bones would not be likely to be preserved.</strong></p>
-<p>主要是攻击了这个 on the gound that = reason/evidence 论点 (不是结论conclusion)<br>
-<strong>opinion = view = conclusion = claim</strong><br>
-<strong>on the ground that  = for the reason that = because</strong><br>
-12世纪鸽子也许很多,  土著人也吃了无数鸽子,但是吃过的骨头都没有保存下来, 而已。反驳上面说的鸽子骨头少（这个evidence） -&gt; 12世纪-1492没有什么鸽子</p>
-<h3 id="第四句">第四句</h3>
-<p><strong>But all the archaeological projects found plenty of bird bones- and even  bones from fish.</strong><br>
-不可能保存不下骨头，反驳上一句，对证据的反向驳斥再取反，  counter - counter -view。</p>
-<h3 id="总结">总结</h3>
-<p>文章结构 : 第一句话 fact<br>
-第二句话 提出 opinion = view<br>
-第三句话 提出反对的 counter -view<br>
-最后一句 counter - counter -view<br>
-最后一句话, 是对第二句话的取同<br>
-view = counter-counter-view 取同</p>
-<h3 id="题目">题目</h3>
-<h4 id="第一题">第一题</h4>
-<p>E counter - counter -view 对应了counter- objection</p>
-<h4 id="第二题">第二题</h4>
-<p>Which of the following, if true, would most call into question the reasoning of “the archaeologists conducting the studies”?</p>
-<p>E. Passenger pigeons tended not to roost at the same sites for very many generations</p>
-<p>12世纪的 Cahokian sites 很小 没有鸽子, 不能说明 100% 美洲都没有鸽子，也许其他纽约 洛杉矶有鸽子聚集地呢。12世纪也许恰好 Cahokian 没有鸽子。</p>
-<h2 id="r2-整理全部生词运用结构解析法-翻译提前完成">R2 整理全部生词，运用结构解析法， 翻译提前完成</h2>
-<h3 id="第一句-2">第一句</h3>
-<p>divide 表示2个对立的观点 or 学派</p>
-<h3 id="第二句-2">第二句</h3>
-<p>technicians 和 landscape painters 取反， 中间有一个 while<br>
-第二句跟第一句，举例子, 解释说明, 取同。<br>
-所以第二句的others 应该是说 before 19世纪的是艺术流派</p>
-<h3 id="第三句-2">第三句</h3>
-<p>dichotomy 同义替换 divide<br>
-aesthetic = visual effects = landscapge painting</p>
-<h3 id="第四句-2">第四句</h3>
-<p>Until the 1980s是考点词了, until 这个词 是before 还是 after?<br>
-before<br>
-看到 before、 after 、 until<br>
-脑子里习惯性有一个取反<br>
-Time-event, 先对时间取反, 再对 event 取反</p>
-<h3 id="最后一句">最后一句</h3>
-<p>才没有什么所谓的 divide dichotomy = boundary, no boundary at all<br>
-so 文章结构， 5句话讲early view，最后一句话, 讲new view<br>
-puzzle = question = 不认可early view</p>
-<h2 id="r3">R3</h2>
-<p>第一句话, 看到some 想到什么, 是一个early view<br>
-While few people doubt that<br>
-让步取同</p>
-<h2 id="r4">R4</h2>
-<p>note 表示 发现了一个问题</p>
-<h2 id="r8">R8</h2>
-<p>early view , early evidence, although 表示后面有观点会取反，形成对比<br>
-qualify 取反</p>
-<h2 id="r10">R10</h2>
-<p>4000 years ago = -4000<br>
-at least 选项有 80% 可能是正确的</p>
+<p><a class="b" href="https://www.notion.so/a5c08ffa2ad44af5b5bcc1807cdcdc07" target="_blank">算法基础</a></p>
+<p>尽量通过简洁，有条理，并且可以关联知识的方法总结，不断精炼。<br>
+<a class="b" href="https://www.notion.so/6976f3f8f65746dcbadbae87200ff669" target="_blank">知识汇总</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -570,6 +276,211 @@ print(atari_py.list_games())<br>
 <pre><code class="language-python">import os
 os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;-1&quot;
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day5 连续空间动作 DDPG]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day5-lian-xu-kong-jian-dong-zuo-ddpg/">
+        </link>
+        <updated>2020-06-19T15:21:00.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://yueqingsheng.github.io/post-images/1592752914800.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592752944679.png" alt="" loading="lazy"><br>
+DQN 扩展到连续控制动作空间<br>
+策略网络负责对外展示动作, critc 对action 打分，action -&gt; Q value，迎合评委网络使 Q 尽可能高<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753557001.png" alt="" loading="lazy"><br>
+Q 网络逼近 Q-target, 使用 MSE<br>
+Q target 不稳定，所以专门建立 target_Q 和 target_P 网络（next_action ）<br>
+<img src="https://yueqingsheng.github.io/post-images/1592753707568.png" alt="" loading="lazy"><br>
+为了防止 target_Q 网络更新, (定期copy), 需要 stop gradient<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754333762.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592754555792.png" alt="" loading="lazy"><br>
+只更新 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>, 所以minimize 中 传入要更新的 actor 参数<br>
+<img src="https://yueqingsheng.github.io/post-images/1592754856731.png" alt="" loading="lazy"></p>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592754975966.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计7 GFS]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-7-gfs/">
+        </link>
+        <updated>2020-06-18T17:13:25.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592838132417.png" alt="" loading="lazy"></figure>
+<h2 id="scenario">Scenario</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592937998924.png" alt="" loading="lazy"></figure>
+<h2 id="service">Service</h2>
+<p>clinet + Server<br>
+多台机器怎么沟通？<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938077078.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938113585.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938321692.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592938364579.png" alt="" loading="lazy"></p>
+<h2 id="storage">Storage</h2>
+<h2 id="保存一个文件">保存一个文件</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592938764791.png" alt="" loading="lazy"><br>
+MetaData 的访问更多，A, B 两种存储结构<br>
+机械硬盘，磁头调需要时间，所以选择A<br>
+文件内容分段储存还是连续存储，B 适合修改或追加内容<br>
+<img src="https://yueqingsheng.github.io/post-images/1592938947650.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592939145448.png" alt="" loading="lazy"><br>
+100T，block 太多，增加 block 大小， 4k -&gt; 64M, 劣势浪费了小空间， 4m 占用了64m空间<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939321203.png" alt="" loading="lazy"><br>
+10P，一台电脑 0.1P<br>
+offset 可以只存在 Chunk server 上<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939740947.png" alt="" loading="lazy"><br>
+换格子不用通知 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592939893628.png" alt="" loading="lazy"></p>
+<h2 id="read-write">Read &amp; Write</h2>
+<h3 id="写入">写入</h3>
+<p>一次写入还是多次写入，传输单位是Chunk<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940093322.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940144296.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940260498.png" alt="" loading="lazy"><br>
+和Master 沟通，直接给chunk server 写<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940431060.png" alt="" loading="lazy"></p>
+<h3 id="读入">读入</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592940583035.png" alt="" loading="lazy"><br>
+并行从不同 Chunk server 读入<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940638455.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>单 Master<br>
+<img src="https://yueqingsheng.github.io/post-images/1592940743044.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592940828767.png" alt="" loading="lazy"><br>
+检查损坏<br>
+CheckSum, XOR(exclusive OR) 相同为0， 不同为1，有误检情况，极低<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941171998.png" alt="" loading="lazy"><br>
+1 个 cheksum 4bytes, 1 个 chunk 1个 chunksum<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941328271.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941393981.png" alt="" loading="lazy"></p>
+<h3 id="replica-备份">Replica 备份</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592941646023.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941630620.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941717310.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941741519.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942222483.png" alt="" loading="lazy"><br>
+B. 单次通讯<br>
+<img src="https://yueqingsheng.github.io/post-images/1592941853201.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941886863.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592941945801.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942052569.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942111752.png" alt="" loading="lazy"></p>
+<h2 id="实战">实战</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592942352741.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942408792.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942469829.png" alt="" loading="lazy"><br>
+QPS<br>
+<img src="https://yueqingsheng.github.io/post-images/1592942546504.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942743390.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942782661.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592942892343.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[强化学习 Day 4 基于策略方法]]></title>
+        <id>https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/</id>
+        <link href="https://yueqingsheng.github.io/qiang-hua-xue-xi-day-4-ji-yu-ce-lue-fang-fa/">
+        </link>
+        <updated>2020-06-18T06:28:35.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="value-based-vs-policy-based">Value-based vs policy-based</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592591392361.png" alt="" loading="lazy"><br>
+policy based :  直接求action<br>
+policy based:  输出动作的概率<br>
+<img src="https://yueqingsheng.github.io/post-images/1592591618895.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592591641683.png" alt="" loading="lazy"><br>
+最后一层 softmax<br>
+episode: 每轮游戏<br>
+优化目的： max 每个episode的总reward<br>
+<img src="https://yueqingsheng.github.io/post-images/1592602759204.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592602819167.png" alt="" loading="lazy"><br>
+环境的随机性无法控制</p>
+<h2 id="期望回报">期望回报</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592603030920.png" alt="" loading="lazy"><br>
+环境概率是未知的， N是 episode数。</p>
+<h3 id="优化策略函数">优化策略函数</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592603189106.png" alt="" loading="lazy"><br>
+优化目标 期望回报最大， 梯度上升<br>
+<img src="https://yueqingsheng.github.io/post-images/1592610701005.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592623362667.png" alt="" loading="lazy"><br>
+蒙特卡洛每个 Episode 更新一次， 时序差分每个action更新一次<br>
+<img src="https://yueqingsheng.github.io/post-images/1592623555097.png" alt="" loading="lazy"><br>
+根据公式反向推到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">G_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="reinforce">Reinforce</h2>
+<p>每个 Episode , 通过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>s</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mi>t</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(s_t, a_t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 求出 G_t, 对于每一步使用 ln 函数更新神经网络参数值<br>
+<img src="https://yueqingsheng.github.io/post-images/1592624092549.png" alt="" loading="lazy"><br>
+类比 Cross entrophy, 因为sum_ln 不一定是正确的acition, 只是真实的action, 所以需要乘上总奖励系数 G<br>
+<img src="https://yueqingsheng.github.io/post-images/1592624728691.png" alt="" loading="lazy"></p>
+<h3 id="流程图">流程图</h3>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592625148267.png" alt="" loading="lazy"></figure>
+<h2 id="总结">总结</h2>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592625752484.png" alt="" loading="lazy"></figure>
+<p><img src="https://yueqingsheng.github.io/post-images/1592626079005.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592626129133.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
+        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
+        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
+        </link>
+        <updated>2020-06-16T18:56:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
+<h2 id="scenario">Scenario</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
+微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
+<h2 id="service">Service</h2>
+<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
+<h2 id="storage">Storage</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
+<h3 id="thread-table-会话">Thread table (会话)</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
+有些信息是私有的，未读，静音<br>
+<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
+<h4 id="方法-1">方法 1</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
+私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
+弊端：需要跨表查询比较慢</p>
+<h4 id="方法-2">方法 2</h4>
+<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
+实际情况下使用cache , 减少跨表次数。</p>
+<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
+<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
+<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
+<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
+<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
+<h2 id="thread-sql">Thread SQL</h2>
+<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
+<h3 id="nosql">NoSQL</h3>
+<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
+<h2 id="可行解">可行解</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
+<h2 id="scale">Scale</h2>
+<p>实时<br>
+Push notification<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
+局限性： 无法支持 Web 端<br>
+Socket: 支持 Server push 给客户端<br>
+<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
+<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
+channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
+因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
+<h3 id="q-a">Q &amp; A</h3>
+<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
+<h2 id="多机登录">多机登录</h2>
+<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
+<h2 id="用户在线状态显示">用户在线状态显示</h2>
+<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
+<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
