@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2021-01-04T02:12:15.858Z</updated>
+    <updated>2021-01-23T10:59:07.418Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://yueqingsheng.github.io/images/avatar.png</logo>
     <icon>https://yueqingsheng.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Random thoughts</rights>
+    <entry>
+        <title type="html"><![CDATA[推荐接口优化]]></title>
+        <id>https://yueqingsheng.github.io/hou-duan-you-hua-zhi-lu/</id>
+        <link href="https://yueqingsheng.github.io/hou-duan-you-hua-zhi-lu/">
+        </link>
+        <updated>2021-01-17T02:46:17.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="需求分析">需求分析</h1>
+<h2 id="接口分析">接口分析：</h2>
+<p>App 有一个高频调用的首页推荐接口。</p>
+<ol>
+<li>要支持页面向下滑动的时候加载新的内容，所以需要分页功能。</li>
+<li>需要按一定的顺序返回热门导师，课程，团队数据。</li>
+</ol>
+<h2 id="主要目的">主要目的：</h2>
+<p>在多用户访问情况下，提高速度。并确保数据一定的时效性。</p>
+<h1 id="准备工作压力测试">准备工作：压力测试</h1>
+<p><strong>单台机器配置： 16G 内存， 6 核 CPU</strong><br>
+TODO</p>
+<h1 id="尝试1-数据表反范式优化-内存缓存">尝试1:  数据表反范式优化 + 内存缓存</h1>
+<p>课程内需要包括导师数据，团队内需要包括导师数据，导师内需要包括课程数据。<br>
+为了防止多次的联表 JOIN 查询，在课程内存储冗余的序列化的导师 ID 列表，团队和导师也是如此。<br>
+每次需要再通过 ID 去访问单独的导师，课程和团队。还可以记录一些访问信息，用来更新尝试 2 里的权重。</p>
+<p>使用了内存缓存 接口 URL 和对应的返回数据的键值对。缺点：因为这样储存无法知道，对应了本次数据更新对应了哪个接口下的更新。所以每次数据更新，缓存都会全部清空。再次从数据库读取。</p>
+<h1 id="尝试2redis-有序集合">尝试2：Redis 有序集合</h1>
+<blockquote>
+<p>SortedSet: 主要存储有序集合，SortedSet的添加元素指令ZADD key score member [[score,member]…]会给每个添加的元素member绑定一个用于排序的值score，SortedSet就会根据score值的大小对元素进行排序，在这里就可以将 weight 当作score用于排序，SortedSet中的指令ZREVRANGE key start stop又可以返回指定区间内的成员，可以用来做分页。所以，SortedSet在这里是最适合的（插入，查询时间复杂度O(log(N))）。</p>
+</blockquote>
+<h2 id="zset-实现原理">ZSet 实现原理</h2>
+<p>TODO</p>
+<h2 id="要用到的-zset-操作">要用到的 ZSet 操作</h2>
+<p><strong>zadd</strong><br>
+语法：zadd key [NX|XX] [CH] [INCR] score member [score member…]<br>
+XX: 仅仅更新存在的成员，不添加新成员。</p>
+<p><strong>zrevrange</strong><br>
+语法：zrevrange key start stop [WITHSCORES]<br>
+作用：返回有序集 key 中，指定区间内的成员。<br>
+其中成员的位置按 score 值递减(从大到小)来排列。</p>
+<p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要做单条数据插入操作就可以了，跳表更新顺序复杂度 O(log N)。Redis HSET。Redis 可以做为持久化储存，替代 MySQL 的作用。</p>
+<ol>
+<li>通过权重排序，每次用户点击，访问，通过异步（Message Queue?）去更新权重。权重 = 自设权重（用来推送广告）* 0.5 + 点击量 * 0.2 + 下单量 * 0.3</li>
+<li>第一次访问，将数据放到到缓存。在权重上建立索引，加速 MySQL 拉取速度。之后从 redis 读取。</li>
+</ol>
+<h1 id="最终结果压力测试">最终结果：压力测试</h1>
+<p>TODO</p>
+<h1 id="可能的改进">可能的改进</h1>
+<ol>
+<li>前端本地缓存，访问历史数据不用每次调用接口。只有当用户下拉到新内容后，再重新获取。问题： 有可能新数据，和历史数据有重复，需要做去重处理。可以通过后端加一个全局 id 字段去重。（全局 id 可以存在 Redis 里，每次从 Redis 获取再更新）</li>
+<li>个性化推荐。涉及机器学习算法，需要将多维度的用户数据输入，训练。可以通过增加用户日志记录的字段（如页面停留时间，访问不同接口频次）或通过建议用户丰富个人信息等增加用户信息维度，累积到一定数据规模，进行训练。</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[协程学习 + 青春有你2 评论项目改进 （多进程，多线程，协程异步比较）]]></title>
         <id>https://yueqingsheng.github.io/xie-cheng-xue-xi-qing-chun-you-ni-2-ping-lun-duo-jin-cheng-xie-cheng-gai-jin/</id>
@@ -417,70 +468,6 @@ episode: 每轮游戏<br>
 <figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592625752484.png" alt="" loading="lazy"></figure>
 <p><img src="https://yueqingsheng.github.io/post-images/1592626079005.png" alt="" loading="lazy"><br>
 <img src="https://yueqingsheng.github.io/post-images/1592626129133.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统设计6 聊天系统]]></title>
-        <id>https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/</id>
-        <link href="https://yueqingsheng.github.io/xi-tong-she-ji-6-liao-tian-xi-tong/">
-        </link>
-        <updated>2020-06-16T18:56:09.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="设计微信">设计微信</h2>
-<h2 id="scenario">Scenario</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592496158173.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592496270302.png" alt="" loading="lazy"><br>
-微信不是点对点通信？ 不是，可以留言。历史消息存在服务器，留一段时间(缓冲期)删除，或者不删除。</p>
-<h2 id="service">Service</h2>
-<figure data-type="image" tabindex="1"><img src="https://yueqingsheng.github.io/post-images/1592496789439.png" alt="" loading="lazy"></figure>
-<h2 id="storage">Storage</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592499919444.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592500035973.png" alt="" loading="lazy"></p>
-<h3 id="thread-table-会话">Thread table (会话)</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592690543672.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592690857535.png" alt="" loading="lazy"><br>
-有些信息是私有的，未读，静音<br>
-<img src="https://yueqingsheng.github.io/post-images/1592691079629.png" alt="" loading="lazy"></p>
-<h4 id="方法-1">方法 1</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691168124.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592691312651.png" alt="" loading="lazy"><br>
-私有的信息存在 User thread, 如何知道参与人，查找所有表里有相同therad_id， primary key = userId + thread id<br>
-弊端：需要跨表查询比较慢</p>
-<h4 id="方法-2">方法 2</h4>
-<p><img src="https://yueqingsheng.github.io/post-images/1592691650849.png" alt="" loading="lazy"><br>
-实际情况下使用cache , 减少跨表次数。</p>
-<h3 id="通过-参与者-查询-thread-id">通过 参与者 查询 thread id</h3>
-<figure data-type="image" tabindex="2"><img src="https://yueqingsheng.github.io/post-images/1592692220394.png" alt="" loading="lazy"></figure>
-<h2 id="message-存储结构写多读少">Message 存储结构（写多读少）</h2>
-<h3 id="nosqloptimize-for-write">Nosql(optimize for write)</h3>
-<figure data-type="image" tabindex="3"><img src="https://yueqingsheng.github.io/post-images/1592692649085.png" alt="" loading="lazy"></figure>
-<h2 id="thread-sql">Thread SQL</h2>
-<figure data-type="image" tabindex="4"><img src="https://yueqingsheng.github.io/post-images/1592692933866.png" alt="" loading="lazy"></figure>
-<h3 id="nosql">NoSQL</h3>
-<p><img src="https://yueqingsheng.github.io/post-images/1592692999885.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707081552.png" alt="" loading="lazy"></p>
-<h2 id="可行解">可行解</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592707202439.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592707251898.png" alt="" loading="lazy"></p>
-<h2 id="scale">Scale</h2>
-<p>实时<br>
-Push notification<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707456643.png" alt="" loading="lazy"><br>
-局限性： 无法支持 Web 端<br>
-Socket: 支持 Server push 给客户端<br>
-<img src="https://yueqingsheng.github.io/post-images/1592707919405.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592708079822.png" alt="" loading="lazy"></p>
-<h2 id="channel-service-支持群聊">Channel Service 支持群聊</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592708303585.png" alt="" loading="lazy"><br>
-channel service 里的 key 就是 channel 的名字，value 是在这个 channel 下有哪些人。<br>
-因为 channel 是一个 key-value 的存储结构，value 是一个 set，支持用户上下线（增删），所以 Redis 是可以很好支持 value 是 set 的一种 key-value 结构。</p>
-<h3 id="q-a">Q &amp; A</h3>
-<figure data-type="image" tabindex="5"><img src="https://yueqingsheng.github.io/post-images/1592708930601.png" alt="" loading="lazy"></figure>
-<h2 id="多机登录">多机登录</h2>
-<figure data-type="image" tabindex="6"><img src="https://yueqingsheng.github.io/post-images/1592715706014.png" alt="" loading="lazy"></figure>
-<h2 id="用户在线状态显示">用户在线状态显示</h2>
-<p><img src="https://yueqingsheng.github.io/post-images/1592715930630.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716061460.png" alt="" loading="lazy"><br>
-<img src="https://yueqingsheng.github.io/post-images/1592716185953.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

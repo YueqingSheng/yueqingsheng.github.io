@@ -126,7 +126,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1609726324995" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1611399539639" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -156,7 +156,7 @@
 									<span class="isTop">
 										<script type="text/javascript">
 											var isTop;
-											isTop = false;
+											isTop = true;
 											if (isTop == true) {
 												// document.write("<i class="iconfont icon-icon-test"></i>")
 												document.write("<span>⭐ Top</span>");
@@ -192,7 +192,7 @@ mv post_receive.sample post_receive
 chmod 777 post-receive
 vim post_service
 </code></pre>
-<h2 id="3-之前的方法建立一个depoly接口不安全且每次都要发送请求已弃用">3. 之前的方法：建立一个depoly接口(不安全且每次都要发送请求，<strong>已弃用</strong>)</h2>
+<h2 id="3-之前的方法建立一个depoly接口不安全且每次都要手动发送请求已弃用">3. 之前的方法：建立一个depoly接口(不安全且每次都要手动发送请求）<strong>已弃用</strong></h2>
 <p>controller:</p>
 <pre><code class="language-Typescript">@Post('deploy')
   async deploy() {
