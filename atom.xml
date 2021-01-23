@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2021-01-23T11:01:33.231Z</updated>
+    <updated>2021-01-23T11:04:37.412Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -48,8 +48,9 @@ XX: 仅仅更新存在的成员，不添加新成员。</p>
 作用：返回有序集 key 中，指定区间内的成员。<br>
 其中成员的位置按 score 值递减(从大到小)来排列。</p>
 <p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要做单条数据插入操作就可以了，跳表更新顺序复杂度 O(log N)。Redis HSET。Redis 可以做为持久化储存，替代 MySQL 的作用。</p>
+<h2 id="实现思路">实现思路</h2>
 <ol>
-<li>通过权重排序，每次用户点击，访问，通过异步（Message Queue?）去更新权重。权重 = 自设权重（用来推送广告）* 0.5 + 点击量 * 0.2 + 下单量 * 0.3</li>
+<li>通过权重代表热度排序，每次用户点击，访问，通过异步（Message Queue?）去更新权重。权重 = 自设权重（用来推送广告）* 0.5 + 点击量 * 0.2 + 下单量 * 0.3</li>
 <li>第一次访问，将数据放到到缓存。在权重上建立索引，加速 MySQL 拉取速度。之后从 redis 读取。</li>
 </ol>
 <h1 id="最终结果压力测试">最终结果：压力测试</h1>
