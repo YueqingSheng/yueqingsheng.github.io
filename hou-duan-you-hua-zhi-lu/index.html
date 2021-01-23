@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1611399873177" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1611400086466" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -180,7 +180,7 @@ TODO</p>
 <p>课程内需要包括导师数据，团队内需要包括导师数据，导师内需要包括课程数据。<br>
 为了防止多次的联表 JOIN 查询，在课程内存储冗余的序列化的导师 ID 列表，团队和导师也是如此。<br>
 每次需要再通过 ID 去访问单独的导师，课程和团队。还可以记录一些访问信息，用来更新尝试 2 里的权重。</p>
-<p>使用了内存缓存 接口 URL 和对应的返回数据的键值对。缺点：因为这样储存无法知道，对应了本次数据更新对应了哪个接口下的更新。所以每次数据更新，缓存都会全部清空。再次从数据库读取。</p>
+<p>使用了内存缓存 接口 URL 和对应的返回数据的键值对。缺点：因为这样储存无法知道，某次单条数据更新对应了哪个接口下的更新。所以每次数据更新，缓存都会全部清空。再次从数据库读取。</p>
 <h1 id="尝试2redis-有序集合">尝试2：Redis 有序集合</h1>
 <blockquote>
 <p>SortedSet: 主要存储有序集合，SortedSet的添加元素指令ZADD key score member [[score,member]…]会给每个添加的元素member绑定一个用于排序的值score，SortedSet就会根据score值的大小对元素进行排序，在这里就可以将 weight 当作score用于排序，SortedSet中的指令ZREVRANGE key start stop又可以返回指定区间内的成员，可以用来做分页。所以，SortedSet在这里是最适合的（插入，查询时间复杂度O(log(N))）。</p>
