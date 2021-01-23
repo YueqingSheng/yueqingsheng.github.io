@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1611400086466" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1611400227801" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -206,7 +206,7 @@ XX: 仅仅更新存在的成员，不添加新成员。</p>
 <h1 id="可能的改进">可能的改进</h1>
 <ol>
 <li>前端本地缓存，访问历史数据不用每次调用接口。只有当用户下拉到新内容后，再重新获取。问题： 有可能新数据，和历史数据有重复，需要做去重处理。可以通过后端加一个全局 id 字段去重。（全局 id 可以存在 Redis 里，每次从 Redis 获取再更新）</li>
-<li>个性化推荐。涉及机器学习算法，需要将多维度的用户数据输入，训练。可以通过增加用户日志记录的字段（如页面停留时间，访问不同接口频次）或通过建议用户丰富个人信息等增加用户信息维度，累积到一定数据规模，进行训练。</li>
+<li>个性化推荐。涉及机器学习算法，需要将多维度的用户数据输入，训练。可以通过增加用户日志记录的字段（如页面停留时间，访问不同接口频次）或通过建议用户丰富个人信息等增加用户信息维度作为输入，并且要记录不同用户访问过的页面日志，作为输出数据。累积到一定数据规模，进行训练。</li>
 </ol>
 
 							</div>
