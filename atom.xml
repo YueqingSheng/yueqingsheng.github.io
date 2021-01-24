@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yueqingsheng.github.io</id>
     <title>Random thoughts</title>
-    <updated>2021-01-23T11:10:34.829Z</updated>
+    <updated>2021-01-24T07:24:00.600Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yueqingsheng.github.io"/>
     <link rel="self" href="https://yueqingsheng.github.io/atom.xml"/>
@@ -22,6 +22,7 @@
 <ol>
 <li>要支持页面向下滑动的时候加载新的内容，所以需要分页功能。</li>
 <li>需要按一定的顺序返回热门导师，课程，团队数据。</li>
+<li>由于热点数据存在时效性，所以要考虑到时间因素，仅获取最近时间段热门。</li>
 </ol>
 <h2 id="主要目的">主要目的：</h2>
 <p>在多用户访问情况下，提高速度。并确保数据一定的时效性。</p>
@@ -38,20 +39,24 @@ TODO</p>
 <p>SortedSet: 主要存储有序集合，SortedSet的添加元素指令ZADD key score member [[score,member]…]会给每个添加的元素member绑定一个用于排序的值score，SortedSet就会根据score值的大小对元素进行排序，在这里就可以将 weight 当作score用于排序，SortedSet中的指令ZREVRANGE key start stop又可以返回指定区间内的成员，可以用来做分页。所以，SortedSet在这里是最适合的（插入，查询时间复杂度O(log(N))）。</p>
 </blockquote>
 <h2 id="zset-实现原理">ZSet 实现原理</h2>
-<p>TODO</p>
+<p>底层通过跳表实现。跳表通过多重索引，查找数据。log(n) 复杂度。插入时通过随机函数（产生一个随机数，50%概率再向上扩展，否则就结束。这样子，每一个元素能够有X层的概率为0.5^(X-1)次方。保证上层节点数大概是下层的1/2, 实现约等于 log(N)的复杂度），确定是否增加上级索引，以及索引的层数。</p>
 <h2 id="要用到的-zset-操作">要用到的 ZSet 操作</h2>
 <p><strong>zadd</strong><br>
 语法：zadd key [NX|XX] [CH] [INCR] score member [score member…]<br>
 XX: 仅仅更新存在的成员，不添加新成员。</p>
-<p><strong>zrevrange</strong><br>
-语法：zrevrange key start stop [WITHSCORES]<br>
-作用：返回有序集 key 中，指定区间内的成员。<br>
-其中成员的位置按 score 值递减(从大到小)来排列。</p>
-<p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要做单条数据插入操作就可以了，跳表更新顺序复杂度 O(log N)。Redis HSET。Redis 可以做为持久化储存，替代 MySQL 的作用。</p>
+<p><strong>zrangebyscore</strong><br>
+语法：zrangebyscore key min max [WITHSCORES] [LIMIT offset count]<br>
+Redis Zrangebyscore 返回有序集合中指定分数区间的成员列表。有序集成员按分数值递增(从小到大)次序排列。</p>
+<p><img src="https://yueqingsheng.github.io/post-images/1611470546226.png" alt="" loading="lazy"><br>
+根据官方文档，有序集合的 Score 是 double 类型，支持  64 位整数。所以可以利用这个空间，来进行多个条件的储存，如日期和权重。如： 2101241234, 表示 21 年 1 月 24 日， 权重为1234。</p>
+<p>注意方法中有可选 LIMIT offset count 参数跟 SELECT LIMIT OFFSET相似， 从 offset 开始读取 count 个元素。</p>
+<p>结合上面 Score 的储存方法，查询 2021 年 1月 24日 的热门前10个数据（第一页） ，<br>
+ZRANGEBYSCORE recommend 211240000 211249999 LIMIT 0 10</p>
+<p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要更新 Redis 内部数据就可以了，跳表更新顺序和索引复杂度 O(log N)。</p>
 <h2 id="实现思路">实现思路</h2>
 <ol>
-<li>通过权重代表热度排序，每次用户点击，访问，通过异步（Message Queue?）去更新权重。权重 = 自设权重（用来推送广告）* 0.5 + 点击量 * 0.2 + 下单量 * 0.3</li>
-<li>第一次访问，将数据放到到缓存。在权重上建立索引，加速 MySQL 拉取速度。之后从 redis 读取。</li>
+<li>通过权重代表热度排序，每次用户点击，访问，去 Redis 更新权重。</li>
+<li>MySQL 有数据插入删除的话，需要通知 Redis 更新数据。</li>
 </ol>
 <h1 id="最终结果压力测试">最终结果：压力测试</h1>
 <p>TODO</p>
