@@ -124,7 +124,7 @@
 				
 				
 			</div>
-			<form id="gridea-search-form" data-update="1611473034382" action="/search/index.html">
+			<form id="gridea-search-form" data-update="1611492855995" action="/search/index.html">
 				<div class="search-box">
 					<input class="search-txt" name="q" placeholder="Type to search" />
 					<a class="search-btn">
@@ -145,7 +145,7 @@
 										2021-01-17
 									</time>
 									<span>
-										5 min read
+										6 min read
 									</span>
 									<!-- id 将作为查询条件 -->
 									<span id="/hou-duan-you-hua-zhi-lu/" class="leancloud_visitors"  data-flag-title="推荐接口优化">
@@ -168,48 +168,56 @@
 <h2 id="接口分析">接口分析：</h2>
 <p>App 有一个高频调用的首页推荐接口。</p>
 <ol>
+<li>需要按热度顺序返回热门导师，课程，团队数据。</li>
+<li>由于热点数据存在时效性，所以要考虑到时间因素，需要返回一定时间范围内的数据。</li>
 <li>要支持页面向下滑动的时候加载新的内容，所以需要分页功能。</li>
-<li>需要按一定的顺序返回热门导师，课程，团队数据。</li>
-<li>由于热点数据存在时效性，所以要考虑到时间因素，仅获取最近时间段热门。</li>
 </ol>
 <h2 id="主要目的">主要目的：</h2>
 <p>在多用户访问情况下，提高速度。并确保数据一定的时效性。</p>
-<h1 id="准备工作压力测试">准备工作：压力测试</h1>
-<p><strong>单台机器配置： 16G 内存， 6 核 CPU</strong><br>
-TODO</p>
 <h1 id="尝试1-数据表反范式优化-内存缓存">尝试1:  数据表反范式优化 + 内存缓存</h1>
 <p>课程内需要包括导师数据，团队内需要包括导师数据，导师内需要包括课程数据。<br>
 为了防止多次的联表 JOIN 查询，在课程内存储冗余的序列化的导师 ID 列表，团队和导师也是如此。<br>
-每次需要再通过 ID 去访问单独的导师，课程和团队。还可以记录一些访问信息，用来更新尝试 2 里的权重。</p>
+每次需要再通过 ID 去访问单独的导师，课程和团队。</p>
 <p>使用了内存缓存 接口 URL 和对应的返回数据的键值对。缺点：因为这样储存无法知道，某次单条数据更新对应了哪个接口下的更新。所以每次数据更新，缓存都会全部清空。再次从数据库读取。</p>
 <h1 id="尝试2redis-有序集合">尝试2：Redis 有序集合</h1>
 <blockquote>
-<p>SortedSet: 主要存储有序集合，SortedSet的添加元素指令ZADD key score member [[score,member]…]会给每个添加的元素member绑定一个用于排序的值score，SortedSet就会根据score值的大小对元素进行排序，在这里就可以将 weight 当作score用于排序，SortedSet中的指令ZREVRANGE key start stop又可以返回指定区间内的成员，可以用来做分页。所以，SortedSet在这里是最适合的（插入，查询时间复杂度O(log(N))）。</p>
+<p>SortedSet: 主要存储有序集合，SortedSet的添加元素指令ZADD key score member [[score,member]…]会给每个添加的元素member绑定一个用于排序的值score，SortedSet就会根据score值的大小对元素进行排序，在这里就可以将 weight 当作score用于排序，SortedSet中的指令ZREVRANGE key start stop又可以返回指定区间内的成员，可以用来做分页。所以，SortedSet在这里是最适合的（插入，查询时间复杂度O(log(N))。</p>
 </blockquote>
 <h2 id="zset-实现原理">ZSet 实现原理</h2>
 <p>底层通过跳表实现。跳表通过多重索引，查找数据。log(n) 复杂度。插入时通过随机函数（产生一个随机数，50%概率再向上扩展，否则就结束。这样子，每一个元素能够有X层的概率为0.5^(X-1)次方。保证上层节点数大概是下层的1/2, 实现约等于 log(N)的复杂度），确定是否增加上级索引，以及索引的层数。</p>
 <h2 id="要用到的-zset-操作">要用到的 ZSet 操作</h2>
 <p><strong>zadd</strong><br>
-语法：zadd key [NX|XX] [CH] [INCR] score member [score member…]<br>
-XX: 仅仅更新存在的成员，不添加新成员。</p>
-<p><strong>zrangebyscore</strong><br>
-语法：zrangebyscore key min max [WITHSCORES] [LIMIT offset count]<br>
-Redis Zrangebyscore 返回有序集合中指定分数区间的成员列表。有序集成员按分数值递增(从小到大)次序排列。</p>
-<p><img src="https://yueqingsheng.github.io/post-images/1611470546226.png" alt="" loading="lazy"><br>
-根据官方文档，有序集合的 Score 是 double 类型，支持  64 位整数。所以可以利用这个空间，来进行多个条件的储存，如日期和权重。如： 2101241234, 表示 21 年 1 月 24 日， 权重为1234。</p>
-<p>注意方法中有可选 LIMIT offset count 参数跟 SELECT LIMIT OFFSET相似， 从 offset 开始读取 count 个元素。</p>
-<p>结合上面 Score 的储存方法，查询 2021 年 1月 24日 的热门前10个数据（第一页） ，<br>
-ZRANGEBYSCORE recommend 211240000 211249999 LIMIT 0 10</p>
-<p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要更新 Redis 内部数据就可以了，跳表更新顺序和索引复杂度 O(log N)。</p>
+语法：zadd key [NX|XX] [CH] [INCR] score value [score value…]<br>
+XX:<br>
+存在就更新已有数据，不存在添加数据</p>
+<p><strong>zunionstore</strong><br>
+语法：zunionstore destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]<br>
+Redis Zunionstore 命令计算给定的一个或多个有序集的并集，其中给定 key 的数量必须以 numkeys 参数指定，并将该并集(结果集)储存到 destination 。<br>
+默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和 。</p>
+<p><strong>zrevrange</strong><br>
+语法： zrevrange key start stop [WITHSCORES]<br>
+Redis Zrevrange 命令返回有序集中，指定区间内的成员。<br>
+其中成员的位置按分数值递减(从大到小)来排列。</p>
+<p><strong>zincrby</strong><br>
+语法： zincrby key increment member<br>
+Redis Zincrby 命令对有序集合中指定成员的分数加上增量 increment</p>
+<p><strong>expire</strong><br>
+语法： expire key time_in_seconds<br>
+Redis Expire 命令用于设置 key 的过期时间，key 过期后将不再可用。单位以秒计。</p>
+<p><strong>zrem</strong><br>
+语法： zrem key member [member ...]<br>
+Redis Zrem 命令用于移除有序集中的一个或多个成员，不存在的成员将被忽略。</p>
+<p>通过 Redis 有序集合自动更新内部的顺序，可以省去当缓存清空，再去数据库读取的情况。这样每次数据更新，只需要更新 Redis 内部单条数据就可以了，跳表更新顺序和索引复杂度 O(log N)。</p>
 <h2 id="实现思路">实现思路</h2>
 <ol>
-<li>通过权重代表热度排序，每次用户点击，访问，去 Redis 更新权重。</li>
-<li>MySQL 有数据插入删除的话，需要通知 Redis 更新数据。</li>
+<li>数据存储思路。使用 zadd，将日期作为 key， 点击量作为 score, 导师 id 作为 value。存储某一日期下热门数据。</li>
+<li>获取一段时间内的热门数据时，通过 zunionstore 聚合该时间范围内 zset，分数为累加和。</li>
+<li>数据增加删除通过 zadd, zrem。当每次点击量多一次时，更新通过  zincrby date 1 counselorId，把对应导师 id 下的点击量 +1。每次查询一段时间内的热门数据时，都执行一次 union 操作，就可以获取更新后的信息了。不去更新每一个热门范围结果集的原因是，假如结果集是基于一周，需要分别去更新前 7 天和后 7天的结果集，操作次数多，实现起来也不容易。</li>
+<li>得到 zunoinstore 输出的结果集 destination 后，通过 <code>zrevrange destination pageSize*(page - 1) pageSize*(page - 1) + pageSize</code> 就可以返回按分数逆序排列的分页了。</li>
 </ol>
-<h1 id="最终结果压力测试">最终结果：压力测试</h1>
-<p>TODO</p>
 <h1 id="可能的改进">可能的改进</h1>
 <ol>
+<li>score 热度，可以通过权重计算算法进行计算。目的是找到影响某一结果因素的比重。如这种情况可以找到点赞数，点击量，收藏，评论和下单数之间的关系。通过统计计算权重。</li>
 <li>前端本地缓存，访问历史数据不用每次调用接口。只有当用户下拉到新内容后，再重新获取。问题： 有可能新数据，和历史数据有重复，需要做去重处理。可以通过后端加一个全局 id 字段去重。（全局 id 可以存在 Redis 里，每次从 Redis 获取再更新）</li>
 <li>个性化推荐。涉及机器学习算法，需要将多维度的用户数据输入，训练。可以通过增加用户日志记录的字段（如页面停留时间，访问不同接口频次）或通过建议用户丰富个人信息等增加用户信息维度作为输入，并且要记录不同用户访问过的页面日志，作为输出数据。累积到一定数据规模，进行训练。</li>
 </ol>
